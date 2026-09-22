@@ -44,5 +44,6 @@ def test_planted_error_goes_red(tmp_path, old, new):
 
 
 def test_word_limit_goes_red(tmp_path):
-    padded = DRAFT.replace("## Sources", "padding " * 10 + "\n\n## Sources")
+    over = vn.WORD_LIMIT - vn.word_count(vn.body_of(DRAFT)) + 1
+    padded = DRAFT.replace("## Sources", "padding " * over + "\n\n## Sources")
     assert run(tmp_path, padded) == 1
