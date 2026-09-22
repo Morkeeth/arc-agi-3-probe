@@ -17,7 +17,7 @@ Oscar Morke. ARC-AGI-3 submission ref 56470466 (plain Duck baseline).
 
 ## 1. What was submitted
 
-The submitted notebook is `oscarmorke/duck-control`, version 1. It is the public Duck harness by jeroencottaar (Tufa Labs), run without changes, from the Kaggle dataset `jeroencottaar/taaf-kaggle-source-share` (TAAF). It runs Qwen3.6-27B-FP8 through vLLM (`runs/duck-control/taaf_setup_env.json`) on one RTX PRO 6000 (the GPU check line in `runs/duck-control/log.txt`). The vLLM wheelhouse and the model snapshot are datasets by driessmit1. The agent is their work. This paper does not claim it.
+The submitted notebook is `oscarmorke/duck-control`, version 1. It is the public Duck harness by jeroencottaar (Tufa Labs), from the Kaggle dataset `jeroencottaar/taaf-kaggle-source-share` (TAAF). We added one hook cell, set to `off`, which installs nothing; its game filter applies to offline runs only (`kaggle/duck-control/`). It runs Qwen3.6-27B-FP8 through vLLM (`runs/duck-control/taaf_setup_env.json`) on one RTX PRO 6000 (the GPU check line in `runs/duck-control/log.txt`). The vLLM wheelhouse and model snapshot are datasets by driessmit1. The agent is their work, not ours.
 
 Our work is a measurement and a guard. The guard was tested as an ablation and was not submitted, because our decision rule said no.
 
@@ -60,7 +60,7 @@ The games were sc25, g50t, cd82 and tu93, which had many dead actions, and ls20,
 
 ## 6. Result
 
-Both arms ran as private Kaggle notebooks with the same notebook, model, caps and games. Sources: `runs/duck-control/summary.txt`, `runs/duck-deadprobe/summary.txt`, and the `deadprobe:` memo lines in `runs/duck-deadprobe/log.txt`.
+Both arms ran as private Kaggle notebooks, identical except for the hook mode. Sources: `runs/duck-control/summary.txt`, `runs/duck-deadprobe/summary.txt`, and the `deadprobe:` memo lines in `runs/duck-deadprobe/log.txt`.
 
 | Game | Control levels | Control score | Guard levels | Guard score | Guard skips |
 |---|---|---|---|---|---|
@@ -88,7 +88,7 @@ We think this is why the effect is small. The metric charges actions only on cle
 - One run per arm, on 5 of 25 public games. Sampling swings per game are larger than any plausible guard effect.
 - Only guard mode ran on a GPU. The level-start probe modes were tested offline and never run with Duck.
 - Duck reports board change with a full-grid diff. A timer tick makes every action look live, so the model gets a false progress signal. We left that unchanged in the A/B.
-- Hidden state: two boards that look the same can differ inside the game, and the guard could skip an action that would have worked. Not seen in tests.
+- Hidden state: two boards that look alike can differ inside the game, so the guard could skip an action that would have worked.
 - The classifier compares final frames only. Some games answer with several animation frames.
 
 ## 9. What we would do next
@@ -100,7 +100,7 @@ We think this is why the effect is small. The metric charges actions only on cle
 
 ## 10. Process
 
-A human set the goal, the question and the decision rule, and gave each go or stop. AI coding agents, an orchestrated fleet of Claude Code sessions, did the build, the tests, the Kaggle runs and this write-up. Each lane returned a report with its sources, and claims were checked at the object before use.
+A human set the goal, the question and the decision rule, and gave each go or stop. A fleet of Claude Code sessions did the build, the tests, the Kaggle runs and this write-up. Each claim was checked at the object before use.
 
 The author is a builder and product person with a hackathon background, who works by directing AI coding agents. The process had failures, and the checks caught them. One agent predicted that a stale notebook pushed earlier would fail on import, and it did (`ModuleNotFoundError`). Another found that the game filter in the hook cell had no effect, because a later cell rebuilt the game list. Both were caught before any number was used. The author made the submission. Outward acts stay with the human.
 
@@ -108,6 +108,6 @@ The author is a builder and product person with a hackathon background, who work
 
 - Repo `arc-agi-3-probe`, commit `9f8b1de`: `deadprobe/`, `harness.py`, `kaggle_hook.py`, `kaggle/`, `runs/*.json`, `runs/duck-*/log.txt`.
 - Same repo, commit `0a1bf51`: `runs/duck-*/summary.txt`, `runs/duck-*/taaf_setup_env.json`.
-- Branch `paper/arc-writeup`: `paper/verify_numbers.py` recomputes every number here; `paper/ARC-PAPER-FIG1-AB.py` draws Figure 1.
+- Branch `paper/arc-writeup`: `paper/verify_numbers.py` rechecks every number; `paper/ARC-PAPER-FIG1-AB.py` draws Figure 1.
 - Duck: kaggle.com/code/jeroencottaar/tufa-labs-duck-harness-june-30-milestone-winner. TAAF: kaggle.com/datasets/jeroencottaar/taaf-kaggle-source-share.
 - Toolkit: github.com/arcprize/ARC-AGI and github.com/arcprize/ARCEngine.

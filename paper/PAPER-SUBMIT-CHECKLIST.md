@@ -15,7 +15,7 @@ python -m pytest paper/test_verify_numbers.py
 ```
 
 - [ ] `verify_numbers.py` exits 0. It recomputes every number in the body from `runs/`, recounts the words, scans for placeholders, and checks that every cited repo path exists at the cited commit.
-- [ ] Words: at most 1,450 by the stated method (last run: 1,446). Kaggle's limit is 1,500.
+- [ ] Words: at most 1,450 by the stated method (last run: 1,438). Kaggle's limit is 1,500. Headroom is 12 words, so the Sources additions in section 5, step 2 need a matching cut. The gate goes red if they do not get one.
 - [ ] Placeholders: none (TODO, TBD, XXX, FIXME, ??, `<FILL>`, `[TK]`, `{{x}}`). The script checks this. Also read the page once by eye.
 - [ ] If Kaggle shows a public score, update section 1 ("PENDING, with no public score"). The `--kaggle` check prints WARN when the status changes.
 - [ ] After any change to `runs/`, rerun `python paper/ARC-PAPER-FIG1-AB.py` to redraw Figure 1.
@@ -51,12 +51,13 @@ The diff from commit `26d9796` shows every edit. In short:
 4. New clause: 10 known repeats still ran (memo `repeat_noop`: tu93 8, cd82 2).
 5. Tokens per second now match `summary.txt` exactly (101.53 and 109.45, the draft had 101.5 and 109.5).
 6. Sources no longer claim the run files sit in `9f8b1de`.
-7. Word count now has one stated method, enforced by the script. The 19:31 draft body was 1,500 by raw `wc -w` (tables and pipes count as words) and 1,423 by the stated method. The fixes above added words, then cuts brought the body to 1,446.
+7. Section 1 said the notebook ran Duck "without changes". It has one added hook cell, `MODE = "off"`, which installs nothing, and a game filter that applies to interactive runs only; the competition rerun plays the gateway's full list (`kaggle/duck-control/duck-control.ipynb`, the `TRUE_SUBMISSION` branch). The two notebooks differ only in the `MODE` line (diff at `9f8b1de`). The draft now says so.
+8. Word count now has one stated method, enforced by the script. The 19:31 draft body was 1,500 by raw `wc -w` (tables and pipes count as words) and 1,423 by the stated method. The fixes above added words, then cuts brought the body to 1,438.
 
 ## 5. Manual steps, in order
 
 1. [ ] Do section 2 (a) to (d). Push first, then flip visibility.
-2. [ ] Add `oscarmorke/duck-deadprobe` and the public repo URL to Sources.
+2. [ ] Add `oscarmorke/duck-deadprobe` and the public repo URL to Sources. Cut the same number of words elsewhere (section 10 is the loosest).
 3. [ ] Rerun the section 1 gate. It must exit 0.
 4. [ ] Open the Kaggle writeup for the Paper Track. Paste from the title line to the end of Sources. Upload `paper/ARC-PAPER-FIG1-AB.png`.
 5. [ ] Read the rendered page once. Check the table renders.
