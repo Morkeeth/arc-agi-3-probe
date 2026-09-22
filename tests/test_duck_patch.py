@@ -145,3 +145,12 @@ def test_guard_against_a_stuck_model_is_bounded(tmp_path, monkeypatch):
     assert spent >= 3
     assert refused <= 3 * spent
     assert refused >= 3 * (spent - 2) - 3  # the bound is actually exercised
+
+
+def test_probe_plus_guard(tmp_path):
+    # probe: UP, DOWN, LEFT, RIGHT (4). The player is back where it started,
+    # so UP is a known no-op there: 3 script UPs are skipped, the 4th goes
+    # through (bounded guard), then RIGHT and the click. 4 + 1 + 2 = 7.
+    run_, an = run("probe+guard", WASTEFUL, tmp_path, budget_level1=4, max_clicks=0)
+    assert run_.actions_per_level[0] == 7
+    assert run_.levels_completed == 1

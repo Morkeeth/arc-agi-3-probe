@@ -27,6 +27,6 @@ if MODE != "off":
 
 # Offline ablation: a short game list and a hard action cap keep a run inside
 # one GPU session. Remove both for a run you intend to submit.
-# bm.games = [g for g in bm.games if g.env_name.split("-")[0] in ("ls20", "vc33", "sb26", "cd82", "ka59")]
+# bm.games = [g for g in bm.games if g.env_name.split("-")[0] in ("sc25", "g50t", "cd82", "tu93", "ls20")]
 # bm.solver.max_actions_per_game = 300
 bm.label = f"{bm.label}-deadprobe-{MODE}"
