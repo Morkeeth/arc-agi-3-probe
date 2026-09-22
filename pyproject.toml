@@ -1,0 +1,16 @@
+[project]
+name = "arc-agi-3-probe"
+version = "0.1.0"
+description = "Dead-action probe and no-op memo for ARC-AGI-3 agents (Duck harness add-on)."
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26"]
+
+[project.optional-dependencies]
+arc = ["arc-agi==0.9.9", "arcengine==0.9.3"]
+dev = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["deadprobe"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
