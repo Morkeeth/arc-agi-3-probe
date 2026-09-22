@@ -1,0 +1,21 @@
+benchmark: duck-harness-kaggle-deadprobe-off
+solver:    duck-harness
+games:     5
+passes:    1
+runs:      5 (won: 0)
+started:   2026-09-22 15:01:07
+ended:     2026-09-22 17:13:08
+duration:  2h 12m 0s
+mean score:    1.27
+median score:  0.00
+total actions: 1867
+total tokens:  804185
+generated tokens/sec: 101.53 (job wallclock)
+total wallclock: 39602.4s
+
+per-game (mean across passes):
+  cd82-fb555c5d: score=0.00, levels=0.0/6, actions=247, tokens=114357
+  g50t-5849a774: score=0.00, levels=0.0/7, actions=354, tokens=188645
+  ls20-9607627b: score=0.00, levels=0.0/7, actions=740, tokens=179929
+  sc25-635fd71a: score=0.94, levels=2.0/6, actions=470, tokens=186574
+  tu93-0768757b: score=5.40, levels=2.0/9, actions=56, tokens=134680
