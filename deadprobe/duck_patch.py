@@ -21,11 +21,24 @@ of dataset jeroencottaar/taaf-kaggle-source-share (snapshot 2026-06-12):
   the current board to the user turn. The LLM sees facts, not a filtered
   action list. Actions are never removed from valid_actions.
 
+- _HarnessGameSession.step_env (mode guard+answer only): see below.
+
 Modes:
-  off          nothing installed (the control arm)
-  guard        memo + skip repeats, zero extra actions
-  probe        level-start probe + prompt note, no skipping
-  probe+guard  both
+  off           nothing installed (the control arm)
+  guard         memo + skip repeats, zero extra actions
+  guard+answer  guard, plus two changes (not measured on a GPU yet):
+                1. honest_board_changed: board_changed is the HUD-masked
+                   gameplay diff, so a timer tick no longer reads as progress.
+                2. A refusal is answered inside the batch instead of raised.
+                   In guard mode a refused first action voids the whole
+                   step_env batch and a later one cuts it short, so the model
+                   is called again to re-send what did not run. Here the
+                   refused action gets a known answer (nothing changes, no
+                   action spent) and the rest of the batch runs. The payload
+                   lists the skipped actions in skipped_known_noops and in
+                   stop_detail, which survives ToolAgent's compaction.
+  probe         level-start probe + prompt note, no skipping
+  probe+guard   both
 """
 
 from __future__ import annotations
@@ -62,6 +75,14 @@ class ProbeConfig:
     @property
     def probe(self) -> bool:
         return "probe" in self.mode
+
+    @property
+    def answer(self) -> bool:
+        return "answer" in self.mode
+
+    @property
+    def honest(self) -> bool:
+        return self.honest_board_changed or self.answer
 
 
 _INSTALLED: dict[str, Any] = {}
@@ -103,6 +124,7 @@ def install(mode: str | None = None, cfg: ProbeConfig | None = None, *, solver_m
     grid_of = solver_module._grid_from_state
     orig_exec = S._execute_action
     orig_play = S.play
+    orig_step_env = S.step_env
     TA = tool_agent_module.ToolAgent
     orig_prompt = TA._build_user_prompt
 
@@ -128,6 +150,10 @@ def install(mode: str | None = None, cfg: ProbeConfig | None = None, *, solver_m
         ):
             memo.n_skipped += 1
             self.__dict__["_deadprobe_skips"] = self.__dict__.get("_deadprobe_skips", 0) + 1
+            answered = self.__dict__.get("_deadprobe_answered")
+            if c.answer and answered is not None:
+                answered.append(_display(aid, data))
+                return _known_noop_payload(self, action, batch_index, batch_size)
             raise KnownNoOp(
                 f"skipped {_display(aid, data)}: it already changed nothing in this exact board state; no action was spent"
             )
@@ -146,8 +172,68 @@ def install(mode: str | None = None, cfg: ProbeConfig | None = None, *, solver_m
         if aid != 0 and before.size and after.size:
             change = memo.record(before, aid, data, after, level_changed=int(after_state.levels_completed) > lv_before)
             payload["gameplay_changed"] = change.gameplay_changed
-            if c.honest_board_changed:
+            if c.honest:
                 payload["board_changed"] = change.gameplay_changed
+        if payload.get("executed"):
+            self.__dict__["_deadprobe_real"] = self.__dict__.get("_deadprobe_real", 0) + 1
+        return payload
+
+    def _known_noop_payload(self, action, batch_index, batch_size) -> dict:
+        """The answer to a refused action, in the shape of a real one: nothing changed, nothing spent."""
+        st = self.game.current_state
+        raw = st.raw.state
+        return {
+            "executed": False,
+            "skipped_known_noop": True,
+            "action_num": self.action_count,
+            "level": solver_module._level_number(self.game),
+            "score": int(st.levels_completed),
+            "reward": 0.0,
+            "state": raw.name,
+            "valid_actions": solver_module.to_model_actions(solver_module._engine_action_names(self.game)),
+            "board_changed": False,
+            "done": False,
+            "level_completed": False,
+            "game_over": False,
+            "run_complete": False,
+            "action_name": action.id.name,
+            "action_display": _display(int(action.id.value), dict(action.data or {})),
+            "batch_index": batch_index,
+            "batch_size": batch_size,
+            **self.timing_payload(),
+        }
+
+    def step_env(self, arguments):
+        if not _INSTALLED["cfg"].answer:
+            return orig_step_env(self, arguments)
+        real_before = self.__dict__.get("_deadprobe_real", 0)
+        self.__dict__["_deadprobe_answered"] = answered = []
+        try:
+            payload = orig_step_env(self, arguments)
+        finally:
+            self.__dict__.pop("_deadprobe_answered", None)
+        if not answered:
+            return payload
+        real = self.__dict__.get("_deadprobe_real", 0) - real_before
+        names = ", ".join(answered)
+        payload = dict(payload)
+        payload["skipped_known_noops"] = list(answered)
+        payload["executed"] = real > 0
+        payload["executed_count"] = real
+        executed = payload.get("executed_actions")
+        if isinstance(executed, list):
+            left = list(answered)
+            kept = []
+            for a in executed:  # drop the answered ones, first match each
+                if a in left:
+                    left.remove(a)
+                else:
+                    kept.append(a)
+            payload["executed_actions"] = kept
+        detail = f"Skipped {names}: each already changed nothing in this exact board state, so no action was spent."
+        payload["stop_detail"] = detail
+        if real == 0:
+            payload["error"] = detail
         return payload
 
     class _ProbingAnalyzer:
@@ -244,9 +330,10 @@ def install(mode: str | None = None, cfg: ProbeConfig | None = None, *, solver_m
 
     S._execute_action = _execute_action
     S.play = play
+    S.step_env = step_env
     TA._build_user_prompt = _build_user_prompt
     _INSTALLED.update(
-        session_cls=S, orig_exec=orig_exec, orig_play=orig_play, ta_cls=TA, orig_prompt=orig_prompt, run_session_probe=run_session_probe
+        session_cls=S, orig_exec=orig_exec, orig_play=orig_play, orig_step_env=orig_step_env, ta_cls=TA, orig_prompt=orig_prompt, run_session_probe=run_session_probe
     )
     return cfg
 
@@ -257,6 +344,7 @@ def uninstall() -> None:
     S = _INSTALLED.pop("session_cls")
     S._execute_action = _INSTALLED.pop("orig_exec")
     S.play = _INSTALLED.pop("orig_play")
+    S.step_env = _INSTALLED.pop("orig_step_env")
     TA = _INSTALLED.pop("ta_cls")
     TA._build_user_prompt = _INSTALLED.pop("orig_prompt")
     _INSTALLED.pop("run_session_probe", None)
