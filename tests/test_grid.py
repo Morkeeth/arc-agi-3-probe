@@ -16,12 +16,14 @@ def test_no_change():
     assert classify_change(g, g.copy()).kind == NONE
 
 
-def test_timer_tick_is_hud_only():
+def test_timer_tick_is_a_hud_candidate_not_a_hud_fact():
+    # One sighting is not proof. classify_change flags the side; only the memo
+    # promotes it after a second sighting.
     a = board()
     b = a.copy()
     b[0:2, 39] = 0
     c = classify_change(a, b)
-    assert c.kind == HUD_ONLY and c.n_cells == 2 and not c.gameplay_changed
+    assert c.kind == GAMEPLAY and c.thin_edge == "top2" and c.n_cells == 2
 
 
 def test_player_move_plus_timer_is_gameplay():

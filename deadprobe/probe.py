@@ -33,7 +33,7 @@ class StepOut:
 StepFn = Callable[[int, dict[str, Any] | None], StepOut]
 
 
-@dataclass(frozen=True)
+@dataclass
 class ProbeResult:
     action_id: int
     data: dict[str, Any] | None
@@ -125,25 +125,32 @@ def probe_level(
     if not candidates:
         report.stop_reason = "exhausted"
         return report
+    seen: list[tuple[Any, Any, bool]] = []  # before, after, level_up, for the post pass
     for aid, data in candidates:
         if report.cost >= budget:
             report.stop_reason = "budget"
-            return report
+            break
         out = step(aid, data)
         nxt = as_grid(out.grid)
         level_up = out.levels_completed > levels_completed
         change = memo.record(cur, aid, data, nxt, level_changed=level_up)
         kind = GAMEPLAY if level_up else change.kind
         report.results.append(ProbeResult(aid, data, kind, change.n_cells))
+        seen.append((cur, nxt, level_up))
         cur = nxt
         if out.state == "WIN":
             report.stop_reason = "win"
-            return report
+            break
         if level_up:
             report.stop_reason = "level_up"
-            return report
+            break
         if out.state == "GAME_OVER":
             report.stop_reason = "game_over"
-            return report
-    report.stop_reason = "exhausted"
+            break
+    else:
+        report.stop_reason = "exhausted"
+    # Cold start: the first action of a game is judged before the memo has
+    # learned the HUD. Judge every probe result again with the final mask.
+    for result, (before, after, level_up) in zip(report.results, seen):
+        result.kind = GAMEPLAY if level_up else memo.classify(before, after).kind
     return report

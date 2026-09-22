@@ -41,6 +41,8 @@ def test_probe_finds_dead_and_live():
     g = FakeGame()
     memo = NoOpMemo()
     rep = probe_level(g.step, g.grid(), [1, 2, 4], 0, budget=10, memo=memo)
+    # UP and DOWN only tick the timer; the second tick promotes it to HUD and
+    # the post pass re-judges the first one.
     assert rep.dead == ["UP", "DOWN"]
     assert rep.live_actions == ["RIGHT"]
     assert rep.cost == 3 == g.actions  # every probe action is a real action

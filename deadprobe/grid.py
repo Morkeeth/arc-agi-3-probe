@@ -38,38 +38,58 @@ class Change:
     n_cells: int
     n_gameplay_cells: int
     bbox: tuple[int, int, int, int] | None  # r0, c0, r1, c1 inclusive, all changed cells
+    thin_edge: str | None = None  # side name when the unmasked cells hug one edge
 
     @property
     def gameplay_changed(self) -> bool:
         return self.kind == GAMEPLAY
 
 
-def edge_band(rows: np.ndarray, cols: np.ndarray, shape: tuple[int, int], thickness: int) -> np.ndarray | None:
-    """If the cells form one thin band touching a frame edge, return a mask of
-    that whole band (full width or height, same thickness). Else None.
+def thin_edge_side(rows: np.ndarray, cols: np.ndarray, shape: tuple[int, int], thickness: int) -> str | None:
+    """Name the edge when the cells form one thin band touching it.
 
-    Masking the whole band, not only the cells seen changing, is what lets a
-    shrinking timer bar match across ticks it has not shown yet.
+    A timer bar, a step counter and a click counter all look like this. A
+    single sighting is not proof: see NoOpMemo, which promotes a side to HUD
+    only after it has been seen alone more than once.
     """
     h, w = shape
     r0, r1, c0, c1 = int(rows.min()), int(rows.max()), int(cols.min()), int(cols.max())
-    band = np.zeros(shape, dtype=bool)
     if r0 == 0 and r1 < thickness:
-        band[0 : r1 + 1, :] = True
-    elif r1 == h - 1 and r0 > h - 1 - thickness:
-        band[r0:, :] = True
-    elif c0 == 0 and c1 < thickness:
-        band[:, 0 : c1 + 1] = True
-    elif c1 == w - 1 and c0 > w - 1 - thickness:
-        band[:, c0:] = True
-    else:
-        return None
-    return band
+        return f"top{r1 + 1}"
+    if r1 == h - 1 and r0 > h - 1 - thickness:
+        return f"bottom{h - r0}"
+    if c0 == 0 and c1 < thickness:
+        return f"left{c1 + 1}"
+    if c1 == w - 1 and c0 > w - 1 - thickness:
+        return f"right{w - c0}"
+    return None
 
 
 def _is_edge_strip(rows: np.ndarray, cols: np.ndarray, shape: tuple[int, int], thickness: int) -> bool:
-    """True when the cells form one thin band touching one frame edge."""
-    return edge_band(rows, cols, shape, thickness) is not None
+    return thin_edge_side(rows, cols, shape, thickness) is not None
+
+
+def hud_candidate_cells(before, changed: np.ndarray) -> np.ndarray:
+    """The changed cells plus the same-color component each one sat in.
+
+    A shrinking bar is one component, so the whole bar is covered after one
+    tick. Unrelated objects on the same row are not, which matters: bp35 has a
+    live click target on row 1 under the top HUD band.
+    """
+    g = as_grid(before)
+    out = changed.copy()
+    seen_colors: set[int] = set()
+    for r, c in zip(*np.nonzero(changed)):
+        color = int(g[r, c])
+        if color in seen_colors:
+            continue
+        seen_colors.add(color)
+        for cells in components(g, ignore=[]):
+            if (int(r), int(c)) in cells and int(g[cells[0]]) == color:
+                for y, x in cells:
+                    out[y, x] = True
+                break
+    return out
 
 
 def classify_change(
@@ -81,9 +101,10 @@ def classify_change(
 ) -> Change:
     """Classify the difference between two grids.
 
-    hud_mask: optional boolean mask of cells already known to be HUD. Those
-    cells never count as gameplay. Remaining changed cells are HUD only when
-    they form one thin strip against an edge.
+    Only cells in hud_mask are treated as HUD. A thin edge band is reported in
+    Change.thin_edge as a candidate, but still counts as gameplay until the
+    caller has learned it. Calling a change dead on one sighting is how a
+    cursor marker gets mistaken for a timer.
     """
     a, b = as_grid(before), as_grid(after)
     if a.shape != b.shape:
@@ -100,9 +121,8 @@ def classify_change(
     if n_gp == 0:
         return Change(HUD_ONLY, n, 0, bbox)
     gr, gc = np.nonzero(gp)
-    if hud_thickness > 0 and _is_edge_strip(gr, gc, a.shape, hud_thickness):
-        return Change(HUD_ONLY, n, 0, bbox)
-    return Change(GAMEPLAY, n, n_gp, bbox)
+    side = thin_edge_side(gr, gc, a.shape, hud_thickness) if hud_thickness > 0 else None
+    return Change(GAMEPLAY, n, n_gp, bbox, side)
 
 
 def state_key(grid, hud_mask: np.ndarray | None = None) -> str:
@@ -159,9 +179,10 @@ def click_targets(
     """Pick up to max_targets (row, col) cells to click, one per object.
 
     Objects are non-background components that do not sit in an edge HUD band
-    and are not huge (walls, floors). Smallest objects first: in the public
-    games buttons and tokens are small, while large regions are usually
-    scenery. Each target is the member cell nearest the component centroid.
+    and are not huge (walls, floors). Smallest objects first. That order is a
+    guess, not a measured result: the census run on 2026-09-22 found 41 of 56
+    chosen click cells did nothing, so this chooser is the weak part.
+    Each target is the member cell nearest the component centroid.
     """
     g = as_grid(grid)
     h, w = g.shape

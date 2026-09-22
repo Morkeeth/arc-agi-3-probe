@@ -52,6 +52,7 @@ class ProbeConfig:
     max_clicks: int = 3
     probe_levels: int = 99  # probe only the first N levels
     honest_board_changed: bool = False  # replace Duck's full-grid flag with the HUD-masked one
+    max_consecutive_skips: int = 3  # then let one through, so a stuck model cannot spin until the time cap
     log: bool = True
 
     @property
@@ -119,11 +120,18 @@ def install(mode: str | None = None, cfg: ProbeConfig | None = None, *, solver_m
         before = np.asarray(grid_of(before_state))
         aid = int(action.id.value)
         data = dict(action.data or {})
-        if c.guard and not self.__dict__.get("_deadprobe_probing") and memo.is_known_noop(before, aid, data):
+        if (
+            c.guard
+            and not self.__dict__.get("_deadprobe_probing")
+            and self.__dict__.get("_deadprobe_skips", 0) < c.max_consecutive_skips
+            and memo.is_known_noop(before, aid, data)
+        ):
             memo.n_skipped += 1
+            self.__dict__["_deadprobe_skips"] = self.__dict__.get("_deadprobe_skips", 0) + 1
             raise KnownNoOp(
                 f"skipped {_display(aid, data)}: it already changed nothing in this exact board state; no action was spent"
             )
+        self.__dict__["_deadprobe_skips"] = 0
         lv_before = int(before_state.levels_completed)
         payload = orig_exec(
             self,

@@ -1,0 +1,500 @@
+{
+  "census": [
+    {
+      "game": "ar25",
+      "levels": 8,
+      "baseline_l1": 32,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "dead_at_start": [
+        "ACTION7",
+        "MOUSE(row=16, col=19)",
+        "MOUSE(row=16, col=22)",
+        "MOUSE(row=16, col=25)"
+      ],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT",
+        "SPACE"
+      ]
+    },
+    {
+      "game": "bp35",
+      "levels": 9,
+      "baseline_l1": 21,
+      "available": [
+        3,
+        4,
+        6,
+        7
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "LEFT",
+        "RIGHT",
+        "ACTION7",
+        "MOUSE(row=1, col=2)",
+        "MOUSE(row=1, col=8)",
+        "MOUSE(row=1, col=13)"
+      ]
+    },
+    {
+      "game": "cd82",
+      "levels": 6,
+      "baseline_l1": 55,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT",
+        "SPACE",
+        "MOUSE(row=7, col=43)",
+        "MOUSE(row=4, col=37)",
+        "MOUSE(row=4, col=43)"
+      ]
+    },
+    {
+      "game": "cn04",
+      "levels": 6,
+      "baseline_l1": 29,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT",
+        "SPACE",
+        "MOUSE(row=27, col=15)",
+        "MOUSE(row=27, col=21)",
+        "MOUSE(row=36, col=39)"
+      ]
+    },
+    {
+      "game": "dc22",
+      "levels": 6,
+      "baseline_l1": 59,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT",
+        "MOUSE(row=34, col=9)",
+        "MOUSE(row=34, col=11)",
+        "MOUSE(row=35, col=8)"
+      ]
+    },
+    {
+      "game": "ft09",
+      "levels": 6,
+      "baseline_l1": 43,
+      "available": [
+        6
+      ],
+      "dead_at_start": [
+        "MOUSE(row=10, col=12)",
+        "MOUSE(row=10, col=14)",
+        "MOUSE(row=10, col=46)"
+      ],
+      "live_at_start": []
+    },
+    {
+      "game": "g50t",
+      "levels": 7,
+      "baseline_l1": 78,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dead_at_start": [
+        "UP",
+        "LEFT",
+        "SPACE"
+      ],
+      "live_at_start": [
+        "DOWN",
+        "RIGHT"
+      ]
+    },
+    {
+      "game": "ka59",
+      "levels": 7,
+      "baseline_l1": 28,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT",
+        "MOUSE(row=31, col=19)",
+        "MOUSE(row=31, col=28)",
+        "MOUSE(row=31, col=18)"
+      ]
+    },
+    {
+      "game": "lf52",
+      "levels": 10,
+      "baseline_l1": 32,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT",
+        "ACTION7",
+        "MOUSE(row=18, col=17)",
+        "MOUSE(row=18, col=20)",
+        "MOUSE(row=18, col=23)"
+      ]
+    },
+    {
+      "game": "lp85",
+      "levels": 8,
+      "baseline_l1": 17,
+      "available": [
+        6
+      ],
+      "dead_at_start": [
+        "MOUSE(row=1, col=11)",
+        "MOUSE(row=1, col=16)",
+        "MOUSE(row=1, col=21)"
+      ],
+      "live_at_start": []
+    },
+    {
+      "game": "ls20",
+      "levels": 7,
+      "baseline_l1": 22,
+      "available": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT"
+      ]
+    },
+    {
+      "game": "m0r0",
+      "levels": 6,
+      "baseline_l1": 30,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dead_at_start": [
+        "SPACE",
+        "MOUSE(row=51, col=21)",
+        "MOUSE(row=51, col=41)"
+      ],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT"
+      ]
+    },
+    {
+      "game": "r11l",
+      "levels": 6,
+      "baseline_l1": 22,
+      "available": [
+        6
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "MOUSE(row=18, col=38)",
+        "MOUSE(row=18, col=40)",
+        "MOUSE(row=19, col=37)"
+      ]
+    },
+    {
+      "game": "re86",
+      "levels": 8,
+      "baseline_l1": 26,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT",
+        "SPACE"
+      ]
+    },
+    {
+      "game": "s5i5",
+      "levels": 8,
+      "baseline_l1": 20,
+      "available": [
+        6
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "MOUSE(row=9, col=52)",
+        "MOUSE(row=10, col=31)",
+        "MOUSE(row=10, col=51)"
+      ]
+    },
+    {
+      "game": "sb26",
+      "levels": 8,
+      "baseline_l1": 18,
+      "available": [
+        5,
+        6,
+        7
+      ],
+      "dead_at_start": [
+        "ACTION7",
+        "MOUSE(row=29, col=22)",
+        "MOUSE(row=29, col=28)",
+        "MOUSE(row=29, col=34)"
+      ],
+      "live_at_start": [
+        "SPACE"
+      ]
+    },
+    {
+      "game": "sc25",
+      "levels": 6,
+      "baseline_l1": 36,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "dead_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT",
+        "MOUSE(row=51, col=15)",
+        "MOUSE(row=54, col=12)",
+        "MOUSE(row=54, col=18)"
+      ],
+      "live_at_start": []
+    },
+    {
+      "game": "sk48",
+      "levels": 8,
+      "baseline_l1": 61,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "dead_at_start": [
+        "DOWN",
+        "ACTION7",
+        "MOUSE(row=38, col=16)",
+        "MOUSE(row=38, col=17)",
+        "MOUSE(row=38, col=20)"
+      ],
+      "live_at_start": [
+        "UP",
+        "LEFT",
+        "RIGHT"
+      ]
+    },
+    {
+      "game": "sp80",
+      "levels": 6,
+      "baseline_l1": 39,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT",
+        "SPACE",
+        "MOUSE(row=2, col=37)",
+        "MOUSE(row=5, col=37)",
+        "MOUSE(row=17, col=21)"
+      ]
+    },
+    {
+      "game": "su15",
+      "levels": 9,
+      "baseline_l1": 22,
+      "available": [
+        6,
+        7
+      ],
+      "dead_at_start": [
+        "ACTION7"
+      ],
+      "live_at_start": [
+        "MOUSE(row=17, col=46)",
+        "MOUSE(row=19, col=44)",
+        "MOUSE(row=21, col=42)"
+      ]
+    },
+    {
+      "game": "tn36",
+      "levels": 7,
+      "baseline_l1": 32,
+      "available": [
+        6
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "MOUSE(row=16, col=31)",
+        "MOUSE(row=42, col=26)",
+        "MOUSE(row=42, col=36)"
+      ]
+    },
+    {
+      "game": "tr87",
+      "levels": 6,
+      "baseline_l1": 54,
+      "available": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT"
+      ]
+    },
+    {
+      "game": "tu93",
+      "levels": 9,
+      "baseline_l1": 19,
+      "available": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT"
+      ]
+    },
+    {
+      "game": "vc33",
+      "levels": 7,
+      "baseline_l1": 7,
+      "available": [
+        6
+      ],
+      "dead_at_start": [],
+      "live_at_start": [
+        "MOUSE(row=29, col=38)",
+        "MOUSE(row=46, col=50)",
+        "MOUSE(row=46, col=48)"
+      ]
+    },
+    {
+      "game": "wa30",
+      "levels": 9,
+      "baseline_l1": 71,
+      "available": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dead_at_start": [
+        "SPACE"
+      ],
+      "live_at_start": [
+        "UP",
+        "DOWN",
+        "LEFT",
+        "RIGHT"
+      ]
+    }
+  ],
+  "dead": 34,
+  "trials": 137
+}

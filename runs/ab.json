@@ -1,0 +1,631 @@
+{
+  "ab": [
+    {
+      "game": "ar25",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 198,
+        "noop": 62,
+        "repeat_noop": 22,
+        "skipped": 0,
+        "hud_cells": 63
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 21,
+        "observed": 198,
+        "noop": 44,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 63
+      }
+    },
+    {
+      "game": "bp35",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 197,
+        "noop": 59,
+        "repeat_noop": 9,
+        "skipped": 0,
+        "hud_cells": 62
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 21,
+        "observed": 196,
+        "noop": 55,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 64
+      }
+    },
+    {
+      "game": "cd82",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 108,
+        "repeat_noop": 50,
+        "skipped": 0,
+        "hud_cells": 64
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 55,
+        "observed": 199,
+        "noop": 79,
+        "repeat_noop": 1,
+        "skipped": 0,
+        "hud_cells": 64
+      }
+    },
+    {
+      "game": "cn04",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 198,
+        "noop": 60,
+        "repeat_noop": 29,
+        "skipped": 0,
+        "hud_cells": 31
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 31,
+        "observed": 198,
+        "noop": 41,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 30
+      }
+    },
+    {
+      "game": "dc22",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 91,
+        "repeat_noop": 44,
+        "skipped": 0,
+        "hud_cells": 61
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 72,
+        "observed": 199,
+        "noop": 56,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 63
+      }
+    },
+    {
+      "game": "ft09",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 200,
+        "noop": 200,
+        "repeat_noop": 192,
+        "skipped": 0,
+        "hud_cells": 0
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 1548,
+        "observed": 200,
+        "noop": 200,
+        "repeat_noop": 192,
+        "skipped": 0,
+        "hud_cells": 0
+      }
+    },
+    {
+      "game": "g50t",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 83,
+        "repeat_noop": 48,
+        "skipped": 0,
+        "hud_cells": 64
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 81,
+        "observed": 199,
+        "noop": 35,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 63
+      }
+    },
+    {
+      "game": "ka59",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 65,
+        "repeat_noop": 10,
+        "skipped": 0,
+        "hud_cells": 63
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 12,
+        "observed": 199,
+        "noop": 61,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 59
+      }
+    },
+    {
+      "game": "lf52",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 198,
+        "noop": 187,
+        "repeat_noop": 151,
+        "skipped": 0,
+        "hud_cells": 64
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 1310,
+        "observed": 199,
+        "noop": 185,
+        "repeat_noop": 156,
+        "skipped": 0,
+        "hud_cells": 64
+      }
+    },
+    {
+      "game": "lp85",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 200,
+        "noop": 200,
+        "repeat_noop": 192,
+        "skipped": 0,
+        "hud_cells": 0
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 1548,
+        "observed": 200,
+        "noop": 200,
+        "repeat_noop": 192,
+        "skipped": 0,
+        "hud_cells": 0
+      }
+    },
+    {
+      "game": "ls20",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 0,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 0
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 0,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 0
+      }
+    },
+    {
+      "game": "m0r0",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 48,
+        "repeat_noop": 3,
+        "skipped": 0,
+        "hud_cells": 0
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 11,
+        "observed": 199,
+        "noop": 54,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 0
+      }
+    },
+    {
+      "game": "r11l",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 197,
+        "noop": 48,
+        "repeat_noop": 31,
+        "skipped": 0,
+        "hud_cells": 62
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 44,
+        "observed": 197,
+        "noop": 16,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 62
+      }
+    },
+    {
+      "game": "re86",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 0,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 0
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 0,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 0
+      }
+    },
+    {
+      "game": "s5i5",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 197,
+        "noop": 196,
+        "repeat_noop": 188,
+        "skipped": 0,
+        "hud_cells": 64
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 1515,
+        "observed": 197,
+        "noop": 196,
+        "repeat_noop": 188,
+        "skipped": 0,
+        "hud_cells": 64
+      }
+    },
+    {
+      "game": "sb26",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 200,
+        "noop": 138,
+        "repeat_noop": 37,
+        "skipped": 0,
+        "hud_cells": 0
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 293,
+        "observed": 199,
+        "noop": 135,
+        "repeat_noop": 32,
+        "skipped": 0,
+        "hud_cells": 64
+      }
+    },
+    {
+      "game": "sc25",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 197,
+        "noop": 62,
+        "repeat_noop": 15,
+        "skipped": 0,
+        "hud_cells": 124
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 18,
+        "observed": 197,
+        "noop": 53,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 124
+      }
+    },
+    {
+      "game": "sk48",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 200,
+        "noop": 48,
+        "repeat_noop": 3,
+        "skipped": 0,
+        "hud_cells": 0
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 6,
+        "observed": 200,
+        "noop": 46,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 0
+      }
+    },
+    {
+      "game": "sp80",
+      "plain": {
+        "actions": 200,
+        "levels": 1,
+        "score": 4.761904761904762,
+        "blocked": 0,
+        "observed": 193,
+        "noop": 56,
+        "repeat_noop": 17,
+        "skipped": 0,
+        "hud_cells": 126
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 1,
+        "score": 1.0771649528341973,
+        "blocked": 20,
+        "observed": 195,
+        "noop": 51,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 128
+      }
+    },
+    {
+      "game": "su15",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 197,
+        "noop": 196,
+        "repeat_noop": 188,
+        "skipped": 0,
+        "hud_cells": 64
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 1534,
+        "observed": 198,
+        "noop": 197,
+        "repeat_noop": 189,
+        "skipped": 0,
+        "hud_cells": 64
+      }
+    },
+    {
+      "game": "tn36",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 197,
+        "noop": 0,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 0
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 197,
+        "noop": 0,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 0
+      }
+    },
+    {
+      "game": "tr87",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 0,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 0
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 199,
+        "noop": 0,
+        "repeat_noop": 0,
+        "skipped": 0,
+        "hud_cells": 0
+      }
+    },
+    {
+      "game": "tu93",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 197,
+        "noop": 102,
+        "repeat_noop": 83,
+        "skipped": 0,
+        "hud_cells": 64
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 135,
+        "observed": 197,
+        "noop": 37,
+        "repeat_noop": 3,
+        "skipped": 0,
+        "hud_cells": 64
+      }
+    },
+    {
+      "game": "vc33",
+      "plain": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 197,
+        "noop": 196,
+        "repeat_noop": 190,
+        "skipped": 0,
+        "hud_cells": 64
+      },
+      "guard": {
+        "actions": 200,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 1530,
+        "observed": 197,
+        "noop": 196,
+        "repeat_noop": 190,
+        "skipped": 0,
+        "hud_cells": 64
+      }
+    },
+    {
+      "game": "wa30",
+      "plain": {
+        "actions": 201,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 0,
+        "observed": 200,
+        "noop": 161,
+        "repeat_noop": 148,
+        "skipped": 0,
+        "hud_cells": 4000
+      },
+      "guard": {
+        "actions": 201,
+        "levels": 0,
+        "score": 0.0,
+        "blocked": 1280,
+        "observed": 200,
+        "noop": 168,
+        "repeat_noop": 158,
+        "skipped": 0,
+        "hud_cells": 4000
+      }
+    }
+  ],
+  "mean_plain": 0.19047619047619047,
+  "mean_guard": 0.043086598113367895
+}

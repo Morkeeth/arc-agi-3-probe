@@ -12,8 +12,13 @@ same model, or the comparison means nothing.
 MODE = "off"  # off (control) | guard | probe | probe+guard
 
 import sys
+from pathlib import Path
 
-sys.path.insert(0, "/kaggle/input/arc-agi-3-probe")  # option A
+# Option A. Kaggle mounts a dataset at /kaggle/input/<slug> or at
+# /kaggle/input/datasets/<owner>/<slug>; find it rather than guess.
+for _init in Path("/kaggle/input").rglob("deadprobe/__init__.py"):
+    sys.path.insert(0, str(_init.parent.parent))
+    break
 
 if MODE != "off":
     from deadprobe import duck_patch
