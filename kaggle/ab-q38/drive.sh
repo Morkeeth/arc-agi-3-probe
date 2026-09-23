@@ -34,7 +34,8 @@ push() {  # $1 = id
 }
 
 run_pair() {  # $1 = k, $2 = already pushed (1/0)
-  local k=$1 a="control-s$1" b="answer-s$1"
+  local sfx=""; [ "$1" -ge 2 ] && sfx=r  # RULE A2
+  local k=$1 a="control-s$1$sfx" b="answer-s$1$sfx"
   if [ "$2" = 0 ]; then
     local q; q=$(quota_left); say "quota left ${q} h before pair $k"
     if python3 -c "import sys; sys.exit(0 if float('$q') >= 5.0 else 1)"; then :; else say "STOP: quota below 5 h"; exit 2; fi

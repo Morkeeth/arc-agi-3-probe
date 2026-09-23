@@ -61,13 +61,13 @@ def build() -> list[Path]:
     for arm, mode in ARMS.items():
         for k in SEEDS:
             ab_id = f"{arm}-s{k}"
-            slug = f"ab-q38-{arm}-s{k}"
+            slug = f"ab-q38-{arm}-s{k}" + ("r" if k >= 2 else "")  # RULE A2: the s2 kernel objects broke
             nb = copy.deepcopy(base)
             cells = [c for c in nb["cells"] if c["cell_type"] == "code" and HOOK_CELL_MARKER in "".join(c["source"])]
             assert len(cells) == 1, "hook cell not found exactly once"
             src = "".join(cells[0]["source"]).rstrip("\n") + "\n" + HOOK.format(mode=mode, ab_id=ab_id)
             cells[0]["source"] = src.splitlines(keepends=True)
-            d = HERE / ab_id
+            d = HERE / (ab_id + ("r" if k >= 2 else ""))
             d.mkdir(exist_ok=True)
             (d / f"{slug}.ipynb").write_text(json.dumps(nb, indent=1) + "\n")
             m = {k2: v for k2, v in meta.items() if k2 != "id_no"}
