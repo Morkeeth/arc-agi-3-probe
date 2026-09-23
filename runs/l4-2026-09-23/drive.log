@@ -1,0 +1,343 @@
+2026-09-23T16:31:11Z push seqs16-s1: Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/oscarmorke/ab-l4-seqs16-s1
+2026-09-23T16:31:14Z push seqs16-s2: Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/oscarmorke/ab-l4-seqs16-s2
+2026-09-23T16:41:16Z board 56490516: SubmissionStatus.PENDING,
+2026-09-23T16:41:17Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T16:51:20Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T17:01:22Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T17:11:25Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T17:21:27Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T17:31:29Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T17:41:32Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T17:51:34Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T18:01:38Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T18:11:41Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T18:21:43Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T18:31:46Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T18:41:48Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T18:51:51Z seqs16-s1=RUNNING seqs16-s2=RUNNING
+2026-09-23T19:01:56Z seqs16-s1=COMPLETE seqs16-s2=COMPLETE
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/ar25-0c556536_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/ar25-0c556536_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/bp35-0a0ad940_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/bp35-0a0ad940_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/cd82-fb555c5d_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/cd82-fb555c5d_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/cn04-2fe56bfb_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/cn04-2fe56bfb_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/dc22-fdcac232_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/dc22-fdcac232_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/ft09-0d8bbf25_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/ft09-0d8bbf25_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/g50t-5849a774_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/g50t-5849a774_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/ka59-38d34dbb_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/ka59-38d34dbb_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/lf52-271a04aa_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/lf52-271a04aa_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/lp85-305b61c3_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/lp85-305b61c3_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/ls20-9607627b_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/ls20-9607627b_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/m0r0-492f87ba_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/m0r0-492f87ba_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/r11l-495a7899_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/r11l-495a7899_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/re86-8af5384d_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/re86-8af5384d_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/s5i5-18d95033_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/s5i5-18d95033_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/sb26-7fbdac44_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/sb26-7fbdac44_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/sc25-635fd71a_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/sc25-635fd71a_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/sk48-d8078629_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/sk48-d8078629_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/sp80-589a99af_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/sp80-589a99af_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/su15-1944f8ab_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/su15-1944f8ab_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/tn36-ef4dde99_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/tn36-ef4dde99_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/tr87-cd924810_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/tr87-cd924810_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/tu93-0768757b_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/tu93-0768757b_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/vc33-5430563c_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/vc33-5430563c_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/wa30-ee6fef47_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/artifacts/wa30-ee6fef47_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/benchmark.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_counters.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/__init__.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/__pycache__/__init__.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/__pycache__/counters.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/__pycache__/duck_patch.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/__pycache__/grid.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/__pycache__/memo.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/__pycache__/probe.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/__pycache__/score.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/counters.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/duck_patch.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/grid.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/memo.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/probe.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/deadprobe_pkg/deadprobe/score.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/git_status.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/ar25-0c556536_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/bp35-0a0ad940_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/cd82-fb555c5d_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/cn04-2fe56bfb_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/dc22-fdcac232_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/ft09-0d8bbf25_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/g50t-5849a774_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/ka59-38d34dbb_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/lf52-271a04aa_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/lp85-305b61c3_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/ls20-9607627b_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/m0r0-492f87ba_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/r11l-495a7899_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/re86-8af5384d_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/s5i5-18d95033_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/sb26-7fbdac44_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/sc25-635fd71a_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/sk48-d8078629_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/sp80-589a99af_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/su15-1944f8ab_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/tn36-ef4dde99_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/tr87-cd924810_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/tu93-0768757b_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/vc33-5430563c_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/prompts/wa30-ee6fef47_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/score.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/ar25-0c556536_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/bp35-0a0ad940_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/cd82-fb555c5d_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/cn04-2fe56bfb_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/dc22-fdcac232_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/ft09-0d8bbf25_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/g50t-5849a774_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/ka59-38d34dbb_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/lf52-271a04aa_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/lp85-305b61c3_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/ls20-9607627b_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/m0r0-492f87ba_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/r11l-495a7899_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/re86-8af5384d_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/s5i5-18d95033_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/sb26-7fbdac44_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/sc25-635fd71a_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/sk48-d8078629_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/sp80-589a99af_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/su15-1944f8ab_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/tn36-ef4dde99_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/tr87-cd924810_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/tu93-0768757b_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/vc33-5430563c_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/solver_analysis/wa30-ee6fef47_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/submission.parquet
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/taaf_setup_env.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/ar25-0c556536_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/bp35-0a0ad940_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/cd82-fb555c5d_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/cn04-2fe56bfb_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/dc22-fdcac232_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/ft09-0d8bbf25_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/g50t-5849a774_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/ka59-38d34dbb_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/lf52-271a04aa_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/lp85-305b61c3_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/ls20-9607627b_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/m0r0-492f87ba_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/r11l-495a7899_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/re86-8af5384d_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/s5i5-18d95033_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/sb26-7fbdac44_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/sc25-635fd71a_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/sk48-d8078629_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/sp80-589a99af_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/su15-1944f8ab_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/tn36-ef4dde99_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/tr87-cd924810_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/tu93-0768757b_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/vc33-5430563c_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/transcripts/wa30-ee6fef47_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/vllm-metrics-final.prom
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/vllm-models-final.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/vllm-openai-server.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/vllm-server-identity.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/vllm-server-preflight.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/vllm-server-teardown.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/vllm-setup-provenance.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/vllm-watchdog-events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/vllm-watchdog-status.json
+Kernel log downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s1/ab-l4-seqs16-s1.log 
+2026-09-23T19:03:28Z seqs16-s1 pulled; proof: DEADPROBE_LIVE ab=seqs16-s1 mode=off guard=False answer=False honest=False max_num_seqs=16 play=deadprobe.counters step_env=inference.framework.solver execute=inference.framework.solver sha={'__init__.py': '18e0f20840a7', 'counters.py': 'ba5e4d0c1a5a', 'duck_patch.py': 'e2cffc3960f1', 'grid.py': '9cda9d9d517a', 'memo.py': '7f435d133b6c', 'probe.py': 'b1f6f11ecec7', 'score.py': 'bd70f2110968'}
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/ar25-0c556536_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/ar25-0c556536_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/bp35-0a0ad940_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/bp35-0a0ad940_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/cd82-fb555c5d_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/cd82-fb555c5d_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/cn04-2fe56bfb_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/cn04-2fe56bfb_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/dc22-fdcac232_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/dc22-fdcac232_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/ft09-0d8bbf25_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/ft09-0d8bbf25_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/g50t-5849a774_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/g50t-5849a774_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/ka59-38d34dbb_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/ka59-38d34dbb_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/lf52-271a04aa_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/lf52-271a04aa_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/lp85-305b61c3_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/lp85-305b61c3_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/ls20-9607627b_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/ls20-9607627b_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/m0r0-492f87ba_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/m0r0-492f87ba_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/r11l-495a7899_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/r11l-495a7899_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/re86-8af5384d_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/re86-8af5384d_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/s5i5-18d95033_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/s5i5-18d95033_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/sb26-7fbdac44_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/sb26-7fbdac44_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/sc25-635fd71a_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/sc25-635fd71a_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/sk48-d8078629_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/sk48-d8078629_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/sp80-589a99af_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/sp80-589a99af_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/su15-1944f8ab_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/su15-1944f8ab_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/tn36-ef4dde99_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/tn36-ef4dde99_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/tr87-cd924810_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/tr87-cd924810_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/tu93-0768757b_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/tu93-0768757b_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/vc33-5430563c_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/vc33-5430563c_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/wa30-ee6fef47_p0_events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/artifacts/wa30-ee6fef47_p0_viewer_data.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/benchmark.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_counters.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/__init__.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/__pycache__/__init__.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/__pycache__/counters.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/__pycache__/duck_patch.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/__pycache__/grid.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/__pycache__/memo.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/__pycache__/probe.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/__pycache__/score.cpython-312.pyc
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/counters.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/duck_patch.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/grid.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/memo.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/probe.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/deadprobe_pkg/deadprobe/score.py
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/git_status.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/ar25-0c556536_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/bp35-0a0ad940_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/cd82-fb555c5d_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/cn04-2fe56bfb_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/dc22-fdcac232_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/ft09-0d8bbf25_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/g50t-5849a774_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/ka59-38d34dbb_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/lf52-271a04aa_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/lp85-305b61c3_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/ls20-9607627b_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/m0r0-492f87ba_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/r11l-495a7899_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/re86-8af5384d_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/s5i5-18d95033_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/sb26-7fbdac44_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/sc25-635fd71a_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/sk48-d8078629_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/sp80-589a99af_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/su15-1944f8ab_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/tn36-ef4dde99_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/tr87-cd924810_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/tu93-0768757b_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/vc33-5430563c_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/prompts/wa30-ee6fef47_p0.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/score.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/ar25-0c556536_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/bp35-0a0ad940_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/cd82-fb555c5d_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/cn04-2fe56bfb_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/dc22-fdcac232_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/ft09-0d8bbf25_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/g50t-5849a774_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/ka59-38d34dbb_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/lf52-271a04aa_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/lp85-305b61c3_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/ls20-9607627b_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/m0r0-492f87ba_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/r11l-495a7899_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/re86-8af5384d_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/s5i5-18d95033_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/sb26-7fbdac44_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/sc25-635fd71a_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/sk48-d8078629_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/sp80-589a99af_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/su15-1944f8ab_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/tn36-ef4dde99_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/tr87-cd924810_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/tu93-0768757b_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/vc33-5430563c_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/solver_analysis/wa30-ee6fef47_p0.html
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/submission.parquet
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/taaf_setup_env.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/ar25-0c556536_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/bp35-0a0ad940_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/cd82-fb555c5d_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/cn04-2fe56bfb_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/dc22-fdcac232_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/ft09-0d8bbf25_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/g50t-5849a774_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/ka59-38d34dbb_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/lf52-271a04aa_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/lp85-305b61c3_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/ls20-9607627b_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/m0r0-492f87ba_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/r11l-495a7899_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/re86-8af5384d_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/s5i5-18d95033_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/sb26-7fbdac44_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/sc25-635fd71a_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/sk48-d8078629_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/sp80-589a99af_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/su15-1944f8ab_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/tn36-ef4dde99_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/tr87-cd924810_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/tu93-0768757b_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/vc33-5430563c_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/transcripts/wa30-ee6fef47_p0.txt
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/vllm-metrics-final.prom
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/vllm-models-final.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/vllm-openai-server.log
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/vllm-server-identity.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/vllm-server-preflight.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/vllm-server-teardown.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/vllm-setup-provenance.json
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/vllm-watchdog-events.jsonl
+Output file downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/vllm-watchdog-status.json
+Kernel log downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/l4-2026-09-23/seqs16-s2/ab-l4-seqs16-s2.log 
+2026-09-23T19:04:55Z seqs16-s2 pulled; proof: DEADPROBE_LIVE ab=seqs16-s2 mode=off guard=False answer=False honest=False max_num_seqs=16 play=deadprobe.counters step_env=inference.framework.solver execute=inference.framework.solver sha={'__init__.py': '18e0f20840a7', 'counters.py': 'ba5e4d0c1a5a', 'duck_patch.py': 'e2cffc3960f1', 'grid.py': '9cda9d9d517a', 'memo.py': '7f435d133b6c', 'probe.py': 'b1f6f11ecec7', 'score.py': 'bd70f2110968'}
+seqs8   n=3 mean=8.59 runs=[6.43, 11.40, 7.94] levels/run=38.0 actions/game-run=159.7 wall_s/action=49.45 at_cap=74/74
+seqs16  n=2 mean=6.52 runs=[8.43, 4.62] levels/run=34.0 actions/game-run=145.8 wall_s/action=54.31 at_cap=49/49
+RULE: LOSE
+LEDGER: kill {'diff': -2.0683807173464626, 'lever_acted': False, 'q1_actions_up_20pct': False, 'q2_wall_per_action_down': False, 'q3_levels_up': False}
+2026-09-23T19:35:00Z board 56490516: SubmissionStatus.COMPLETE,2.27
+2026-09-23T19:35:00Z DONE
+2026-09-23T19:35:01Z push seqs16-s1: Kernel push error: Maximum batch GPU session count of 2 reached.
+2026-09-23T19:40:03Z push seqs16-s1: Kernel push error: Maximum batch GPU session count of 2 reached.
+2026-09-23T19:45:05Z push seqs16-s1: Kernel push error: Maximum batch GPU session count of 2 reached.
+2026-09-23T19:50:06Z push seqs16-s1: Kernel push error: Maximum batch GPU session count of 2 reached.
+2026-09-23T19:55:08Z push seqs16-s1: Kernel push error: Maximum batch GPU session count of 2 reached.
+2026-09-23T20:00:10Z push seqs16-s1: Kernel push error: Maximum batch GPU session count of 2 reached.
+2026-09-23T20:05:12Z push seqs16-s1: Kernel push error: Maximum batch GPU session count of 2 reached.

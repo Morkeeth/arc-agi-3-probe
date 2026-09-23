@@ -1,0 +1,86 @@
+{
+  "stats": {
+    "seqs8": {
+      "n_valid": 3,
+      "runs": [
+        "control-s1",
+        "control-s2r",
+        "control-s3r"
+      ],
+      "invalid": {},
+      "mean": 8.589519100442978,
+      "run_means": [
+        6.4347993474991485,
+        11.397577133412994,
+        7.936180820416792
+      ],
+      "spread": 4.962777785913846,
+      "sd": 2.5450793738507773,
+      "levels": 114,
+      "run_levels": [
+        35,
+        44,
+        35
+      ],
+      "game_runs": 75,
+      "actions": 11976,
+      "turns": 4081,
+      "calls": 4254,
+      "skipped": 0,
+      "calls_per_action": 0.35521042084168336,
+      "wall_s_per_action": 49.45404347076052,
+      "model_s": 587255.406,
+      "not_won": 74,
+      "not_won_at_cap": 74,
+      "time_cap_s": 7920.0,
+      "subset5_mean": 3.5475816468891295,
+      "subset5_levels": 18,
+      "levels_per_run": 38.0,
+      "actions_per_game_run": 159.68
+    },
+    "seqs16": {
+      "n_valid": 2,
+      "runs": [
+        "seqs16-s1",
+        "seqs16-s2"
+      ],
+      "invalid": {},
+      "mean": 6.521138383096515,
+      "run_means": [
+        8.426666884551793,
+        4.615609881641238
+      ],
+      "spread": 3.8110570029105544,
+      "sd": 2.694824250246533,
+      "levels": 68,
+      "run_levels": [
+        37,
+        31
+      ],
+      "game_runs": 50,
+      "actions": 7291,
+      "turns": 2701,
+      "calls": 2813,
+      "skipped": 0,
+      "calls_per_action": 0.38581813194349196,
+      "wall_s_per_action": 54.31334989097476,
+      "model_s": 393381.501,
+      "not_won": 49,
+      "not_won_at_cap": 49,
+      "time_cap_s": 7920.0,
+      "subset5_mean": 4.03563786841815,
+      "subset5_levels": 12,
+      "levels_per_run": 34.0,
+      "actions_per_game_run": 145.82
+    }
+  },
+  "verdict": {
+    "rule": "LOSE",
+    "ledger": "kill",
+    "diff": -2.0683807173464626,
+    "lever_acted": false,
+    "q1_actions_up_20pct": false,
+    "q2_wall_per_action_down": false,
+    "q3_levels_up": false
+  }
+}
