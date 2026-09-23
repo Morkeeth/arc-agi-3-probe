@@ -1,0 +1,1217 @@
+[{"stream_name":"stderr","time":4.540772645,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":4.5408149049999995,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":4.540816655,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":4.540817795,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":4.871821318,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":4.871841818,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":4.8718434980000005,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":4.871844548,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":5.588713003,"data":"PUBLIC25_VLLM_PROFILE name=kv5-bf16-mtp3-c8-cg32 env={\"TAAF_VLLM_ENABLE_PREFIX_CACHING\": \"0\", \"TAAF_VLLM_KV_CACHE_DTYPE\": \"auto\", \"TAAF_VLLM_KV_CACHE_MEMORY_BYTES\": \"5368709120\", \"TAAF_VLLM_MAX_CUDAGRAPH_CAPTURE_SIZE\": \"32\", \"TAAF_VLLM_MAX_NUM_BATCHED_TOKENS\": \"8192\", \"TAAF_VLLM_MAX_NUM_SEQS\": \"8\", \"TAAF_VLLM_MTP_TOKENS\": \"3\", \"TAAF_VLLM_OMP_THREADS\": \"1\"}\n"}
+,{"stream_name":"stdout","time":5.589096933,"data":"taaf.kaggle: TRUE_SUBMISSION=False\n"}
+,{"stream_name":"stdout","time":7.82427167,"data":"taaf.kaggle: source bundle = /kaggle/input/datasets/keithtyser/duck-qwen38-nvfp4-mtp-vllm-smoke-v1\n"}
+,{"stream_name":"stdout","time":7.8242842,"data":"taaf.kaggle: input paths = {\"keithtyser/duck-qwen38-nvfp4-mtp-vllm-smoke-v1\": \"/kaggle/input/datasets/keithtyser/duck-qwen38-nvfp4-mtp-vllm-smoke-v1\", \"keithtyser/qwen38-flash-next-vllm-nvfp4-runtime-v1\": \"/kaggle/input/datasets/keithtyser/qwen38-flash-next-vllm-nvfp4-runtime-v1\"}\n"}
+,{"stream_name":"stdout","time":7.846993348,"data":"taaf.kaggle: wrote /usr/local/lib/python3.12/dist-packages/taaf_kaggle_sources.pth (5 source roots)\n"}
+,{"stream_name":"stdout","time":7.847009028,"data":"taaf.kaggle: setup command: \"$PYTHON\" \"$TAAF_KAGGLE_BUNDLE_DIR/serving_setup.py\"\n"}
+,{"stream_name":"stdout","time":7.929837641,"data":"VLLM_SETUP_MODE fast TAAF_KAGGLE_FAST_START=1\n"}
+,{"stream_name":"stdout","time":7.951955138,"data":"PINNED_VLLM_RUNTIME_PATH /kaggle/input/datasets/keithtyser/qwen38-flash-next-vllm-nvfp4-runtime-v1\n"}
+,{"stream_name":"stdout","time":7.951965048,"data":"PINNED_MODEL_PATH /kaggle/input/models/keithtyser/qwen3-8-flash-next-nvfp4/pytorch/radixark-modelopt-fp4/1\n"}
+,{"stream_name":"stdout","time":7.955510036,"data":"RUNTIME_LAYER_FAST_CHECK index=8 bytes=1374796713 manifest_sha256=f4f325a97c3e4739640b0e472a818bb299e7ce8e585bdbfe5586e9d3b5a2c475\n"}
+,{"stream_name":"stdout","time":8.024706017,"data":"VLLM_SETUP_MODE fast TAAF_KAGGLE_FAST_START=1\n"}
+,{"stream_name":"stdout","time":8.024715527,"data":"PINNED_VLLM_RUNTIME_PATH /kaggle/input/datasets/keithtyser/qwen38-flash-next-vllm-nvfp4-runtime-v1\n"}
+,{"stream_name":"stdout","time":8.024716727,"data":"PINNED_MODEL_PATH /kaggle/input/models/keithtyser/qwen3-8-flash-next-nvfp4/pytorch/radixark-modelopt-fp4/1\n"}
+,{"stream_name":"stdout","time":8.024717707,"data":"RUNTIME_LAYER_FAST_CHECK index=8 bytes=1374796713 manifest_sha256=f4f325a97c3e4739640b0e472a818bb299e7ce8e585bdbfe5586e9d3b5a2c475\n"}
+,{"stream_name":"stdout","time":25.099102673,"data":"RUNTIME_LAYER_FAST_CHECK index=17 bytes=4634843373 manifest_sha256=a5881cf32fc46f24318a6fc7015ccae863706075d4434d186b8b1b4e5bafb36e\n"}
+,{"stream_name":"stdout","time":25.300647829,"data":"RUNTIME_LAYER_FAST_CHECK index=17 bytes=4634843373 manifest_sha256=a5881cf32fc46f24318a6fc7015ccae863706075d4434d186b8b1b4e5bafb36e\n"}
+,{"stream_name":"stdout","time":94.220382834,"data":"RUNTIME_LAYER_FAST_CHECK index=18 bytes=1511319261 manifest_sha256=692ea0d28a87e9cea6db254c830f650f29804522045c9201f8ea63f30471b33b\n"}
+,{"stream_name":"stdout","time":94.423518143,"data":"RUNTIME_LAYER_FAST_CHECK index=18 bytes=1511319261 manifest_sha256=692ea0d28a87e9cea6db254c830f650f29804522045c9201f8ea63f30471b33b\n"}
+,{"stream_name":"stdout","time":109.919241461,"data":"RUNTIME_LAYER_FAST_CHECK index=21 bytes=61571140 manifest_sha256=651e9c6638c77d15bf671d9264badcba80ea551f84109de486427b87d2ddbf75\n"}
+,{"stream_name":"stdout","time":110.120661982,"data":"RUNTIME_LAYER_FAST_CHECK index=21 bytes=61571140 manifest_sha256=651e9c6638c77d15bf671d9264badcba80ea551f84109de486427b87d2ddbf75\n"}
+,{"stream_name":"stdout","time":110.890441526,"data":"RUNTIME_LAYER_FAST_CHECK index=24 bytes=309686893 manifest_sha256=10dce885652a53a2e644a75d256b90830663330988b8599c3c0e56cd6c8a4675\n"}
+,{"stream_name":"stdout","time":111.091498717,"data":"RUNTIME_LAYER_FAST_CHECK index=24 bytes=309686893 manifest_sha256=10dce885652a53a2e644a75d256b90830663330988b8599c3c0e56cd6c8a4675\n"}
+,{"stream_name":"stdout","time":115.026592066,"data":"RUNTIME_LAYER_FAST_CHECK index=27 bytes=14479724 manifest_sha256=49a63ac9d116f92e5a8b006ae5665b940fcbc3d22d53aa7c01a3753ef341c53e\n"}
+,{"stream_name":"stdout","time":115.228027537,"data":"RUNTIME_LAYER_FAST_CHECK index=27 bytes=14479724 manifest_sha256=49a63ac9d116f92e5a8b006ae5665b940fcbc3d22d53aa7c01a3753ef341c53e\n"}
+,{"stream_name":"stdout","time":115.346173447,"data":"MODEL_IDENTITY_ONLY files=419 bytes=135253622894 payload_check=vllm_load\n"}
+,{"stream_name":"stdout","time":115.355012862,"data":"VLLM_START_COMMAND [\"/usr/bin/python3\", \"-m\", \"vllm.entrypoints.cli.main\", \"serve\", \"/kaggle/input/models/keithtyser/qwen3-8-flash-next-nvfp4/pytorch/radixark-modelopt-fp4/1\", \"--served-model-name\", \"Qwen/Qwen3.8-Flash-Next-NVFP4\", \"--host\", \"127.0.0.1\", \"--port\", \"1234\", \"--load-format\", \"safetensors\", \"--dtype\", \"bfloat16\", \"--quantization\", \"modelopt_fp4\", \"--tensor-parallel-size\", \"1\", \"--distributed-executor-backend\", \"mp\", \"--kv-cache-memory-bytes\", \"5368709120\", \"--max-model-len\", \"32768\", \"--max-num-seqs\", \"8\", \"--max-num-batched-tokens\", \"8192\", \"--async-scheduling\", \"--enable-chunked-prefill\", \"--max-cudagraph-capture-size\", \"32\", \"--no-enable-prefix-caching\", \"--enable-auto-tool-choice\", \"--tool-call-parser\", \"qwen3_coder\", \"--reasoning-parser\", \"qwen3\", \"--chat-template\", \"/kaggle/input/models/keithtyser/qwen3-8-flash-next-nvfp4/pytorch/radixark-modelopt-fp4/1/chat_template.jinja\", \"--speculative-config\", \"{\\\"method\\\":\\\"mtp\\\",\\\"num_speculative_tokens\\\":3}\", \"--no-enable-log-requests\", \"--disable-uvicorn-access-log\", \"--uvicorn-log-level\", \"info\"]\n"}
+,{"stream_name":"stdout","time":115.356877181,"data":"VLLM_WAIT elapsed_s=0\n"}
+,{"stream_name":"stdout","time":115.356880521,"data":"\n"}
+,{"stream_name":"stdout","time":115.547300728,"data":"MODEL_IDENTITY_ONLY files=419 bytes=135253622894 payload_check=vllm_load\n"}
+,{"stream_name":"stdout","time":115.547304948,"data":"VLLM_START_COMMAND [\"/usr/bin/python3\", \"-m\", \"vllm.entrypoints.cli.main\", \"serve\", \"/kaggle/input/models/keithtyser/qwen3-8-flash-next-nvfp4/pytorch/radixark-modelopt-fp4/1\", \"--served-model-name\", \"Qwen/Qwen3.8-Flash-Next-NVFP4\", \"--host\", \"127.0.0.1\", \"--port\", \"1234\", \"--load-format\", \"safetensors\", \"--dtype\", \"bfloat16\", \"--quantization\", \"modelopt_fp4\", \"--tensor-parallel-size\", \"1\", \"--distributed-executor-backend\", \"mp\", \"--kv-cache-memory-bytes\", \"5368709120\", \"--max-model-len\", \"32768\", \"--max-num-seqs\", \"8\", \"--max-num-batched-tokens\", \"8192\", \"--async-scheduling\", \"--enable-chunked-prefill\", \"--max-cudagraph-capture-size\", \"32\", \"--no-enable-prefix-caching\", \"--enable-auto-tool-choice\", \"--tool-call-parser\", \"qwen3_coder\", \"--reasoning-parser\", \"qwen3\", \"--chat-template\", \"/kaggle/input/models/keithtyser/qwen3-8-flash-next-nvfp4/pytorch/radixark-modelopt-fp4/1/chat_template.jinja\", \"--speculative-config\", \"{\\\"method\\\":\\\"mtp\\\",\\\"num_speculative_tokens\\\":3}\", \"--no-enable-log-requests\", \"--disable-uvicorn-access-log\", \"--uvicorn-log-level\", \"info\"]\n"}
+,{"stream_name":"stdout","time":115.547318088,"data":"VLLM_WAIT elapsed_s=0\n"}
+,{"stream_name":"stdout","time":115.547319018,"data":"\n"}
+,{"stream_name":"stdout","time":175.362641569,"data":"VLLM_WAIT elapsed_s=60\n"}
+,{"stream_name":"stdout","time":175.362667549,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362669499,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362670899,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362672419,"data":"(APIServer pid=151) INFO 09-23 13:22:15 [model.py:672] Resolved architecture: Qwen4ExpForConditionalGeneration\n"}
+,{"stream_name":"stdout","time":175.362673589,"data":"(APIServer pid=151) INFO 09-23 13:22:15 [model.py:1965] Using max model len 32768\n"}
+,{"stream_name":"stdout","time":175.362674809,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362675909,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362676999,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362678089,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362679169,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362680239,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362681359,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362682419,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362683489,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362684589,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362686739,"data":"(APIServer pid=151) [ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /tmp/qwen38-flash-next-vllm-runtime/usr/local/lib/python3.12/dist-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.\n"}
+,{"stream_name":"stdout","time":175.362696129,"data":"(APIServer pid=151) [ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /tmp/qwen38-flash-next-vllm-runtime/usr/local/lib/python3.12/dist-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.\n"}
+,{"stream_name":"stdout","time":175.362697289,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [model.py:672] Resolved architecture: Qwen3_8FlashNextMTP\n"}
+,{"stream_name":"stdout","time":175.362698139,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [model.py:1965] Using max model len 262144\n"}
+,{"stream_name":"stdout","time":175.362698999,"data":"(APIServer pid=151) WARNING 09-23 13:22:30 [speculative.py:1010] Enabling num_speculative_tokens \u003e 1 will run multiple times of forward on same MTP layer,which may result in lower acceptance rate\n"}
+,{"stream_name":"stdout","time":175.362700179,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [speculative.py:1268] Overriding draft model max model len from 262144 to 32768\n"}
+,{"stream_name":"stdout","time":175.362701099,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [scheduler.py:246] Chunked prefill is enabled with max_num_batched_tokens=8192.\n"}
+,{"stream_name":"stdout","time":175.362701989,"data":"(APIServer pid=151) WARNING 09-23 13:22:30 [modelopt.py:1011] Detected ModelOpt NVFP4 checkpoint (quant_algo=NVFP4). Please note that the format is experimental and could change in future.\n"}
+,{"stream_name":"stdout","time":175.362702959,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [kernel.py:308] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])\n"}
+,{"stream_name":"stdout","time":175.362703889,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [compilation.py:329] Enabled custom fusions: act_quant\n"}
+,{"stream_name":"stdout","time":175.362704689,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362705549,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362706579,"data":"(APIServer pid=151) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend=\"torchvision\"` instead of `use_fast=True`, or `backend=\"pil\"` instead of `use_fast=False`.\n"}
+,{"stream_name":"stdout","time":175.362707839,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.362708749,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565734196,"data":"VLLM_WAIT elapsed_s=60\n"}
+,{"stream_name":"stdout","time":175.565744036,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565745646,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565746626,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565752216,"data":"(APIServer pid=151) INFO 09-23 13:22:15 [model.py:672] Resolved architecture: Qwen4ExpForConditionalGeneration\n"}
+,{"stream_name":"stdout","time":175.565753246,"data":"(APIServer pid=151) INFO 09-23 13:22:15 [model.py:1965] Using max model len 32768\n"}
+,{"stream_name":"stdout","time":175.56575410599999,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565754956,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565755826,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565756676,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565757516,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565758356,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565759266,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565760106,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565760936,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565761896,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565763196,"data":"(APIServer pid=151) [ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /tmp/qwen38-flash-next-vllm-runtime/usr/local/lib/python3.12/dist-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.\n"}
+,{"stream_name":"stdout","time":175.565764246,"data":"(APIServer pid=151) [ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /tmp/qwen38-flash-next-vllm-runtime/usr/local/lib/python3.12/dist-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.\n"}
+,{"stream_name":"stdout","time":175.565765256,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [model.py:672] Resolved architecture: Qwen3_8FlashNextMTP\n"}
+,{"stream_name":"stdout","time":175.565766096,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [model.py:1965] Using max model len 262144\n"}
+,{"stream_name":"stdout","time":175.565766966,"data":"(APIServer pid=151) WARNING 09-23 13:22:30 [speculative.py:1010] Enabling num_speculative_tokens \u003e 1 will run multiple times of forward on same MTP layer,which may result in lower acceptance rate\n"}
+,{"stream_name":"stdout","time":175.565768086,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [speculative.py:1268] Overriding draft model max model len from 262144 to 32768\n"}
+,{"stream_name":"stdout","time":175.565769006,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [scheduler.py:246] Chunked prefill is enabled with max_num_batched_tokens=8192.\n"}
+,{"stream_name":"stdout","time":175.565770846,"data":"(APIServer pid=151) WARNING 09-23 13:22:30 [modelopt.py:1011] Detected ModelOpt NVFP4 checkpoint (quant_algo=NVFP4). Please note that the format is experimental and could change in future.\n"}
+,{"stream_name":"stdout","time":175.565771826,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [kernel.py:308] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])\n"}
+,{"stream_name":"stdout","time":175.565772746,"data":"(APIServer pid=151) INFO 09-23 13:22:30 [compilation.py:329] Enabled custom fusions: act_quant\n"}
+,{"stream_name":"stdout","time":175.565773566,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565774466,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565775606,"data":"(APIServer pid=151) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend=\"torchvision\"` instead of `use_fast=True`, or `backend=\"pil\"` instead of `use_fast=False`.\n"}
+,{"stream_name":"stdout","time":175.565776936,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":175.565777836,"data":"(APIServer pid=151) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":235.368713807,"data":"VLLM_WAIT elapsed_s=120\n"}
+,{"stream_name":"stdout","time":235.368741327,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368743187,"data":"Loading safetensors checkpoint shards:  29% Completed | 60/206 [00:26\u003c00:53,  2.71it/s]\n"}
+,{"stream_name":"stdout","time":235.368744887,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368746387,"data":"Loading safetensors checkpoint shards:  30% Completed | 61/206 [00:26\u003c00:48,  3.00it/s]\n"}
+,{"stream_name":"stdout","time":235.368747657,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368748627,"data":"Loading safetensors checkpoint shards:  30% Completed | 62/206 [00:27\u003c00:44,  3.25it/s]\n"}
+,{"stream_name":"stdout","time":235.368749897,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368750867,"data":"Loading safetensors checkpoint shards:  31% Completed | 63/206 [00:27\u003c00:41,  3.44it/s]\n"}
+,{"stream_name":"stdout","time":235.368751927,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368752887,"data":"Loading safetensors checkpoint shards:  31% Completed | 64/206 [00:27\u003c00:39,  3.58it/s]\n"}
+,{"stream_name":"stdout","time":235.368753917,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":235.368754967,"data":"Loading safetensors checkpoint shards(PLE-offload):  32% Completed | 65/206 [00:16\u003c01:27,  1.61it/s]\n"}
+,{"stream_name":"stdout","time":235.368756037,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368756997,"data":"Loading safetensors checkpoint shards:  32% Completed | 65/206 [00:29\u003c01:48,  1.30it/s]\n"}
+,{"stream_name":"stdout","time":235.368758037,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368758997,"data":"Loading safetensors checkpoint shards:  32% Completed | 66/206 [00:29\u003c01:26,  1.62it/s]\n"}
+,{"stream_name":"stdout","time":235.368760027,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":235.368768777,"data":"Loading safetensors checkpoint shards(PLE-offload):  34% Completed | 70/206 [00:17\u003c00:49,  2.74it/s]\n"}
+,{"stream_name":"stdout","time":235.368769767,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368770507,"data":"Loading safetensors checkpoint shards:  33% Completed | 67/206 [00:30\u003c01:10,  1.98it/s]\n"}
+,{"stream_name":"stdout","time":235.368771277,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368772017,"data":"Loading safetensors checkpoint shards:  33% Completed | 68/206 [00:30\u003c00:59,  2.33it/s]\n"}
+,{"stream_name":"stdout","time":235.368772787,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368773497,"data":"Loading safetensors checkpoint shards:  33% Completed | 69/206 [00:30\u003c00:51,  2.66it/s]\n"}
+,{"stream_name":"stdout","time":235.368774307,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368775047,"data":"Loading safetensors checkpoint shards:  34% Completed | 70/206 [00:30\u003c00:46,  2.95it/s]\n"}
+,{"stream_name":"stdout","time":235.368775877,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368776597,"data":"Loading safetensors checkpoint shards:  34% Completed | 71/206 [00:31\u003c00:42,  3.19it/s]\n"}
+,{"stream_name":"stdout","time":235.368777377,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.368778097,"data":"Loading safetensors checkpoint shards:  35% Completed | 72/206 [00:31\u003c00:39,  3.41it/s]\n"}
+,{"stream_name":"stdout","time":235.572020453,"data":"VLLM_WAIT elapsed_s=120\n"}
+,{"stream_name":"stdout","time":235.572040693,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572042193,"data":"Loading safetensors checkpoint shards:  29% Completed | 60/206 [00:26\u003c00:53,  2.71it/s]\n"}
+,{"stream_name":"stdout","time":235.572043513,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572044373,"data":"Loading safetensors checkpoint shards:  30% Completed | 61/206 [00:26\u003c00:48,  3.00it/s]\n"}
+,{"stream_name":"stdout","time":235.572045253,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572046073,"data":"Loading safetensors checkpoint shards:  30% Completed | 62/206 [00:27\u003c00:44,  3.25it/s]\n"}
+,{"stream_name":"stdout","time":235.572046913,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572047723,"data":"Loading safetensors checkpoint shards:  31% Completed | 63/206 [00:27\u003c00:41,  3.44it/s]\n"}
+,{"stream_name":"stdout","time":235.572048553,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572049253,"data":"Loading safetensors checkpoint shards:  31% Completed | 64/206 [00:27\u003c00:39,  3.58it/s]\n"}
+,{"stream_name":"stdout","time":235.572050043,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":235.572050813,"data":"Loading safetensors checkpoint shards(PLE-offload):  32% Completed | 65/206 [00:16\u003c01:27,  1.61it/s]\n"}
+,{"stream_name":"stdout","time":235.572051623,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572052343,"data":"Loading safetensors checkpoint shards:  32% Completed | 65/206 [00:29\u003c01:48,  1.30it/s]\n"}
+,{"stream_name":"stdout","time":235.572053123,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572053853,"data":"Loading safetensors checkpoint shards:  32% Completed | 66/206 [00:29\u003c01:26,  1.62it/s]\n"}
+,{"stream_name":"stdout","time":235.572054633,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":235.572055353,"data":"Loading safetensors checkpoint shards(PLE-offload):  34% Completed | 70/206 [00:17\u003c00:49,  2.74it/s]\n"}
+,{"stream_name":"stdout","time":235.572060953,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572061863,"data":"Loading safetensors checkpoint shards:  33% Completed | 67/206 [00:30\u003c01:10,  1.98it/s]\n"}
+,{"stream_name":"stdout","time":235.572062693,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572063403,"data":"Loading safetensors checkpoint shards:  33% Completed | 68/206 [00:30\u003c00:59,  2.33it/s]\n"}
+,{"stream_name":"stdout","time":235.572064213,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572064933,"data":"Loading safetensors checkpoint shards:  33% Completed | 69/206 [00:30\u003c00:51,  2.66it/s]\n"}
+,{"stream_name":"stdout","time":235.572065723,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572066453,"data":"Loading safetensors checkpoint shards:  34% Completed | 70/206 [00:30\u003c00:46,  2.95it/s]\n"}
+,{"stream_name":"stdout","time":235.572067233,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572067963,"data":"Loading safetensors checkpoint shards:  34% Completed | 71/206 [00:31\u003c00:42,  3.19it/s]\n"}
+,{"stream_name":"stdout","time":235.572069043,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":235.572069793,"data":"Loading safetensors checkpoint shards:  35% Completed | 72/206 [00:31\u003c00:39,  3.41it/s]\n"}
+,{"stream_name":"stdout","time":295.375202723,"data":"VLLM_WAIT elapsed_s=180\n"}
+,{"stream_name":"stdout","time":295.375230243,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.375232103,"data":"Loading safetensors checkpoint shards(PLE-offload):  91% Completed | 187/206 [01:08\u003c00:07,  2.71it/s]\n"}
+,{"stream_name":"stdout","time":295.375233803,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.375235093,"data":"Loading safetensors checkpoint shards:  90% Completed | 186/206 [01:21\u003c00:06,  2.93it/s]\n"}
+,{"stream_name":"stdout","time":295.375236353,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.375237353,"data":"Loading safetensors checkpoint shards:  91% Completed | 187/206 [01:21\u003c00:05,  3.18it/s]\n"}
+,{"stream_name":"stdout","time":295.375238523,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.375239823,"data":"Loading safetensors checkpoint shards(PLE-offload):  91% Completed | 188/206 [01:09\u003c00:07,  2.45it/s]\n"}
+,{"stream_name":"stdout","time":295.375240943,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.375241933,"data":"Loading safetensors checkpoint shards:  91% Completed | 188/206 [01:21\u003c00:05,  3.37it/s]\n"}
+,{"stream_name":"stdout","time":295.375242993,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.375244003,"data":"Loading safetensors checkpoint shards(PLE-offload):  92% Completed | 189/206 [01:09\u003c00:06,  2.56it/s]\n"}
+,{"stream_name":"stdout","time":295.375245063,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.375246053,"data":"Loading safetensors checkpoint shards:  92% Completed | 189/206 [01:22\u003c00:04,  3.52it/s]\n"}
+,{"stream_name":"stdout","time":295.375247113,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.375248093,"data":"Loading safetensors checkpoint shards:  92% Completed | 190/206 [01:22\u003c00:04,  3.64it/s]\n"}
+,{"stream_name":"stdout","time":295.375249113,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.375250113,"data":"Loading safetensors checkpoint shards(PLE-offload):  93% Completed | 191/206 [01:10\u003c00:06,  2.26it/s]\n"}
+,{"stream_name":"stdout","time":295.375251163,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.375252163,"data":"Loading safetensors checkpoint shards:  93% Completed | 191/206 [01:23\u003c00:06,  2.34it/s]\n"}
+,{"stream_name":"stdout","time":295.375261283,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.375262233,"data":"Loading safetensors checkpoint shards(PLE-offload):  93% Completed | 192/206 [01:11\u003c00:07,  1.92it/s]\n"}
+,{"stream_name":"stdout","time":295.375263043,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.375263743,"data":"Loading safetensors checkpoint shards:  93% Completed | 192/206 [01:23\u003c00:07,  1.79it/s]\n"}
+,{"stream_name":"stdout","time":295.375264523,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.375265283,"data":"Loading safetensors checkpoint shards(PLE-offload):  94% Completed | 193/206 [01:12\u003c00:07,  1.64it/s]\n"}
+,{"stream_name":"stdout","time":295.375266073,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.375266953,"data":"Loading safetensors checkpoint shards(PLE-offload):  95% Completed | 195/206 [01:15\u003c00:11,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":295.375267763,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.375268513,"data":"Loading safetensors checkpoint shards(PLE-offload):  95% Completed | 196/206 [01:16\u003c00:10,  1.01s/it]\n"}
+,{"stream_name":"stdout","time":295.578536055,"data":"VLLM_WAIT elapsed_s=180\n"}
+,{"stream_name":"stdout","time":295.578553935,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.578555345,"data":"Loading safetensors checkpoint shards(PLE-offload):  91% Completed | 187/206 [01:08\u003c00:07,  2.71it/s]\n"}
+,{"stream_name":"stdout","time":295.578556765,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.578557855,"data":"Loading safetensors checkpoint shards:  90% Completed | 186/206 [01:21\u003c00:06,  2.93it/s]\n"}
+,{"stream_name":"stdout","time":295.578558825,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.578559565,"data":"Loading safetensors checkpoint shards:  91% Completed | 187/206 [01:21\u003c00:05,  3.18it/s]\n"}
+,{"stream_name":"stdout","time":295.578560405,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.578561235,"data":"Loading safetensors checkpoint shards(PLE-offload):  91% Completed | 188/206 [01:09\u003c00:07,  2.45it/s]\n"}
+,{"stream_name":"stdout","time":295.578562055,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.578562765,"data":"Loading safetensors checkpoint shards:  91% Completed | 188/206 [01:21\u003c00:05,  3.37it/s]\n"}
+,{"stream_name":"stdout","time":295.578563545,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.578564315,"data":"Loading safetensors checkpoint shards(PLE-offload):  92% Completed | 189/206 [01:09\u003c00:06,  2.56it/s]\n"}
+,{"stream_name":"stdout","time":295.578565115,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.578565845,"data":"Loading safetensors checkpoint shards:  92% Completed | 189/206 [01:22\u003c00:04,  3.52it/s]\n"}
+,{"stream_name":"stdout","time":295.578566645,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.578567355,"data":"Loading safetensors checkpoint shards:  92% Completed | 190/206 [01:22\u003c00:04,  3.64it/s]\n"}
+,{"stream_name":"stdout","time":295.578568155,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.578568915,"data":"Loading safetensors checkpoint shards(PLE-offload):  93% Completed | 191/206 [01:10\u003c00:06,  2.26it/s]\n"}
+,{"stream_name":"stdout","time":295.578569735,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.578570475,"data":"Loading safetensors checkpoint shards:  93% Completed | 191/206 [01:23\u003c00:06,  2.34it/s]\n"}
+,{"stream_name":"stdout","time":295.578576545,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.578577505,"data":"Loading safetensors checkpoint shards(PLE-offload):  93% Completed | 192/206 [01:11\u003c00:07,  1.92it/s]\n"}
+,{"stream_name":"stdout","time":295.578578315,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":295.578579045,"data":"Loading safetensors checkpoint shards:  93% Completed | 192/206 [01:23\u003c00:07,  1.79it/s]\n"}
+,{"stream_name":"stdout","time":295.578579835,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.578580575,"data":"Loading safetensors checkpoint shards(PLE-offload):  94% Completed | 193/206 [01:12\u003c00:07,  1.64it/s]\n"}
+,{"stream_name":"stdout","time":295.578581385,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.578582155,"data":"Loading safetensors checkpoint shards(PLE-offload):  95% Completed | 195/206 [01:15\u003c00:11,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":295.578582975,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":295.578583715,"data":"Loading safetensors checkpoint shards(PLE-offload):  95% Completed | 196/206 [01:16\u003c00:10,  1.01s/it]\n"}
+,{"stream_name":"stdout","time":355.381569131,"data":"VLLM_WAIT elapsed_s=240\n"}
+,{"stream_name":"stdout","time":355.381593961,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381595831,"data":"Loading safetensors checkpoint shards:  31% Completed | 63/206 [00:01\u003c00:02, 58.88it/s]\n"}
+,{"stream_name":"stdout","time":355.381597551,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381598781,"data":"Loading safetensors checkpoint shards:  34% Completed | 70/206 [00:01\u003c00:02, 58.23it/s]\n"}
+,{"stream_name":"stdout","time":355.381599971,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381600971,"data":"Loading safetensors checkpoint shards:  37% Completed | 77/206 [00:01\u003c00:02, 58.63it/s]\n"}
+,{"stream_name":"stdout","time":355.381602151,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381603101,"data":"Loading safetensors checkpoint shards:  40% Completed | 83/206 [00:01\u003c00:02, 57.80it/s]\n"}
+,{"stream_name":"stdout","time":355.381604161,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381605141,"data":"Loading safetensors checkpoint shards:  44% Completed | 90/206 [00:01\u003c00:01, 58.48it/s]\n"}
+,{"stream_name":"stdout","time":355.381606171,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381607311,"data":"Loading safetensors checkpoint shards:  47% Completed | 97/206 [00:01\u003c00:01, 59.44it/s]\n"}
+,{"stream_name":"stdout","time":355.381608361,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381609331,"data":"Loading safetensors checkpoint shards:  50% Completed | 103/206 [00:01\u003c00:01, 59.18it/s]\n"}
+,{"stream_name":"stdout","time":355.381610381,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381611361,"data":"Loading safetensors checkpoint shards:  53% Completed | 109/206 [00:01\u003c00:01, 56.27it/s]\n"}
+,{"stream_name":"stdout","time":355.381612401,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381613361,"data":"Loading safetensors checkpoint shards:  56% Completed | 115/206 [00:02\u003c00:01, 56.68it/s]\n"}
+,{"stream_name":"stdout","time":355.381614401,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381615381,"data":"Loading safetensors checkpoint shards:  59% Completed | 121/206 [00:02\u003c00:01, 57.36it/s]\n"}
+,{"stream_name":"stdout","time":355.381616401,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.38163080100003,"data":"Loading safetensors checkpoint shards:  62% Completed | 128/206 [00:02\u003c00:01, 58.43it/s]\n"}
+,{"stream_name":"stdout","time":355.381631741,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381632451,"data":"Loading safetensors checkpoint shards:  65% Completed | 134/206 [00:02\u003c00:01, 58.30it/s]\n"}
+,{"stream_name":"stdout","time":355.381633241,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381633961,"data":"Loading safetensors checkpoint shards:  68% Completed | 140/206 [00:02\u003c00:01, 57.84it/s]\n"}
+,{"stream_name":"stdout","time":355.381634741,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381635551,"data":"Loading safetensors checkpoint shards:  71% Completed | 146/206 [00:02\u003c00:01, 55.92it/s]\n"}
+,{"stream_name":"stdout","time":355.381636321,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.381637091,"data":"Loading safetensors checkpoint shards:  74% Completed | 152/206 [00:02\u003c00:00, 56.31it/s]\n"}
+,{"stream_name":"stdout","time":355.584970972,"data":"VLLM_WAIT elapsed_s=240\n"}
+,{"stream_name":"stdout","time":355.584976932,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584977992,"data":"Loading safetensors checkpoint shards:  31% Completed | 63/206 [00:01\u003c00:02, 58.88it/s]\n"}
+,{"stream_name":"stdout","time":355.584979242,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584980112,"data":"Loading safetensors checkpoint shards:  34% Completed | 70/206 [00:01\u003c00:02, 58.23it/s]\n"}
+,{"stream_name":"stdout","time":355.584981072,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584981902,"data":"Loading safetensors checkpoint shards:  37% Completed | 77/206 [00:01\u003c00:02, 58.63it/s]\n"}
+,{"stream_name":"stdout","time":355.584982812,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584983602,"data":"Loading safetensors checkpoint shards:  40% Completed | 83/206 [00:01\u003c00:02, 57.80it/s]\n"}
+,{"stream_name":"stdout","time":355.584984402,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584985292,"data":"Loading safetensors checkpoint shards:  44% Completed | 90/206 [00:01\u003c00:01, 58.48it/s]\n"}
+,{"stream_name":"stdout","time":355.584986222,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584987062,"data":"Loading safetensors checkpoint shards:  47% Completed | 97/206 [00:01\u003c00:01, 59.44it/s]\n"}
+,{"stream_name":"stdout","time":355.584987852,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584988592,"data":"Loading safetensors checkpoint shards:  50% Completed | 103/206 [00:01\u003c00:01, 59.18it/s]\n"}
+,{"stream_name":"stdout","time":355.584989402,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584990132,"data":"Loading safetensors checkpoint shards:  53% Completed | 109/206 [00:01\u003c00:01, 56.27it/s]\n"}
+,{"stream_name":"stdout","time":355.584990902,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584991612,"data":"Loading safetensors checkpoint shards:  56% Completed | 115/206 [00:02\u003c00:01, 56.68it/s]\n"}
+,{"stream_name":"stdout","time":355.584992382,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584993102,"data":"Loading safetensors checkpoint shards:  59% Completed | 121/206 [00:02\u003c00:01, 57.36it/s]\n"}
+,{"stream_name":"stdout","time":355.584993892,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584994602,"data":"Loading safetensors checkpoint shards:  62% Completed | 128/206 [00:02\u003c00:01, 58.43it/s]\n"}
+,{"stream_name":"stdout","time":355.584995392,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.584998622,"data":"Loading safetensors checkpoint shards:  65% Completed | 134/206 [00:02\u003c00:01, 58.30it/s]\n"}
+,{"stream_name":"stdout","time":355.584999452,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.58500016200003,"data":"Loading safetensors checkpoint shards:  68% Completed | 140/206 [00:02\u003c00:01, 57.84it/s]\n"}
+,{"stream_name":"stdout","time":355.585000942,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.585001672,"data":"Loading safetensors checkpoint shards:  71% Completed | 146/206 [00:02\u003c00:01, 55.92it/s]\n"}
+,{"stream_name":"stdout","time":355.585002442,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":355.585003162,"data":"Loading safetensors checkpoint shards:  74% Completed | 152/206 [00:02\u003c00:00, 56.31it/s]\n"}
+,{"stream_name":"stdout","time":415.387374773,"data":"VLLM_WAIT elapsed_s=300\n"}
+,{"stream_name":"stdout","time":415.387398353,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.387400423,"data":"Loading safetensors checkpoint shards:  86% Completed | 178/206 [00:03\u003c00:00, 58.01it/s]\n"}
+,{"stream_name":"stdout","time":415.387401943,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.387403343,"data":"Loading safetensors checkpoint shards:  89% Completed | 184/206 [00:03\u003c00:00, 56.83it/s]\n"}
+,{"stream_name":"stdout","time":415.387404733,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.387405733,"data":"Loading safetensors checkpoint shards:  92% Completed | 190/206 [00:03\u003c00:00, 57.02it/s]\n"}
+,{"stream_name":"stdout","time":415.387406823,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":415.387407863,"data":"Loading safetensors checkpoint shards(PLE-offload):  99% Completed | 203/206 [02:21\u003c00:20,  6.94s/it]\n"}
+,{"stream_name":"stdout","time":415.387409043,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":415.387410033,"data":"Loading safetensors checkpoint shards(PLE-offload):  99% Completed | 204/206 [02:29\u003c00:14,  7.39s/it]\n"}
+,{"stream_name":"stdout","time":415.387411183,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.387412473,"data":"Loading safetensors checkpoint shards:  92% Completed | 190/206 [00:21\u003c00:00, 57.02it/s]\n"}
+,{"stream_name":"stdout","time":415.387413553,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.387414553,"data":"Loading safetensors checkpoint shards:  95% Completed | 195/206 [00:28\u003c00:14,  1.30s/it]\n"}
+,{"stream_name":"stdout","time":415.387415623,"data":"(Worker pid=238) INFO 09-23 13:26:06 [weight_utils.py:798] Prefetching checkpoint files: 100% (206/206)\n"}
+,{"stream_name":"stdout","time":415.387416723,"data":"(Worker pid=238) INFO 09-23 13:26:07 [weight_utils.py:821] Prefetching checkpoint files into page cache finished in 177.10s\n"}
+,{"stream_name":"stdout","time":415.387417813,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.387418793,"data":"Loading safetensors checkpoint shards:  95% Completed | 196/206 [00:28\u003c00:12,  1.24s/it]\n"}
+,{"stream_name":"stdout","time":415.387419873,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.387420883,"data":"Loading safetensors checkpoint shards: 100% Completed | 206/206 [00:28\u003c00:00,  7.20it/s]\n"}
+,{"stream_name":"stdout","time":415.387422043,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.387423043,"data":"(Worker pid=238) INFO 09-23 13:26:07 [default_loader.py:430] Loading weights took 29.04 seconds\n"}
+,{"stream_name":"stdout","time":415.387424213,"data":"(Worker pid=238) INFO 09-23 13:26:07 [unquantized.py:399] Using MoEPrepareAndFinalizeNoDPEPModular\n"}
+,{"stream_name":"stdout","time":415.387431393,"data":"(Worker pid=238) INFO 09-23 13:26:07 [unquantized.py:400] Using FlashInferExperts MoE backend\n"}
+,{"stream_name":"stdout","time":415.387432493,"data":"(Worker pid=238) WARNING 09-23 13:26:07 [speculator.py:178] Draft model Qwen3_8FlashNextMTP does not support external multimodal embeddings. Embeddings from the target model will not be passed to the drafter; using text-only draft inputs instead.\n"}
+,{"stream_name":"stdout","time":415.387434283,"data":"(Worker pid=238) INFO 09-23 13:26:08 [model_runner.py:407] Model loading took 81.8 GiB memory and 183.658276 seconds\n"}
+,{"stream_name":"stdout","time":415.387435263,"data":"(Worker pid=238) INFO 09-23 13:26:08 [topk_topp_sampler.py:62] Using FlashInfer for top-p \u0026 top-k sampling.\n"}
+,{"stream_name":"stdout","time":415.387437633,"data":"(Worker pid=238) INFO 09-23 13:26:08 [connector.py:231] PleOffload: registered 1 PleOffloadLayer(s) (dp_rank=0, tp_rank=0, ipc_addr=ipc:///tmp/qwen38-flash-next-vllm-tmp/57277bdd-31cb-47ba-b5c4-a85d848d0918): ['language_model.model.layers.1.ple.ple_embedding']\n"}
+,{"stream_name":"stdout","time":415.387438843,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":415.387439663,"data":"Loading safetensors checkpoint shards(PLE-offload): 100% Completed | 205/206 [03:12\u003c00:18, 18.03s/it]\n"}
+,{"stream_name":"stdout","time":415.591718935,"data":"VLLM_WAIT elapsed_s=300\n"}
+,{"stream_name":"stdout","time":415.591723485,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.591724395,"data":"Loading safetensors checkpoint shards:  86% Completed | 178/206 [00:03\u003c00:00, 58.01it/s]\n"}
+,{"stream_name":"stdout","time":415.591725315,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.591726175,"data":"Loading safetensors checkpoint shards:  89% Completed | 184/206 [00:03\u003c00:00, 56.83it/s]\n"}
+,{"stream_name":"stdout","time":415.591727015,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.591727955,"data":"Loading safetensors checkpoint shards:  92% Completed | 190/206 [00:03\u003c00:00, 57.02it/s]\n"}
+,{"stream_name":"stdout","time":415.591728735,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":415.591729505,"data":"Loading safetensors checkpoint shards(PLE-offload):  99% Completed | 203/206 [02:21\u003c00:20,  6.94s/it]\n"}
+,{"stream_name":"stdout","time":415.591730325,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":415.591731095,"data":"Loading safetensors checkpoint shards(PLE-offload):  99% Completed | 204/206 [02:29\u003c00:14,  7.39s/it]\n"}
+,{"stream_name":"stdout","time":415.591731924,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.591732794,"data":"Loading safetensors checkpoint shards:  92% Completed | 190/206 [00:21\u003c00:00, 57.02it/s]\n"}
+,{"stream_name":"stdout","time":415.591733614,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.591734384,"data":"Loading safetensors checkpoint shards:  95% Completed | 195/206 [00:28\u003c00:14,  1.30s/it]\n"}
+,{"stream_name":"stdout","time":415.591735224,"data":"(Worker pid=238) INFO 09-23 13:26:06 [weight_utils.py:798] Prefetching checkpoint files: 100% (206/206)\n"}
+,{"stream_name":"stdout","time":415.591736084,"data":"(Worker pid=238) INFO 09-23 13:26:07 [weight_utils.py:821] Prefetching checkpoint files into page cache finished in 177.10s\n"}
+,{"stream_name":"stdout","time":415.591736934,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.591737674,"data":"Loading safetensors checkpoint shards:  95% Completed | 196/206 [00:28\u003c00:12,  1.24s/it]\n"}
+,{"stream_name":"stdout","time":415.591738534,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.591741684,"data":"Loading safetensors checkpoint shards: 100% Completed | 206/206 [00:28\u003c00:00,  7.20it/s]\n"}
+,{"stream_name":"stdout","time":415.591742554,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":415.591743294,"data":"(Worker pid=238) INFO 09-23 13:26:07 [default_loader.py:430] Loading weights took 29.04 seconds\n"}
+,{"stream_name":"stdout","time":415.591744114,"data":"(Worker pid=238) INFO 09-23 13:26:07 [unquantized.py:399] Using MoEPrepareAndFinalizeNoDPEPModular\n"}
+,{"stream_name":"stdout","time":415.591744924,"data":"(Worker pid=238) INFO 09-23 13:26:07 [unquantized.py:400] Using FlashInferExperts MoE backend\n"}
+,{"stream_name":"stdout","time":415.591745754,"data":"(Worker pid=238) WARNING 09-23 13:26:07 [speculator.py:178] Draft model Qwen3_8FlashNextMTP does not support external multimodal embeddings. Embeddings from the target model will not be passed to the drafter; using text-only draft inputs instead.\n"}
+,{"stream_name":"stdout","time":415.591746724,"data":"(Worker pid=238) INFO 09-23 13:26:08 [model_runner.py:407] Model loading took 81.8 GiB memory and 183.658276 seconds\n"}
+,{"stream_name":"stdout","time":415.591747574,"data":"(Worker pid=238) INFO 09-23 13:26:08 [topk_topp_sampler.py:62] Using FlashInfer for top-p \u0026 top-k sampling.\n"}
+,{"stream_name":"stdout","time":415.591748754,"data":"(Worker pid=238) INFO 09-23 13:26:08 [connector.py:231] PleOffload: registered 1 PleOffloadLayer(s) (dp_rank=0, tp_rank=0, ipc_addr=ipc:///tmp/qwen38-flash-next-vllm-tmp/57277bdd-31cb-47ba-b5c4-a85d848d0918): ['language_model.model.layers.1.ple.ple_embedding']\n"}
+,{"stream_name":"stdout","time":415.591749754,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":415.591750544,"data":"Loading safetensors checkpoint shards(PLE-offload): 100% Completed | 205/206 [03:12\u003c00:18, 18.03s/it]\n"}
+,{"stream_name":"stdout","time":475.394003701,"data":"VLLM_WAIT elapsed_s=360\n"}
+,{"stream_name":"stdout","time":475.394023931,"data":"Loading safetensors checkpoint shards(PLE-offload): 100% Completed | 205/206 [03:12\u003c00:18, 18.03s/it]\n"}
+,{"stream_name":"stdout","time":475.394026031,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":475.394027341,"data":"Loading safetensors checkpoint shards(PLE-offload): 100% Completed | 206/206 [03:47\u003c00:00, 22.89s/it]\n"}
+,{"stream_name":"stdout","time":475.394028931,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":475.394030061,"data":"Loading safetensors checkpoint shards(PLE-offload): 100% Completed | 206/206 [03:47\u003c00:00,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":475.394031271,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":475.394032361,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:09 [worker.py:448] PLE offload matched 132 checkpoint tensor(s), loaded 5 offload entries, and verified 2/2 materialized parameter(s) for layers: ['language_model.model.layers.1.ple.ple_embedding']\n"}
+,{"stream_name":"stdout","time":475.394034211,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:09 [worker.py:471] PLE weight loading complete.\n"}
+,{"stream_name":"stdout","time":475.394035371,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:09 [worker.py:289] Bound IPC address ipc:///tmp/qwen38-flash-next-vllm-tmp/57277bdd-31cb-47ba-b5c4-a85d848d0918; waiting for 1 GPU worker registration(s).\n"}
+,{"stream_name":"stdout","time":475.394036641,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:09 [worker.py:479] Waiting for 1 GPU worker registration(s) ...\n"}
+,{"stream_name":"stdout","time":475.394037741,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:10 [worker.py:489] GPU worker 0 registered (dp_rank=0, tp_rank=0, layers=['language_model.model.layers.1.ple.ple_embedding']).\n"}
+,{"stream_name":"stdout","time":475.394043601,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:10 [worker.py:576] Registrations complete (dp_size=1, tp_size=1, layers=['language_model.model.layers.1.ple.ple_embedding']).\n"}
+,{"stream_name":"stdout","time":475.394044651,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:10 [worker.py:590] Busy-loop started.\n"}
+,{"stream_name":"stdout","time":475.394045451,"data":"(Worker pid=238) INFO 09-23 13:27:10 [worker.py:232] Worker ready - 1 PleOffloadLayer(s): ['language_model.model.layers.1.ple.ple_embedding']\n"}
+,{"stream_name":"stdout","time":475.394046331,"data":"(Worker pid=238) INFO 09-23 13:27:10 [interface.py:915] Setting attention block size to 1600 tokens to ensure that attention page size is \u003e= mamba page size.\n"}
+,{"stream_name":"stdout","time":475.394047341,"data":"(Worker pid=238) INFO 09-23 13:27:10 [interface.py:939] Padding mamba page size by 0.25% to ensure that mamba page size and attention page size are exactly equal.\n"}
+,{"stream_name":"stdout","time":475.394049321,"data":"(Worker pid=238) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":475.394050261,"data":"(Worker pid=238) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":475.394051151,"data":"(Worker pid=238) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend=\"torchvision\"` instead of `use_fast=True`, or `backend=\"pil\"` instead of `use_fast=False`.\n"}
+,{"stream_name":"stdout","time":475.394052481,"data":"(Worker pid=238) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":475.394053331,"data":"(Worker pid=238) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":475.394054181,"data":"(Worker pid=238) INFO 09-23 13:27:14 [encoder_runner.py:120] Encoder cache will be initialized with a budget of 16384 tokens, and profiled with 1 image items of the maximum feature size.\n"}
+,{"stream_name":"stdout","time":475.394055051,"data":"(Worker pid=238) INFO 09-23 13:27:29 [backends.py:1094] Using cache directory: /tmp/qwen38-flash-next-vllm-cache/vllm/torch_compile_cache/eee0b6c579/rank_0_0/backbone for vLLM's torch.compile\n"}
+,{"stream_name":"stdout","time":475.394055971,"data":"(Worker pid=238) INFO 09-23 13:27:29 [backends.py:1155] Dynamo bytecode transform time: 5.18 s\n"}
+,{"stream_name":"stdout","time":475.394056901,"data":"(Worker pid=238) INFO 09-23 13:27:38 [backends.py:393] Compiling a graph for compile range (1, 8192) takes 8.46 s\n"}
+,{"stream_name":"stdout","time":475.394057761,"data":"(Worker pid=238) INFO 09-23 13:27:41 [backends.py:920] collected artifacts: 50 entries, 18 artifacts, 7564968 bytes total\n"}
+,{"stream_name":"stdout","time":475.394058641,"data":"(Worker pid=238) INFO 09-23 13:27:41 [decorators.py:708] saved AOT compiled function to /tmp/qwen38-flash-next-vllm-cache/vllm/torch_compile_cache/torch_aot_compile/d7bdc0a9a814e2d94f14207e772c1e37a64a688fad5a47335798630ce58ed339/rank_0_0/model\n"}
+,{"stream_name":"stdout","time":475.394059741,"data":"(Worker pid=238) INFO 09-23 13:27:41 [monitor.py:53] torch.compile took 17.02 s in total\n"}
+,{"stream_name":"stdout","time":475.394060541,"data":"(Worker pid=238) /tmp/qwen38-flash-next-vllm-runtime/usr/local/lib/python3.12/dist-packages/triton/language/core.py:2284: UserWarning: tl.make_block_ptr is deprecated. Use TensorDescriptor or tl.make_tensor_descriptor instead.\n"}
+,{"stream_name":"stdout","time":475.394061471,"data":"(Worker pid=238)   warn(\"tl.make_block_ptr is deprecated. Use TensorDescriptor or tl.make_tensor_descriptor instead.\")\n"}
+,{"stream_name":"stdout","time":475.59727447,"data":"VLLM_WAIT elapsed_s=360\n"}
+,{"stream_name":"stdout","time":475.5972838,"data":"Loading safetensors checkpoint shards(PLE-offload): 100% Completed | 205/206 [03:12\u003c00:18, 18.03s/it]\n"}
+,{"stream_name":"stdout","time":475.5972855,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":475.59728639,"data":"Loading safetensors checkpoint shards(PLE-offload): 100% Completed | 206/206 [03:47\u003c00:00, 22.89s/it]\n"}
+,{"stream_name":"stdout","time":475.59728738,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":475.59728814,"data":"Loading safetensors checkpoint shards(PLE-offload): 100% Completed | 206/206 [03:47\u003c00:00,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":475.59728898,"data":"(PleOffloadWorker pid=301) \n"}
+,{"stream_name":"stdout","time":475.59728972,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:09 [worker.py:448] PLE offload matched 132 checkpoint tensor(s), loaded 5 offload entries, and verified 2/2 materialized parameter(s) for layers: ['language_model.model.layers.1.ple.ple_embedding']\n"}
+,{"stream_name":"stdout","time":475.59729073,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:09 [worker.py:471] PLE weight loading complete.\n"}
+,{"stream_name":"stdout","time":475.5972916,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:09 [worker.py:289] Bound IPC address ipc:///tmp/qwen38-flash-next-vllm-tmp/57277bdd-31cb-47ba-b5c4-a85d848d0918; waiting for 1 GPU worker registration(s).\n"}
+,{"stream_name":"stdout","time":475.59729255,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:09 [worker.py:479] Waiting for 1 GPU worker registration(s) ...\n"}
+,{"stream_name":"stdout","time":475.5972934,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:10 [worker.py:489] GPU worker 0 registered (dp_rank=0, tp_rank=0, layers=['language_model.model.layers.1.ple.ple_embedding']).\n"}
+,{"stream_name":"stdout","time":475.59729431,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:10 [worker.py:576] Registrations complete (dp_size=1, tp_size=1, layers=['language_model.model.layers.1.ple.ple_embedding']).\n"}
+,{"stream_name":"stdout","time":475.59729518,"data":"(PleOffloadWorker pid=301) INFO 09-23 13:27:10 [worker.py:590] Busy-loop started.\n"}
+,{"stream_name":"stdout","time":475.59729598,"data":"(Worker pid=238) INFO 09-23 13:27:10 [worker.py:232] Worker ready - 1 PleOffloadLayer(s): ['language_model.model.layers.1.ple.ple_embedding']\n"}
+,{"stream_name":"stdout","time":475.59729686,"data":"(Worker pid=238) INFO 09-23 13:27:10 [interface.py:915] Setting attention block size to 1600 tokens to ensure that attention page size is \u003e= mamba page size.\n"}
+,{"stream_name":"stdout","time":475.5972979,"data":"(Worker pid=238) INFO 09-23 13:27:10 [interface.py:939] Padding mamba page size by 0.25% to ensure that mamba page size and attention page size are exactly equal.\n"}
+,{"stream_name":"stdout","time":475.59729926,"data":"(Worker pid=238) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":475.59730021,"data":"(Worker pid=238) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":475.5973011,"data":"(Worker pid=238) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend=\"torchvision\"` instead of `use_fast=True`, or `backend=\"pil\"` instead of `use_fast=False`.\n"}
+,{"stream_name":"stdout","time":475.59730233,"data":"(Worker pid=238) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":475.59730663,"data":"(Worker pid=238) [transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}\n"}
+,{"stream_name":"stdout","time":475.59730763,"data":"(Worker pid=238) INFO 09-23 13:27:14 [encoder_runner.py:120] Encoder cache will be initialized with a budget of 16384 tokens, and profiled with 1 image items of the maximum feature size.\n"}
+,{"stream_name":"stdout","time":475.59730863,"data":"(Worker pid=238) INFO 09-23 13:27:29 [backends.py:1094] Using cache directory: /tmp/qwen38-flash-next-vllm-cache/vllm/torch_compile_cache/eee0b6c579/rank_0_0/backbone for vLLM's torch.compile\n"}
+,{"stream_name":"stdout","time":475.59730955,"data":"(Worker pid=238) INFO 09-23 13:27:29 [backends.py:1155] Dynamo bytecode transform time: 5.18 s\n"}
+,{"stream_name":"stdout","time":475.5973104,"data":"(Worker pid=238) INFO 09-23 13:27:38 [backends.py:393] Compiling a graph for compile range (1, 8192) takes 8.46 s\n"}
+,{"stream_name":"stdout","time":475.59731123,"data":"(Worker pid=238) INFO 09-23 13:27:41 [backends.py:920] collected artifacts: 50 entries, 18 artifacts, 7564968 bytes total\n"}
+,{"stream_name":"stdout","time":475.59731209,"data":"(Worker pid=238) INFO 09-23 13:27:41 [decorators.py:708] saved AOT compiled function to /tmp/qwen38-flash-next-vllm-cache/vllm/torch_compile_cache/torch_aot_compile/d7bdc0a9a814e2d94f14207e772c1e37a64a688fad5a47335798630ce58ed339/rank_0_0/model\n"}
+,{"stream_name":"stdout","time":475.59731305,"data":"(Worker pid=238) INFO 09-23 13:27:41 [monitor.py:53] torch.compile took 17.02 s in total\n"}
+,{"stream_name":"stdout","time":475.5973139,"data":"(Worker pid=238) /tmp/qwen38-flash-next-vllm-runtime/usr/local/lib/python3.12/dist-packages/triton/language/core.py:2284: UserWarning: tl.make_block_ptr is deprecated. Use TensorDescriptor or tl.make_tensor_descriptor instead.\n"}
+,{"stream_name":"stdout","time":475.59731482,"data":"(Worker pid=238)   warn(\"tl.make_block_ptr is deprecated. Use TensorDescriptor or tl.make_tensor_descriptor instead.\")\n"}
+,{"stream_name":"stdout","time":535.399742347,"data":"VLLM_WAIT elapsed_s=420\n"}
+,{"stream_name":"stdout","time":535.399763917,"data":"(Worker pid=238) 2026-09-23 13:28:37,680 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399766547,"data":"(Worker pid=238) 2026-09-23 13:28:37,870 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399768007,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399769417,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  43%|████▎     | 9/21 [00:00\u003c00:01,  9.54profile/s]2026-09-23 13:28:38,063 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399771547,"data":"(Worker pid=238) 2026-09-23 13:28:38,258 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399772757,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399773847,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  52%|█████▏    | 11/21 [00:01\u003c00:01,  7.58profile/s]2026-09-23 13:28:38,455 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399780817,"data":"(Worker pid=238) 2026-09-23 13:28:38,653 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399781897,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399782877,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  62%|██████▏   | 13/21 [00:01\u003c00:01,  6.59profile/s]2026-09-23 13:28:38,856 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399784037,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399784947,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  67%|██████▋   | 14/21 [00:01\u003c00:01,  6.22profile/s]2026-09-23 13:28:39,061 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399786047,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399787877,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  71%|███████▏  | 15/21 [00:01\u003c00:01,  5.89profile/s]2026-09-23 13:28:39,267 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399788917,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399789687,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  76%|███████▌  | 16/21 [00:02\u003c00:00,  5.62profile/s]2026-09-23 13:28:39,480 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399790677,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399791387,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  81%|████████  | 17/21 [00:02\u003c00:00,  5.37profile/s]2026-09-23 13:28:39,731 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399792407,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399793157,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  86%|████████▌ | 18/21 [00:02\u003c00:00,  4.93profile/s]2026-09-23 13:28:40,068 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399794227,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399794957,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  90%|█████████ | 19/21 [00:02\u003c00:00,  4.18profile/s]2026-09-23 13:28:40,444 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399795997,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399796747,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  95%|█████████▌| 20/21 [00:03\u003c00:00,  3.61profile/s]2026-09-23 13:28:40,887 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.399797777,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399877957,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1: 100%|██████████| 21/21 [00:03\u003c00:00,  3.09profile/s]\n"}
+,{"stream_name":"stdout","time":535.399880877,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1: 100%|██████████| 21/21 [00:03\u003c00:00,  5.50profile/s]\n"}
+,{"stream_name":"stdout","time":535.399881727,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.399882447,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm2:   0%|          | 0/21 [00:00\u003c?, ?profile/s]\n"}
+,{"stream_name":"stdout","time":535.399883297,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm2:  29%|██▊       | 6/21 [00:00\u003c00:00, 42.74profile/s]\n"}
+,{"stream_name":"stdout","time":535.603127694,"data":"VLLM_WAIT elapsed_s=420\n"}
+,{"stream_name":"stdout","time":535.603131704,"data":"(Worker pid=238) 2026-09-23 13:28:37,680 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603132894,"data":"(Worker pid=238) 2026-09-23 13:28:37,870 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603133884,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603134834,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  43%|████▎     | 9/21 [00:00\u003c00:01,  9.54profile/s]2026-09-23 13:28:38,063 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603136244,"data":"(Worker pid=238) 2026-09-23 13:28:38,258 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603137164,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603137974,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  52%|█████▏    | 11/21 [00:01\u003c00:01,  7.58profile/s]2026-09-23 13:28:38,455 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603139164,"data":"(Worker pid=238) 2026-09-23 13:28:38,653 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603140044,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603140894,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  62%|██████▏   | 13/21 [00:01\u003c00:01,  6.59profile/s]2026-09-23 13:28:38,856 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603141984,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603142974,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  67%|██████▋   | 14/21 [00:01\u003c00:01,  6.22profile/s]2026-09-23 13:28:39,061 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603143984,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603144974,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  71%|███████▏  | 15/21 [00:01\u003c00:01,  5.89profile/s]2026-09-23 13:28:39,267 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603147344,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603148114,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  76%|███████▌  | 16/21 [00:02\u003c00:00,  5.62profile/s]2026-09-23 13:28:39,480 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603149134,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603149834,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  81%|████████  | 17/21 [00:02\u003c00:00,  5.37profile/s]2026-09-23 13:28:39,731 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603150854,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603151584,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  86%|████████▌ | 18/21 [00:02\u003c00:00,  4.93profile/s]2026-09-23 13:28:40,068 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603152594,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603153304,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  90%|█████████ | 19/21 [00:02\u003c00:00,  4.18profile/s]2026-09-23 13:28:40,444 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603154284,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603155024,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1:  95%|█████████▌| 20/21 [00:03\u003c00:00,  3.61profile/s]2026-09-23 13:28:40,887 - INFO - autotuner.py:1699 - flashinfer.jit: [Autotuner]: Skipped 2 unsupported tactic(s) for trtllm::fused_moe::gemm1 (enable debug logs to see details)\n"}
+,{"stream_name":"stdout","time":535.603156024,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603156744,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1: 100%|██████████| 21/21 [00:03\u003c00:00,  3.09profile/s]\n"}
+,{"stream_name":"stdout","time":535.603157744,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm1: 100%|██████████| 21/21 [00:03\u003c00:00,  5.50profile/s]\n"}
+,{"stream_name":"stdout","time":535.603158574,"data":"(Worker pid=238) \n"}
+,{"stream_name":"stdout","time":535.603159314,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm2:   0%|          | 0/21 [00:00\u003c?, ?profile/s]\n"}
+,{"stream_name":"stdout","time":535.603160154,"data":"[AutoTuner]: Tuning trtllm::fused_moe::gemm2:  29%|██▊       | 6/21 [00:00\u003c00:00, 42.74profile/s]\n"}
+,{"stream_name":"stdout","time":575.411818011,"data":"VLLM_SETUP_COMPLETE {\"mode\": \"fast\", \"pid\": 151, \"ready_seconds\": 460.050214362}\n"}
+,{"stream_name":"stdout","time":575.429243153,"data":"VLLM_SETUP_COMPLETE {\"mode\": \"fast\", \"pid\": 151, \"ready_seconds\": 460.050214362}\n"}
+,{"stream_name":"stdout","time":577.224578994,"data":"PUBLIC25_SETTINGS budget_s=7920.0 concurrency=28 analyzer_timeout=900.0 action_cap=None request_logs=False\n"}
+,{"stream_name":"stdout","time":577.275245461,"data":"DEADPROBE_LIVE ab=answer-s3 mode=guard+answer guard=True answer=True honest=True play=deadprobe.counters step_env=deadprobe.duck_patch execute=deadprobe.duck_patch sha={'__init__.py': '18e0f20840a7', 'counters.py': 'ba5e4d0c1a5a', 'duck_patch.py': 'e2cffc3960f1', 'grid.py': '9cda9d9d517a', 'memo.py': '7f435d133b6c', 'probe.py': 'b1f6f11ecec7', 'score.py': 'bd70f2110968'}\n"}
+,{"stream_name":"stdout","time":577.507563018,"data":"PUBLIC25_SELECTION games=25 passes=1\n"}
+,{"stream_name":"stdout","time":1179.064677736,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":1179.064699596,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":1179.064701356,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":1179.064702716,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":1179.064703816,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":1179.064704926,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":1179.064705976,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":1179.064707006,"data":"mean score:    0.63\n"}
+,{"stream_name":"stdout","time":1179.064708006,"data":"median score:  0.00\n"}
+,{"stream_name":"stdout","time":1179.064709056,"data":"total actions: 225\n"}
+,{"stream_name":"stdout","time":1179.064710056,"data":"total tokens:  160142\n"}
+,{"stream_name":"stdout","time":1179.064711116,"data":"generated tokens/sec: 266.32 (job wallclock)\n"}
+,{"stream_name":"stdout","time":1179.064712216,"data":"total wallclock: 11824.9s\n"}
+,{"stream_name":"stdout","time":1179.064713246,"data":"\n"}
+,{"stream_name":"stdout","time":1179.064714256,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":1179.064715516,"data":"  ar25-0c556536: score=2.78, levels=1.0/8, actions=17, tokens=4566\n"}
+,{"stream_name":"stdout","time":1179.064716606,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=3, tokens=4311\n"}
+,{"stream_name":"stdout","time":1179.064717676,"data":"  cd82-fb555c5d: score=0.00, levels=0.0/6, actions=11, tokens=7271\n"}
+,{"stream_name":"stdout","time":1179.064718736,"data":"  cn04-2fe56bfb: score=0.00, levels=0.0/6, actions=9, tokens=4764\n"}
+,{"stream_name":"stdout","time":1179.064719766,"data":"  dc22-fdcac232: score=0.00, levels=0.0/6, actions=13, tokens=6932\n"}
+,{"stream_name":"stdout","time":1179.064720786,"data":"  ft09-0d8bbf25: score=0.00, levels=0.0/6, actions=14, tokens=6957\n"}
+,{"stream_name":"stdout","time":1179.064721786,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=2, tokens=8517\n"}
+,{"stream_name":"stdout","time":1179.064722826,"data":"  ka59-38d34dbb: score=0.00, levels=0.0/7, actions=4, tokens=5881\n"}
+,{"stream_name":"stdout","time":1179.064723856,"data":"  lf52-271a04aa: score=0.00, levels=0.0/10, actions=3, tokens=4684\n"}
+,{"stream_name":"stdout","time":1179.064724916,"data":"  lp85-305b61c3: score=2.78, levels=1.0/8, actions=5, tokens=10039\n"}
+,{"stream_name":"stdout","time":1179.064725966,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=9, tokens=6304\n"}
+,{"stream_name":"stdout","time":1179.064727006,"data":"  m0r0-492f87ba: score=0.00, levels=0.0/6, actions=5, tokens=5381\n"}
+,{"stream_name":"stdout","time":1179.064728046,"data":"  r11l-495a7899: score=4.76, levels=1.0/6, actions=6, tokens=9005\n"}
+,{"stream_name":"stdout","time":1179.064729076,"data":"  re86-8af5384d: score=2.78, levels=1.0/8, actions=21, tokens=5251\n"}
+,{"stream_name":"stdout","time":1179.064730126,"data":"  s5i5-18d95033: score=0.00, levels=0.0/8, actions=5, tokens=8921\n"}
+,{"stream_name":"stdout","time":1179.064731156,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=11, tokens=3691\n"}
+,{"stream_name":"stdout","time":1179.064732206,"data":"  sc25-635fd71a: score=0.00, levels=0.0/6, actions=14, tokens=8866\n"}
+,{"stream_name":"stdout","time":1179.064733276,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=9, tokens=8244\n"}
+,{"stream_name":"stdout","time":1179.064734346,"data":"  sp80-589a99af: score=0.00, levels=0.0/6, actions=27, tokens=7776\n"}
+,{"stream_name":"stdout","time":1179.064739846,"data":"  su15-1944f8ab: score=0.00, levels=0.0/9, actions=7, tokens=6343\n"}
+,{"stream_name":"stdout","time":1179.064740686,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=6, tokens=3716\n"}
+,{"stream_name":"stdout","time":1179.064741436,"data":"  tr87-cd924810: score=0.00, levels=0.0/6, actions=9, tokens=6595\n"}
+,{"stream_name":"stdout","time":1179.064742216,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=1, tokens=4901\n"}
+,{"stream_name":"stdout","time":1179.064742956,"data":"  vc33-5430563c: score=0.00, levels=0.0/7, actions=7, tokens=5556\n"}
+,{"stream_name":"stdout","time":1179.064743736,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=7, tokens=5670\n"}
+,{"stream_name":"stdout","time":1179.064744506,"data":"\n"}
+,{"stream_name":"stdout","time":1779.070206918,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":1779.070229938,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":1779.070231998,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":1779.070242158,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":1779.070243458,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":1779.070244468,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":1779.070245648,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":1779.070246928,"data":"mean score:    0.97\n"}
+,{"stream_name":"stdout","time":1779.070248028,"data":"median score:  0.00\n"}
+,{"stream_name":"stdout","time":1779.070249108,"data":"total actions: 378\n"}
+,{"stream_name":"stdout","time":1779.070250208,"data":"total tokens:  276285\n"}
+,{"stream_name":"stdout","time":1779.070251298,"data":"generated tokens/sec: 229.98 (job wallclock)\n"}
+,{"stream_name":"stdout","time":1779.070252598,"data":"total wallclock: 23005.9s\n"}
+,{"stream_name":"stdout","time":1779.070253698,"data":"\n"}
+,{"stream_name":"stdout","time":1779.070254808,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":1779.070256048,"data":"  ar25-0c556536: score=2.78, levels=1.0/8, actions=17, tokens=4566\n"}
+,{"stream_name":"stdout","time":1779.070257238,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=11, tokens=6446\n"}
+,{"stream_name":"stdout","time":1779.070258318,"data":"  cd82-fb555c5d: score=0.00, levels=0.0/6, actions=16, tokens=12753\n"}
+,{"stream_name":"stdout","time":1779.070259388,"data":"  cn04-2fe56bfb: score=0.00, levels=0.0/6, actions=17, tokens=8168\n"}
+,{"stream_name":"stdout","time":1779.070260428,"data":"  dc22-fdcac232: score=0.00, levels=0.0/6, actions=17, tokens=10644\n"}
+,{"stream_name":"stdout","time":1779.070261468,"data":"  ft09-0d8bbf25: score=4.76, levels=1.0/6, actions=22, tokens=11712\n"}
+,{"stream_name":"stdout","time":1779.070262518,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=7, tokens=15083\n"}
+,{"stream_name":"stdout","time":1779.070263548,"data":"  ka59-38d34dbb: score=0.00, levels=0.0/7, actions=13, tokens=13499\n"}
+,{"stream_name":"stdout","time":1779.070264608,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=10, tokens=8732\n"}
+,{"stream_name":"stdout","time":1779.070265628,"data":"  lp85-305b61c3: score=2.78, levels=1.0/8, actions=8, tokens=17248\n"}
+,{"stream_name":"stdout","time":1779.070266688,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=10, tokens=9124\n"}
+,{"stream_name":"stdout","time":1779.070267718,"data":"  m0r0-492f87ba: score=0.00, levels=0.0/6, actions=10, tokens=10265\n"}
+,{"stream_name":"stdout","time":1779.070268748,"data":"  r11l-495a7899: score=4.76, levels=1.0/6, actions=17, tokens=19836\n"}
+,{"stream_name":"stdout","time":1779.070275628,"data":"  re86-8af5384d: score=2.78, levels=1.0/8, actions=28, tokens=13639\n"}
+,{"stream_name":"stdout","time":1779.070276918,"data":"  s5i5-18d95033: score=0.00, levels=0.0/8, actions=10, tokens=14533\n"}
+,{"stream_name":"stdout","time":1779.070278068,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=25, tokens=6011\n"}
+,{"stream_name":"stdout","time":1779.070279178,"data":"  sc25-635fd71a: score=0.00, levels=0.0/6, actions=22, tokens=14355\n"}
+,{"stream_name":"stdout","time":1779.070280258,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=9, tokens=8244\n"}
+,{"stream_name":"stdout","time":1779.070281318,"data":"  sp80-589a99af: score=0.00, levels=0.0/6, actions=39, tokens=11638\n"}
+,{"stream_name":"stdout","time":1779.070282458,"data":"  su15-1944f8ab: score=0.00, levels=0.0/9, actions=11, tokens=10424\n"}
+,{"stream_name":"stdout","time":1779.070283618,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=20, tokens=15214\n"}
+,{"stream_name":"stdout","time":1779.070284758,"data":"  tr87-cd924810: score=0.00, levels=0.0/6, actions=9, tokens=6595\n"}
+,{"stream_name":"stdout","time":1779.070285928,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=1, tokens=4901\n"}
+,{"stream_name":"stdout","time":1779.070287078,"data":"  vc33-5430563c: score=1.75, levels=1.0/7, actions=11, tokens=10225\n"}
+,{"stream_name":"stdout","time":1779.070288268,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=18, tokens=12430\n"}
+,{"stream_name":"stdout","time":1779.070289478,"data":"\n"}
+,{"stream_name":"stdout","time":2379.098777524,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":2379.098804224,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":2379.098806144,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":2379.098807294,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":2379.098808364,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":2379.098809754,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":2379.098810884,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":2379.098811864,"data":"mean score:    2.05\n"}
+,{"stream_name":"stdout","time":2379.098812844,"data":"median score:  0.00\n"}
+,{"stream_name":"stdout","time":2379.098813804,"data":"total actions: 580\n"}
+,{"stream_name":"stdout","time":2379.098814774,"data":"total tokens:  417938\n"}
+,{"stream_name":"stdout","time":2379.098815824,"data":"generated tokens/sec: 232.01 (job wallclock)\n"}
+,{"stream_name":"stdout","time":2379.098816924,"data":"total wallclock: 37884.7s\n"}
+,{"stream_name":"stdout","time":2379.098818064,"data":"\n"}
+,{"stream_name":"stdout","time":2379.098819274,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":2379.098820404,"data":"  ar25-0c556536: score=2.78, levels=1.0/8, actions=22, tokens=10727\n"}
+,{"stream_name":"stdout","time":2379.098821474,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=17, tokens=9901\n"}
+,{"stream_name":"stdout","time":2379.098822514,"data":"  cd82-fb555c5d: score=0.00, levels=0.0/6, actions=19, tokens=19403\n"}
+,{"stream_name":"stdout","time":2379.098823574,"data":"  cn04-2fe56bfb: score=0.00, levels=0.0/6, actions=20, tokens=16854\n"}
+,{"stream_name":"stdout","time":2379.098824594,"data":"  dc22-fdcac232: score=0.00, levels=0.0/6, actions=28, tokens=16294\n"}
+,{"stream_name":"stdout","time":2379.098825604,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=35, tokens=15155\n"}
+,{"stream_name":"stdout","time":2379.098826794,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=12, tokens=24608\n"}
+,{"stream_name":"stdout","time":2379.098832254,"data":"  ka59-38d34dbb: score=0.00, levels=0.0/7, actions=17, tokens=17617\n"}
+,{"stream_name":"stdout","time":2379.098833134,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=16, tokens=12902\n"}
+,{"stream_name":"stdout","time":2379.098833914,"data":"  lp85-305b61c3: score=8.33, levels=2.0/8, actions=18, tokens=28204\n"}
+,{"stream_name":"stdout","time":2379.098834684,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=10, tokens=9124\n"}
+,{"stream_name":"stdout","time":2379.098835454,"data":"  m0r0-492f87ba: score=0.00, levels=0.0/6, actions=10, tokens=10265\n"}
+,{"stream_name":"stdout","time":2379.098836234,"data":"  r11l-495a7899: score=4.76, levels=1.0/6, actions=17, tokens=19836\n"}
+,{"stream_name":"stdout","time":2379.098836994,"data":"  re86-8af5384d: score=2.78, levels=1.0/8, actions=44, tokens=15479\n"}
+,{"stream_name":"stdout","time":2379.098837764,"data":"  s5i5-18d95033: score=0.00, levels=0.0/8, actions=13, tokens=18511\n"}
+,{"stream_name":"stdout","time":2379.098838544,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=44, tokens=14834\n"}
+,{"stream_name":"stdout","time":2379.098839334,"data":"  sc25-635fd71a: score=0.00, levels=0.0/6, actions=30, tokens=16397\n"}
+,{"stream_name":"stdout","time":2379.098840064,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=11, tokens=11559\n"}
+,{"stream_name":"stdout","time":2379.098840824,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=71, tokens=22450\n"}
+,{"stream_name":"stdout","time":2379.098841604,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=19, tokens=13853\n"}
+,{"stream_name":"stdout","time":2379.098842364,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=35, tokens=22606\n"}
+,{"stream_name":"stdout","time":2379.098843114,"data":"  tr87-cd924810: score=0.00, levels=0.0/6, actions=16, tokens=25104\n"}
+,{"stream_name":"stdout","time":2379.098843924,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=8, tokens=15444\n"}
+,{"stream_name":"stdout","time":2379.098844714,"data":"  vc33-5430563c: score=9.96, levels=2.0/7, actions=18, tokens=13357\n"}
+,{"stream_name":"stdout","time":2379.098846554,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=30, tokens=17454\n"}
+,{"stream_name":"stdout","time":2379.098847384,"data":"\n"}
+,{"stream_name":"stdout","time":2979.117350947,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":2979.117375267,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":2979.117377147,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":2979.117378657,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":2979.117379797,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":2979.117380927,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":2979.117381957,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":2979.117383057,"data":"mean score:    3.85\n"}
+,{"stream_name":"stdout","time":2979.117384077,"data":"median score:  1.82\n"}
+,{"stream_name":"stdout","time":2979.117385087,"data":"total actions: 772\n"}
+,{"stream_name":"stdout","time":2979.117386187,"data":"total tokens:  561807\n"}
+,{"stream_name":"stdout","time":2979.117387387,"data":"generated tokens/sec: 233.95 (job wallclock)\n"}
+,{"stream_name":"stdout","time":2979.117388497,"data":"total wallclock: 51549.2s\n"}
+,{"stream_name":"stdout","time":2979.117389627,"data":"\n"}
+,{"stream_name":"stdout","time":2979.117390647,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":2979.117391737,"data":"  ar25-0c556536: score=8.33, levels=2.0/8, actions=33, tokens=13023\n"}
+,{"stream_name":"stdout","time":2979.117398347,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=32, tokens=15515\n"}
+,{"stream_name":"stdout","time":2979.117399347,"data":"  cd82-fb555c5d: score=0.00, levels=0.0/6, actions=25, tokens=29474\n"}
+,{"stream_name":"stdout","time":2979.117400127,"data":"  cn04-2fe56bfb: score=0.00, levels=0.0/6, actions=22, tokens=35320\n"}
+,{"stream_name":"stdout","time":2979.117400987,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=43, tokens=24877\n"}
+,{"stream_name":"stdout","time":2979.117402027,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=43, tokens=18534\n"}
+,{"stream_name":"stdout","time":2979.117402837,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=17, tokens=27249\n"}
+,{"stream_name":"stdout","time":2979.117403637,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=20, tokens=18423\n"}
+,{"stream_name":"stdout","time":2979.117404417,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=19, tokens=23762\n"}
+,{"stream_name":"stdout","time":2979.117405217,"data":"  lp85-305b61c3: score=16.67, levels=3.0/8, actions=34, tokens=33904\n"}
+,{"stream_name":"stdout","time":2979.117406017,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=10, tokens=9124\n"}
+,{"stream_name":"stdout","time":2979.117406807,"data":"  m0r0-492f87ba: score=0.00, levels=0.0/6, actions=13, tokens=21780\n"}
+,{"stream_name":"stdout","time":2979.117407807,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=22, tokens=28771\n"}
+,{"stream_name":"stdout","time":2979.117408597,"data":"  re86-8af5384d: score=8.33, levels=2.0/8, actions=58, tokens=16102\n"}
+,{"stream_name":"stdout","time":2979.117409367,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=19, tokens=19915\n"}
+,{"stream_name":"stdout","time":2979.117410127,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=53, tokens=25177\n"}
+,{"stream_name":"stdout","time":2979.117410907,"data":"  sc25-635fd71a: score=0.00, levels=0.0/6, actions=30, tokens=16397\n"}
+,{"stream_name":"stdout","time":2979.117411707,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=12, tokens=17513\n"}
+,{"stream_name":"stdout","time":2979.117412477,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=77, tokens=23109\n"}
+,{"stream_name":"stdout","time":2979.117413257,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=33, tokens=19014\n"}
+,{"stream_name":"stdout","time":2979.117414077,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=37, tokens=27159\n"}
+,{"stream_name":"stdout","time":2979.117414877,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=40, tokens=36827\n"}
+,{"stream_name":"stdout","time":2979.117415637,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=10, tokens=18085\n"}
+,{"stream_name":"stdout","time":2979.117416707,"data":"  vc33-5430563c: score=9.96, levels=2.0/7, actions=20, tokens=17710\n"}
+,{"stream_name":"stdout","time":2979.117418497,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=50, tokens=25043\n"}
+,{"stream_name":"stdout","time":2979.117419357,"data":"\n"}
+,{"stream_name":"stdout","time":3579.217621534,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":3579.217645994,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":3579.217647844,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":3579.217649074,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":3579.217650184,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":3579.217651304,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":3579.217652544,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":3579.217653554,"data":"mean score:    4.64\n"}
+,{"stream_name":"stdout","time":3579.217661084,"data":"median score:  1.82\n"}
+,{"stream_name":"stdout","time":3579.217662074,"data":"total actions: 1163\n"}
+,{"stream_name":"stdout","time":3579.217662904,"data":"total tokens:  740504\n"}
+,{"stream_name":"stdout","time":3579.217663744,"data":"generated tokens/sec: 246.71 (job wallclock)\n"}
+,{"stream_name":"stdout","time":3579.217664594,"data":"total wallclock: 69141.7s\n"}
+,{"stream_name":"stdout","time":3579.217665404,"data":"\n"}
+,{"stream_name":"stdout","time":3579.217666254,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":3579.217667274,"data":"  ar25-0c556536: score=8.33, levels=2.0/8, actions=34, tokens=17030\n"}
+,{"stream_name":"stdout","time":3579.217668164,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=32, tokens=15515\n"}
+,{"stream_name":"stdout","time":3579.217668984,"data":"  cd82-fb555c5d: score=0.00, levels=0.0/6, actions=33, tokens=34610\n"}
+,{"stream_name":"stdout","time":3579.217669774,"data":"  cn04-2fe56bfb: score=0.00, levels=0.0/6, actions=23, tokens=42605\n"}
+,{"stream_name":"stdout","time":3579.217670574,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=48, tokens=29877\n"}
+,{"stream_name":"stdout","time":3579.217671354,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=88, tokens=19989\n"}
+,{"stream_name":"stdout","time":3579.217672154,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=27, tokens=38394\n"}
+,{"stream_name":"stdout","time":3579.217672944,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=28, tokens=26320\n"}
+,{"stream_name":"stdout","time":3579.217673744,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=31, tokens=28196\n"}
+,{"stream_name":"stdout","time":3579.217674534,"data":"  lp85-305b61c3: score=16.67, levels=3.0/8, actions=35, tokens=36749\n"}
+,{"stream_name":"stdout","time":3579.217675344,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=132, tokens=32529\n"}
+,{"stream_name":"stdout","time":3579.217676144,"data":"  m0r0-492f87ba: score=0.00, levels=0.0/6, actions=30, tokens=27811\n"}
+,{"stream_name":"stdout","time":3579.217677064,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=33, tokens=36611\n"}
+,{"stream_name":"stdout","time":3579.217677874,"data":"  re86-8af5384d: score=16.67, levels=3.0/8, actions=106, tokens=23521\n"}
+,{"stream_name":"stdout","time":3579.217678684,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=22, tokens=27121\n"}
+,{"stream_name":"stdout","time":3579.217679474,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=58, tokens=28185\n"}
+,{"stream_name":"stdout","time":3579.217680284,"data":"  sc25-635fd71a: score=0.00, levels=0.0/6, actions=35, tokens=33742\n"}
+,{"stream_name":"stdout","time":3579.217681064,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=20, tokens=22859\n"}
+,{"stream_name":"stdout","time":3579.217682054,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=94, tokens=41318\n"}
+,{"stream_name":"stdout","time":3579.217682854,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=39, tokens=26537\n"}
+,{"stream_name":"stdout","time":3579.217683674,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=39, tokens=35323\n"}
+,{"stream_name":"stdout","time":3579.217684464,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=40, tokens=36827\n"}
+,{"stream_name":"stdout","time":3579.217685254,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=14, tokens=21394\n"}
+,{"stream_name":"stdout","time":3579.217686054,"data":"  vc33-5430563c: score=21.43, levels=3.0/7, actions=42, tokens=30667\n"}
+,{"stream_name":"stdout","time":3579.217687944,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=80, tokens=26774\n"}
+,{"stream_name":"stdout","time":3579.217689974,"data":"\n"}
+,{"stream_name":"stdout","time":4179.270393384,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":4179.270412444,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":4179.270414384,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":4179.270415644,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":4179.270416854,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":4179.270417874,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":4179.270418894,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":4179.270419944,"data":"mean score:    5.01\n"}
+,{"stream_name":"stdout","time":4179.270420964,"data":"median score:  2.78\n"}
+,{"stream_name":"stdout","time":4179.270421964,"data":"total actions: 1377\n"}
+,{"stream_name":"stdout","time":4179.270422974,"data":"total tokens:  853375\n"}
+,{"stream_name":"stdout","time":4179.270424074,"data":"generated tokens/sec: 236.95 (job wallclock)\n"}
+,{"stream_name":"stdout","time":4179.270425154,"data":"total wallclock: 82477.1s\n"}
+,{"stream_name":"stdout","time":4179.270426184,"data":"\n"}
+,{"stream_name":"stdout","time":4179.270427224,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":4179.270428344,"data":"  ar25-0c556536: score=8.33, levels=2.0/8, actions=37, tokens=20439\n"}
+,{"stream_name":"stdout","time":4179.270429424,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=41, tokens=21195\n"}
+,{"stream_name":"stdout","time":4179.270430464,"data":"  cd82-fb555c5d: score=4.76, levels=1.0/6, actions=36, tokens=35421\n"}
+,{"stream_name":"stdout","time":4179.270431534,"data":"  cn04-2fe56bfb: score=4.45, levels=1.0/6, actions=30, tokens=49320\n"}
+,{"stream_name":"stdout","time":4179.270432574,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=56, tokens=38822\n"}
+,{"stream_name":"stdout","time":4179.270433594,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=119, tokens=26660\n"}
+,{"stream_name":"stdout","time":4179.270434644,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=46, tokens=44902\n"}
+,{"stream_name":"stdout","time":4179.270435674,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=37, tokens=28830\n"}
+,{"stream_name":"stdout","time":4179.270436714,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=54, tokens=30895\n"}
+,{"stream_name":"stdout","time":4179.270437814,"data":"  lp85-305b61c3: score=16.67, levels=3.0/8, actions=37, tokens=42254\n"}
+,{"stream_name":"stdout","time":4179.270438864,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=133, tokens=34214\n"}
+,{"stream_name":"stdout","time":4179.270439904,"data":"  m0r0-492f87ba: score=0.00, levels=0.0/6, actions=35, tokens=33102\n"}
+,{"stream_name":"stdout","time":4179.270440924,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=33, tokens=36611\n"}
+,{"stream_name":"stdout","time":4179.270442304,"data":"  re86-8af5384d: score=16.67, levels=3.0/8, actions=130, tokens=26298\n"}
+,{"stream_name":"stdout","time":4179.270443374,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=31, tokens=31204\n"}
+,{"stream_name":"stdout","time":4179.270444414,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=58, tokens=28185\n"}
+,{"stream_name":"stdout","time":4179.270445484,"data":"  sc25-635fd71a: score=0.00, levels=0.0/6, actions=48, tokens=42692\n"}
+,{"stream_name":"stdout","time":4179.270446484,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=27, tokens=30835\n"}
+,{"stream_name":"stdout","time":4179.270447504,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=96, tokens=51521\n"}
+,{"stream_name":"stdout","time":4179.270454264,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=41, tokens=32210\n"}
+,{"stream_name":"stdout","time":4179.270455324,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=39, tokens=35323\n"}
+,{"stream_name":"stdout","time":4179.270456124,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=41, tokens=45812\n"}
+,{"stream_name":"stdout","time":4179.270456874,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=16, tokens=23220\n"}
+,{"stream_name":"stdout","time":4179.270457674,"data":"  vc33-5430563c: score=21.43, levels=3.0/7, actions=49, tokens=35312\n"}
+,{"stream_name":"stdout","time":4179.270459874,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=107, tokens=28098\n"}
+,{"stream_name":"stdout","time":4179.270460674,"data":"\n"}
+,{"stream_name":"stdout","time":4779.273684638,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":4779.273705118,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":4779.273706938,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":4779.273708228,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":4779.273709398,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":4779.273710768,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":4779.273711908,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":4779.273712918,"data":"mean score:    5.10\n"}
+,{"stream_name":"stdout","time":4779.273713928,"data":"median score:  2.78\n"}
+,{"stream_name":"stdout","time":4779.273714918,"data":"total actions: 1571\n"}
+,{"stream_name":"stdout","time":4779.273715898,"data":"total tokens:  1003932\n"}
+,{"stream_name":"stdout","time":4779.273716948,"data":"generated tokens/sec: 238.94 (job wallclock)\n"}
+,{"stream_name":"stdout","time":4779.273718008,"data":"total wallclock: 97068.6s\n"}
+,{"stream_name":"stdout","time":4779.273719078,"data":"\n"}
+,{"stream_name":"stdout","time":4779.273720068,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":4779.273721128,"data":"  ar25-0c556536: score=8.33, levels=2.0/8, actions=53, tokens=24225\n"}
+,{"stream_name":"stdout","time":4779.273722198,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=41, tokens=21195\n"}
+,{"stream_name":"stdout","time":4779.273723218,"data":"  cd82-fb555c5d: score=4.76, levels=1.0/6, actions=44, tokens=43413\n"}
+,{"stream_name":"stdout","time":4779.273724498,"data":"  cn04-2fe56bfb: score=4.45, levels=1.0/6, actions=32, tokens=54844\n"}
+,{"stream_name":"stdout","time":4779.273725528,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=56, tokens=38822\n"}
+,{"stream_name":"stdout","time":4779.273726558,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=134, tokens=27994\n"}
+,{"stream_name":"stdout","time":4779.273727628,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=57, tokens=56859\n"}
+,{"stream_name":"stdout","time":4779.273728628,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=38, tokens=35969\n"}
+,{"stream_name":"stdout","time":4779.273729648,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=60, tokens=33595\n"}
+,{"stream_name":"stdout","time":4779.273730688,"data":"  lp85-305b61c3: score=16.67, levels=3.0/8, actions=77, tokens=51494\n"}
+,{"stream_name":"stdout","time":4779.273731718,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=138, tokens=36297\n"}
+,{"stream_name":"stdout","time":4779.273732748,"data":"  m0r0-492f87ba: score=0.00, levels=0.0/6, actions=38, tokens=34660\n"}
+,{"stream_name":"stdout","time":4779.273733768,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=33, tokens=36611\n"}
+,{"stream_name":"stdout","time":4779.273739188,"data":"  re86-8af5384d: score=16.67, levels=3.0/8, actions=143, tokens=35518\n"}
+,{"stream_name":"stdout","time":4779.273740088,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=35, tokens=40439\n"}
+,{"stream_name":"stdout","time":4779.273740908,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=67, tokens=48753\n"}
+,{"stream_name":"stdout","time":4779.273741708,"data":"  sc25-635fd71a: score=2.37, levels=1.0/6, actions=56, tokens=46564\n"}
+,{"stream_name":"stdout","time":4779.273742458,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=30, tokens=41926\n"}
+,{"stream_name":"stdout","time":4779.273743218,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=96, tokens=51521\n"}
+,{"stream_name":"stdout","time":4779.273743998,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=41, tokens=32210\n"}
+,{"stream_name":"stdout","time":4779.273744748,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=52, tokens=58552\n"}
+,{"stream_name":"stdout","time":4779.273745508,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=46, tokens=50687\n"}
+,{"stream_name":"stdout","time":4779.273746318,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=19, tokens=24422\n"}
+,{"stream_name":"stdout","time":4779.273747058,"data":"  vc33-5430563c: score=21.43, levels=3.0/7, actions=61, tokens=43606\n"}
+,{"stream_name":"stdout","time":4779.273748818,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=124, tokens=33756\n"}
+,{"stream_name":"stdout","time":4779.273749698,"data":"\n"}
+,{"stream_name":"stdout","time":5379.281894336,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":5379.281920006,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":5379.281921766,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":5379.281923056,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":5379.281924146,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":5379.281925306,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":5379.281926406,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":5379.281927396,"data":"mean score:    5.51\n"}
+,{"stream_name":"stdout","time":5379.281928446,"data":"median score:  2.78\n"}
+,{"stream_name":"stdout","time":5379.281929416,"data":"total actions: 1818\n"}
+,{"stream_name":"stdout","time":5379.281930386,"data":"total tokens:  1165285\n"}
+,{"stream_name":"stdout","time":5379.281931466,"data":"generated tokens/sec: 242.69 (job wallclock)\n"}
+,{"stream_name":"stdout","time":5379.281932536,"data":"total wallclock: 112619.8s\n"}
+,{"stream_name":"stdout","time":5379.281933566,"data":"\n"}
+,{"stream_name":"stdout","time":5379.281934576,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":5379.281935636,"data":"  ar25-0c556536: score=8.33, levels=2.0/8, actions=71, tokens=26307\n"}
+,{"stream_name":"stdout","time":5379.281936716,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=43, tokens=31192\n"}
+,{"stream_name":"stdout","time":5379.281937756,"data":"  cd82-fb555c5d: score=11.57, levels=2.0/6, actions=48, tokens=53508\n"}
+,{"stream_name":"stdout","time":5379.281938786,"data":"  cn04-2fe56bfb: score=4.45, levels=1.0/6, actions=45, tokens=61494\n"}
+,{"stream_name":"stdout","time":5379.281949876,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=59, tokens=51658\n"}
+,{"stream_name":"stdout","time":5379.281951586,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=178, tokens=30422\n"}
+,{"stream_name":"stdout","time":5379.281952646,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=68, tokens=61092\n"}
+,{"stream_name":"stdout","time":5379.281958726,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=38, tokens=35969\n"}
+,{"stream_name":"stdout","time":5379.281959676,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=68, tokens=37622\n"}
+,{"stream_name":"stdout","time":5379.281960466,"data":"  lp85-305b61c3: score=20.11, levels=4.0/8, actions=89, tokens=55858\n"}
+,{"stream_name":"stdout","time":5379.281961236,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=139, tokens=38370\n"}
+,{"stream_name":"stdout","time":5379.281962016,"data":"  m0r0-492f87ba: score=0.00, levels=0.0/6, actions=43, tokens=51013\n"}
+,{"stream_name":"stdout","time":5379.281962916,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=33, tokens=36611\n"}
+,{"stream_name":"stdout","time":5379.281963686,"data":"  re86-8af5384d: score=16.67, levels=3.0/8, actions=144, tokens=49766\n"}
+,{"stream_name":"stdout","time":5379.281964456,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=48, tokens=43065\n"}
+,{"stream_name":"stdout","time":5379.281965226,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=84, tokens=56748\n"}
+,{"stream_name":"stdout","time":5379.281965996,"data":"  sc25-635fd71a: score=2.37, levels=1.0/6, actions=63, tokens=50545\n"}
+,{"stream_name":"stdout","time":5379.281966776,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=31, tokens=51039\n"}
+,{"stream_name":"stdout","time":5379.281967546,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=114, tokens=59902\n"}
+,{"stream_name":"stdout","time":5379.281968366,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=46, tokens=46084\n"}
+,{"stream_name":"stdout","time":5379.281969166,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=62, tokens=66026\n"}
+,{"stream_name":"stdout","time":5379.281969936,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=67, tokens=56348\n"}
+,{"stream_name":"stdout","time":5379.281970706,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=28, tokens=26066\n"}
+,{"stream_name":"stdout","time":5379.281971476,"data":"  vc33-5430563c: score=21.43, levels=3.0/7, actions=76, tokens=50655\n"}
+,{"stream_name":"stdout","time":5379.281973346,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=133, tokens=37925\n"}
+,{"stream_name":"stdout","time":5379.281974166,"data":"\n"}
+,{"stream_name":"stdout","time":5979.376789258,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":5979.376814008,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":5979.376815888,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":5979.376817078,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":5979.376818268,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":5979.376819378,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":5979.376820388,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":5979.376821378,"data":"mean score:    5.58\n"}
+,{"stream_name":"stdout","time":5979.376822448,"data":"median score:  2.78\n"}
+,{"stream_name":"stdout","time":5979.376823488,"data":"total actions: 1966\n"}
+,{"stream_name":"stdout","time":5979.376824468,"data":"total tokens:  1254152\n"}
+,{"stream_name":"stdout","time":5979.376825498,"data":"generated tokens/sec: 232.18 (job wallclock)\n"}
+,{"stream_name":"stdout","time":5979.376826548,"data":"total wallclock: 122248.9s\n"}
+,{"stream_name":"stdout","time":5979.376827588,"data":"\n"}
+,{"stream_name":"stdout","time":5979.376828568,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":5979.376829618,"data":"  ar25-0c556536: score=8.33, levels=2.0/8, actions=73, tokens=30668\n"}
+,{"stream_name":"stdout","time":5979.376836778,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=49, tokens=35546\n"}
+,{"stream_name":"stdout","time":5979.376837748,"data":"  cd82-fb555c5d: score=11.57, levels=2.0/6, actions=58, tokens=69759\n"}
+,{"stream_name":"stdout","time":5979.376838768,"data":"  cn04-2fe56bfb: score=4.45, levels=1.0/6, actions=57, tokens=64017\n"}
+,{"stream_name":"stdout","time":5979.376839548,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=66, tokens=60076\n"}
+,{"stream_name":"stdout","time":5979.376840288,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=180, tokens=33590\n"}
+,{"stream_name":"stdout","time":5979.376841078,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=68, tokens=61092\n"}
+,{"stream_name":"stdout","time":5979.376841818,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=43, tokens=46358\n"}
+,{"stream_name":"stdout","time":5979.376842568,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=93, tokens=40054\n"}
+,{"stream_name":"stdout","time":5979.376843368,"data":"  lp85-305b61c3: score=20.11, levels=4.0/8, actions=89, tokens=55858\n"}
+,{"stream_name":"stdout","time":5979.376844148,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=142, tokens=41218\n"}
+,{"stream_name":"stdout","time":5979.376844928,"data":"  m0r0-492f87ba: score=0.00, levels=0.0/6, actions=46, tokens=55341\n"}
+,{"stream_name":"stdout","time":5979.376845688,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=33, tokens=36611\n"}
+,{"stream_name":"stdout","time":5979.376846458,"data":"  re86-8af5384d: score=16.67, levels=3.0/8, actions=144, tokens=49766\n"}
+,{"stream_name":"stdout","time":5979.376847208,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=59, tokens=51628\n"}
+,{"stream_name":"stdout","time":5979.376847968,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=84, tokens=56748\n"}
+,{"stream_name":"stdout","time":5979.376848728,"data":"  sc25-635fd71a: score=4.12, levels=2.0/6, actions=68, tokens=56096\n"}
+,{"stream_name":"stdout","time":5979.376849468,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=31, tokens=51039\n"}
+,{"stream_name":"stdout","time":5979.376850238,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=121, tokens=62182\n"}
+,{"stream_name":"stdout","time":5979.376851028,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=47, tokens=50561\n"}
+,{"stream_name":"stdout","time":5979.376851808,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=62, tokens=66026\n"}
+,{"stream_name":"stdout","time":5979.376852578,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=91, tokens=61521\n"}
+,{"stream_name":"stdout","time":5979.376853338,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=51, tokens=27783\n"}
+,{"stream_name":"stdout","time":5979.376854098,"data":"  vc33-5430563c: score=21.43, levels=3.0/7, actions=78, tokens=52689\n"}
+,{"stream_name":"stdout","time":5979.376855898,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=133, tokens=37925\n"}
+,{"stream_name":"stdout","time":5979.376856718,"data":"\n"}
+,{"stream_name":"stdout","time":6579.462386605,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":6579.462410945,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":6579.462412815,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":6579.462414125,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":6579.462415215,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":6579.462416215,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":6579.462417295,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":6579.462424235,"data":"mean score:    5.65\n"}
+,{"stream_name":"stdout","time":6579.462425215,"data":"median score:  2.78\n"}
+,{"stream_name":"stdout","time":6579.462425955,"data":"total actions: 2201\n"}
+,{"stream_name":"stdout","time":6579.462426755,"data":"total tokens:  1417919\n"}
+,{"stream_name":"stdout","time":6579.462427565,"data":"generated tokens/sec: 236.25 (job wallclock)\n"}
+,{"stream_name":"stdout","time":6579.462428425,"data":"total wallclock: 140181.6s\n"}
+,{"stream_name":"stdout","time":6579.462429205,"data":"\n"}
+,{"stream_name":"stdout","time":6579.462429945,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":6579.462430825,"data":"  ar25-0c556536: score=8.33, levels=2.0/8, actions=80, tokens=38668\n"}
+,{"stream_name":"stdout","time":6579.462431665,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=49, tokens=35546\n"}
+,{"stream_name":"stdout","time":6579.462432655,"data":"  cd82-fb555c5d: score=11.57, levels=2.0/6, actions=64, tokens=79970\n"}
+,{"stream_name":"stdout","time":6579.462433465,"data":"  cn04-2fe56bfb: score=4.45, levels=1.0/6, actions=63, tokens=81836\n"}
+,{"stream_name":"stdout","time":6579.462434235,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=84, tokens=66142\n"}
+,{"stream_name":"stdout","time":6579.462435045,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=184, tokens=36171\n"}
+,{"stream_name":"stdout","time":6579.462435855,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=78, tokens=80693\n"}
+,{"stream_name":"stdout","time":6579.462436615,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=46, tokens=49156\n"}
+,{"stream_name":"stdout","time":6579.462437385,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=101, tokens=43284\n"}
+,{"stream_name":"stdout","time":6579.462438165,"data":"  lp85-305b61c3: score=20.11, levels=4.0/8, actions=93, tokens=65515\n"}
+,{"stream_name":"stdout","time":6579.462438955,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=182, tokens=42802\n"}
+,{"stream_name":"stdout","time":6579.462439765,"data":"  m0r0-492f87ba: score=1.78, levels=1.0/6, actions=49, tokens=65007\n"}
+,{"stream_name":"stdout","time":6579.462440525,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=33, tokens=36611\n"}
+,{"stream_name":"stdout","time":6579.462441305,"data":"  re86-8af5384d: score=16.67, levels=3.0/8, actions=155, tokens=59917\n"}
+,{"stream_name":"stdout","time":6579.462442115,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=60, tokens=62028\n"}
+,{"stream_name":"stdout","time":6579.462442895,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=88, tokens=70253\n"}
+,{"stream_name":"stdout","time":6579.462443745,"data":"  sc25-635fd71a: score=4.12, levels=2.0/6, actions=71, tokens=58925\n"}
+,{"stream_name":"stdout","time":6579.462444545,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=40, tokens=57940\n"}
+,{"stream_name":"stdout","time":6579.462445305,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=140, tokens=66089\n"}
+,{"stream_name":"stdout","time":6579.462446105,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=47, tokens=50561\n"}
+,{"stream_name":"stdout","time":6579.462446875,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=124, tokens=79083\n"}
+,{"stream_name":"stdout","time":6579.462447635,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=91, tokens=61521\n"}
+,{"stream_name":"stdout","time":6579.462448395,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=52, tokens=29528\n"}
+,{"stream_name":"stdout","time":6579.462449155,"data":"  vc33-5430563c: score=21.43, levels=3.0/7, actions=78, tokens=52689\n"}
+,{"stream_name":"stdout","time":6579.462452045,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=149, tokens=47984\n"}
+,{"stream_name":"stdout","time":6579.462452885,"data":"\n"}
+,{"stream_name":"stdout","time":7179.563599167,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":7179.563624327,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":7179.563626817,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":7179.563628047,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":7179.563629127,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":7179.563630287,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":7179.563631387,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":7179.563632377,"data":"mean score:    5.99\n"}
+,{"stream_name":"stdout","time":7179.563633457,"data":"median score:  2.78\n"}
+,{"stream_name":"stdout","time":7179.563634427,"data":"total actions: 2541\n"}
+,{"stream_name":"stdout","time":7179.563635407,"data":"total tokens:  1623061\n"}
+,{"stream_name":"stdout","time":7179.563636437,"data":"generated tokens/sec: 245.85 (job wallclock)\n"}
+,{"stream_name":"stdout","time":7179.563637507,"data":"total wallclock: 159355.7s\n"}
+,{"stream_name":"stdout","time":7179.563638577,"data":"\n"}
+,{"stream_name":"stdout","time":7179.563639557,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":7179.563640597,"data":"  ar25-0c556536: score=16.67, levels=3.0/8, actions=92, tokens=43233\n"}
+,{"stream_name":"stdout","time":7179.563641647,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=49, tokens=35546\n"}
+,{"stream_name":"stdout","time":7179.563642697,"data":"  cd82-fb555c5d: score=11.57, levels=2.0/6, actions=74, tokens=89054\n"}
+,{"stream_name":"stdout","time":7179.563643717,"data":"  cn04-2fe56bfb: score=4.45, levels=1.0/6, actions=84, tokens=89960\n"}
+,{"stream_name":"stdout","time":7179.563644737,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=155, tokens=71208\n"}
+,{"stream_name":"stdout","time":7179.563645787,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=190, tokens=37077\n"}
+,{"stream_name":"stdout","time":7179.563646837,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=82, tokens=88229\n"}
+,{"stream_name":"stdout","time":7179.563647857,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=47, tokens=52845\n"}
+,{"stream_name":"stdout","time":7179.563648877,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=123, tokens=47414\n"}
+,{"stream_name":"stdout","time":7179.563649907,"data":"  lp85-305b61c3: score=20.11, levels=4.0/8, actions=135, tokens=71791\n"}
+,{"stream_name":"stdout","time":7179.563650927,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=187, tokens=44386\n"}
+,{"stream_name":"stdout","time":7179.563652217,"data":"  m0r0-492f87ba: score=1.78, levels=1.0/6, actions=49, tokens=65007\n"}
+,{"stream_name":"stdout","time":7179.563653247,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=35, tokens=80766\n"}
+,{"stream_name":"stdout","time":7179.563654267,"data":"  re86-8af5384d: score=16.67, levels=3.0/8, actions=172, tokens=70066\n"}
+,{"stream_name":"stdout","time":7179.563655407,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=72, tokens=74570\n"}
+,{"stream_name":"stdout","time":7179.563656437,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=96, tokens=77920\n"}
+,{"stream_name":"stdout","time":7179.563657447,"data":"  sc25-635fd71a: score=4.12, levels=2.0/6, actions=84, tokens=65391\n"}
+,{"stream_name":"stdout","time":7179.563658467,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=58, tokens=62045\n"}
+,{"stream_name":"stdout","time":7179.563664467,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=140, tokens=66089\n"}
+,{"stream_name":"stdout","time":7179.563665367,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=49, tokens=74896\n"}
+,{"stream_name":"stdout","time":7179.563666167,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=159, tokens=87192\n"}
+,{"stream_name":"stdout","time":7179.563666947,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=103, tokens=68719\n"}
+,{"stream_name":"stdout","time":7179.563667737,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=55, tokens=31990\n"}
+,{"stream_name":"stdout","time":7179.563668507,"data":"  vc33-5430563c: score=21.43, levels=3.0/7, actions=87, tokens=75298\n"}
+,{"stream_name":"stdout","time":7179.563670227,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=164, tokens=52369\n"}
+,{"stream_name":"stdout","time":7179.563671047,"data":"\n"}
+,{"stream_name":"stdout","time":7779.664660046,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":7779.664684586,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":7779.664686496,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":7779.664688096,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":7779.664689316,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":7779.664690536,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":7779.664691746,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":7779.664692846,"data":"mean score:    6.43\n"}
+,{"stream_name":"stdout","time":7779.664693876,"data":"median score:  2.78\n"}
+,{"stream_name":"stdout","time":7779.664694876,"data":"total actions: 2843\n"}
+,{"stream_name":"stdout","time":7779.664695886,"data":"total tokens:  1742300\n"}
+,{"stream_name":"stdout","time":7779.664696946,"data":"generated tokens/sec: 241.92 (job wallclock)\n"}
+,{"stream_name":"stdout","time":7779.664698046,"data":"total wallclock: 174178.6s\n"}
+,{"stream_name":"stdout","time":7779.664699096,"data":"\n"}
+,{"stream_name":"stdout","time":7779.664700126,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":7779.664701226,"data":"  ar25-0c556536: score=16.67, levels=3.0/8, actions=114, tokens=45886\n"}
+,{"stream_name":"stdout","time":7779.664702326,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=50, tokens=44394\n"}
+,{"stream_name":"stdout","time":7779.664703396,"data":"  cd82-fb555c5d: score=11.57, levels=2.0/6, actions=76, tokens=96738\n"}
+,{"stream_name":"stdout","time":7779.664704466,"data":"  cn04-2fe56bfb: score=4.45, levels=1.0/6, actions=99, tokens=100323\n"}
+,{"stream_name":"stdout","time":7779.664705526,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=172, tokens=72562\n"}
+,{"stream_name":"stdout","time":7779.664706566,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=193, tokens=40517\n"}
+,{"stream_name":"stdout","time":7779.664707616,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=90, tokens=91323\n"}
+,{"stream_name":"stdout","time":7779.664708676,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=50, tokens=56933\n"}
+,{"stream_name":"stdout","time":7779.664709726,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=137, tokens=50924\n"}
+,{"stream_name":"stdout","time":7779.664711006,"data":"  lp85-305b61c3: score=20.11, levels=4.0/8, actions=140, tokens=74051\n"}
+,{"stream_name":"stdout","time":7779.664712066,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=209, tokens=47293\n"}
+,{"stream_name":"stdout","time":7779.664713136,"data":"  m0r0-492f87ba: score=1.78, levels=1.0/6, actions=55, tokens=76901\n"}
+,{"stream_name":"stdout","time":7779.664719926,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=37, tokens=83974\n"}
+,{"stream_name":"stdout","time":7779.664720856,"data":"  re86-8af5384d: score=27.78, levels=4.0/8, actions=200, tokens=80470\n"}
+,{"stream_name":"stdout","time":7779.664721676,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=72, tokens=74570\n"}
+,{"stream_name":"stdout","time":7779.664722696,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=97, tokens=83564\n"}
+,{"stream_name":"stdout","time":7779.664723486,"data":"  sc25-635fd71a: score=4.12, levels=2.0/6, actions=91, tokens=66721\n"}
+,{"stream_name":"stdout","time":7779.664724266,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=74, tokens=67088\n"}
+,{"stream_name":"stdout","time":7779.664725036,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=157, tokens=71347\n"}
+,{"stream_name":"stdout","time":7779.664725806,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=50, tokens=75255\n"}
+,{"stream_name":"stdout","time":7779.664726596,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=246, tokens=93045\n"}
+,{"stream_name":"stdout","time":7779.664727356,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=115, tokens=73725\n"}
+,{"stream_name":"stdout","time":7779.664728136,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=55, tokens=31990\n"}
+,{"stream_name":"stdout","time":7779.664728916,"data":"  vc33-5430563c: score=21.43, levels=3.0/7, actions=88, tokens=85042\n"}
+,{"stream_name":"stdout","time":7779.664730706,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=176, tokens=57664\n"}
+,{"stream_name":"stdout","time":7779.664731526,"data":"\n"}
+,{"stream_name":"stdout","time":8379.777216883,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":8379.777238683,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":8379.777240602,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":8379.777241832,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":8379.777243032,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":8379.777244142,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":8379.777245142,"data":"ended:     in progress\n"}
+,{"stream_name":"stdout","time":8379.777246142,"data":"mean score:    7.14\n"}
+,{"stream_name":"stdout","time":8379.777247212,"data":"median score:  2.78\n"}
+,{"stream_name":"stdout","time":8379.777248232,"data":"total actions: 3128\n"}
+,{"stream_name":"stdout","time":8379.777249212,"data":"total tokens:  1879182\n"}
+,{"stream_name":"stdout","time":8379.777250272,"data":"generated tokens/sec: 240.86 (job wallclock)\n"}
+,{"stream_name":"stdout","time":8379.777251342,"data":"total wallclock: 189152.1s\n"}
+,{"stream_name":"stdout","time":8379.777252382,"data":"\n"}
+,{"stream_name":"stdout","time":8379.777253372,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":8379.777254442,"data":"  ar25-0c556536: score=27.78, levels=4.0/8, actions=119, tokens=54302\n"}
+,{"stream_name":"stdout","time":8379.777255592,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=53, tokens=56128\n"}
+,{"stream_name":"stdout","time":8379.777256642,"data":"  cd82-fb555c5d: score=11.57, levels=2.0/6, actions=80, tokens=101976\n"}
+,{"stream_name":"stdout","time":8379.777257662,"data":"  cn04-2fe56bfb: score=4.45, levels=1.0/6, actions=108, tokens=104830\n"}
+,{"stream_name":"stdout","time":8379.777258682,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=192, tokens=74115\n"}
+,{"stream_name":"stdout","time":8379.777259722,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=208, tokens=43158\n"}
+,{"stream_name":"stdout","time":8379.777267212,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=103, tokens=104416\n"}
+,{"stream_name":"stdout","time":8379.777268172,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=51, tokens=60446\n"}
+,{"stream_name":"stdout","time":8379.777268942,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=160, tokens=53294\n"}
+,{"stream_name":"stdout","time":8379.777269702,"data":"  lp85-305b61c3: score=26.59, levels=5.0/8, actions=150, tokens=81039\n"}
+,{"stream_name":"stdout","time":8379.777270472,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=231, tokens=51271\n"}
+,{"stream_name":"stdout","time":8379.777271232,"data":"  m0r0-492f87ba: score=1.78, levels=1.0/6, actions=73, tokens=84242\n"}
+,{"stream_name":"stdout","time":8379.777272012,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=41, tokens=86995\n"}
+,{"stream_name":"stdout","time":8379.777272782,"data":"  re86-8af5384d: score=27.78, levels=4.0/8, actions=206, tokens=85181\n"}
+,{"stream_name":"stdout","time":8379.777273692,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=93, tokens=100344\n"}
+,{"stream_name":"stdout","time":8379.777274462,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=111, tokens=94819\n"}
+,{"stream_name":"stdout","time":8379.777275262,"data":"  sc25-635fd71a: score=4.12, levels=2.0/6, actions=91, tokens=66721\n"}
+,{"stream_name":"stdout","time":8379.777276042,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=74, tokens=67088\n"}
+,{"stream_name":"stdout","time":8379.777276932,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=167, tokens=73203\n"}
+,{"stream_name":"stdout","time":8379.777277722,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=50, tokens=75255\n"}
+,{"stream_name":"stdout","time":8379.777278792,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=308, tokens=95663\n"}
+,{"stream_name":"stdout","time":8379.777279592,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=122, tokens=74267\n"}
+,{"stream_name":"stdout","time":8379.777280372,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=56, tokens=36318\n"}
+,{"stream_name":"stdout","time":8379.777281152,"data":"  vc33-5430563c: score=21.43, levels=3.0/7, actions=93, tokens=91470\n"}
+,{"stream_name":"stdout","time":8379.777282972,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=188, tokens=62641\n"}
+,{"stream_name":"stdout","time":8379.777283802,"data":"\n"}
+,{"stream_name":"stderr","time":8498.813551132,"data":"analyzer request failed at action 109: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=130.78005110999948)\n"}
+,{"stream_name":"stderr","time":8498.813576192,"data":"\n"}
+,{"stream_name":"stderr","time":8498.813578142,"data":"analyzer request failed at action 109: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=130.78005110999948)\n"}
+,{"stream_name":"stdout","time":8498.816846501,"data":"[finished] cn04-2fe56bfb state=gave_up level=1/6 score=4.45 actions=108 tokens=104830 per-level=30/29,78/54,0/85,0/300,0/208,0/113 note=\"tokens=104830\"\n"}
+,{"stream_name":"stdout","time":8498.816855661,"data":"deadprobe: game=cn04-2fe56bfb memo={'observed': 108, 'noop': 10, 'repeat_noop': 0, 'skipped': 0, 'hud_cells': 23}\n"}
+,{"stream_name":"stdout","time":8498.817117751,"data":"deadprobe: counters game=cn04-2fe56bfb state=gave_up levels=1 actions=108 turns=53 calls=56 model_s=7899.638 wall_s=7920.055 skipped=0 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.821908408,"data":"analyzer request failed at action 42: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=38.721419938999134)\n"}
+,{"stream_name":"stderr","time":8498.821920358,"data":"\n"}
+,{"stream_name":"stderr","time":8498.821921708,"data":"analyzer request failed at action 42: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=38.721419938999134)\n"}
+,{"stream_name":"stderr","time":8498.823907257,"data":"analyzer request failed at action 161: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=113.3077465739998)\n"}
+,{"stream_name":"stderr","time":8498.823908607,"data":"\n"}
+,{"stream_name":"stderr","time":8498.823909447,"data":"analyzer request failed at action 161: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=113.3077465739998)\n"}
+,{"stream_name":"stdout","time":8498.829368925,"data":"[finished] r11l-495a7899 state=gave_up level=2/6 score=14.29 actions=41 tokens=86995 per-level=6/22,16/33,19/51,0/26,0/52,0/49 note=\"tokens=87360\"\n"}
+,{"stream_name":"stdout","time":8498.829372885,"data":"[finished] lf52-271a04aa state=gave_up level=1/10 score=1.82 actions=160 tokens=53294 per-level=9/32,151/81,0/60,0/71,0/205,0/148,0/244,0/109,0/164,0/225 note=\"tokens=54699\"\n"}
+,{"stream_name":"stdout","time":8498.829374005,"data":"deadprobe: game=r11l-495a7899 memo={'observed': 41, 'noop': 6, 'repeat_noop': 0, 'skipped': 0, 'hud_cells': 62}\n"}
+,{"stream_name":"stdout","time":8498.829594785,"data":"deadprobe: counters game=r11l-495a7899 state=gave_up levels=2 actions=41 turns=55 calls=57 model_s=7906.339 wall_s=7920.058 skipped=0 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.837420411,"data":"deadprobe: game=lf52-271a04aa memo={'observed': 160, 'noop': 31, 'repeat_noop': 0, 'skipped': 16, 'hud_cells': 64}\n"}
+,{"stream_name":"stdout","time":8498.837671131,"data":"deadprobe: counters game=lf52-271a04aa state=gave_up levels=1 actions=160 turns=57 calls=60 model_s=7874.807 wall_s=7920.075 skipped=16 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.837905961,"data":"analyzer request failed at action 57: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=39.05441296899971)\n"}
+,{"stream_name":"stderr","time":8498.837907081,"data":"\n"}
+,{"stream_name":"stderr","time":8498.837907881,"data":"analyzer request failed at action 57: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=39.05441296899971)\n"}
+,{"stream_name":"stdout","time":8498.843592538,"data":"[finished] tu93-0768757b state=gave_up level=0/9 score=0.00 actions=56 tokens=36318 per-level=56/19,0/16,0/34,0/42,0/123,0/80,0/14,0/23,0/111 note=\"tokens=36740\"\n"}
+,{"stream_name":"stdout","time":8498.843595748,"data":"deadprobe: game=tu93-0768757b memo={'observed': 55, 'noop': 10, 'repeat_noop': 3, 'skipped': 21, 'hud_cells': 61}\n"}
+,{"stream_name":"stderr","time":8498.843824148,"data":"analyzer request failed at action 53: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=111.11344692000057)\n"}
+,{"stream_name":"stderr","time":8498.843826448,"data":"\n"}
+,{"stream_name":"stderr","time":8498.843827618,"data":"analyzer request failed at action 53: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=111.11344692000057)\n"}
+,{"stream_name":"stdout","time":8498.844040728,"data":"deadprobe: counters game=tu93-0768757b state=gave_up levels=0 actions=56 turns=59 calls=61 model_s=7900.891 wall_s=7920.069 skipped=21 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.849288805,"data":"[finished] ka59-38d34dbb state=gave_up level=1/7 score=3.57 actions=52 tokens=62306 per-level=20/28,32/109,0/51,0/51,0/33,0/132,0/326 note=\"tokens=62306\"\n"}
+,{"stream_name":"stdout","time":8498.849293315,"data":"deadprobe: game=ka59-38d34dbb memo={'observed': 52, 'noop': 13, 'repeat_noop': 1, 'skipped': 7, 'hud_cells': 61}\n"}
+,{"stream_name":"stdout","time":8498.849481935,"data":"deadprobe: counters game=ka59-38d34dbb state=gave_up levels=1 actions=52 turns=56 calls=59 model_s=7908.308 wall_s=7920.038 skipped=7 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.851032484,"data":"analyzer request failed at action 168: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=28.215225117000045)\n"}
+,{"stream_name":"stderr","time":8498.851044834,"data":"\n"}
+,{"stream_name":"stderr","time":8498.851046714,"data":"analyzer request failed at action 168: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=28.215225117000045)\n"}
+,{"stream_name":"stderr","time":8498.851454814,"data":"analyzer request failed at action 94: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=33.65834856099991)\n"}
+,{"stream_name":"stderr","time":8498.851456004,"data":"\n"}
+,{"stream_name":"stderr","time":8498.851456834,"data":"analyzer request failed at action 94: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=33.65834856099991)\n"}
+,{"stream_name":"stdout","time":8498.86095451,"data":"[finished] sp80-589a99af state=gave_up level=1/6 score=1.61 actions=167 tokens=73203 per-level=67/39,100/58,0/25,0/148,0/96,0/152 note=\"tokens=74709\"\n"}
+,{"stream_name":"stdout","time":8498.8609565,"data":"[finished] vc33-5430563c state=gave_up level=3/7 score=21.43 actions=93 tokens=91470 per-level=10/7,8/18,24/44,51/61,0/131,0/34,0/152 note=\"tokens=95595\"\n"}
+,{"stream_name":"stdout","time":8498.86095748,"data":"deadprobe: game=sp80-589a99af memo={'observed': 163, 'noop': 29, 'repeat_noop': 0, 'skipped': 9, 'hud_cells': 125}\n"}
+,{"stream_name":"stdout","time":8498.861169049,"data":"deadprobe: counters game=sp80-589a99af state=gave_up levels=1 actions=167 turns=58 calls=59 model_s=7868.199 wall_s=7920.086 skipped=9 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.861498629,"data":"deadprobe: game=vc33-5430563c memo={'observed': 92, 'noop': 19, 'repeat_noop': 4, 'skipped': 15, 'hud_cells': 64}\n"}
+,{"stream_name":"stdout","time":8498.861694719,"data":"deadprobe: counters game=vc33-5430563c state=gave_up levels=3 actions=93 turns=55 calls=58 model_s=7898.86 wall_s=7920.077 skipped=15 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.868220406,"data":"analyzer request failed at action 97: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=0.8715568860006897)\n"}
+,{"stream_name":"stderr","time":8498.868222276,"data":"\n"}
+,{"stream_name":"stderr","time":8498.868223036,"data":"analyzer request failed at action 97: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=0.8715568860006897)\n"}
+,{"stream_name":"stdout","time":8498.877472022,"data":"[finished] s5i5-18d95033 state=gave_up level=1/8 score=2.78 actions=96 tokens=101013 per-level=19/20,77/89,0/106,0/54,0/162,0/38,0/86,0/83 note=\"tokens=101013\"\n"}
+,{"stream_name":"stdout","time":8498.877473512,"data":"deadprobe: game=s5i5-18d95033 memo={'observed': 96, 'noop': 9, 'repeat_noop': 0, 'skipped': 6, 'hud_cells': 64}\n"}
+,{"stream_name":"stdout","time":8498.877714391,"data":"deadprobe: counters game=s5i5-18d95033 state=gave_up levels=1 actions=96 turns=54 calls=57 model_s=7903.779 wall_s=7920.043 skipped=6 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.882892979,"data":"analyzer request failed at action 120: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=48.528102708000006)\n"}
+,{"stream_name":"stderr","time":8498.882894469,"data":"\n"}
+,{"stream_name":"stderr","time":8498.882895229,"data":"analyzer request failed at action 120: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=48.528102708000006)\n"}
+,{"stream_name":"stderr","time":8498.883144929,"data":"analyzer request failed at action 56: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=94.49156689499978)\n"}
+,{"stream_name":"stderr","time":8498.883149029,"data":"\n"}
+,{"stream_name":"stderr","time":8498.883149879,"data":"analyzer request failed at action 56: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=94.49156689499978)\n"}
+,{"stream_name":"stdout","time":8498.894218414,"data":"[finished] ar25-0c556536 state=gave_up level=4/8 score=27.78 actions=119 tokens=54302 per-level=17/32,16/50,53/75,31/37,2/89,0/159,0/233,0/73 note=\"tokens=57133\"[finished] bp35-0a0ad940 state=gave_up level=0/9 score=0.00 actions=55 tokens=58031 per-level=55/21,0/48,0/44,0/38,0/33,0/87,0/86,0/131,0/163 note=\"tokens=58031\"\n"}
+,{"stream_name":"stdout","time":8498.894223684,"data":"\n"}
+,{"stream_name":"stdout","time":8498.894224764,"data":"deadprobe: game=bp35-0a0ad940 memo={'observed': 55, 'noop': 13, 'repeat_noop': 1, 'skipped': 8, 'hud_cells': 62}\n"}
+,{"stream_name":"stdout","time":8498.894225824,"data":"deadprobe: game=ar25-0c556536 memo={'observed': 119, 'noop': 5, 'repeat_noop': 0, 'skipped': 0, 'hud_cells': 25}\n"}
+,{"stream_name":"stderr","time":8498.894539723,"data":"analyzer request failed at action 209: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=149.58587071700094)\n"}
+,{"stream_name":"stderr","time":8498.894544253,"data":"\n"}
+,{"stream_name":"stderr","time":8498.894545563,"data":"analyzer request failed at action 209: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=149.58587071700094)\n"}
+,{"stream_name":"stdout","time":8498.894739243,"data":"deadprobe: counters game=ar25-0c556536 state=gave_up levels=4 actions=119 turns=57 calls=60 model_s=7894.578 wall_s=7920.1 skipped=0 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.894740393,"data":"deadprobe: counters game=bp35-0a0ad940 state=gave_up levels=0 actions=55 turns=58 calls=60 model_s=7858.203 wall_s=7920.128 skipped=8 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.894987783,"data":"analyzer request failed at action 194: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=61.67904076100058)\n"}
+,{"stream_name":"stderr","time":8498.894991493,"data":"\n"}
+,{"stream_name":"stderr","time":8498.894992293,"data":"analyzer request failed at action 194: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=61.67904076100058)\n"}
+,{"stream_name":"stderr","time":8498.898391811,"data":"analyzer request failed at action 124: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=8.440545499999644)\n"}
+,{"stream_name":"stderr","time":8498.898394381,"data":"\n"}
+,{"stream_name":"stderr","time":8498.898395221,"data":"analyzer request failed at action 124: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=8.440545499999644)\n"}
+,{"stream_name":"stdout","time":8498.914089964,"data":"[finished] ft09-0d8bbf25 state=gave_up level=2/6 score=14.29 actions=208 tokens=43158 per-level=21/43,7/12,180/23,0/28,0/65,0/37 note=\"tokens=43158\"\n"}
+,{"stream_name":"stdout","time":8498.914092794,"data":"[finished] dc22-fdcac232 state=gave_up level=1/6 score=4.76 actions=193 tokens=76500 per-level=43/59,150/102,0/67,0/98,0/324,0/578 note=\"tokens=76500\"\n"}
+,{"stream_name":"stdout","time":8498.914093914,"data":"[finished] tr87-cd924810 state=gave_up level=1/6 score=4.76 actions=123 tokens=79120 per-level=40/54,83/58,0/40,0/45,0/71,0/146 note=\"tokens=79120\"\n"}
+,{"stream_name":"stdout","time":8498.914094894,"data":"deadprobe: game=dc22-fdcac232 memo={'observed': 193, 'noop': 45, 'repeat_noop': 1, 'skipped': 24, 'hud_cells': 61}\n"}
+,{"stream_name":"stdout","time":8498.916741453,"data":"deadprobe: game=ft09-0d8bbf25 memo={'observed': 207, 'noop': 28, 'repeat_noop': 0, 'skipped': 0, 'hud_cells': 0}\n"}
+,{"stream_name":"stderr","time":8498.917071143,"data":"analyzer request failed at action 92: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=65.25786949200119)\n"}
+,{"stream_name":"stderr","time":8498.917073483,"data":"\n"}
+,{"stream_name":"stderr","time":8498.917074313,"data":"analyzer request failed at action 92: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=65.25786949200119)\n"}
+,{"stream_name":"stdout","time":8498.917869052,"data":"deadprobe: counters game=dc22-fdcac232 state=gave_up levels=1 actions=193 turns=56 calls=58 model_s=7854.723 wall_s=7920.107 skipped=24 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.917870262,"data":"deadprobe: counters game=ft09-0d8bbf25 state=gave_up levels=2 actions=208 turns=58 calls=60 model_s=7853.568 wall_s=7920.099 skipped=0 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.918879912,"data":"analyzer request failed at action 104: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=133.987589680999)\n"}
+,{"stream_name":"stderr","time":8498.918882732,"data":"\n"}
+,{"stream_name":"stderr","time":8498.918883532,"data":"analyzer request failed at action 104: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=133.987589680999)\n"}
+,{"stream_name":"stderr","time":8498.920053071,"data":"analyzer request failed at action 75: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=193.80123349299993)\n"}
+,{"stream_name":"stderr","time":8498.920055241,"data":"\n"}
+,{"stream_name":"stderr","time":8498.920056011,"data":"analyzer request failed at action 75: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=193.80123349299993)\n"}
+,{"stream_name":"stderr","time":8498.92226098,"data":"analyzer request failed at action 74: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=164.49951220000094)\n"}
+,{"stream_name":"stderr","time":8498.92226411,"data":"\n"}
+,{"stream_name":"stderr","time":8498.92226486,"data":"analyzer request failed at action 74: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=164.49951220000094)\n"}
+,{"stream_name":"stdout","time":8498.92279884,"data":"deadprobe: game=tr87-cd924810 memo={'observed': 123, 'noop': 0, 'repeat_noop': 0, 'skipped': 0, 'hud_cells': 0}\n"}
+,{"stream_name":"stdout","time":8498.92305186,"data":"deadprobe: counters game=tr87-cd924810 state=gave_up levels=1 actions=123 turns=57 calls=59 model_s=7894.542 wall_s=7920.075 skipped=0 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.92306417,"data":"[finished] sc25-635fd71a state=gave_up level=2/6 score=4.12 actions=91 tokens=66721 per-level=51/36,14/6,26/32,0/83,0/143,0/50 note=\"tokens=71987\"\n"}
+,{"stream_name":"stderr","time":8498.940379531,"data":"analyzer request failed at action 82: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=79.66662861799978)\n"}
+,{"stream_name":"stderr","time":8498.940385841,"data":"\n"}
+,{"stream_name":"stderr","time":8498.940387131,"data":"analyzer request failed at action 82: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=79.66662861799978)\n"}
+,{"stream_name":"stdout","time":8498.940614781,"data":"[finished] sk48-d8078629 state=gave_up level=0/8 score=0.00 actions=74 tokens=67088 per-level=74/61,0/177,0/101,0/103,0/230,0/181,0/125,0/92 note=\"tokens=85447\"\n"}
+,{"stream_name":"stdout","time":8498.940621311,"data":"[finished] g50t-5849a774 state=gave_up level=0/7 score=0.00 actions=103 tokens=104416 per-level=103/78,0/175,0/179,0/230,0/96,0/54,0/67 note=\"tokens=104416\"\n"}
+,{"stream_name":"stdout","time":8498.940622921,"data":"deadprobe: game=sc25-635fd71a memo={'observed': 91, 'noop': 9, 'repeat_noop': 0, 'skipped': 9, 'hud_cells': 124}\n"}
+,{"stream_name":"stdout","time":8498.940630661,"data":"[finished] m0r0-492f87ba state=gave_up level=1/6 score=1.78 actions=73 tokens=84242 per-level=49/30,24/111,0/203,0/26,0/500,0/237 note=\"tokens=84800\"\n"}
+,{"stream_name":"stdout","time":8498.941008861,"data":"deadprobe: counters game=sc25-635fd71a state=gave_up levels=2 actions=91 turns=57 calls=58 model_s=7902.766 wall_s=7920.134 skipped=9 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.941012011,"data":"deadprobe: game=g50t-5849a774 memo={'observed': 103, 'noop': 13, 'repeat_noop': 1, 'skipped': 17, 'hud_cells': 43}\n"}
+,{"stream_name":"stdout","time":8498.941013061,"data":"deadprobe: game=sk48-d8078629 memo={'observed': 74, 'noop': 13, 'repeat_noop': 0, 'skipped': 8, 'hud_cells': 0}\n"}
+,{"stream_name":"stdout","time":8498.94376613,"data":"deadprobe: counters game=sk48-d8078629 state=gave_up levels=0 actions=74 turns=54 calls=57 model_s=7902.402 wall_s=7920.134 skipped=8 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.9437683,"data":"deadprobe: counters game=g50t-5849a774 state=gave_up levels=0 actions=103 turns=52 calls=55 model_s=7900.438 wall_s=7920.113 skipped=17 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.94399553,"data":"analyzer request failed at action 189: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=125.06668598499982)\n"}
+,{"stream_name":"stderr","time":8498.94399675,"data":"\n"}
+,{"stream_name":"stderr","time":8498.94399749,"data":"analyzer request failed at action 189: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=125.06668598499982)\n"}
+,{"stream_name":"stderr","time":8498.946401688,"data":"analyzer request failed at action 151: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=120.07584048300123)\n"}
+,{"stream_name":"stderr","time":8498.946406008,"data":"\n"}
+,{"stream_name":"stderr","time":8498.946406978,"data":"analyzer request failed at action 151: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=120.07584048300123)\n"}
+,{"stream_name":"stdout","time":8498.949895987,"data":"deadprobe: game=m0r0-492f87ba memo={'observed': 73, 'noop': 6, 'repeat_noop': 0, 'skipped': 1, 'hud_cells': 0}\n"}
+,{"stream_name":"stdout","time":8498.949904877,"data":"[finished] wa30-ee6fef47 state=gave_up level=0/9 score=0.00 actions=188 tokens=62641 per-level=188/71,0/119,0/183,0/98,0/368,0/68,0/79,0/442,0/415 note=\"tokens=62641\"\n"}
+,{"stream_name":"stdout","time":8498.950098857,"data":"[finished] cd82-fb555c5d state=gave_up level=2/6 score=11.57 actions=81 tokens=108125 per-level=36/55,10/8,35/41,0/21,0/23,0/23 note=\"tokens=108125\"\n"}
+,{"stream_name":"stdout","time":8498.950100507,"data":"deadprobe: counters game=m0r0-492f87ba state=gave_up levels=1 actions=73 turns=55 calls=57 model_s=7891.077 wall_s=7920.17 skipped=1 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.950662506,"data":"analyzer request failed at action 112: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=72.95770148200063)\n"}
+,{"stream_name":"stderr","time":8498.950663576,"data":"\n"}
+,{"stream_name":"stderr","time":8498.950664416,"data":"analyzer request failed at action 112: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=72.95770148200063)\n"}
+,{"stream_name":"stdout","time":8498.96301393,"data":"[finished] lp85-305b61c3 state=gave_up level=5/8 score=26.59 actions=150 tokens=81039 per-level=5/17,12/38,17/31,55/16,60/41,1/60,0/26,0/159 note=\"tokens=81039\"\n"}
+,{"stream_name":"stdout","time":8498.96301684,"data":"deadprobe: game=cd82-fb555c5d memo={'observed': 81, 'noop': 16, 'repeat_noop': 0, 'skipped': 6, 'hud_cells': 64}\n"}
+,{"stream_name":"stdout","time":8498.96326733,"data":"[finished] sb26-7fbdac44 state=gave_up level=1/8 score=2.78 actions=111 tokens=94819 per-level=9/18,102/28,0/18,0/19,0/31,0/23,0/58,0/18 note=\"tokens=96561\"deadprobe: counters game=cd82-fb555c5d state=gave_up levels=2 actions=81 turns=55 calls=56 model_s=7903.471 wall_s=7920.149 skipped=6 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.96327169,"data":"\n"}
+,{"stream_name":"stdout","time":8498.96327268,"data":"deadprobe: game=wa30-ee6fef47 memo={'observed': 188, 'noop': 91, 'repeat_noop': 33, 'skipped': 145, 'hud_cells': 4021}\n"}
+,{"stream_name":"stdout","time":8498.96348448,"data":"deadprobe: counters game=wa30-ee6fef47 state=gave_up levels=0 actions=188 turns=56 calls=58 model_s=7834.471 wall_s=7920.197 skipped=145 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.96348576,"data":"deadprobe: game=lp85-305b61c3 memo={'observed': 150, 'noop': 0, 'repeat_noop': 0, 'skipped': 0, 'hud_cells': 0}\n"}
+,{"stream_name":"stderr","time":8498.967055509,"data":"analyzer request failed at action 311: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=90.17023692100065)\n"}
+,{"stream_name":"stderr","time":8498.967062489,"data":"\n"}
+,{"stream_name":"stderr","time":8498.967063719,"data":"analyzer request failed at action 311: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=90.17023692100065)\n"}
+,{"stream_name":"stdout","time":8498.967269938,"data":"deadprobe: counters game=lp85-305b61c3 state=gave_up levels=5 actions=150 turns=54 calls=57 model_s=7870.944 wall_s=7920.189 skipped=0 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.967788558,"data":"deadprobe: game=sb26-7fbdac44 memo={'observed': 111, 'noop': 7, 'repeat_noop': 0, 'skipped': 0, 'hud_cells': 0}\n"}
+,{"stream_name":"stdout","time":8498.969654207,"data":"deadprobe: counters game=sb26-7fbdac44 state=gave_up levels=1 actions=111 turns=54 calls=56 model_s=7890.844 wall_s=7920.13 skipped=0 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.970167677,"data":"analyzer request failed at action 55: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=118.59482474700053)\n"}
+,{"stream_name":"stderr","time":8498.970168997,"data":"\n"}
+,{"stream_name":"stderr","time":8498.970169747,"data":"analyzer request failed at action 55: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=118.59482474700053)\n"}
+,{"stream_name":"stdout","time":8498.983108611,"data":"[finished] tn36-ef4dde99 state=gave_up level=0/7 score=0.00 actions=310 tokens=97503 per-level=310/32,0/72,0/26,0/40,0/30,0/55,0/62 note=\"tokens=97503\"\n"}
+,{"stream_name":"stdout","time":8498.983110171,"data":"[finished] su15-1944f8ab state=gave_up level=1/9 score=2.22 actions=54 tokens=87487 per-level=16/22,38/42,0/26,0/115,0/36,0/31,0/8,0/40,0/41 note=\"tokens=87487\"\n"}
+,{"stream_name":"stdout","time":8498.983111141,"data":"deadprobe: game=tn36-ef4dde99 memo={'observed': 305, 'noop': 0, 'repeat_noop': 0, 'skipped': 0, 'hud_cells': 0}\n"}
+,{"stream_name":"stdout","time":8498.983313161,"data":"deadprobe: counters game=tn36-ef4dde99 state=gave_up levels=0 actions=310 turns=54 calls=56 model_s=7801.617 wall_s=7920.222 skipped=0 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.988728078,"data":"analyzer request failed at action 207: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=144.65352253699984)\n"}
+,{"stream_name":"stderr","time":8498.988729578,"data":"\n"}
+,{"stream_name":"stderr","time":8498.988730388,"data":"analyzer request failed at action 207: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=144.65352253699984)\n"}
+,{"stream_name":"stdout","time":8498.989081438,"data":"deadprobe: game=su15-1944f8ab memo={'observed': 53, 'noop': 15, 'repeat_noop': 0, 'skipped': 0, 'hud_cells': 64}\n"}
+,{"stream_name":"stdout","time":8498.989377558,"data":"deadprobe: counters game=su15-1944f8ab state=gave_up levels=1 actions=54 turns=56 calls=58 model_s=7903.852 wall_s=7920.142 skipped=0 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8498.996065305,"data":"[finished] re86-8af5384d state=gave_up level=4/8 score=27.78 actions=206 tokens=85181 per-level=21/26,37/42,48/86,88/108,12/189,0/139,0/424,0/241 note=\"tokens=85181\"\n"}
+,{"stream_name":"stdout","time":8498.996067265,"data":"deadprobe: game=re86-8af5384d memo={'observed': 206, 'noop': 0, 'repeat_noop': 0, 'skipped': 0, 'hud_cells': 0}\n"}
+,{"stream_name":"stdout","time":8498.996338925,"data":"deadprobe: counters game=re86-8af5384d state=gave_up levels=4 actions=206 turns=56 calls=57 model_s=7838.674 wall_s=7920.161 skipped=0 time_cap_s=7920.0\n"}
+,{"stream_name":"stderr","time":8498.999142493,"data":"analyzer request failed at action 232: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=140.69826114700027)\n"}
+,{"stream_name":"stderr","time":8498.999143903,"data":"\n"}
+,{"stream_name":"stderr","time":8498.999144643,"data":"analyzer request failed at action 232: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=140.69826114700027)\n"}
+,{"stream_name":"stdout","time":8499.00525767,"data":"[finished] ls20-9607627b state=gave_up level=0/7 score=0.00 actions=231 tokens=51271 per-level=231/22,0/123,0/73,0/84,0/96,0/192,0/186 note=\"tokens=51574\"\n"}
+,{"stream_name":"stdout","time":8499.00525909,"data":"deadprobe: game=ls20-9607627b memo={'observed': 230, 'noop': 4, 'repeat_noop': 1, 'skipped': 4, 'hud_cells': 0}\n"}
+,{"stream_name":"stdout","time":8499.00547693,"data":"deadprobe: counters game=ls20-9607627b state=gave_up levels=0 actions=231 turns=58 calls=60 model_s=7850.617 wall_s=7920.18 skipped=4 time_cap_s=7920.0\n"}
+,{"stream_name":"stdout","time":8499.016773795,"data":"benchmark: duck-harness-kaggle-ab-answer-s3\n"}
+,{"stream_name":"stdout","time":8499.016775705,"data":"solver:    duck-harness\n"}
+,{"stream_name":"stdout","time":8499.016776635,"data":"games:     25\n"}
+,{"stream_name":"stdout","time":8499.016777485,"data":"passes:    1\n"}
+,{"stream_name":"stdout","time":8499.016778255,"data":"runs:      25 (won: 0)\n"}
+,{"stream_name":"stdout","time":8499.016779025,"data":"started:   2026-09-23 13:29:23\n"}
+,{"stream_name":"stdout","time":8499.016779795,"data":"ended:     2026-09-23 15:41:25\n"}
+,{"stream_name":"stdout","time":8499.016780625,"data":"duration:  2h 12m 1s\n"}
+,{"stream_name":"stdout","time":8499.016781455,"data":"mean score:    7.14\n"}
+,{"stream_name":"stdout","time":8499.016782175,"data":"median score:  2.78\n"}
+,{"stream_name":"stdout","time":8499.016782935,"data":"total actions: 3143\n"}
+,{"stream_name":"stdout","time":8499.016783665,"data":"total tokens:  1911073\n"}
+,{"stream_name":"stdout","time":8499.016784435,"data":"generated tokens/sec: 241.25 (job wallclock)\n"}
+,{"stream_name":"stdout","time":8499.016785215,"data":"total wallclock: 198010.9s\n"}
+,{"stream_name":"stdout","time":8499.016785995,"data":"\n"}
+,{"stream_name":"stdout","time":8499.016786675,"data":"per-game (mean across passes):\n"}
+,{"stream_name":"stdout","time":8499.016787455,"data":"  ar25-0c556536: score=27.78, levels=4.0/8, actions=119, tokens=54302\n"}
+,{"stream_name":"stdout","time":8499.016788295,"data":"  bp35-0a0ad940: score=0.00, levels=0.0/9, actions=55, tokens=58031\n"}
+,{"stream_name":"stdout","time":8499.016789135,"data":"  cd82-fb555c5d: score=11.57, levels=2.0/6, actions=81, tokens=108125\n"}
+,{"stream_name":"stdout","time":8499.016789925,"data":"  cn04-2fe56bfb: score=4.45, levels=1.0/6, actions=108, tokens=104830\n"}
+,{"stream_name":"stdout","time":8499.016792935,"data":"  dc22-fdcac232: score=4.76, levels=1.0/6, actions=193, tokens=76500\n"}
+,{"stream_name":"stdout","time":8499.016793745,"data":"  ft09-0d8bbf25: score=14.29, levels=2.0/6, actions=208, tokens=43158\n"}
+,{"stream_name":"stdout","time":8499.016794525,"data":"  g50t-5849a774: score=0.00, levels=0.0/7, actions=103, tokens=104416\n"}
+,{"stream_name":"stdout","time":8499.016795275,"data":"  ka59-38d34dbb: score=3.57, levels=1.0/7, actions=52, tokens=62306\n"}
+,{"stream_name":"stdout","time":8499.016796035,"data":"  lf52-271a04aa: score=1.82, levels=1.0/10, actions=160, tokens=53294\n"}
+,{"stream_name":"stdout","time":8499.016796795,"data":"  lp85-305b61c3: score=26.59, levels=5.0/8, actions=150, tokens=81039\n"}
+,{"stream_name":"stdout","time":8499.016797575,"data":"  ls20-9607627b: score=0.00, levels=0.0/7, actions=231, tokens=51271\n"}
+,{"stream_name":"stdout","time":8499.016798345,"data":"  m0r0-492f87ba: score=1.78, levels=1.0/6, actions=73, tokens=84242\n"}
+,{"stream_name":"stdout","time":8499.016799105,"data":"  r11l-495a7899: score=14.29, levels=2.0/6, actions=41, tokens=86995\n"}
+,{"stream_name":"stdout","time":8499.016799875,"data":"  re86-8af5384d: score=27.78, levels=4.0/8, actions=206, tokens=85181\n"}
+,{"stream_name":"stdout","time":8499.016800635,"data":"  s5i5-18d95033: score=2.78, levels=1.0/8, actions=96, tokens=101013\n"}
+,{"stream_name":"stdout","time":8499.016801405,"data":"  sb26-7fbdac44: score=2.78, levels=1.0/8, actions=111, tokens=94819\n"}
+,{"stream_name":"stdout","time":8499.016802205,"data":"  sc25-635fd71a: score=4.12, levels=2.0/6, actions=91, tokens=66721\n"}
+,{"stream_name":"stdout","time":8499.016802985,"data":"  sk48-d8078629: score=0.00, levels=0.0/8, actions=74, tokens=67088\n"}
+,{"stream_name":"stdout","time":8499.016803785,"data":"  sp80-589a99af: score=1.61, levels=1.0/6, actions=167, tokens=73203\n"}
+,{"stream_name":"stdout","time":8499.016804555,"data":"  su15-1944f8ab: score=2.22, levels=1.0/9, actions=54, tokens=87487\n"}
+,{"stream_name":"stdout","time":8499.016805325,"data":"  tn36-ef4dde99: score=0.00, levels=0.0/7, actions=310, tokens=97503\n"}
+,{"stream_name":"stdout","time":8499.016806095,"data":"  tr87-cd924810: score=4.76, levels=1.0/6, actions=123, tokens=79120\n"}
+,{"stream_name":"stdout","time":8499.016806845,"data":"  tu93-0768757b: score=0.00, levels=0.0/9, actions=56, tokens=36318\n"}
+,{"stream_name":"stdout","time":8499.016807635,"data":"  vc33-5430563c: score=21.43, levels=3.0/7, actions=93, tokens=91470\n"}
+,{"stream_name":"stdout","time":8499.016808595,"data":"  wa30-ee6fef47: score=0.00, levels=0.0/9, actions=188, tokens=62641\n"}
+,{"stream_name":"stdout","time":8499.016809395,"data":"\n"}
+,{"stream_name":"stdout","time":8499.819361629,"data":"PUBLIC25_AUDIT runs=25 actions=3143 score_path=/kaggle/working/score.json\n"}
+,{"stream_name":"stdout","time":8499.821703378,"data":"taaf.kaggle: teardown command: \"$PYTHON\" \"$TAAF_KAGGLE_BUNDLE_DIR/serving_teardown.py\"\n"}
+,{"stream_name":"stdout","time":8502.359090438,"data":"VLLM_SERVER_TEARDOWN {\"cpu_survivors\": 0, \"elapsed_seconds\": 2.376025337000101, \"metrics_preserved\": true, \"port_closed\": true, \"required_artifacts_preserved\": true, \"result\": \"/kaggle/working/vllm-server-teardown.json\", \"shutdown_ok\": true, \"vllm_gpu_survivors\": 0}\n"}
+,{"stream_name":"stdout","time":8502.390358523,"data":"VLLM_SERVER_TEARDOWN {\"cpu_survivors\": 0, \"elapsed_seconds\": 2.376025337000101, \"metrics_preserved\": true, \"port_closed\": true, \"required_artifacts_preserved\": true, \"result\": \"/kaggle/working/vllm-server-teardown.json\", \"shutdown_ok\": true, \"vllm_gpu_survivors\": 0}\n"}
+,{"stream_name":"stderr","time":8504.446717515,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":8504.446748065,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":8504.624732089,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":8504.624741359,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":8505.064965628,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":8505.211472447,"data":"[NbConvertApp] Writing 124862 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":8506.368702631,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":8507.009200223,"data":"[NbConvertApp] Writing 446245 bytes to __results__.html\n"}
+]
