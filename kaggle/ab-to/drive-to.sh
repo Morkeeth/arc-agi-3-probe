@@ -1,4 +1,7 @@
 #!/bin/bash
+# Guard: launchctl submit restarts this job on exit. If lane T was already pushed, remove the job and stop.
+LOGF=/Users/morkeeth/CODE/arc-agi-3-probe/runs/to-2026-09-23/drive.log
+if grep -q "push to1200-s2: Kernel version 1 successfully" "$LOGF" 2>/dev/null; then launchctl remove com.oscar.arc-to-night; exit 0; fi
 # Night run for RULE-timeout1200.md: push to1200-s1 and -s2 (2 GPU sessions, the cap), wait,
 # pull outputs into runs/to-2026-09-23/, check the proof, compute the verdict. Also logs the board
 # score of submission 56490516 when it lands. Never submits anything.
