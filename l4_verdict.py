@@ -14,18 +14,23 @@ import ab_verdict as av
 ROOT = Path(__file__).resolve().parent
 CONTROL = [ROOT / "runs/ab-2026-09-23" / d for d in ("control-s1", "control-s2r", "control-s3r")]
 TREAT_DIR = ROOT / "runs/l4-2026-09-23"
+TREAT = "seqs16"
+PROOF = "max_num_seqs=16"
 N_REQUIRED = 2
 
 
 def main() -> int:
+    global TREAT_DIR, TREAT, PROOF
+    if "--treat" in sys.argv and sys.argv[sys.argv.index("--treat") + 1] == "to1200":
+        TREAT_DIR, TREAT, PROOF = ROOT / "runs/to-2026-09-23", "to1200", "ab=to1200"
     c = av.arm_stats([av.load_run(d, av.PUBLIC25) for d in CONTROL])
-    runs = [av.load_run(d, av.PUBLIC25) for d in sorted(TREAT_DIR.glob("seqs16-s*")) if (d / "benchmark.json").exists()]
+    runs = [av.load_run(d, av.PUBLIC25) for d in sorted(TREAT_DIR.glob(f"{TREAT}-s*")) if (d / "benchmark.json").exists()]
     for r in runs:
         proof = (r_dir := TREAT_DIR / r.name / "config_proof.txt").read_text() if (TREAT_DIR / r.name / "config_proof.txt").exists() else ""
-        if "max_num_seqs=16" not in proof:
-            r.problems.append(f"proof line lacks max_num_seqs=16 ({r_dir})")
+        if PROOF not in proof:
+            r.problems.append(f"proof line lacks {PROOF} ({r_dir})")
     t = av.arm_stats(runs)
-    out = {"seqs8": c, "seqs16": t}
+    out = {"control": c, TREAT: t}
     for name, s in out.items():
         if not s.get("n_valid"):
             print(f"{name:7s} valid runs 0 {s.get('invalid')}")
@@ -36,10 +41,10 @@ def main() -> int:
               f"levels/run={s['levels_per_run']:.1f} actions/game-run={s['actions_per_game_run']:.1f} "
               f"wall_s/action={av.r2(s['wall_s_per_action'])} at_cap={s['not_won_at_cap']}/{s['not_won']}")
     if t.get("n_valid", 0) < N_REQUIRED:
-        v = {"rule": f"PENDING (valid seqs16 runs {t.get('n_valid', 0)}, need {N_REQUIRED})", "ledger": "pending"}
+        v = {"rule": f"PENDING (valid {TREAT} runs {t.get('n_valid', 0)}, need {N_REQUIRED})", "ledger": "pending"}
     else:
         win = t["mean"] > c["mean"] and t["levels_per_run"] >= c["levels_per_run"]
-        acted = t["actions_per_game_run"] > c["actions_per_game_run"]
+        acted = t["actions_per_game_run"] > c["actions_per_game_run"] if TREAT == "seqs16" else True  # RULE-timeout1200: no acted test
         d = t["mean"] - c["mean"]
         if d > c["spread"] and t["levels_per_run"] >= c["levels_per_run"] and acted:
             ledger = "keep"
