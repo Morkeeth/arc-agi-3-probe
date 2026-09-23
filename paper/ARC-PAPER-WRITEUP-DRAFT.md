@@ -50,8 +50,6 @@ All 25 public games, offline, official toolkit. Source: `runs/census.json`, `run
 - A random policy, 200 steps per game: 2,366 of 4,955 observed transitions were no-ops. 1,650 repeated a no-op already seen in the same board state. The guard can skip those for free.
 - Four games had zero no-ops: ls20, re86, tn36 and tr87.
 
-A random-policy A/B gave means of 0.19 (plain) and 0.04 (guard) over 25 games (`runs/ab.json`). Only sp80 cleared a level, in both arms. This shows only that the plumbing runs.
-
 ## 5. The decision rule
 
 Fixed before either GPU run finished, and not registered publicly: recommend Duck plus guard only if its mean score over the 5 games beats control and it clears at least as many levels. A tie or a loss means submit plain Duck.
@@ -91,12 +89,11 @@ We think this is why the effect is small. The metric charges actions only on cle
 - Hidden state: two boards that look alike can differ inside the game, so the guard could skip an action that would have worked.
 - The classifier compares final frames only. Some games answer with several animation frames.
 
-## 9. What we would do next
+## 9. Follow-up: three repeats on a stronger base
 
-1. Set `honest_board_changed=True`. It swaps Duck's full-grid diff for the HUD-masked one, so a timer tick no longer reads as progress. One flag, zero actions.
-2. Answer a refusal without a new model call, so the guard saves time as well as actions.
-3. Run at least 3 seeds per arm on all 25 public games before claiming a direction.
-4. Run the level-start probe arm and measure its action cost against the level baseline.
+We then tested mode `guard+answer`. It adds the HUD-masked board diff, and it answers a refusal inside the batch with no new model call. The rule was committed before any run (`runs/RULE-guard-answer.md`). The base was the public Qwen3.8 fork `wuliao0/duck-qwen3-8-anim-base`, on all 25 public games, with 3 repeats per arm.
+
+Control scored 8.59 (runs 6.43, 11.40 and 7.94) and cleared 114 levels. guard+answer scored 7.42 and cleared 107. The rule says no. The control range, 4.96, is larger than the gap. Model calls were fixed by the time cap (4,254 against 4,200), so the skipped no-ops bought no extra turns, and real actions fell by 28%. Under a time cap, the guard cannot help.
 
 ## 10. Process
 

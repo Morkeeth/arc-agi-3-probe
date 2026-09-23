@@ -219,6 +219,47 @@ def claims() -> list[Claim]:
         word = WORDS.get(len(z), str(len(z))).capitalize()
         return word, ", ".join(z[:-1]) + " and " + z[-1]
 
+    def _ab3():
+        """The 23 Sep repeat A/B, recomputed from the run files by ab_verdict.py (RULE-guard-answer.md)."""
+        sys.path.insert(0, str(ROOT))
+        import ab_verdict as av
+
+        d = ROOT / "runs" / "ab-2026-09-23"
+        st = {}
+        for arm in av.ARMS:
+            runs = [av.load_run(x, av.PUBLIC25) for x in sorted(d.glob(f"{arm}-s*")) if (x / "benchmark.json").exists()]
+            st[arm] = av.arm_stats(runs)
+        return st["control"], st["answer"], av.verdict(st["control"], st["answer"])
+
+    def fu_design(R):
+        c, a, _ = _ab3()
+        return str(c["game_runs"] // c["n_valid"]), str(min(c["n_valid"], a["n_valid"]))
+
+    def fu_control(R):
+        c, _, _ = _ab3()
+        return (d2(c["mean"]), *[d2(m) for m in c["run_means"]], str(c["levels"]))
+
+    def fu_answer(R):
+        _, a, _ = _ab3()
+        return d2(a["mean"]), str(a["levels"])
+
+    def fu_rule(R):
+        _, _, v = _ab3()
+        return ({"LOSE": "no", "WIN": "yes"}.get(v["rule"], f"MISMATCH {v['rule']}"),)
+
+    def fu_range(R):
+        c, a, _ = _ab3()
+        return (d2(c["spread"]) if c["spread"] > abs(a["mean"] - c["mean"]) else "MISMATCH range not larger",)
+
+    def fu_calls(R):
+        c, a, _ = _ab3()
+        return n(c["calls"]), n(a["calls"])
+
+    def fu_actions(R):
+        c, a, _ = _ab3()
+        pct = Decimal(repr((1 - a["actions"] / c["actions"]) * 100)).quantize(Decimal("1"), rounding=ROUND_HALF_UP)
+        return (str(pct),)
+
     def ab_means(R):
         return d2(R.ab["mean_plain"]), d2(R.ab["mean_guard"]), str(len(R.ab["ab"]))
 
@@ -335,8 +376,13 @@ def claims() -> list[Claim]:
         Claim("walk_steps", r"A random policy, (\d+) steps per game", walk_steps, "runs/walk.json"),
         Claim("walk_counts", r"([\d,]+) of ([\d,]+) observed transitions were no-ops\. ([\d,]+) repeated", walk_counts, "runs/walk.json"),
         Claim("zero_noop", r"(\w+) games had zero no-ops: ([\w, ]+ and \w+)\.", zero_noop, "runs/walk.json"),
-        Claim("ab_means", r"means of ([\d.]+) \(plain\) and ([\d.]+) \(guard\) over (\d+) games", ab_means, "runs/ab.json"),
-        Claim("ab_only", r"Only (\w+) cleared a level, in both arms", ab_only, "runs/ab.json"),
+        Claim("fu_design", r"on all (\d+) public games, with (\d+) repeats per arm", fu_design, "runs/ab-2026-09-23 via ab_verdict.py"),
+        Claim("fu_control", r"Control scored ([\d.]+) \(runs ([\d.]+), ([\d.]+) and ([\d.]+)\) and cleared (\d+) levels", fu_control, "runs/ab-2026-09-23"),
+        Claim("fu_answer", r"guard\+answer scored ([\d.]+) and cleared (\d+)\.", fu_answer, "runs/ab-2026-09-23"),
+        Claim("fu_rule", r"The rule says (\w+)\.", fu_rule, "ab_verdict.verdict"),
+        Claim("fu_range", r"The control range, ([\d.]+), is larger than the gap", fu_range, "runs/ab-2026-09-23"),
+        Claim("fu_calls", r"fixed by the time cap \(([\d,]+) against ([\d,]+)\)", fu_calls, "deadprobe_counters.jsonl"),
+        Claim("fu_actions", r"real actions fell by (\d+)%", fu_actions, "benchmark.json history"),
         Claim("rule_games", r"mean score over the (\d+) games", lambda R: (str(len(R.control.games)),), "summary.txt"),
         Claim("game_split", r"The games were ([\w, ]+ and \w+), which had many dead actions, and (\w+), which had none",
               game_split, "summary.txt + runs/walk.json"),
@@ -353,7 +399,6 @@ def claims() -> list[Claim]:
         Claim("gave_up", r"All (\d+) games ended `gave_up`", gave_up, "log.txt [finished] lines"),
         Claim("cap", r"time cap of ([\d,]+) s", cap, "log.txt max_runtime_s_per_game"),
         Claim("limits", r"One run per arm, on (\d+) of (\d+) public games", limits_games, "summary.txt + census"),
-        Claim("next_25", r"on all (\d+) public games before claiming", next_25, "runs/census.json"),
     ]
 
 

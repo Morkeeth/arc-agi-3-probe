@@ -33,7 +33,7 @@ def test_real_draft_is_green(tmp_path):
         ("control 101.53, guard 109.45", "control 101.53, guard 109.5"),  # rounding drift
         ("14 of 81 simple actions", "14 of 82 simple actions"),  # census
         ("A further 10 known repeats", "A further 11 known repeats"),  # memo repeat_noop
-        ("One flag, zero actions.", "One flag, zero actions, 3 minutes."),  # a new number no claim knows
+        ("Under a time cap, the guard cannot help.", "Under a time cap, the guard cannot help in 3 games."),  # a new number no claim knows
         ("commit `0a1bf51`: `runs/duck-*/summary.txt`", "commit `9f8b1de`: `runs/duck-*/summary.txt`"),  # the old Sources lie
         ("## Sources", "TODO fill\n\n## Sources"),  # a placeholder
     ],
