@@ -50,4 +50,7 @@ Quota before the first push (`kaggle quota`, parsed object, 2026-09-23): 4.87 h 
 
 ## Amendments
 
-None yet.
+A1, 2026-09-23 10:40 UTC, written after pair 1 finished, so it is a deviation from "nothing may change after the first run starts". It is outcome-blind: it touches no metric, no rule and no arm.
+- What happened: control-s2 and answer-s2 version 1 (pushed 10:26 UTC) and version 2 (the rule's one rerun, 10:36 UTC) all stopped at notebook cell 2. `pip` could not see `/kaggle/input/competitions/arc-prize-2026-arc-agi-3/arc_agi_3_wheels` ("is ignored: it is either a non-existing path"). No hook ran and no game started, so no proof line and no benchmark.json exist. Logs: `runs/ab-2026-09-23/*-s2-invalid-*`.
+- Check: a GPU script kernel with the same metadata, pushed at about 10:38 UTC, listed that path with 31 wheel files. A CPU kernel did too.
+- Change: a failure that stops before the hook cell prints `DEADPROBE_LIVE` is an infrastructure failure. It does not use up the rerun, and the slot is pushed again. A failure after the proof line is still an invalid run under "Valid run" above.

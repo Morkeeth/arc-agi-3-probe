@@ -332,3 +332,10 @@ LEDGER: pending
 2026-09-23T10:26:38Z quota left 20.34 h before pair 2
 2026-09-23T10:26:40Z push control-s2: Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/oscarmorke/ab-q38-control-s2
 2026-09-23T10:26:44Z push answer-s2: Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/oscarmorke/ab-q38-answer-s2
+2026-09-23T10:36:45Z pair 2: control-s2=ERROR answer-s2=ERROR
+Kernel log downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/ab-2026-09-23/control-s2/ab-q38-control-s2.log 
+2026-09-23T10:36:46Z control-s2 pulled: 1 files; proof: MISSING
+2026-09-23T10:36:48Z push control-s2: Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/oscarmorke/ab-q38-control-s2
+Kernel log downloaded to /Users/morkeeth/CODE/arc-agi-3-probe/runs/ab-2026-09-23/answer-s2/ab-q38-answer-s2.log 
+2026-09-23T10:36:49Z answer-s2 pulled: 1 files; proof: MISSING
+2026-09-23T10:36:51Z push answer-s2: Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/oscarmorke/ab-q38-answer-s2
