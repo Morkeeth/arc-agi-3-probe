@@ -21,7 +21,7 @@ The submitted notebook is `oscarmorke/duck-control`, version 1. It is the public
 
 Our work is a measurement and a guard. The guard was tested as an ablation and was not submitted, because our decision rule said no.
 
-The submission was made on 2026-09-22 at 17:22 UTC. At the time of writing its status was PENDING, with no public score (`kaggle competitions submissions arc-prize-2026-arc-agi-3 -v`).
+The submission was made on 2026-09-22 at 17:22 UTC. It is COMPLETE and scored 1.22 on the public board (`kaggle competitions submissions arc-prize-2026-arc-agi-3 -v`).
 
 ## 2. The question
 

@@ -362,6 +362,7 @@ def claims() -> list[Claim]:
 EXTERNAL = [
     ("kaggle_ref", r"submission ref (\d+)", "--kaggle"),
     ("kaggle_time", r"on (2026-09-22) at (\d\d:\d\d) UTC", "--kaggle"),
+    ("kaggle_score", r"is (COMPLETE) and scored ([\d.]+) on the public board", "--kaggle"),
     ("tests", r"(\d+) pass with the Duck source present", "--tests"),
     ("notebook_version", r"`oscarmorke/duck-control`, version (\d+)", "not checked: Kaggle notebook version"),
     ("score_range", r"Game scores run from (0) to (100)%", "not checked: Kaggle ARC-AGI-3 Evaluation page"),
@@ -558,8 +559,13 @@ def check_kaggle(body: str, rep: Report) -> None:
         rep.fail("kaggle", f"draft says {day} {hhmm} UTC, Kaggle says {r['date']}")
     else:
         rep.ok("kaggle", f"ref {ref} date {r['date']} (Kaggle API, UTC) status {r['status']} public={r['publicScore'] or '-'}")
-    if "PENDING" not in r["status"]:
-        print(f"WARN  kaggle             status is now {r['status']}: update section 1 and Limits")
+    m = re.search(r"is (COMPLETE) and scored ([\d.]+) on the public board", body)
+    if m is None:
+        rep.fail("kaggle_score", f"section 1 states no score; Kaggle says {r['status']} public={r['publicScore'] or '-'}")
+    elif not r["status"].endswith(m[1]) or (r["publicScore"] or "") != m[2]:
+        rep.fail("kaggle_score", f"draft says {m[1]} {m[2]}, Kaggle says {r['status']} public={r['publicScore'] or '-'}")
+    else:
+        rep.ok("kaggle_score", f"{m[1]} {m[2]} (Kaggle API)")
 
 
 def main(argv=None) -> int:
