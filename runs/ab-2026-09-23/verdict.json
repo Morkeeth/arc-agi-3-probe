@@ -1,0 +1,83 @@
+{
+  "stats": {
+    "control": {
+      "n_valid": 3,
+      "runs": [
+        "control-s1",
+        "control-s2r",
+        "control-s3r"
+      ],
+      "invalid": {},
+      "mean": 8.589519100442978,
+      "run_means": [
+        6.4347993474991485,
+        11.397577133412994,
+        7.936180820416792
+      ],
+      "spread": 4.962777785913846,
+      "sd": 2.5450793738507773,
+      "levels": 114,
+      "run_levels": [
+        35,
+        44,
+        35
+      ],
+      "game_runs": 75,
+      "actions": 11976,
+      "turns": 4081,
+      "calls": 4254,
+      "skipped": 0,
+      "calls_per_action": 0.35521042084168336,
+      "wall_s_per_action": 49.45404347076052,
+      "model_s": 587255.406,
+      "not_won": 74,
+      "not_won_at_cap": 74,
+      "time_cap_s": 7920.0,
+      "subset5_mean": 3.5475816468891295,
+      "subset5_levels": 18
+    },
+    "answer": {
+      "n_valid": 3,
+      "runs": [
+        "answer-s1",
+        "answer-s2r",
+        "answer-s3r"
+      ],
+      "invalid": {},
+      "mean": 7.4192972584375445,
+      "run_means": [
+        6.237635515929164,
+        8.885029900494112,
+        7.135226358889356
+      ],
+      "spread": 2.647394384564948,
+      "sd": 1.3463641646427214,
+      "levels": 107,
+      "run_levels": [
+        33,
+        40,
+        34
+      ],
+      "game_runs": 75,
+      "actions": 8576,
+      "turns": 4030,
+      "calls": 4200,
+      "skipped": 762,
+      "calls_per_action": 0.48973880597014924,
+      "wall_s_per_action": 69.26702672511522,
+      "model_s": 591454.514,
+      "not_won": 75,
+      "not_won_at_cap": 75,
+      "time_cap_s": 7920.0,
+      "subset5_mean": 3.940881232905696,
+      "subset5_levels": 16
+    }
+  },
+  "verdict": {
+    "n_required": 3,
+    "rule": "LOSE",
+    "mechanism_ok": false,
+    "ledger": "kill",
+    "diff": -1.170221842005433
+  }
+}
