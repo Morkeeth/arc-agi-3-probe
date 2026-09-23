@@ -83,9 +83,9 @@ We think this is why the effect is small. The metric charges actions only on cle
 
 ## 8. Limits
 
-- One run per arm, on 5 of 25 public games. Sampling swings per game are larger than any plausible guard effect.
-- Only guard mode ran on a GPU. The level-start probe modes were tested offline and never run with Duck.
-- Duck reports board change with a full-grid diff. A timer tick makes every action look live, so the model gets a false progress signal. We left that unchanged in the A/B.
+- One run per arm, on 5 of 25 public games, in the first A/B. Swings per game exceed any plausible guard effect.
+- The level-start probe modes were tested offline and never run with Duck.
+- Duck reports board change with a full-grid diff. A timer tick makes every action look live, so the model gets a false progress signal. We left that unchanged in the first A/B.
 - Hidden state: two boards that look alike can differ inside the game, so the guard could skip an action that would have worked.
 - The classifier compares final frames only. Some games answer with several animation frames.
 
@@ -105,6 +105,7 @@ The author is a builder and product person with a hackathon background, who work
 
 - Repo `arc-agi-3-probe`, commit `9f8b1de`: `deadprobe/`, `harness.py`, `kaggle_hook.py`, `kaggle/`, `runs/*.json`, `runs/duck-*/log.txt`.
 - Same repo, commit `0a1bf51`: `runs/duck-*/summary.txt`, `runs/duck-*/taaf_setup_env.json`.
+- Same repo, commit `480d36a`: `runs/RULE-guard-answer.md`, `runs/ab-2026-09-23/`, `ab_verdict.py`.
 - Branch `paper/arc-writeup`: `paper/verify_numbers.py` rechecks every number; `paper/ARC-PAPER-FIG1-AB.py` draws Figure 1.
 - Duck: kaggle.com/code/jeroencottaar/tufa-labs-duck-harness-june-30-milestone-winner. TAAF: kaggle.com/datasets/jeroencottaar/taaf-kaggle-source-share.
 - Toolkit: github.com/arcprize/ARC-AGI and github.com/arcprize/ARCEngine.
