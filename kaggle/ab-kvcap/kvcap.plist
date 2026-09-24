@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>Label</key><string>com.oscar.arc-kvcap</string>
+<key>ProgramArguments</key><array><string>/bin/bash</string><string>/Users/morkeeth/CODE/arc-agi-3-probe/kaggle/ab-kvcap/drive-kvcap.sh</string></array>
+<key>EnvironmentVariables</key><dict><key>HOME</key><string>/Users/morkeeth</string></dict>
+<key>RunAtLoad</key><true/>
+<key>KeepAlive</key><false/>
+<key>StartCalendarInterval</key><dict><key>Month</key><integer>9</integer><key>Day</key><integer>26</integer><key>Hour</key><integer>2</integer><key>Minute</key><integer>6</integer></dict>
+<key>StandardOutPath</key><string>/Users/morkeeth/CODE/arc-agi-3-probe/runs/kvcap.launchd.log</string>
+<key>StandardErrorPath</key><string>/Users/morkeeth/CODE/arc-agi-3-probe/runs/kvcap.launchd.log</string>
+</dict></plist>
