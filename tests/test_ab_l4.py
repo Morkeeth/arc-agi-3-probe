@@ -23,14 +23,23 @@ def _notebook_text(path: Path) -> str:
     return "".join("".join(c.get("source", [])) for c in nb["cells"])
 
 
-def _normalize(text: str, arm: str, seed: int) -> str:
-    max_seqs = "8" if arm == "seqs8" else "16"
+def _cell_source_lines(path: Path) -> list[str]:
+    nb = json.loads(path.read_text())
+    lines: list[str] = []
+    for cell in nb["cells"]:
+        for line in cell.get("source", []):
+            lines.append(line.rstrip("\n"))
+    return lines
+
+
+def _strip_arm_ids(lines: list[str], arm: str, seed: int) -> list[str]:
+    """AB_ID and slug must differ by design; strip them before the one-line knob check."""
     ab_id = f"{arm}-s{seed}"
     slug = f"ab-l4-{arm}-s{seed}"
-    text = text.replace(f'"TAAF_VLLM_MAX_NUM_SEQS": "{max_seqs}"', '"TAAF_VLLM_MAX_NUM_SEQS": "X"')
-    text = text.replace(ab_id, "ARM_SEED")
-    text = text.replace(slug, "SLUG")
-    return text
+    out = []
+    for line in lines:
+        out.append(line.replace(ab_id, "ARM_SEED").replace(slug, "SLUG"))
+    return out
 
 
 def test_arms_differ_only_in_max_num_seqs_and_ids():
@@ -52,7 +61,14 @@ def test_arms_differ_only_in_max_num_seqs_and_ids():
         assert "os.environ['TAAF_VLLM_MAX_NUM_SEQS']" in s8
         assert "os.environ['TAAF_VLLM_MAX_NUM_SEQS']" in s16
 
-        assert _normalize(s8, "seqs8", seed) == _normalize(s16, "seqs16", seed)
+        lines8 = _strip_arm_ids(_cell_source_lines(p8), "seqs8", seed)
+        lines16 = _strip_arm_ids(_cell_source_lines(p16), "seqs16", seed)
+        assert len(lines8) == len(lines16)
+        diffs = [(a, b) for a, b in zip(lines8, lines16) if a != b]
+        assert len(diffs) == 1, f"expected exactly one source-line diff after id strip, got {len(diffs)}: {diffs}"
+        a, b = diffs[0]
+        assert a == '    "TAAF_VLLM_MAX_NUM_SEQS": "8",'
+        assert b == '    "TAAF_VLLM_MAX_NUM_SEQS": "16",'
 
         m8 = json.loads((L4 / f"seqs8-s{seed}" / "kernel-metadata.json").read_text())
         m16 = json.loads((L4 / f"seqs16-s{seed}" / "kernel-metadata.json").read_text())
