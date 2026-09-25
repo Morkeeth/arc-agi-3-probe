@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>Label</key><string>com.oscar.arc-compact</string>
+<key>ProgramArguments</key><array><string>/bin/bash</string><string>/Users/morkeeth/CODE/arc-agi-3-probe-compact/kaggle/ab-compact/drive-compact.sh</string></array>
+<key>EnvironmentVariables</key><dict><key>HOME</key><string>/Users/morkeeth</string></dict>
+<key>RunAtLoad</key><false/>
+<key>KeepAlive</key><false/>
+<key>StartCalendarInterval</key><dict><key>Month</key><integer>9</integer><key>Day</key><integer>27</integer><key>Hour</key><integer>2</integer><key>Minute</key><integer>5</integer></dict>
+<key>StandardOutPath</key><string>/Users/morkeeth/CODE/arc-agi-3-probe/runs/compact.launchd.log</string>
+<key>StandardErrorPath</key><string>/Users/morkeeth/CODE/arc-agi-3-probe/runs/compact.launchd.log</string>
+</dict></plist>
