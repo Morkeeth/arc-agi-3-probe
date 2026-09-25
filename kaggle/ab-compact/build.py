@@ -73,6 +73,7 @@ def block(src: str, max_chars: int = MAX_CHARS) -> str:
         f"{sha}. ----\n"
         f"COMPACT_MAX_CHARS = {max_chars}\n"
         f"(_pkg / \"compaction.py\").write_text({src!r})\n"
+        "import importlib; importlib.invalidate_caches()  # the package was imported above: see the new file\n"
         "from deadprobe import compaction as _compaction\n"
         "_compaction.install(COMPACT_MAX_CHARS)\n"
         "# ---- end lever compaction ----\n"

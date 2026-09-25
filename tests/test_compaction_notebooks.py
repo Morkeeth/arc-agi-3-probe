@@ -99,10 +99,14 @@ def test_hook_block_runs_on_cpu(tmp_path, monkeypatch):
     pkg = tmp_path / "deadprobe"
     pkg.mkdir()
     (pkg / "__init__.py").write_text("")
+    (pkg / "counters.py").write_text("X = 1\n")
     monkeypatch.syspath_prepend(str(tmp_path))
     monkeypatch.setenv("ARC_COMPACT_EVENTS", str(tmp_path / "events.jsonl"))
     for name in [m for m in sys.modules if m == "deadprobe" or m.startswith("deadprobe.")]:
         monkeypatch.delitem(sys.modules, name)
+    import importlib
+    importlib.invalidate_caches()
+    importlib.import_module("deadprobe.counters")  # as in the notebook: the package is imported before the block
     code = B.block((HERE / "compaction.py").read_text())
     out = io.StringIO()
     with contextlib.redirect_stdout(out):

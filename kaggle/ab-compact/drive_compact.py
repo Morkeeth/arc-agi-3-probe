@@ -353,7 +353,7 @@ def main() -> int:
                     say(f"NO PUSH: {why}. Checking again in 5 min")
                 elif stamp != DATASET_STAMP:
                     say(f"NO PUSH: dataset {DATASET} lastUpdated {stamp}, base runs used {DATASET_STAMP}. "
-                        "One knob would break. Left for Oscar")
+                        "One knob would break (None = could not read it). Checking again in 5 min, until 12:00 UTC")
                 else:
                     for ab in todo:
                         push_once(ab)
