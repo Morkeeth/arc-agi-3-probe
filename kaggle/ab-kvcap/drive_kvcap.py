@@ -202,7 +202,7 @@ def k_output(ab: str, dest: Path) -> tuple[bool, str]:
 def pull_complete(ab: str, dest: Path) -> tuple[bool, str]:
     """The files a verdict needs, all present: the kernel log (proof lines), the vLLM log (KV and Running
     lines) and benchmark.json. A folder without them is a failed download, not an invalid run."""
-    need = [f"ab-{ab}.log", "vllm-openai-server.log", "benchmark.json"]
+    need = [f"ab-{ab}.log", *VERDICT_FILES]
     missing = [n for n in need if not (dest / n).is_file() or (dest / n).stat().st_size == 0]
     return (False, "missing " + ", ".join(missing)) if missing else (True, "complete")
 
@@ -349,16 +349,22 @@ def handle(ab: str) -> None:
         mark(f"notfound-{ab}")
         say(f"{ab}: marker says pushed ({read(f'push-{ab}').strip()}) but Kaggle has no kernel. Not re-pushing; this seed is lost")
     if st == "COMPLETE":
-        ok, why = k_output(ab, OUT / ab)
-        full, what = pull_complete(ab, OUT / ab)
-        if not (ok and full):
+        # Pull into a staging dir. The verdict globs "*-s[0-9]" and must never see a half pull.
+        stage = OUT / f"{ab}.pulling"
+        ok, why = k_output(ab, stage)
+        full, what = pull_complete(ab, stage)
+        if ok and full:
+            if (OUT / ab).exists():
+                shutil.rmtree(OUT / ab)
+            stage.rename(OUT / ab)
+        else:
             n = int(read(f"pulltries-{ab}") or 0) + 1
             mark(f"pulltries-{ab}", str(n))
             if n < PULL_TRIES:
                 say(f"{ab} COMPLETE but pull incomplete ({why}; {what}), try {n}/{PULL_TRIES}: pulling again next poll")
                 return
             aside = OUT / f"{ab}-pullincomplete-{iso()[11:16].replace(':', '')}"
-            (OUT / ab).rename(aside)
+            stage.rename(aside)
             mark(f"final-{ab}", "PULL_INCOMPLETE")
             say(f"{ab} COMPLETE but pull incomplete after {n} tries ({why}; {what}): set aside as {aside.name}, "
                 "not judged. The run's output is still on Kaggle")
@@ -385,7 +391,11 @@ def handle(ab: str) -> None:
                 # would retry an OOM run instead of falling back to kv7.
                 say(f"{ab} {st} but pull failed ({why}), try {n}/{PULL_TRIES}: deciding after the next poll")
                 return
-            say(f"{ab} {st}: pull still failing after {n} tries ({why}); deciding on what arrived")
+            # Deciding retry or kv7 fallback without the kernel log could spend 2 h of quota blind.
+            mark(f"final-{ab}", f"{st} PULL_FAILED")
+            say(f"{ab} {st}: pull still failing after {n} tries ({why}). No retry and no fallback: "
+                "the OOM line cannot be read. Left for Oscar")
+            return
         (STATE / f"errdir-{ab}").unlink(missing_ok=True)
         (STATE / f"pulltries-{ab}").unlink(missing_ok=True)
         text = " ".join(f.read_text(errors="replace") for f in bad.glob("*.log"))
