@@ -52,7 +52,7 @@ def _fake_kaggle(monkeypatch, drv, complete: bool, bulk_ok: bool = True):
         text, rc = "", 0
         if pattern == ".*" or verdict_stage:
             (dest / "benchmark.json").write_text("{}")
-            (dest / "deadprobe_counters.jsonl").write_text("")
+            (dest / "deadprobe_counters.jsonl").write_text('{"calls": 1}\n')
             if complete:
                 (dest / "vllm-openai-server.log").write_text("reserved 5.0 GiB memory for KV Cache\nRunning: 3 reqs\n")
                 (dest / "vllm-metrics-final.prom").write_text("x 1\n")
@@ -128,3 +128,37 @@ def test_verdict_files_are_enough_when_the_bulk_pull_fails(drv, monkeypatch):
     assert drv.read(f"final-{AB}") == "COMPLETE"
     assert calls and "benchmark" in calls[0] and "?!" not in calls[0], "verdict files first"
     assert "bulk artifacts pull failed" in drv.LOG.read_text()
+
+
+def test_a_half_pull_is_never_where_the_verdict_looks(drv, monkeypatch):
+    _fake_kaggle(monkeypatch, drv, complete=False)
+    drv.handle(AB)
+    # The verdict globs "*-s[0-9]"; a retrying pull must not sit there.
+    assert not (drv.OUT / AB).exists()
+    assert not [p for p in drv.OUT.glob("*-s[0-9]")]
+
+
+def test_every_verdict_file_is_required(drv, monkeypatch):
+    _fake_kaggle(monkeypatch, drv, complete=True)
+    real = drv.subprocess.run
+
+    def drop_metrics(cmd, *a, **kw):
+        r = real(cmd, *a, **kw)
+        if isinstance(cmd, list) and cmd[:3] == ["kaggle", "kernels", "output"]:
+            (Path(cmd[cmd.index("-p") + 1]) / "vllm-metrics-final.prom").unlink(missing_ok=True)
+        return r
+
+    monkeypatch.setattr(drv.subprocess, "run", drop_metrics)
+    drv.handle(AB)
+    assert not drv.marked(f"final-{AB}"), "a pull without vllm-metrics-final.prom was accepted"
+
+
+def test_error_run_never_decides_blind(drv, monkeypatch):
+    monkeypatch.setattr(drv, "k_status", lambda ab: "ERROR")
+    pushed = []
+    monkeypatch.setattr(drv, "push_once", lambda ab, retry=False: pushed.append((ab, retry)))
+    _fake_kaggle(monkeypatch, drv, complete=False)
+    for _ in range(drv.PULL_TRIES):
+        drv.handle(AB)
+    assert pushed == [], "a retry or fallback was pushed without the kernel log"
+    assert drv.read(f"final-{AB}") == "ERROR PULL_FAILED"
