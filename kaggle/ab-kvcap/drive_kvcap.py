@@ -155,14 +155,56 @@ def k_status(ab: str) -> str:
     return m.group(1) if m else ("NOTFOUND" if "denied" in out or "404" in out else "UNKNOWN")
 
 
-def k_output(ab: str, dest: Path) -> None:
+PULL_TRIES = 5  # a COMPLETE run whose download keeps failing is set aside after this many polls
+NET_FAIL_RE = re.compile(r"Max retries exceeded|ConnectTimeoutError|ReadTimeoutError|Connection (?:reset|aborted)", re.I)
+
+
+VERDICT_FILES = ("benchmark.json", "deadprobe_counters.jsonl", "vllm-openai-server.log", "vllm-metrics-final.prom")
+VERDICT_RE = "^(" + "|".join(re.escape(n) for n in VERDICT_FILES) + ")$"
+BULK_RE = "^(?!(" + "|".join(re.escape(n) for n in VERDICT_FILES) + ")$).*"
+
+
+def _kaggle_output(ab: str, dest: Path, pattern: str) -> tuple[bool, str]:
+    try:
+        r = subprocess.run(["kaggle", "kernels", "output", f"oscarmorke/ab-{ab}", "-p", str(dest), "-o",
+                            "--file-pattern", pattern], capture_output=True, text=True, timeout=3600)
+        text, rc = (r.stdout or "") + (r.stderr or ""), r.returncode
+    except Exception as e:  # a hung download: the next poll tries again
+        text, rc = f"EXC {e!r}", -1
+    with LOG.open("a") as f:
+        f.write(text if text.endswith("\n") else text + "\n")
+    if rc != 0:
+        return False, f"kaggle exit {rc}"
+    if NET_FAIL_RE.search(text):
+        return False, "a download timed out"
+    return True, "ok"
+
+
+def k_output(ab: str, dest: Path) -> tuple[bool, str]:
+    """Download a kernel's output in two stages. True only when the verdict's files arrived.
+    26 Sep: one run writes 300+ files, each its own request; kaggleusercontent.com timed out
+    mid-download, and the kernel log (fetched last) and the vLLM log never arrived. Stage 1 pulls
+    only the files the verdict reads, plus the kernel log. Stage 2 pulls the rest, best effort,
+    and never re-downloads (so never truncates) a stage 1 file."""
     dest.mkdir(parents=True, exist_ok=True)
     if DRY:
         fixture(ab, dest)
-        return
-    with LOG.open("a") as f:
-        subprocess.run(["kaggle", "kernels", "output", f"oscarmorke/ab-{ab}", "-p", str(dest), "-o"],
-                       stdout=f, stderr=subprocess.STDOUT, timeout=3600)
+        return True, "dry fixture"
+    ok, why = _kaggle_output(ab, dest, VERDICT_RE)
+    if not ok:
+        return False, f"verdict files: {why}"
+    bulk, bwhy = _kaggle_output(ab, dest, BULK_RE)
+    if not bulk:
+        say(f"{ab}: verdict files pulled; the bulk artifacts pull failed ({bwhy}), not needed for the verdict")
+    return True, "ok"
+
+
+def pull_complete(ab: str, dest: Path) -> tuple[bool, str]:
+    """The files a verdict needs, all present: the kernel log (proof lines), the vLLM log (KV and Running
+    lines) and benchmark.json. A folder without them is a failed download, not an invalid run."""
+    need = [f"ab-{ab}.log", "vllm-openai-server.log", "benchmark.json"]
+    missing = [n for n in need if not (dest / n).is_file() or (dest / n).stat().st_size == 0]
+    return (False, "missing " + ", ".join(missing)) if missing else (True, "complete")
 
 
 def k_submissions() -> str:
@@ -307,7 +349,20 @@ def handle(ab: str) -> None:
         mark(f"notfound-{ab}")
         say(f"{ab}: marker says pushed ({read(f'push-{ab}').strip()}) but Kaggle has no kernel. Not re-pushing; this seed is lost")
     if st == "COMPLETE":
-        k_output(ab, OUT / ab)
+        ok, why = k_output(ab, OUT / ab)
+        full, what = pull_complete(ab, OUT / ab)
+        if not (ok and full):
+            n = int(read(f"pulltries-{ab}") or 0) + 1
+            mark(f"pulltries-{ab}", str(n))
+            if n < PULL_TRIES:
+                say(f"{ab} COMPLETE but pull incomplete ({why}; {what}), try {n}/{PULL_TRIES}: pulling again next poll")
+                return
+            aside = OUT / f"{ab}-pullincomplete-{iso()[11:16].replace(':', '')}"
+            (OUT / ab).rename(aside)
+            mark(f"final-{ab}", "PULL_INCOMPLETE")
+            say(f"{ab} COMPLETE but pull incomplete after {n} tries ({why}; {what}): set aside as {aside.name}, "
+                "not judged. The run's output is still on Kaggle")
+            return
         proof = ""
         for lf in (OUT / ab).glob("ab-*.log"):
             m = re.search(r'DEADPROBE_LIVE[^"\\]*', lf.read_text(errors="replace"))
@@ -318,8 +373,21 @@ def handle(ab: str) -> None:
         mark(f"final-{ab}", "COMPLETE")
         say(f"{ab} COMPLETE, pulled; proof: {proof or 'MISSING'}")
     elif st in ("ERROR", "CANCEL_ACKNOWLEDGED", "CANCELLED"):
-        bad = OUT / f"{ab}-invalid-{iso()[11:16].replace(':', '')}"
-        k_output(ab, bad)
+        if not read(f"errdir-{ab}"):
+            mark(f"errdir-{ab}", f"{ab}-invalid-{iso()[11:16].replace(':', '')}")
+        bad = OUT / read(f"errdir-{ab}").strip()
+        ok, why = k_output(ab, bad)
+        if not ok:
+            n = int(read(f"pulltries-{ab}") or 0) + 1
+            mark(f"pulltries-{ab}", str(n))
+            if n < PULL_TRIES:
+                # The kernel log arrives last and holds the OOM line: deciding on a half pull
+                # would retry an OOM run instead of falling back to kv7.
+                say(f"{ab} {st} but pull failed ({why}), try {n}/{PULL_TRIES}: deciding after the next poll")
+                return
+            say(f"{ab} {st}: pull still failing after {n} tries ({why}); deciding on what arrived")
+        (STATE / f"errdir-{ab}").unlink(missing_ok=True)
+        (STATE / f"pulltries-{ab}").unlink(missing_ok=True)
         text = " ".join(f.read_text(errors="replace") for f in bad.glob("*.log"))
         mark(f"final-{ab}", st)
         if ab.startswith("kv8") and OOM_RE.search(text):
@@ -333,6 +401,18 @@ def handle(ab: str) -> None:
             mark(f"push-{ab}", read(f"push-{ab}-retry"))  # keep polling the same id
         else:
             say(f"{ab} {st} after its retry: given up")
+
+
+def s2_ready(s1: str) -> tuple[bool, str]:
+    """Seed 2 starts only after seed 1 is final COMPLETE with a complete pull.
+    26 Sep: kv7-s1 was given up at 05:57 and kv7-s2 was pushed at 06:02, because `pulled` only
+    checked that a final marker existed, whatever it said."""
+    st = read(f"final-{s1}").strip()
+    if not st:
+        return False, "s1 not final"
+    if st != "COMPLETE":
+        return False, f"s1 final {st}"
+    return True, "s1 COMPLETE"
 
 
 def all_final() -> bool:
@@ -459,7 +539,12 @@ def main() -> int:
                     continue
                 push_once(s1)
             elif pulled(s1) and not marked(f"push-{s2}") and not marked(f"gaveup-{s2}"):
-                push_once(s2)
+                ready, why = s2_ready(s1)
+                if ready:
+                    push_once(s2)
+                else:
+                    mark(f"gaveup-{s2}", why)
+                    say(f"NO PUSH {s2}: {why}. A second seed only follows a valid first seed")
         for arm in SLOTS:
             for seed in (1, 2):
                 handle(slot_id(arm, seed))
