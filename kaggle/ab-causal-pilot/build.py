@@ -78,11 +78,13 @@ SETTINGS = {
     "game_order_sha256": hashlib.sha256((json.dumps(GAMES, separators=(",", ":")) + "\n").encode()).hexdigest(),
     "passes": 1,
     "model": "Qwen/Qwen3.8-Flash-Next-NVFP4",
+    "provider": "vllm",
     "context_window": 32768,
     "seed": -1,
     "temperature": 0.6,
     "top_p": 0.95,
     "top_k": 20,
+    "enable_thinking": True,
     "max_output_tokens": 0,
     "tool_output_tokens": 1024,
     "tool_steps": 0,
@@ -95,6 +97,27 @@ SETTINGS = {
     "max_actions_per_game": None,
     "save_request_logs": True,
     "memory_record_max_chars": MAX_CHARS,
+    "vllm_profile": {
+        "TAAF_VLLM_ENABLE_PREFIX_CACHING": "0",
+        "TAAF_VLLM_KV_CACHE_DTYPE": "auto",
+        "TAAF_VLLM_KV_CACHE_MEMORY_BYTES": "5368709120",
+        "TAAF_VLLM_MAX_CUDAGRAPH_CAPTURE_SIZE": "32",
+        "TAAF_VLLM_MAX_NUM_BATCHED_TOKENS": "8192",
+        "TAAF_VLLM_MAX_NUM_SEQS": "8",
+        "TAAF_VLLM_MTP_TOKENS": "3",
+        "TAAF_VLLM_OMP_THREADS": "1",
+    },
+    "runtime_inputs": {
+        "dataset_sources": [
+            "keithtyser/duck-qwen38-nvfp4-mtp-vllm-smoke-v1",
+            "keithtyser/qwen38-flash-next-vllm-nvfp4-runtime-v1",
+            "oscarmorke/arc-agi-3-probe",
+        ],
+        "source_identity_sha256": "473e695998342160478e9066d8a0d45536942ef37c75ddb803f36d3e0abb397c",
+        "runtime_manifest_sha256": "e9453f8d0e9c5eb2e14712e0f8563aaa96752ddc1705f245cac327537502baad",
+        "probe_content_manifest_sha256": "b1e30cc9f4d0c0797aa1a1bd375122c7b0883992348042675f5e0378197e8793",
+        "model_config_sha256": "e765305daba0951974308f4d32c075b52a6a45974730d273f2216718a994d624",
+    },
 }
 
 RAW_START = "# ---- arc-agi-3-probe lever compaction"
@@ -139,26 +162,112 @@ def _causal_block(source: str) -> str:
         "    f\"ensure={_causal_tool_agent.ToolAgent._ensure_session.__module__} events={_causal_events}\",\n"
         "    flush=True,\n"
         ")\n"
+        "PILOT_MEMORY_RECORD_MAX_CHARS = CAUSAL_MAX_CHARS\n"
+        "PILOT_MEMORY_MARKER = \"Causal record from earlier dropped turns\"\n"
         "# ---- end causal memory treatment ----"
     )
 
 
 def _shared_runtime_block(arm: str) -> str:
-    common = {
-        "schema": "arc-causal-pilot-v2",
-        "settings": SETTINGS,
-        "datasets": DATASETS,
-        "model": MODEL,
-        "frozen_input_hashes": EXPECTED_INPUT_HASHES,
-    }
     return (
         f"CAUSAL_PILOT_ARM = {arm!r}\n"
-        f"CAUSAL_PILOT_COMMON = {common!r}\n"
-        "_pilot_config = dict(CAUSAL_PILOT_COMMON, arm=CAUSAL_PILOT_ARM)\n"
+        "def _pilot_env_int(name, default):\n"
+        "    return int(os.environ.get(name, str(default)) or default)\n"
+        "def _pilot_env_float(name, default):\n"
+        "    return float(os.environ.get(name, str(default)) or default)\n"
+        "def _pilot_env_bool(name, default):\n"
+        "    value = os.environ.get(name)\n"
+        "    return default if value is None else value.strip().lower() in {\"1\", \"true\", \"yes\", \"on\"}\n"
+        "_pilot_vllm_keys = [\n"
+        "    \"TAAF_VLLM_ENABLE_PREFIX_CACHING\", \"TAAF_VLLM_KV_CACHE_DTYPE\",\n"
+        "    \"TAAF_VLLM_KV_CACHE_MEMORY_BYTES\", \"TAAF_VLLM_MAX_CUDAGRAPH_CAPTURE_SIZE\",\n"
+        "    \"TAAF_VLLM_MAX_NUM_BATCHED_TOKENS\", \"TAAF_VLLM_MAX_NUM_SEQS\",\n"
+        "    \"TAAF_VLLM_MTP_TOKENS\", \"TAAF_VLLM_OMP_THREADS\",\n"
+        "]\n"
+        "def _pilot_sha256_file(path):\n"
+        "    return hashlib.sha256(Path(path).read_bytes()).hexdigest()\n"
+        "_pilot_probe_rows = [\n"
+        "    {\"name\": path.name, \"sha256\": _pilot_sha256_file(path)}\n"
+        "    for path in sorted(_hit.parent.glob(\"*.py\"))\n"
+        "]\n"
+        "_pilot_probe_manifest = hashlib.sha256(\n"
+        "    (json.dumps(_pilot_probe_rows, separators=(\",\", \":\"), sort_keys=True) + \"\\n\").encode()\n"
+        ").hexdigest()\n"
+        "_pilot_runtime_ref = \"keithtyser/qwen38-flash-next-vllm-nvfp4-runtime-v1\"\n"
+        "_pilot_runtime_manifest = Path(kaggle_input_paths[_pilot_runtime_ref]) / \"runtime-manifest.json\"\n"
+        "_pilot_observed = {\n"
+        "    \"model\": os.environ.get(\"LOCAL_ANALYZER_MODEL_ID\") or os.environ.get(\"INFERENCE_ANALYZER_MODEL\"),\n"
+        "    \"provider\": os.environ.get(\"LOCAL_ANALYZER_PROVIDER\", os.environ.get(\"OPENAI_PROVIDER\", \"vllm\")),\n"
+        "    \"context_window\": _pilot_env_int(\"LOCAL_ANALYZER_CONTEXT_WINDOW\", 32768),\n"
+        "    \"seed\": _pilot_env_int(\"LOCAL_ANALYZER_SEED\", -1),\n"
+        "    \"temperature\": _pilot_env_float(\"LOCAL_ANALYZER_TEMPERATURE\", 0.6),\n"
+        "    \"top_p\": _pilot_env_float(\"LOCAL_ANALYZER_TOP_P\", 0.95),\n"
+        "    \"top_k\": _pilot_env_int(\"LOCAL_ANALYZER_TOP_K\", 20),\n"
+        "    \"enable_thinking\": _pilot_env_bool(\"LOCAL_ANALYZER_ENABLE_THINKING\", True),\n"
+        "    \"max_output_tokens\": _pilot_env_int(\"LOCAL_ANALYZER_MAX_OUTPUT\", 0),\n"
+        "    \"tool_output_tokens\": _pilot_env_int(\"LOCAL_ANALYZER_TOOL_OUTPUT_TOKENS\", 1024),\n"
+        "    \"tool_steps\": _pilot_env_int(\"LOCAL_ANALYZER_TOOL_STEPS\", 0),\n"
+        "    \"tool_timeout_seconds\": _pilot_env_int(\"LOCAL_ANALYZER_TOOL_TIMEOUT\", 30),\n"
+        "    \"yield_seconds\": _pilot_env_int(\"LOCAL_ANALYZER_YIELD_SECONDS\", 60),\n"
+        "    \"max_runtime_per_game_seconds\": float(bm.solver.max_runtime_s_per_game),\n"
+        "    \"notebook_budget_seconds\": float(target.max_runtime_s),\n"
+        "    \"analyzer_timeout_seconds\": float(bm.solver.analyzer_timeout),\n"
+        "    \"solver_concurrency\": int(bm.solver.concurrency),\n"
+        "    \"max_actions_per_game\": bm.solver.max_actions_per_game,\n"
+        "    \"save_request_logs\": bool(bm.solver.save_request_logs),\n"
+        "    \"memory_record_max_chars\": int(PILOT_MEMORY_RECORD_MAX_CHARS),\n"
+        "    \"vllm_profile\": {key: os.environ.get(key) for key in _pilot_vllm_keys},\n"
+        "    \"runtime_inputs\": {\n"
+        "        \"dataset_sources\": [*DATASET_SOURCES, \"oscarmorke/arc-agi-3-probe\"],\n"
+        "        \"source_identity_sha256\": _pilot_sha256_file(BUNDLE_DIR / \"SOURCE_IDENTITY.json\"),\n"
+        "        \"runtime_manifest_sha256\": _pilot_sha256_file(_pilot_runtime_manifest),\n"
+        "        \"probe_content_manifest_sha256\": _pilot_probe_manifest,\n"
+        "        \"model_config_sha256\": os.environ.get(\"VLLM_RADIXARK_QWEN38_NVFP4_CONFIG_SHA256\"),\n"
+        "    },\n"
+        "}\n"
+        "_pilot_config = {\"schema\": \"arc-causal-pilot-v2\", \"arm\": CAUSAL_PILOT_ARM, "
+        "\"observed_settings\": _pilot_observed}\n"
         "(Path(\"/kaggle/working/causal_pilot_config.json\")).write_text(\n"
         "    json.dumps(_pilot_config, indent=2, sort_keys=True) + \"\\n\"\n"
         ")\n"
-        "print(f\"CAUSAL_PILOT_CONFIG arm={CAUSAL_PILOT_ARM} request_logs=True\", flush=True)\n"
+        "print(f\"CAUSAL_PILOT_OBSERVED arm={CAUSAL_PILOT_ARM} settings={json.dumps(_pilot_observed, sort_keys=True)}\", flush=True)\n"
+        "import re as _pilot_re\n"
+        "import threading as _pilot_threading\n"
+        "import inference.agent.tool_agent as _pilot_tool_agent\n"
+        "_pilot_original_lines = _pilot_tool_agent.ToolAgent._summarized_knowledge_lines\n"
+        "_pilot_proof_lock = _pilot_threading.Lock()\n"
+        "_pilot_proof_path = Path(\"/kaggle/working/pilot_prompt_records.jsonl\")\n"
+        "def _pilot_proved_lines(self):\n"
+        "    lines = _pilot_original_lines(self)\n"
+        "    exact = next((line for line in lines if PILOT_MEMORY_MARKER in line), None)\n"
+        "    if exact:\n"
+        "        game = str(getattr(self, \"_causal_game_id\", \"\") or \"\")\n"
+        "        runtime_dir = str(getattr(self, \"_session_runtime_dir\", \"\") or \"\")\n"
+        "        if not game:\n"
+        "            match = _pilot_re.search(r\"[a-z0-9]{4}-[a-f0-9]{8}\", runtime_dir)\n"
+        "            game = match.group(0) if match else \"\"\n"
+        "        event = {\"kind\": \"record_emitted\", \"game_id\": game, \"runtime_dir\": runtime_dir,\n"
+        "                 \"record_sha256\": hashlib.sha256(exact.encode()).hexdigest(), \"exact_line\": exact}\n"
+        "        with _pilot_proof_lock, _pilot_proof_path.open(\"a\") as handle:\n"
+        "            handle.write(json.dumps(event, sort_keys=True) + \"\\n\")\n"
+        "    return lines\n"
+        "_pilot_tool_agent.ToolAgent._summarized_knowledge_lines = _pilot_proved_lines\n"
+        "print(f\"CAUSAL_PILOT_PROOF events={_pilot_proof_path}\", flush=True)\n"
+    )
+
+
+def _game_runtime_block() -> str:
+    return (
+        "_pilot_game_ids = [game.env_name for game in bm.games]\n"
+        "_pilot_config_path = Path(\"/kaggle/working/causal_pilot_config.json\")\n"
+        "_pilot_config = json.loads(_pilot_config_path.read_text())\n"
+        "_pilot_config[\"observed_settings\"][\"games\"] = _pilot_game_ids\n"
+        "_pilot_config[\"observed_settings\"][\"game_order_sha256\"] = hashlib.sha256(\n"
+        "    (json.dumps(_pilot_game_ids, separators=(\",\", \":\")) + \"\\n\").encode()\n"
+        ").hexdigest()\n"
+        "_pilot_config[\"observed_settings\"][\"passes\"] = int(bm.n_passes)\n"
+        "_pilot_config_path.write_text(json.dumps(_pilot_config, indent=2, sort_keys=True) + \"\\n\")\n"
+        "print(f\"CAUSAL_PILOT_GAMES count={len(_pilot_game_ids)} order={_pilot_config['observed_settings']['game_order_sha256']}\", flush=True)\n"
     )
 
 
@@ -176,11 +285,24 @@ def _notebook(arm: str) -> dict:
     hook = _cell_source(notebook["cells"][HOOK_CELL])
     hook = _replace_once(hook, "bm.solver.save_request_logs = False", "bm.solver.save_request_logs = True", "logs")
     hook = _replace_once(hook, 'AB_ID = "control-cmp-s1"', f'AB_ID = "{ARMS[arm]}"', "AB_ID")
-    anchor = "bm.solver.save_request_logs = True\n"
-    hook = _replace_once(hook, anchor, anchor + _shared_runtime_block(arm), "runtime seal")
     if arm == "treatment":
         hook = _replace_memory_block(hook, _causal_block(CAUSAL.read_text()))
+        policy_end = CAUSAL_END
+    else:
+        policy_end = RAW_END
+        hook = _replace_once(
+            hook,
+            policy_end,
+            "PILOT_MEMORY_RECORD_MAX_CHARS = COMPACT_MAX_CHARS\n"
+            "PILOT_MEMORY_MARKER = \"Compacted earlier turns\"\n" + policy_end,
+            "control memory limit observation",
+        )
+    hook = _replace_once(hook, policy_end, policy_end + "\n" + _shared_runtime_block(arm), "observed runtime")
     _set_cell_source(notebook["cells"][HOOK_CELL], hook)
+    run = _cell_source(notebook["cells"][15])
+    run_anchor = "bm.game_weights = None\n"
+    run = _replace_once(run, run_anchor, run_anchor + _game_runtime_block(), "observed game order")
+    _set_cell_source(notebook["cells"][15], run)
     return notebook
 
 

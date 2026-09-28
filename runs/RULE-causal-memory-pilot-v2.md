@@ -35,6 +35,12 @@ compaction block. The treatment replaces that block with the corrected causal-me
 layer both policies. Run identity and private-kernel metadata differ only so Kaggle can execute the two
 arms separately; they are normalized out of the experimental diff.
 
+The runtime receipt reads the actual solver object, environment, mounted source identity, runtime
+manifest, copied probe-package contents and final 25-game order. It is not a copy of the expected seal.
+For every game, the memory hook must emit a game-bound record whose hash and exact line are found in that
+game's retained request payload. One global event or marker cannot satisfy this proof. A missing numeric
+score or level, a cancellation, or unequal infrastructure-failure evidence makes the pair INVALID.
+
 Preparation does not authorize `kaggle kernels push`. Immediately before any authorized launch, rerun
 the builder and its tests, then re-read every external dataset/model snapshot in the seal. Any changed
 snapshot makes the prepared pair stale and requires a new prospective seal before spending GPU time.

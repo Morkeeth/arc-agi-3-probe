@@ -31,11 +31,11 @@
   "generated": {
     "control": {
       "kernel_metadata": "997b29993ceef937d64fee68ac838046f7e82d0c7a3a39f574b96558fc6e704c",
-      "notebook": "5f1423e746568f6a6afdb16116d501df1df3039549b796ca4c979ef3778fc745"
+      "notebook": "de1596043b80850a8306d11d0ad5c4d9fe312e4a4d2f866bd93dbd8db2e1929a"
     },
     "treatment": {
       "kernel_metadata": "5013191a34dca0ee0c6cb126d56a3a5edbe324408d2359449187ac53eb097285",
-      "notebook": "3725eb607c84743f2e0c1868cd7d5befdd74ab1408a157c041990eb24085fd27"
+      "notebook": "edf12c83af5774793b767f47ed032a7b185951484502c087efde9a55aeafa8b1"
     }
   },
   "model": {
@@ -46,11 +46,12 @@
     "version_number": 1
   },
   "pair_diff_sha256": "7a4548b8f2ce5259bcd0c13a168706ae342b056da2b370390b9ae670b7b7dfa2",
-  "rule_sha256": "17c572f7d717710753c0607e4ac00fb17a0c6044db9c9acd20d41d8d7fe58a5d",
+  "rule_sha256": "a53b19596fdc9d8586627ab476446171f428e6186e8e9170bcba7b41d8f7dd3b",
   "schema": "arc-causal-pilot-seal-v2",
   "settings": {
     "analyzer_timeout_seconds": 900.0,
     "context_window": 32768,
+    "enable_thinking": true,
     "game_order_sha256": "a997c2bd51ae6bf0c1f6f40333221992a32a364d4767e629665b1f1410c9d1aa",
     "games": [
       "tn36-ef4dde99",
@@ -86,6 +87,18 @@
     "model": "Qwen/Qwen3.8-Flash-Next-NVFP4",
     "notebook_budget_seconds": 32400.0,
     "passes": 1,
+    "provider": "vllm",
+    "runtime_inputs": {
+      "dataset_sources": [
+        "keithtyser/duck-qwen38-nvfp4-mtp-vllm-smoke-v1",
+        "keithtyser/qwen38-flash-next-vllm-nvfp4-runtime-v1",
+        "oscarmorke/arc-agi-3-probe"
+      ],
+      "model_config_sha256": "e765305daba0951974308f4d32c075b52a6a45974730d273f2216718a994d624",
+      "probe_content_manifest_sha256": "b1e30cc9f4d0c0797aa1a1bd375122c7b0883992348042675f5e0378197e8793",
+      "runtime_manifest_sha256": "e9453f8d0e9c5eb2e14712e0f8563aaa96752ddc1705f245cac327537502baad",
+      "source_identity_sha256": "473e695998342160478e9066d8a0d45536942ef37c75ddb803f36d3e0abb397c"
+    },
     "save_request_logs": true,
     "seed": -1,
     "solver_concurrency": 28,
@@ -95,6 +108,16 @@
     "tool_timeout_seconds": 30,
     "top_k": 20,
     "top_p": 0.95,
+    "vllm_profile": {
+      "TAAF_VLLM_ENABLE_PREFIX_CACHING": "0",
+      "TAAF_VLLM_KV_CACHE_DTYPE": "auto",
+      "TAAF_VLLM_KV_CACHE_MEMORY_BYTES": "5368709120",
+      "TAAF_VLLM_MAX_CUDAGRAPH_CAPTURE_SIZE": "32",
+      "TAAF_VLLM_MAX_NUM_BATCHED_TOKENS": "8192",
+      "TAAF_VLLM_MAX_NUM_SEQS": "8",
+      "TAAF_VLLM_MTP_TOKENS": "3",
+      "TAAF_VLLM_OMP_THREADS": "1"
+    },
     "yield_seconds": 60
   }
 }
