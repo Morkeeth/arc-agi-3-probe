@@ -3,6 +3,8 @@ from __future__ import annotations
 import importlib.util
 import hashlib
 import json
+import re
+import sys
 from pathlib import Path
 
 from tests import compaction_replay as cr
@@ -53,6 +55,52 @@ def test_treatment_embeds_corrected_source_and_installs_real_drop_path(tmp_path,
     finally:
         scope["_causal_memory"].uninstall(ta)
     assert ta.ToolAgent._persistent_history_messages is original
+
+
+def test_control_proof_identity_uses_real_shared_artifacts_state_filename(tmp_path, monkeypatch):
+    """The real fork stores all states in one artifacts dir; identity must come from the filename."""
+    build = _load("causal_pair_control_identity", HERE / "build.py")
+    ta = cr.tool_agent()
+    original_ensure = ta.ToolAgent._ensure_session
+    spec = importlib.util.spec_from_file_location(
+        "deadprobe.compaction", ROOT / "kaggle/ab-compact/compaction.py"
+    )
+    compaction = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(compaction)
+    monkeypatch.setitem(sys.modules, "deadprobe.compaction", compaction)
+    monkeypatch.setenv("ARC_COMPACT_EVENTS", str(tmp_path / "compaction_events.jsonl"))
+    compaction.install(3000, ta)
+
+    control = build._notebook("control")
+    hook = build._cell_source(control["cells"][build.HOOK_CELL])
+    identity = hook[
+        hook.index('_pilot_state_suffix = "_tool_runtime_state.json"'):
+        hook.index("_pilot_original_lines =")
+    ]
+    scope = {"Path": Path, "_pilot_re": re, "_pilot_tool_agent": ta, "sys": sys}
+    try:
+        exec(compile(identity, "control-proof-identity", "exec"), scope)
+        agent = cr.new_agent(ta, context_window=2048)
+        state_path = tmp_path / "artifacts" / "ft09-0d8bbf25_p0_tool_runtime_state.json"
+        agent._ensure_session(state_path)
+        assert agent._session_runtime_dir == state_path.parent
+        assert agent._pilot_game_id == "ft09-0d8bbf25"
+
+        messages = [{"role": "system", "content": "s"}]
+        for index in range(8):
+            messages += [
+                {"role": "user", "content": f"Current state: step {index}, level 1. " + "x" * 900},
+                {"role": "assistant", "content": f"turn {index}"},
+                {"role": "tool", "content": f"result {index}"},
+            ]
+        agent._persistent_history_messages(messages)
+        events = [json.loads(line) for line in (tmp_path / "compaction_events.jsonl").read_text().splitlines()]
+        assert events and events[0]["kind"] == "digest"
+        assert events[0]["game_id"] == "ft09-0d8bbf25"
+        assert events[0]["runtime_dir"] == str(state_path.parent)
+    finally:
+        compaction.uninstall(ta)
+        ta.ToolAgent._ensure_session = original_ensure
 
 
 def _summary(scores, levels):
