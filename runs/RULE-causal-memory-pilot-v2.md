@@ -1,0 +1,51 @@
+# PROSPECTIVE RULE: causal-memory matched pilot v2
+
+Written after the original 60.98% result was rejected as circular. This rule authorizes no GPU,
+notebook upload, submission, merge, publication, or spend.
+
+## Question
+
+On the same 25 public games, does the installed 3,000-character causal record help one treatment
+run relative to one contemporaneous control run? This is a pilot of the whole policy. It does not
+isolate representation quality and cannot justify KEEP or submission by itself.
+
+## Frozen inputs
+
+- Control base notebook: `kaggle/ab-compact/control-cmp-s1/ab-control-cmp-s1.ipynb`, SHA-256
+  `a8221da6e3b2b289836d570a61ca39bb410cdb25a877449b6c5aa08673215f5b`.
+- Environment: `runs/ab-2026-09-23/control-s1/taaf_setup_env.json`, SHA-256
+  `0dc9dfa1208e337f1f005cc9fad6e43faf4c4eadc2f158f3984a636bb78c3c22`.
+- CPU source: `kaggle/ab-compact/causal_memory.py`, SHA-256
+  `46a350b5f4405ffe53bbd6ad4172ea086c414124b97cb323095a83eff145223e`.
+- Independent audit labels: `tests/fixtures/arc-causal-audit-v1.json`, SHA-256
+  `1bb1bdea680c2308d8a8b6b4cbc1e35b57b6064fa968d26c074c9f54d00e79ac`.
+- Recorded CPU population manifest (sorted SHA-256 lines for all 75 `_p0.txt` files, then SHA-256):
+  `2817e712ab382b094fb7836a1a6cdfa3096957348554e4831072643d296c1c2a`.
+- Before any future launch, record the generated control notebook hash, treatment notebook hash,
+  Kaggle dataset/version hash, model, context window, request limits, time limit, game order and seed.
+  A missing value makes the pilot invalid. No candidate notebook exists in this correction.
+
+## Exactly two runs
+
+Run one contemporaneous control and one treatment. Both use the same 25 games, order, configured seed,
+model, time and request limits. The only intended change is the treatment's installed causal hook.
+Preserve both attempts regardless of the result.
+
+For every game, retain score, levels, stop reason, full game identity and the exact input prompt that
+contains the causal record. Event presence alone is not evidence that the record reached the model.
+
+## Verdict branches
+
+- **INVALID:** any frozen/config value differs; either run is incomplete; expected game identities do
+  not match exactly; the hook or prompt-input proof is missing; record exceeds 3,000 characters; a run
+  is discarded; or infrastructure failures affect the arms unequally. An invalid pilot says nothing
+  about causal memory.
+- **FAILED:** valid, and treatment has both (a) fewer total levels and no higher total local score, or
+  (b) a negative median paired score delta with more losing than winning games.
+- **PROMISING:** valid, treatment has a positive median paired score delta, more winning than losing
+  games, and total levels are at least control. Ties are reported and do not count as wins.
+- **INCONCLUSIVE:** valid and neither FAILED nor PROMISING.
+
+PROMISING authorizes only a request for a separately approved second matched pair. It does not mean
+KEEP, submission, publication, merge, or another GPU run. FAILED or INCONCLUSIVE authorizes no follow-up
+spend without a new hypothesis.

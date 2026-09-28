@@ -1,4 +1,8 @@
-# SEALED GPU HYPOTHESIS: causal memory
+# SUPERSEDED — NO-GO: causal memory GPU hypothesis
+
+Superseded on 28 September 2026 after independent Astra and Fable review found the CPU comparison
+circular and the live hook absent. It authorizes no launch. The only current prospective design is
+`RULE-causal-memory-pilot-v2.md`, which also authorizes no GPU or spend.
 
 Sealed after the CPU gate passed on 28 September 2026. This file authorizes no launch.
 

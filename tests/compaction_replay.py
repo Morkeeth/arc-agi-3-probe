@@ -134,6 +134,7 @@ class ReplayStats:
     same_turn_lost: int = 0                             # created and dropped inside one turn: the known gap
     digest_tokens_per_request: list = field(default_factory=list)  # digest copies baked into kept frames
     history_msgs_per_request: list = field(default_factory=list)
+    request_tokens: list = field(default_factory=list)
     digests: list = field(default_factory=list)         # (turn, digest text) whenever it changed
     kept_trace: list = field(default_factory=list)      # per turn: the kept history as (role, content text)
     patch_seen: int = 0                                 # dropped messages the PATCH counted (its STATS), not this replay
@@ -143,6 +144,8 @@ def replay(path: Path, ta, comp=None, context_window: int = 32768, splice: bool 
     """Walk one recorded game. With `comp` installed (and splice), the digest goes into each new frame prompt."""
     turns = parse(path)
     a = new_agent(ta, context_window)
+    if comp and hasattr(comp, "prepare_replay"):
+        comp.prepare_replay(a, re.sub(r"_p\d+$", "", path.stem), path.parent.parent)
     system = {"role": "system", "content": "s" * 24000}  # the fork system prompt is about 24k chars
     st = ReplayStats()
     last_digest = ""
@@ -161,15 +164,19 @@ def replay(path: Path, ta, comp=None, context_window: int = 32768, splice: bool 
         old_hist = list(a._history_messages)
         created = [user]
         msgs = a._trim_messages_for_context([system, *a._history_messages, user], tools=TOOLS, preserve_recent=1)
+        last_call_id = "x"
         for kind, payload in t.events:
             msgs = a._trim_messages_for_context(msgs, tools=TOOLS)
             st.history_msgs_per_request.append(len(msgs) - 1)
+            st.request_tokens.append(ta._estimate_tokens(msgs) + ta._estimate_tokens(TOOLS))
             st.digest_tokens_per_request.append(
                 sum(digest_chars.get(id(m), 0) for m in msgs) // 3)
             if kind == "assistant":
                 m = dict(payload)
+                calls = m.get("tool_calls") or []
+                last_call_id = str(calls[0].get("id", "x")) if len(calls) == 1 else "x"
             elif kind == "tool":
-                m = {"role": "tool", "tool_call_id": "x", "content": payload}
+                m = {"role": "tool", "tool_call_id": last_call_id, "content": payload}
             else:
                 m = {"role": "user", "content": payload}
             created.append(m)
