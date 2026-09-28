@@ -1,0 +1,100 @@
+{
+  "authorization": "LOCAL_PREPARATION_ONLY_NO_GPU_PUSH_UPLOAD_SUBMISSION_OR_SPEND",
+  "datasets": {
+    "competition:arc-prize-2026-arc-agi-3": {
+      "file_count": 148,
+      "file_manifest_sha256": "0a7c19f62424b042ccbc2ce1a356f03e62493316ec7de07c3670ff69c1feed15"
+    },
+    "keithtyser/duck-qwen38-nvfp4-mtp-vllm-smoke-v1": {
+      "file_count": 4408,
+      "file_manifest_sha256": "ce36c1ae78a05bb59f4886292747adabc096ca420d9a499668c6dcfbc2ac2a05",
+      "observed_last_updated": "2026-08-31 23:47:17.740000"
+    },
+    "keithtyser/qwen38-flash-next-vllm-nvfp4-runtime-v1": {
+      "file_count": 7,
+      "file_manifest_sha256": "9e912bca576f7452afe1a512cff637a6b9a450dfd05bf6d38e9a463cf554394c",
+      "observed_last_updated": "2026-08-30 20:20:06.003000"
+    },
+    "oscarmorke/arc-agi-3-probe": {
+      "file_count": 7,
+      "file_manifest_sha256": "e51954f3c8f0dc06eb8e91c22a4ff1f8099f8ded1a4c41447b5ee3041f1513b8",
+      "observed_last_updated": "2026-09-23 07:52:00.380000"
+    }
+  },
+  "frozen_input_hashes": {
+    "audit_labels": "1bb1bdea680c2308d8a8b6b4cbc1e35b57b6064fa968d26c074c9f54d00e79ac",
+    "base_notebook": "a8221da6e3b2b289836d570a61ca39bb410cdb25a877449b6c5aa08673215f5b",
+    "causal_source": "46a350b5f4405ffe53bbd6ad4172ea086c414124b97cb323095a83eff145223e",
+    "cpu_population_manifest": "2817e712ab382b094fb7836a1a6cdfa3096957348554e4831072643d296c1c2a",
+    "environment": "0dc9dfa1208e337f1f005cc9fad6e43faf4c4eadc2f158f3984a636bb78c3c22"
+  },
+  "generated": {
+    "control": {
+      "kernel_metadata": "997b29993ceef937d64fee68ac838046f7e82d0c7a3a39f574b96558fc6e704c",
+      "notebook": "5f1423e746568f6a6afdb16116d501df1df3039549b796ca4c979ef3778fc745"
+    },
+    "treatment": {
+      "kernel_metadata": "5013191a34dca0ee0c6cb126d56a3a5edbe324408d2359449187ac53eb097285",
+      "notebook": "3725eb607c84743f2e0c1868cd7d5befdd74ab1408a157c041990eb24085fd27"
+    }
+  },
+  "model": {
+    "external_revision": "7b719225242aacd3dbd3f9407468c2ee9a9d2594",
+    "metadata_sha256": "3004fd04633a12c9228a834df4b98f872705eee98796183c5d1bdea88b03c3a5",
+    "ref": "keithtyser/qwen3-8-flash-next-nvfp4/PyTorch/radixark-modelopt-fp4/1",
+    "version_id": 977939,
+    "version_number": 1
+  },
+  "pair_diff_sha256": "7a4548b8f2ce5259bcd0c13a168706ae342b056da2b370390b9ae670b7b7dfa2",
+  "rule_sha256": "17c572f7d717710753c0607e4ac00fb17a0c6044db9c9acd20d41d8d7fe58a5d",
+  "schema": "arc-causal-pilot-seal-v2",
+  "settings": {
+    "analyzer_timeout_seconds": 900.0,
+    "context_window": 32768,
+    "game_order_sha256": "a997c2bd51ae6bf0c1f6f40333221992a32a364d4767e629665b1f1410c9d1aa",
+    "games": [
+      "tn36-ef4dde99",
+      "lf52-271a04aa",
+      "cn04-2fe56bfb",
+      "bp35-0a0ad940",
+      "wa30-ee6fef47",
+      "lp85-305b61c3",
+      "r11l-495a7899",
+      "tu93-0768757b",
+      "sp80-589a99af",
+      "m0r0-492f87ba",
+      "vc33-5430563c",
+      "ar25-0c556536",
+      "ka59-38d34dbb",
+      "sc25-635fd71a",
+      "sk48-d8078629",
+      "dc22-fdcac232",
+      "cd82-fb555c5d",
+      "ft09-0d8bbf25",
+      "g50t-5849a774",
+      "ls20-9607627b",
+      "re86-8af5384d",
+      "s5i5-18d95033",
+      "sb26-7fbdac44",
+      "su15-1944f8ab",
+      "tr87-cd924810"
+    ],
+    "max_actions_per_game": null,
+    "max_output_tokens": 0,
+    "max_runtime_per_game_seconds": 7920.0,
+    "memory_record_max_chars": 3000,
+    "model": "Qwen/Qwen3.8-Flash-Next-NVFP4",
+    "notebook_budget_seconds": 32400.0,
+    "passes": 1,
+    "save_request_logs": true,
+    "seed": -1,
+    "solver_concurrency": 28,
+    "temperature": 0.6,
+    "tool_output_tokens": 1024,
+    "tool_steps": 0,
+    "tool_timeout_seconds": 30,
+    "top_k": 20,
+    "top_p": 0.95,
+    "yield_seconds": 60
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "code_file": "arc-causal-treatment-v2.ipynb",
+  "competition_sources": [
+    "arc-prize-2026-arc-agi-3"
+  ],
+  "dataset_sources": [
+    "keithtyser/duck-qwen38-nvfp4-mtp-vllm-smoke-v1",
+    "keithtyser/qwen38-flash-next-vllm-nvfp4-runtime-v1",
+    "oscarmorke/arc-agi-3-probe"
+  ],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:57e612b484cf3df5026ee4dcc3cb176974b22b2bc0937fb1e16132a8be4cb13c",
+  "enable_gpu": true,
+  "enable_internet": false,
+  "enable_tpu": false,
+  "id": "oscarmorke/arc-causal-treatment-v2",
+  "is_private": true,
+  "kernel_sources": [],
+  "kernel_type": "notebook",
+  "keywords": [
+    "gpu"
+  ],
+  "language": "python",
+  "machine_shape": "NvidiaRtxPro6000",
+  "model_sources": [
+    "keithtyser/qwen3-8-flash-next-nvfp4/PyTorch/radixark-modelopt-fp4/1"
+  ],
+  "title": "arc-causal-treatment-v2"
+}

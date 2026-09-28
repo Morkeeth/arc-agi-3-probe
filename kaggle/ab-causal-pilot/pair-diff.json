@@ -1,0 +1,18 @@
+{
+  "control_policy": "raw-compaction-3000",
+  "expected_policy_cell": 13,
+  "neutral_differences_normalized": [
+    "AB_ID",
+    "CAUSAL_PILOT_ARM",
+    "kernel id",
+    "title",
+    "code_file"
+  ],
+  "normalized_changed_cells": [
+    13
+  ],
+  "outside_policy_equal": true,
+  "schema": "arc-causal-pair-diff-v1",
+  "treatment_policy": "causal-record-3000",
+  "unexpected": []
+}
