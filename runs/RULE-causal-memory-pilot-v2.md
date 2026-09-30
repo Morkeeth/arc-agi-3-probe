@@ -45,6 +45,13 @@ Preparation does not authorize `kaggle kernels push`. Immediately before any aut
 the builder and its tests, then re-read every external dataset/model snapshot in the seal. Any changed
 snapshot makes the prepared pair stale and requires a new prospective seal before spending GPU time.
 
+## Frozen comparison denominator
+
+The machine-readable denominator is `kaggle/ab-causal-pilot/comparison-baseline.json`. The unit is one
+public game, the denominator is exactly 25 matched games, and every primary score is treatment minus
+the contemporaneous control for the same game. Historical control means are context only. Any missing,
+unpaired, reordered, or post-result-excluded game makes the pilot INVALID.
+
 ## Exactly two runs
 
 Run one contemporaneous control and one treatment. Both use the same 25 games, order, configured seed,

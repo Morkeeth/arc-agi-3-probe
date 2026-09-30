@@ -17,6 +17,7 @@ ENV = ROOT / "runs/ab-2026-09-23/control-s1/taaf_setup_env.json"
 CAUSAL = ROOT / "kaggle/ab-compact/causal_memory.py"
 AUDIT = ROOT / "tests/fixtures/arc-causal-audit-v1.json"
 RULE = ROOT / "runs/RULE-causal-memory-pilot-v2.md"
+BASELINE = HERE / "comparison-baseline.json"
 HOOK_CELL = 13
 MAX_CHARS = 3000
 
@@ -413,6 +414,7 @@ def build() -> dict:
         "settings": SETTINGS,
         "generated": generated,
         "pair_diff_sha256": sha256(HERE / "pair-diff.json"),
+        "comparison_baseline_sha256": sha256(BASELINE),
     }
     (HERE / "seal.json").write_text(json.dumps(seal, indent=2, sort_keys=True) + "\n")
     return seal

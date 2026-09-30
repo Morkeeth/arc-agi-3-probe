@@ -1,5 +1,6 @@
 {
   "authorization": "LOCAL_PREPARATION_ONLY_NO_GPU_PUSH_UPLOAD_SUBMISSION_OR_SPEND",
+  "comparison_baseline_sha256": "20b0d0f89676a3548fdc151b327b0a5826e76f411c305b81b7c0692c0e87d0e5",
   "datasets": {
     "competition:arc-prize-2026-arc-agi-3": {
       "file_count": 148,
@@ -46,7 +47,7 @@
     "version_number": 1
   },
   "pair_diff_sha256": "7a4548b8f2ce5259bcd0c13a168706ae342b056da2b370390b9ae670b7b7dfa2",
-  "rule_sha256": "a53b19596fdc9d8586627ab476446171f428e6186e8e9170bcba7b41d8f7dd3b",
+  "rule_sha256": "03f6b9b3dd020d8d9cb62bdb6373d19cb9d3b53c69f63c3f65317e5d4abe6279",
   "schema": "arc-causal-pilot-seal-v2",
   "settings": {
     "analyzer_timeout_seconds": 900.0,

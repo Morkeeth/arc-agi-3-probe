@@ -1,0 +1,36 @@
+{
+  "schema": "arc-causal-pilot-comparison-baseline-v1",
+  "status": "FROZEN_BEFORE_ANY_CAUSAL_GPU_RUN",
+  "question": "Does causal-record-3000 improve matched ARC KAGGLE play relative to raw-compaction-3000?",
+  "unit": "public_game",
+  "denominator": {
+    "count": 25,
+    "identity": "the 25 game ids in seal.json settings.games, in that exact order",
+    "comparison": "treatment minus contemporaneous control for each game",
+    "primary_metrics": [
+      "median_paired_score_delta",
+      "winning_games",
+      "losing_games",
+      "total_levels"
+    ]
+  },
+  "control": {
+    "arm": "arc-causal-control-v2",
+    "policy": "raw-compaction-3000",
+    "runs": 1,
+    "notebook_sha256": "10a19c3aea6974eb0c942e828beeda880c6e518041d09743cdf4a9d011163a5e"
+  },
+  "treatment": {
+    "arm": "arc-causal-treatment-v2",
+    "policy": "causal-record-3000",
+    "runs": 1,
+    "notebook_sha256": "6ba3bc1720c4903993056956cf466f5279786ad4d41785f051882763d778c79a"
+  },
+  "historical_context_is_not_the_denominator": {
+    "control_mean_local_score": 8.589519100442978,
+    "control_mean_levels": 38.0,
+    "reason": "Historical runs are not contemporaneous and are reported only as context."
+  },
+  "missing_or_unpaired_games": "INVALID",
+  "post_result_exclusions": "FORBIDDEN"
+}

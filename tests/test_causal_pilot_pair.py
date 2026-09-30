@@ -33,12 +33,37 @@ def test_generated_pair_is_current_and_only_policy_differs():
     assert diff["normalized_changed_cells"] == [13]
     assert diff["unexpected"] == []
     assert seal["authorization"].startswith("LOCAL_PREPARATION_ONLY")
+    baseline = json.loads((HERE / "comparison-baseline.json").read_text())
+    assert baseline["denominator"]["count"] == 25
+    assert baseline["missing_or_unpaired_games"] == "INVALID"
+
+
+def test_local_dry_run_exercises_real_verdict_path(tmp_path):
+    dry = _load("causal_pair_dry_run", HERE / "dry_run.py")
+    result = dry.run(tmp_path / "dry-run")
+    assert result["synthetic_outcomes"] is True
+    assert result["authorization"].startswith("LOCAL_DRY_RUN_ONLY")
+    assert result["proof"] == {
+        "denominator_games": 25,
+        "control_valid": True,
+        "treatment_valid": True,
+        "control_prompt_bound_games": 25,
+        "treatment_prompt_bound_games": 25,
+        "outside_policy_equal": True,
+        "generated_notebooks": result["proof"]["generated_notebooks"],
+    }
+    assert (tmp_path / "dry-run/dry-run-result.json").is_file()
 
 
 def test_treatment_embeds_corrected_source_and_installs_real_drop_path(tmp_path, monkeypatch):
     build = _load("causal_pair_hook", HERE / "build.py")
     ta = cr.tool_agent()
     original = ta.ToolAgent._persistent_history_messages
+    # Other hook tests load their own temporary deadprobe package. The real notebook has one package
+    # root, so remove those test-only modules before reproducing that import shape here.
+    for name in list(sys.modules):
+        if name == "deadprobe" or name.startswith("deadprobe."):
+            monkeypatch.delitem(sys.modules, name, raising=False)
     pkg = tmp_path / "deadprobe"
     pkg.mkdir()
     (pkg / "__init__.py").write_text("")
