@@ -383,6 +383,12 @@ def handle(ab: str) -> None:
             mark(f"errdir-{ab}", f"{ab}-invalid-{iso()[11:16].replace(':', '')}")
         bad = OUT / read(f"errdir-{ab}").strip()
         ok, why = k_output(ab, bad)
+        # A successful CLI exit does not prove the exact kernel log arrived.
+        # Error runs may legitimately lack benchmark files, but their own log
+        # must exist before deciding whether a retry or OOM fallback is allowed.
+        kernel_log = bad / f"ab-{ab}.log"
+        if ok and (not kernel_log.is_file() or kernel_log.stat().st_size == 0):
+            ok, why = False, f"missing or empty {kernel_log.name}"
         if not ok:
             n = int(read(f"pulltries-{ab}") or 0) + 1
             mark(f"pulltries-{ab}", str(n))
@@ -398,7 +404,7 @@ def handle(ab: str) -> None:
             return
         (STATE / f"errdir-{ab}").unlink(missing_ok=True)
         (STATE / f"pulltries-{ab}").unlink(missing_ok=True)
-        text = " ".join(f.read_text(errors="replace") for f in bad.glob("*.log"))
+        text = kernel_log.read_text(errors="replace")
         mark(f"final-{ab}", st)
         if ab.startswith("kv8") and OOM_RE.search(text):
             mark("kv-fallback-7", f"OOM in {ab}")
