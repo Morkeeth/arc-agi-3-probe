@@ -162,3 +162,54 @@ def test_error_run_never_decides_blind(drv, monkeypatch):
         drv.handle(AB)
     assert pushed == [], "a retry or fallback was pushed without the kernel log"
     assert drv.read(f"final-{AB}") == "ERROR PULL_FAILED"
+
+@pytest.mark.parametrize('log_content', [None, ''])
+def test_zero_exit_without_exact_kernel_log_never_retries(drv, monkeypatch, log_content):
+    monkeypatch.setattr(drv, 'k_status', lambda ab: 'ERROR')
+    pushed = []
+    monkeypatch.setattr(drv, 'push_once', lambda ab, retry=False: pushed.append((ab, retry)))
+    _fake_kaggle(monkeypatch, drv, complete=True)
+    real = drv.subprocess.run
+
+    def omit_log(cmd, *a, **kw):
+        result = real(cmd, *a, **kw)
+        if isinstance(cmd, list) and cmd[:3] == ['kaggle', 'kernels', 'output']:
+            dest = Path(cmd[cmd.index('-p') + 1])
+            log = dest / f'ab-{AB}.log'
+            if log_content is None:
+                log.unlink(missing_ok=True)
+            else:
+                log.write_text(log_content)
+            # Another run's nonempty log cannot substitute for this run.
+            (dest / 'ab-other-s1.log').write_text('OutOfMemoryError\n')
+        return result
+
+    monkeypatch.setattr(drv.subprocess, 'run', omit_log)
+    for _ in range(drv.PULL_TRIES):
+        drv.handle(AB)
+    assert pushed == [], 'zero-exit download without exact kernel log must not spend quota'
+    assert drv.read(f'final-{AB}') == 'ERROR PULL_FAILED'
+
+@pytest.mark.parametrize('own_log,expected', [
+    ('OutOfMemoryError\n', [('kv7-s1', False)]),
+    ('Unrelated runtime error\n', [('kv8-s1', True)]),
+])
+def test_only_exact_kernel_log_controls_oom_fallback(drv, monkeypatch, own_log, expected):
+    ab = 'kv8-s1'
+    drv.mark(f'push-{ab}', 'version 1')
+    monkeypatch.setattr(drv, 'k_status', lambda ab: 'ERROR')
+    pushed = []
+    monkeypatch.setattr(drv, 'push_once', lambda ab, retry=False: pushed.append((ab, retry)))
+
+    def download(cmd, *a, **kw):
+        assert cmd[:3] == ['kaggle', 'kernels', 'output']
+        dest = Path(cmd[cmd.index('-p') + 1])
+        dest.mkdir(exist_ok=True)
+        # Error runs can lack benchmark outputs; their exact log is sufficient.
+        (dest / f'ab-{ab}.log').write_text(own_log)
+        (dest / 'ab-unrelated-s1.log').write_text('OutOfMemoryError\n')
+        return subprocess.CompletedProcess(cmd, 0, stdout='', stderr='')
+
+    monkeypatch.setattr(drv.subprocess, 'run', download)
+    drv.handle(ab)
+    assert pushed == expected
