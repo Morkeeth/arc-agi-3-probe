@@ -1,0 +1,21 @@
+{
+ "sp80_baselines": [
+  39,
+  58,
+  25,
+  148,
+  96,
+  152
+ ],
+ "recorded_walk_score": 4.761904761904762,
+ "level1_at_baseline": 4.761904761904762,
+ "by_hand_level1_at_baseline": 4.761904761904762,
+ "level1_at_double_actions": 1.1904761904761905,
+ "by_hand_double_actions": 1.1904761904761905,
+ "level_not_cleared": 0.0,
+ "green_right_matches_hand": true,
+ "green_wrong_matches_hand": true,
+ "red_wrong_differs_from_right": true,
+ "red_not_cleared_is_zero": true,
+ "recorded_clear_is_at_cap": true
+}
