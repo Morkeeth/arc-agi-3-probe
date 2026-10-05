@@ -213,3 +213,19 @@ def test_only_exact_kernel_log_controls_oom_fallback(drv, monkeypatch, own_log, 
     monkeypatch.setattr(drv.subprocess, 'run', download)
     drv.handle(ab)
     assert pushed == expected
+
+@pytest.mark.parametrize('ab,expected', [('kv7-s1', []), ('kv8-s1', [('kv7-s1', False)])])
+def test_server_oom_is_not_hidden_by_kernel_summary(drv, monkeypatch, ab, expected):
+    # Real kv7 failure: kernel ends with zero actions; OOM is only in vLLM log.
+    drv.mark(f'push-{ab}', 'version 1')
+    monkeypatch.setattr(drv, 'k_status', lambda _: 'ERROR')
+    pushed = []
+    monkeypatch.setattr(drv, 'push_once', lambda ab, retry=False: pushed.append((ab, retry)))
+    def download(arm, dest):
+        dest.mkdir(parents=True, exist_ok=True)
+        (dest / f'ab-{arm}.log').write_text('RuntimeError: Public runs produced no actions.\n')
+        (dest / 'vllm-openai-server.log').write_text('torch.OutOfMemoryError: CUDA out of memory.\n')
+        return True, 'ok'
+    monkeypatch.setattr(drv, 'k_output', download)
+    drv.handle(ab)
+    assert pushed == expected

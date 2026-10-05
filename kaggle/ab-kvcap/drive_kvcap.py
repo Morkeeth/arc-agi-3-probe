@@ -405,11 +405,18 @@ def handle(ab: str) -> None:
         (STATE / f"errdir-{ab}").unlink(missing_ok=True)
         (STATE / f"pulltries-{ab}").unlink(missing_ok=True)
         text = kernel_log.read_text(errors="replace")
+        # vLLM can die with OOM while the kernel only reports zero actions.
+        # Read the associated server log from this successful isolated pull.
+        server_log = bad / "vllm-openai-server.log"
+        if server_log.is_file():
+            text += "\n" + server_log.read_text(errors="replace")
         mark(f"final-{ab}", st)
         if ab.startswith("kv8") and OOM_RE.search(text):
             mark("kv-fallback-7", f"OOM in {ab}")
             say(f"{ab} {st} with OOM: kv arm falls back to 7 GiB; pushing {ab.replace('kv8', 'kv7')}")
             push_once(ab.replace("kv8", "kv7"))
+        elif OOM_RE.search(text):
+            say(f"{ab} {st} with OOM: unchanged retry cannot repair capacity; no retry")
         elif not marked(f"push-{ab}-retry"):
             say(f"{ab} {st} (no OOM line): one retry of the same notebook")
             (STATE / f"final-{ab}").unlink()
