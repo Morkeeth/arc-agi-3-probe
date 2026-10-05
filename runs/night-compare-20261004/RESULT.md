@@ -149,3 +149,13 @@ Mean local score over 20 seeds. Levels are totals over 20 seeds. Wall is the sum
 - `scorer-check.json`, `plain.log`, `guard.log`.
 - `HOW-TO-RERUN.md`: one command.
 - Code: `night_compare.py` on branch `night/arc-compare-20261004`.
+
+## Addendum, 2026-10-05 about 05:10 CEST: a correction and a second look at the GPU pair
+
+Nothing above was edited. Full text: `ARC-RETURN-2.md` (copy in this folder).
+
+- Correction. The first paragraph says the causal experiment "needs Kaggle GPU". True. But the preregistration also said no local model runtime was on this machine. That was wrong. `mlx_lm` 0.31.3 was installed in another lane's worktree (`~/CODE/.worktrees/sim-night-compare-20261004/.venv-model`) about 23 minutes before my check. My check read one PATH and two interpreters and I wrote "on this machine". See Addendum 4 in `PREREG-ARC-START.md`.
+- The numbers in this file do not depend on that line. The random-policy comparison, its verdict and its limits are unchanged.
+- A local-model version of the causal comparison is not worth an hour. Measured on this Mac from the other lane's server log: about 250 prompt tokens per second on Qwen2.5-7B 4-bit. The Kaggle agent sends about 20,000 prompt tokens per request and about 57 requests per game. That is over an hour per game for one arm, with a different and much weaker model. The GPU pair is the experiment.
+- The GPU pair's cheap local proof was rerun tonight: exit 0, 25 games, both arms valid, notebook hashes equal to the seal. Result copy: `pair-dry-run-result-20261005.json`. Scores in that file are synthetic.
+- Three things would stop the written sequence before the first push. They are listed in `ARC-RETURN-2.md`.
