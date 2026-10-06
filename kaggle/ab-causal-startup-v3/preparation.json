@@ -1,0 +1,28 @@
+{
+  "source_sha256": "037c041c9bd9dcffa9084b32f47af9cf1bf35849d5eaf2e1a3422daac098b2e2",
+  "patched_source_sha256": "2928a57ceedb250c43cf21d4163fcfcdb0ac0009fbcc654e3eb1e8db1c15208c",
+  "patches": {
+    "SERVER_READY_TIMEOUT = 1_500": "SERVER_READY_TIMEOUT = 2_400",
+    "SETUP_TOTAL_TIMEOUT = 1_800": "SETUP_TOTAL_TIMEOUT = 2_700"
+  },
+  "arms": {
+    "control": {
+      "notebook_sha256": "795456d07ed5de364008959da2187841a06bcac7fedaa6b244def86252a56cca",
+      "changed_cells": [
+        9
+      ],
+      "base": "/Users/morkeeth/CODE/.worktrees/arc-night-preflight-20261006/kaggle/ab-causal-pilot/control",
+      "launch_authorized": false
+    },
+    "treatment": {
+      "notebook_sha256": "c0f54721c82a66657fd9148586530cc69af7f306da72480fdd33f65cc4419d62",
+      "changed_cells": [
+        9
+      ],
+      "base": "/Users/morkeeth/CODE/.worktrees/arc-night-preflight-20261006/kaggle/ab-causal-pilot/treatment",
+      "launch_authorized": false
+    }
+  },
+  "session_timeout_required": 8400,
+  "meaning": "Cold-start headroom candidate. Not validated on GPU. Original failure unchanged."
+}
