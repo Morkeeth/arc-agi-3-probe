@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-10-07T15:21:59.386769+00:00",
+  "state": "CPU_COMPLETE_ROOT_LAUNCH_REVIEW",
+  "approved_ceiling": "2 private kernels x 10800s; 6 free GPU hours; no retries or competition submission",
+  "worktree": "/Users/morkeeth/CODE/arc-agi-3-probe/.worktrees/arc-mechanics-20261007",
+  "policy": "Model-authored self-contained full-frame transition predictors; pre-action commitment; disagreement probe; two changed distinct-state prospective matches confer bounded-plan eligibility only; depth4,64 prediction calls,execute4; mismatch and level changes revoke eligibility; original policy remains fallback.",
+  "limits": "100ms/prediction plus existing 30s sandbox; source128KiB; eight candidates; Linux512MiB predictor address-space cap; events retained across scope changes and persisted per-game.",
+  "evidence": {
+    "status": "PASS",
+    "notebooks": [
+      {
+        "arm": "control",
+        "code_cells": 11,
+        "sha256": "5b0b24d491316f5b6a36ef16e79ff7313526e2028a771aa1088eb1a759b1f9bd"
+      },
+      {
+        "arm": "treatment",
+        "code_cells": 11,
+        "sha256": "b576614995fa21c4a7fe54f61249309d5e02c84df21ba2457aecf8c55804ef71"
+      }
+    ],
+    "different_cells": [
+      0,
+      2,
+      10
+    ],
+    "difference_scope": "arm receipt, treatment installation+prompt only, completion receipt. Budgets and runtime mounts identical.",
+    "linux_cpu_gate": "Docker python3.12-slim --network none --memory768m: memory allocation refusal, infinite-loop timeout, valid predictor all PASS",
+    "local_sdk_gate": "six actual ls20 development transitions including two-step plan; lookup fixture, no generalization claim"
+  },
+  "unproven": "Local SDK exercise uses development replay lookup model; it does not establish Qwen learns dynamics or prediction/generalization gain. Those remain explicit GPU screen gates. One seed public-game screen cannot establish statistical superiority or hidden leaderboard score.",
+  "files": {
+    "linux_gate.py": "d9677616de4408261b7d2b785d3139acc996be57b637be6780dce0b91a3b92a1",
+    "adversarial_gate.py": "8e8cfb5cd544139051fe2426367e8cb537e87007fbe9363a2e59e4dac7f2bf7e",
+    "check_package.py": "7ec01a085abdac2556f3ded82e04c257fb929832542e527e21db062c55da83ed",
+    "install_policy.py": "18bb3933f13e5131137194275661f4b0e5119233d24e1ffba2f397aa6c464a40",
+    "local_gate.py": "71b998434aafe05e6121d106fc5992bb31ce31262922902bddf8c69d3db361e3",
+    "build_pair.py": "b07ef9db85d614f91eacc265fbd8631101fd0e61fb6139d162dc901e0079d7b4",
+    "mechanics_runtime.py": "c0d5aaddecae9c3fdfeb482ad4edee2da3c14d36a23cf010053dea3e2488f099",
+    "pin_inputs.py": "4843e5fdb0fc85d1ff2d427a085c23aab0740b748e5076adba2929b168809f19"
+  }
+}

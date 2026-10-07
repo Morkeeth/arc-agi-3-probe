@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "notebooks": [
+    {
+      "arm": "control",
+      "code_cells": 11,
+      "sha256": "5b0b24d491316f5b6a36ef16e79ff7313526e2028a771aa1088eb1a759b1f9bd"
+    },
+    {
+      "arm": "treatment",
+      "code_cells": 11,
+      "sha256": "b576614995fa21c4a7fe54f61249309d5e02c84df21ba2457aecf8c55804ef71"
+    }
+  ],
+  "different_cells": [
+    0,
+    2,
+    10
+  ],
+  "difference_scope": "arm receipt, treatment installation+prompt only, completion receipt. Budgets and runtime mounts identical.",
+  "linux_cpu_gate": "Docker python3.12-slim --network none --memory768m: memory allocation refusal, infinite-loop timeout, valid predictor all PASS",
+  "local_sdk_gate": "six actual ls20 development transitions including two-step plan; lookup fixture, no generalization claim"
+}
