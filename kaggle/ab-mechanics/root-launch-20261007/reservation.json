@@ -1,0 +1,102 @@
+{
+  "at": "2026-10-07T18:33:13.640142+00:00",
+  "owner": "root",
+  "pair": {
+    "base_notebook_sha256": "88a379f17c3a4ba8c98715fc23155346ccd6eb289bdafebadfc61a3178f9d9bd",
+    "platform_timeout_seconds": 10800,
+    "policy_version": 2,
+    "verification_owner": "parent process; child RPC cannot supply observations or eligibility",
+    "control_change": "same parent-only action reporting in both arms",
+    "kernels": 2,
+    "maximum_free_gpu_hours": 6,
+    "launch_authorized_by_root_only": true,
+    "retries": 0,
+    "submission": false,
+    "arms": {
+      "control": {
+        "path": "/Users/morkeeth/CODE/arc-agi-3-probe/.worktrees/arc-mechanics-20261007/kaggle/ab-mechanics/control",
+        "notebook_sha256": "3243bafc0f78190dbcf00a5e6bedc3351d99d12da50576f3aea0ee018367880f",
+        "root_launch_command": "kaggle kernels push -p /Users/morkeeth/CODE/arc-agi-3-probe/.worktrees/arc-mechanics-20261007/kaggle/ab-mechanics/control -t 10800"
+      },
+      "treatment": {
+        "path": "/Users/morkeeth/CODE/arc-agi-3-probe/.worktrees/arc-mechanics-20261007/kaggle/ab-mechanics/treatment",
+        "notebook_sha256": "89d4b2468e80f09ae64520bb8a7b0790db6cd383880001f5be308b3f5cb7666b",
+        "root_launch_command": "kaggle kernels push -p /Users/morkeeth/CODE/arc-agi-3-probe/.worktrees/arc-mechanics-20261007/kaggle/ab-mechanics/treatment -t 10800"
+      }
+    },
+    "evaluation": {
+      "games": {
+        "method": "sha256(mechanics-v1:game_id), frozen before policy evaluation; all public games; not hidden competition evidence; sb26 excluded from implementation-untuned analysis because its old trace informed this hypothesis. All games public and previously played; none claimed unseen.",
+        "development": [
+          "ls20-9607627b",
+          "vc33-5430563c",
+          "dc22-fdcac232",
+          "cn04-2fe56bfb",
+          "sk48-d8078629",
+          "tn36-ef4dde99",
+          "bp35-0a0ad940",
+          "wa30-ee6fef47",
+          "tr87-cd924810",
+          "cd82-fb555c5d"
+        ],
+        "untuned": [
+          "sc25-635fd71a",
+          "tu93-0768757b",
+          "m0r0-492f87ba",
+          "r11l-495a7899",
+          "ft09-0d8bbf25",
+          "lp85-305b61c3",
+          "su15-1944f8ab",
+          "ar25-0c556536",
+          "s5i5-18d95033",
+          "lf52-271a04aa",
+          "re86-8af5384d",
+          "ka59-38d34dbb",
+          "g50t-5849a774",
+          "sp80-589a99af"
+        ],
+        "order": [
+          "ls20-9607627b",
+          "vc33-5430563c",
+          "dc22-fdcac232",
+          "cn04-2fe56bfb",
+          "sk48-d8078629",
+          "tn36-ef4dde99",
+          "bp35-0a0ad940",
+          "wa30-ee6fef47",
+          "tr87-cd924810",
+          "cd82-fb555c5d",
+          "sc25-635fd71a",
+          "sb26-7fbdac44",
+          "tu93-0768757b",
+          "m0r0-492f87ba",
+          "r11l-495a7899",
+          "ft09-0d8bbf25",
+          "lp85-305b61c3",
+          "su15-1944f8ab",
+          "ar25-0c556536",
+          "s5i5-18d95033",
+          "lf52-271a04aa",
+          "re86-8af5384d",
+          "ka59-38d34dbb",
+          "g50t-5849a774",
+          "sp80-589a99af"
+        ],
+        "historically_inspected": [
+          "sb26-7fbdac44"
+        ]
+      },
+      "passes": 1,
+      "per_game_wall_seconds": 7200,
+      "per_game_actions": 250,
+      "per_game_generated_tokens": 100000,
+      "token_cap_semantics": "baseline stops at next solver boundary; one response may exceed threshold by max_output12288; actual usage must be reported",
+      "soft_end_seconds_from_notebook_start": 9600,
+      "interpretation": "whole-policy screen, public untuned games; not hidden score, not isolated memory or planner causality",
+      "kill_bar": "No eligible plans or no heldout paired level/action-efficiency benefit at matched resource use kills current policy. Regressions, unequal usage, startup failure or truncation invalidate a superiority claim. One seed is exploratory, not significance."
+    }
+  },
+  "max_gpu_hours": 6,
+  "retries": 0,
+  "submission": false
+}

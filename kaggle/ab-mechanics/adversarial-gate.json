@@ -1,11 +1,11 @@
 {
   "status": "PASS",
   "checks": [
-    "infinite predictor abstains within 100ms in real sandbox",
+    "infinite predictor abstains within parent-enforced 200ms in real sandbox",
     "decorators/defaults/imports rejected",
     "predictor cannot mutate action",
     "no-op grants no eligibility",
     "level change preserves event trail"
   ],
-  "memory_limit": "Linux child-only 512MiB RLIMIT_AS; not exercised on macOS; runtime platform gate needed before gameplay"
+  "memory_limit": "Isolated predictor worker Linux512MiB RLIMIT_AS; repeated Linux Docker gate required"
 }

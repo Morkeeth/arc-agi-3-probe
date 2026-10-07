@@ -4,20 +4,29 @@
     {
       "arm": "control",
       "code_cells": 11,
-      "sha256": "5b0b24d491316f5b6a36ef16e79ff7313526e2028a771aa1088eb1a759b1f9bd"
+      "sha256": "3243bafc0f78190dbcf00a5e6bedc3351d99d12da50576f3aea0ee018367880f"
     },
     {
       "arm": "treatment",
       "code_cells": 11,
-      "sha256": "b576614995fa21c4a7fe54f61249309d5e02c84df21ba2457aecf8c55804ef71"
+      "sha256": "89d4b2468e80f09ae64520bb8a7b0790db6cd383880001f5be308b3f5cb7666b"
     }
   ],
+  "embedded_source_sha256": {
+    "mechanics_runtime.py": "425f61af8b06834c536dd15acf4ce0ced0d0f84665e533b98c40417c3582aea6",
+    "install_policy.py": "96e54b1e31a4e115f49a1d67abec9e94aecccf1d140a3c112266898a015a32c4"
+  },
   "different_cells": [
     0,
     2,
     10
   ],
-  "difference_scope": "arm receipt, treatment installation+prompt only, completion receipt. Budgets and runtime mounts identical.",
-  "linux_cpu_gate": "Docker python3.12-slim --network none --memory768m: memory allocation refusal, infinite-loop timeout, valid predictor all PASS",
-  "local_sdk_gate": "six actual ls20 development transitions including two-step plan; lookup fixture, no generalization claim"
+  "difference_scope": "arm receipt, installer mode (both arms parent-only action reporting; treatment adds parent-owned mechanics and prompt), completion receipt. Budgets and mounts identical.",
+  "linux_cpu_gate": "Prior recorded Docker CPU gate; not rerun during package reconciliation.",
+  "local_sdk_gate": {
+    "actual_sdk_transitions": 6,
+    "live_sdk_frame_reads": 36,
+    "observation_path": "Exact installed ToolAgent callback with bound adapter matching pinned solver callback shape; real SDK env; parent evidence compared with actual before/after frames. No model or full solver run.",
+    "scope": "Deterministic replay of development-game transitions validates plumbing and prospective comparison, NOT learned mechanics/generalization or score gain. Synthetic policy gates exercise planner, trust and mismatch stop."
+  }
 }

@@ -1,42 +1,64 @@
 {
-  "timestamp": "2026-10-07T15:21:59.386769+00:00",
+  "timestamp": "2026-10-07T18:31:39.514446+00:00",
   "state": "CPU_COMPLETE_ROOT_LAUNCH_REVIEW",
   "approved_ceiling": "2 private kernels x 10800s; 6 free GPU hours; no retries or competition submission",
   "worktree": "/Users/morkeeth/CODE/arc-agi-3-probe/.worktrees/arc-mechanics-20261007",
   "policy": "Model-authored self-contained full-frame transition predictors; pre-action commitment; disagreement probe; two changed distinct-state prospective matches confer bounded-plan eligibility only; depth4,64 prediction calls,execute4; mismatch and level changes revoke eligibility; original policy remains fallback.",
-  "limits": "100ms/prediction plus existing 30s sandbox; source128KiB; eight candidates; Linux512MiB predictor address-space cap; events retained across scope changes and persisted per-game.",
+  "limits": "Policy and resource budgets unchanged. 100ms/prediction; existing 30s sandbox; source128KiB; eight candidates; Linux512MiB predictor address-space cap. Per-game cumulative method counts retained; detailed event history retains the latest 24 events, including across level changes, and is persisted after sandbox returns.",
   "evidence": {
     "status": "PASS",
     "notebooks": [
       {
         "arm": "control",
         "code_cells": 11,
-        "sha256": "5b0b24d491316f5b6a36ef16e79ff7313526e2028a771aa1088eb1a759b1f9bd"
+        "sha256": "3243bafc0f78190dbcf00a5e6bedc3351d99d12da50576f3aea0ee018367880f"
       },
       {
         "arm": "treatment",
         "code_cells": 11,
-        "sha256": "b576614995fa21c4a7fe54f61249309d5e02c84df21ba2457aecf8c55804ef71"
+        "sha256": "89d4b2468e80f09ae64520bb8a7b0790db6cd383880001f5be308b3f5cb7666b"
       }
     ],
+    "embedded_source_sha256": {
+      "mechanics_runtime.py": "425f61af8b06834c536dd15acf4ce0ced0d0f84665e533b98c40417c3582aea6",
+      "install_policy.py": "96e54b1e31a4e115f49a1d67abec9e94aecccf1d140a3c112266898a015a32c4"
+    },
     "different_cells": [
       0,
       2,
       10
     ],
-    "difference_scope": "arm receipt, treatment installation+prompt only, completion receipt. Budgets and runtime mounts identical.",
-    "linux_cpu_gate": "Docker python3.12-slim --network none --memory768m: memory allocation refusal, infinite-loop timeout, valid predictor all PASS",
-    "local_sdk_gate": "six actual ls20 development transitions including two-step plan; lookup fixture, no generalization claim"
+    "difference_scope": "arm receipt, installer mode (both arms parent-only action reporting; treatment adds parent-owned mechanics and prompt), completion receipt. Budgets and mounts identical.",
+    "linux_cpu_gate": "Prior recorded Docker CPU gate; not rerun during package reconciliation.",
+    "local_sdk_gate": {
+      "actual_sdk_transitions": 6,
+      "live_sdk_frame_reads": 36,
+      "observation_path": "Exact installed ToolAgent callback with bound adapter matching pinned solver callback shape; real SDK env; parent evidence compared with actual before/after frames. No model or full solver run.",
+      "scope": "Deterministic replay of development-game transitions validates plumbing and prospective comparison, NOT learned mechanics/generalization or score gain. Synthetic policy gates exercise planner, trust and mismatch stop."
+    }
   },
-  "unproven": "Local SDK exercise uses development replay lookup model; it does not establish Qwen learns dynamics or prediction/generalization gain. Those remain explicit GPU screen gates. One seed public-game screen cannot establish statistical superiority or hidden leaderboard score.",
+  "unproven": "The local SDK exercise uses a development replay lookup model and a bound callback adapter. It does not establish full solver/model startup, Qwen learning dynamics, generalization or score gain. One-seed public-game screening cannot establish statistical superiority or hidden leaderboard score. Old startup-only-v3 used a different serving path; its C4 failure is not a v2 outcome.",
   "files": {
-    "linux_gate.py": "d9677616de4408261b7d2b785d3139acc996be57b637be6780dce0b91a3b92a1",
-    "adversarial_gate.py": "8e8cfb5cd544139051fe2426367e8cb537e87007fbe9363a2e59e4dac7f2bf7e",
-    "check_package.py": "7ec01a085abdac2556f3ded82e04c257fb929832542e527e21db062c55da83ed",
-    "install_policy.py": "18bb3933f13e5131137194275661f4b0e5119233d24e1ffba2f397aa6c464a40",
-    "local_gate.py": "71b998434aafe05e6121d106fc5992bb31ce31262922902bddf8c69d3db361e3",
-    "build_pair.py": "b07ef9db85d614f91eacc265fbd8631101fd0e61fb6139d162dc901e0079d7b4",
-    "mechanics_runtime.py": "c0d5aaddecae9c3fdfeb482ad4edee2da3c14d36a23cf010053dea3e2488f099",
-    "pin_inputs.py": "4843e5fdb0fc85d1ff2d427a085c23aab0740b748e5076adba2929b168809f19"
+    "linux_gate.py": "b888e38f472234f6b08b83ba6cf78c06ca74e5e8a23203f3bdf945bc47c51334",
+    "adversarial_gate.py": "aa553b58dec62ef4763e524bb81c0d231227d35f0cc1fa531ed45a3e69f2cdf0",
+    "check_package.py": "7fe4486d55dba19d322bc0039a671ef29e5f92991d0f19d80d4bca3754359721",
+    "install_policy.py": "96e54b1e31a4e115f49a1d67abec9e94aecccf1d140a3c112266898a015a32c4",
+    "local_gate.py": "215da572783758bf0bd676d20b604d53cdaec6cd4836c976f3008e006f464cd2",
+    "build_pair.py": "b64b2353084c5c249bcb4ad76bf62bdbd7328048220ba58ff12559e413125e70",
+    "mechanics_runtime.py": "425f61af8b06834c536dd15acf4ce0ced0d0f84665e533b98c40417c3582aea6",
+    "pin_inputs.py": "4843e5fdb0fc85d1ff2d427a085c23aab0740b748e5076adba2929b168809f19",
+    "prepare_local.py": "0871c48a44770970e134704171c376c1ef0081d2d74b36b090c6c743d5457887",
+    "local-gate.json": "c98b00de9c2f2789867098c19b5b25d6339139394a42046347c59326bcb2db62",
+    "package-gate.json": "c2647b158c8a3c1ee038d78017ca213cd26b2c31fa94499a892cbde227e61450",
+    "pair-package.json": "b3fc3f08db8ffcb551474e1a8f929643a8ead6487df45432be8482089e46c018"
+  },
+  "policy_version": 2,
+  "observation_source": "Parent reads the live SDK observation via the bound solver callback; mechanics_frame_handler is connected in the installed ToolAgent.",
+  "reconciliation_checks": {
+    "local_sdk_integration": "PASS: six real development-game transitions and 36 live SDK frame reads; exact installed callback through a bound adapter, not a full solver/model run",
+    "embedded_source_bytes": "PASS for both arms; hashes match current files",
+    "stale_embedded_source_rejection": "PASS in isolated temporary copy; no live package mutation",
+    "linux_resource_gate": "Prior recorded result; not rerun in this reconciliation",
+    "startup": "Unproven on v2 GPU serving path; no launch attempted"
   }
 }

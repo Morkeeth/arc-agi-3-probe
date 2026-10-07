@@ -1,0 +1,2 @@
+{"at": "2026-10-07T18:34:38.974471+00:00", "arm": "control", "ref": "oscarmorke/arc-mechanics-control-v2", "returncode": 0, "output": "oscarmorke/arc-mechanics-control-v2 has status \"KernelWorkerStatus.QUEUED\"\n"}
+{"at": "2026-10-07T18:34:39.666644+00:00", "arm": "treatment", "ref": "oscarmorke/arc-mechanics-treatment-v2", "returncode": 0, "output": "oscarmorke/arc-mechanics-treatment-v2 has status \"KernelWorkerStatus.RUNNING\"\n"}

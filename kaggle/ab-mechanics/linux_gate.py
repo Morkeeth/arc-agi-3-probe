@@ -1,17 +1,21 @@
+import ast
+import json
+import subprocess
 import sys
-import signal
-import resource
-"""Prospective mechanics policy, embedded inside the baseline Python sandbox."""
+from types import SimpleNamespace
+
 class Mechanics:
     def __init__(self, state, frame, act):
-        self.state = state or {'models': {}, 'events': [], 'level': None}
+        self.state = state if state is not None else {'models': {}, 'events': [], 'level': None}
         self.frame, self.act = frame, act
-        self._scope()
 
     def _scope(self):
         level = self.frame().level
         if self.state.get('level') != level:
-            self.state = {'models': {}, 'events': self.state.get('events', [])[-24:], 'level': level}
+            events = self.state.get('events', [])[-24:]
+            counts = self.state.get('counts', {})
+            self.state.clear()
+            self.state.update({'models': {}, 'events': events, 'level': level, 'counts': counts})
         return self.frame()._grid
 
     def register(self, source):
@@ -47,20 +51,13 @@ class Mechanics:
 
     def _predict(self, name, grid, action):
         source = self.state['models'][name]['source']
-        safe = {k: getattr(builtins, k) for k in ('range','len','min','max','abs','sum','enumerate','zip','list','dict','tuple','set','int','bool','all','any','sorted','reversed')}
-        scope = {'__builtins__': safe}
-        def expired(signum, frame):
-            raise TimeoutError('Predictor exceeded 100 ms')
-        soft, hard = resource.getrlimit(resource.RLIMIT_AS)
-        old_handler = signal.signal(signal.SIGALRM, expired)
-        old_timer = signal.setitimer(signal.ITIMER_REAL, 0.1)
         try:
-            # Child-only address-space ceiling; outer sandbox retains its 30s deadline.
-            cap = 512 * 1024 * 1024
-            if sys.platform == "linux":
-                resource.setrlimit(resource.RLIMIT_AS, (min(soft,cap) if soft > 0 else cap, hard))
-            exec(compile(source, '<mechanics_predictor>', 'exec'), scope, scope)
-            out = scope['predict']([list(row) for row in grid], json.loads(json.dumps(action)))
+            payload = json.dumps({'source': source, 'grid': grid, 'action': action})
+            result = subprocess.run([sys.executable, '-I', '-S', '-c', PREDICT_WORKER], input=payload,
+                                    text=True, capture_output=True, timeout=0.2, close_fds=True)
+            if result.returncode != 0:
+                return None
+            out = json.loads(result.stdout)
             if not isinstance(out, list) or len(out) != len(grid):
                 return None
             if any(not isinstance(row, list) or len(row) != len(grid[i]) for i,row in enumerate(out)):
@@ -70,11 +67,6 @@ class Mechanics:
             return out
         except (Exception, MemoryError):
             return None
-        finally:
-            if sys.platform == "linux":
-                resource.setrlimit(resource.RLIMIT_AS, (soft, hard))
-            signal.setitimer(signal.ITIMER_REAL, *old_timer)
-            signal.signal(signal.SIGALRM, old_handler)
 
     def probe(self, actions):
         """Suggest a cheap one-action experiment maximizing candidate disagreement."""
@@ -100,6 +92,8 @@ class Mechanics:
         # Nothing inferred from a proposed or blocked action counts as verification.
         try:
             result = self.act(action)
+            if not isinstance(result, dict) or result.get('executed') is not True or int(result.get('executed_count', 1)) != 1:
+                raise RuntimeError('No verified single action execution')
         except BaseException:
             event['status'] = 'action_failed_or_guarded'
             raise
@@ -171,6 +165,59 @@ class Mechanics:
     def status(self):
         self._scope()
         return {n:{'prospective_changed_matches':len(e['matches']), 'mismatches':e['mismatches'], 'trusted':e['trusted']} for n,e in self.state['models'].items()}
+
+
+PREDICT_WORKER = r'''import builtins,json,resource,sys
+if sys.platform == 'linux':
+    resource.setrlimit(resource.RLIMIT_AS,(512*1024*1024,512*1024*1024))
+    resource.setrlimit(resource.RLIMIT_CPU,(1,1))
+p=json.load(sys.stdin)
+safe={k:getattr(builtins,k) for k in ('range','len','min','max','abs','sum','enumerate','zip','list','dict','tuple','set','int','bool','all','any','sorted','reversed')}
+scope={'__builtins__':safe}
+try:
+    exec(compile(p['source'],'<predictor>','exec'),scope,scope)
+    out=scope['predict'](p['grid'],p['action'])
+    if not isinstance(out,list) or len(out)!=len(p['grid']) or any(not isinstance(row,list) or len(row)!=len(p['grid'][i]) for i,row in enumerate(out)):
+        out=None
+    elif any(type(v) is not int or v<0 or v>15 for row in out for v in row):
+        out=None
+    print(json.dumps(out))
+except BaseException:
+    print('null')
+'''
+
+
+class MechanicsHost:
+    """Parent-only evidence. Child requests can never supply observations or eligibility."""
+    METHODS = {'register','probe','test','plan','execute','status'}
+    def __init__(self, state, initial_state, action_handler, frame_handler=None):
+        self.current = json.loads(json.dumps(initial_state))
+        self.action_handler = action_handler
+        self.frame_handler = frame_handler
+        self.action_results = []
+        self.mechanics = Mechanics(state, self.frame, self.act)
+
+    def frame(self):
+        frame = self.frame_handler() if self.frame_handler else self.current['current_frame']
+        return SimpleNamespace(level=frame.get('level'), _grid=frame.get('grid'))
+
+    def act(self, action):
+        normalized = {'action':action} if isinstance(action,str) else dict(action)
+        reply = self.action_handler([normalized], stale_after=None)
+        self.current = json.loads(json.dumps(reply['state']))
+        result = dict(reply.get('action_result') or {})
+        self.action_results.append(result)
+        return result
+
+    def dispatch(self, message):
+        method = message.get('method')
+        if method not in self.METHODS or set(message)-{'type','method','args'}:
+            raise ValueError('Unknown mechanics request or forbidden evidence fields')
+        args = message.get('args',[])
+        if not isinstance(args,list): raise ValueError('Arguments must be a list')
+        counts=self.mechanics.state.setdefault('counts',{})
+        counts[method]=counts.get(method,0)+1
+        return getattr(self.mechanics,method)(*args)
 
 import ast,builtins,json
 from types import SimpleNamespace

@@ -9,7 +9,7 @@ original=json.loads(raw);metadata=json.loads((BASE/'kernel-metadata.json').read_
 inputs=json.loads((H/'runtime-inputs.json').read_text());split=json.loads((H/'game-split.json').read_text())
 files={name:(H/name).read_text() for name in ('mechanics_runtime.py','install_policy.py')}
 def cell(source):return {'cell_type':'code','execution_count':None,'metadata':{},'outputs':[],'source':source.splitlines(True)}
-manifest={'base_notebook_sha256':hashlib.sha256(raw).hexdigest(),'platform_timeout_seconds':10800,'kernels':2,'maximum_free_gpu_hours':6,'launch_authorized_by_root_only':True,'retries':0,'submission':False,'arms':{},'evaluation':{'games':split,'passes':1,'per_game_wall_seconds':7200,'per_game_actions':250,'per_game_generated_tokens':100000,'token_cap_semantics':'baseline stops at next solver boundary; one response may exceed threshold by max_output12288; actual usage must be reported','soft_end_seconds_from_notebook_start':9600,'interpretation':'whole-policy screen, public untuned games; not hidden score, not isolated memory or planner causality','kill_bar':'No eligible plans or no heldout paired level/action-efficiency benefit at matched resource use kills current policy. Regressions, unequal usage, startup failure or truncation invalidate a superiority claim. One seed is exploratory, not significance.'}}
+manifest={'base_notebook_sha256':hashlib.sha256(raw).hexdigest(),'platform_timeout_seconds':10800,'policy_version':2,'verification_owner':'parent process; child RPC cannot supply observations or eligibility','control_change':'same parent-only action reporting in both arms','kernels':2,'maximum_free_gpu_hours':6,'launch_authorized_by_root_only':True,'retries':0,'submission':False,'arms':{},'evaluation':{'games':split,'passes':1,'per_game_wall_seconds':7200,'per_game_actions':250,'per_game_generated_tokens':100000,'token_cap_semantics':'baseline stops at next solver boundary; one response may exceed threshold by max_output12288; actual usage must be reported','soft_end_seconds_from_notebook_start':9600,'interpretation':'whole-policy screen, public untuned games; not hidden score, not isolated memory or planner causality','kill_bar':'No eligible plans or no heldout paired level/action-efficiency benefit at matched resource use kills current policy. Regressions, unequal usage, startup failure or truncation invalidate a superiority claim. One seed is exploratory, not significance.'}}
 for arm in ('control','treatment'):
  n=copy.deepcopy(original)
  # Retain executable baseline only; no markdown generated and no diagnostics after run.
@@ -31,10 +31,10 @@ for arm in ('control','treatment'):
  gate=(H/'mechanics_runtime.py').read_text()+"\nimport ast,builtins,json\nfrom types import SimpleNamespace\nf=SimpleNamespace(level=0,_grid=[[1,0]])\nm=Mechanics(None,lambda:f,lambda a:None)\nn=m.register('def predict(grid, action):\\n    return [0]*1000000000')\nassert m._predict(n,[[1,0]],'RIGHT') is None\nn=m.register('def predict(grid, action):\\n    while True: pass')\nassert m._predict(n,[[1,0]],'RIGHT') is None\nn=m.register('def predict(grid, action):\\n    return grid')\nassert m._predict(n,[[1,0]],'RIGHT') == [[1,0]]\nprint('MEMORY_TIME_GATE_PASS')\n"
  (H/"linux_gate.py").write_text(gate)
  setup+="subprocess.run([sys.executable,'-I','-S','-c',"+repr(gate)+"],check=True,timeout=5)\n"
- if arm=='treatment':
+ if arm in ('control','treatment'):
   setup+="policy_dir=Path('/kaggle/mechanics-policy');policy_dir.mkdir(exist_ok=True)\n"
   for name,content in files.items():setup+=f"(policy_dir/{name!r}).write_text({content!r})\n"
-  setup+="subprocess.run([sys.executable,str(policy_dir/'install_policy.py'),str(BUNDLE_DIR/'src/ARC3-Inference')],check=True,timeout=30)\n"
+  setup+=f"subprocess.run([sys.executable,str(policy_dir/'install_policy.py'),str(BUNDLE_DIR/'src/ARC3-Inference'),{arm!r}],check=True,timeout=30)\n"
  n['cells'][2]['source']=setup.splitlines(True)
  # Fail startup before spending gameplay budget if serving is still unavailable.
  startup=''.join(n['cells'][6]['source'])
@@ -44,11 +44,11 @@ for arm in ('control','treatment'):
  n['cells'][8]['source']=cfg.splitlines(True)
  run=''.join(n['cells'][10]['source'])
  run=run[:run.index('if not TRUE_SUBMISSION:\n    # An offline run isn')]
- run=run.replace('bm.games = _offline_games(competition_env_files)',"bm.games = _offline_games(competition_env_files)\n    expected="+repr(split['development']+split['untuned'])+"\n    assert sorted(g.env_name for g in bm.games)==sorted(expected), 'Game identity mismatch'\n    bm.games.sort(key=lambda g:expected.index(g.env_name))")
+ run=run.replace('bm.games = _offline_games(competition_env_files)',"bm.games = _offline_games(competition_env_files)\n    expected="+repr(split['order'])+"\n    assert sorted(g.env_name for g in bm.games)==sorted(expected), 'Game identity mismatch'\n    bm.games.sort(key=lambda g:expected.index(g.env_name))")
  run+="\nPath('/kaggle/working/experiment-complete.json').write_text(json.dumps({'arm':"+repr(arm)+",'elapsed':time.time()-EXPERIMENT_START,'competition_submission':False}))\n"
  n['cells'][10]['source']=run.splitlines(True)
  d=H/arm;d.mkdir(exist_ok=True);file=d/'experiment.ipynb';file.write_text(json.dumps(n,indent=1))
- m=copy.deepcopy(metadata);m.update(id='oscarmorke/arc-mechanics-'+arm+'-v1',title='ARC mechanics '+arm+' v1',code_file='experiment.ipynb',is_private=True)
+ m=copy.deepcopy(metadata);m.update(id='oscarmorke/arc-mechanics-'+arm+'-v2',title='ARC mechanics '+arm+' v2',code_file='experiment.ipynb',is_private=True)
  m.pop('id_no',None);m['dataset_sources']=[ref+'/1' for ref in inputs['datasets']]
  (d/'kernel-metadata.json').write_text(json.dumps(m,indent=2))
  manifest['arms'][arm]={'path':str(d),'notebook_sha256':hashlib.sha256(file.read_bytes()).hexdigest(),'root_launch_command':'kaggle kernels push -p '+str(d)+' -t 10800'}

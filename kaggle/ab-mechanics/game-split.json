@@ -1,5 +1,5 @@
 {
-  "method": "sha256(mechanics-v1:game_id), frozen before policy evaluation; all public games; not hidden competition evidence",
+  "method": "sha256(mechanics-v1:game_id), frozen before policy evaluation; all public games; not hidden competition evidence; sb26 excluded from implementation-untuned analysis because its old trace informed this hypothesis. All games public and previously played; none claimed unseen.",
   "development": [
     "ls20-9607627b",
     "vc33-5430563c",
@@ -13,6 +13,32 @@
     "cd82-fb555c5d"
   ],
   "untuned": [
+    "sc25-635fd71a",
+    "tu93-0768757b",
+    "m0r0-492f87ba",
+    "r11l-495a7899",
+    "ft09-0d8bbf25",
+    "lp85-305b61c3",
+    "su15-1944f8ab",
+    "ar25-0c556536",
+    "s5i5-18d95033",
+    "lf52-271a04aa",
+    "re86-8af5384d",
+    "ka59-38d34dbb",
+    "g50t-5849a774",
+    "sp80-589a99af"
+  ],
+  "order": [
+    "ls20-9607627b",
+    "vc33-5430563c",
+    "dc22-fdcac232",
+    "cn04-2fe56bfb",
+    "sk48-d8078629",
+    "tn36-ef4dde99",
+    "bp35-0a0ad940",
+    "wa30-ee6fef47",
+    "tr87-cd924810",
+    "cd82-fb555c5d",
     "sc25-635fd71a",
     "sb26-7fbdac44",
     "tu93-0768757b",
@@ -28,5 +54,8 @@
     "ka59-38d34dbb",
     "g50t-5849a774",
     "sp80-589a99af"
+  ],
+  "historically_inspected": [
+    "sb26-7fbdac44"
   ]
 }

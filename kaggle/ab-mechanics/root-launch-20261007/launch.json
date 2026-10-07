@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-07T18:34:38.245424+00:00",
+  "control": {
+    "ref": "oscarmorke/arc-mechanics-control-v2",
+    "version": 1,
+    "timeout_s": 10800
+  },
+  "treatment": {
+    "ref": "oscarmorke/arc-mechanics-treatment-v2",
+    "version": 1,
+    "timeout_s": 10800
+  },
+  "push_output": "Both CLI calls reported version 1 successfully pushed.",
+  "status": "accepted; queued is not serving or gameplay",
+  "retry": false
+}

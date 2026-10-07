@@ -1,0 +1,11 @@
+{
+  "reproduced": true,
+  "actual_actions": 0,
+  "result": {
+    "status": "found",
+    "actions": [
+      "RIGHT"
+    ]
+  },
+  "root_cause": "Trusted mechanics state was reachable inside generated-code process. This is a blocking integrity failure, not a model-score failure."
+}

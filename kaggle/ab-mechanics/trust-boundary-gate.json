@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "actual_actions": 0,
+  "counterexamples": [
+    "child overwrites state/frame/act but parent refuses unearned plan",
+    "forged observations and eligibility rejected by RPC schema",
+    "forged final mechanics state ignored",
+    "forged action evidence excluded in both arms",
+    "legitimate parent eligibility persists across snippets and executes one verified step"
+  ],
+  "inherited_baseline_issue": "Original baseline action.__globals__ exposes child os/sys/builtins and accepts fabricated action_results. Shared patch fixes action reporting only. This is not an OS security sandbox and no broader isolation claim is made.",
+  "remaining_boundary": "Parent is authoritative for protocol records; file/process access inherited from public baseline is a separate security limitation."
+}
