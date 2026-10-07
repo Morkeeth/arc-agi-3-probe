@@ -1,0 +1,24 @@
+{
+  "launch_authorized": true,
+  "session_timeout_seconds_required": 3600,
+  "maximum_requested_gpu_hours": 1.0,
+  "kernel_count": 1,
+  "retries": 0,
+  "source_sha256": "037c041c9bd9dcffa9084b32f47af9cf1bf35849d5eaf2e1a3422daac098b2e2",
+  "base_notebook_sha256": "795456d07ed5de364008959da2187841a06bcac7fedaa6b244def86252a56cca",
+  "notebook_sha256": "02f9706ca5e9b7345e19d59995cd504e5db2bcd317b85bb7c65b9bc27fd92c12",
+  "metadata_sha256": "87cc4271ed316187b9242693d034031b7cfe8606672e0bf7be75d911c667f225",
+  "retained_base_cells": [
+    3
+  ],
+  "direct_serving_cell": true,
+  "arbitrary_setup_commands_executed": false,
+  "child_timeout_seconds": 3000,
+  "timeout_cleanup_seconds": 150,
+  "success": "full serving preflights plus stopped owned process, closed port and no survivors; no gameplay score",
+  "failure_action": "stop; no retry or pair launch",
+  "requires": "fresh input identity check and explicit root authorization before upload",
+  "execution_context": "/Users/morkeeth/tuesday-night-2026-10-06/arc-kaggle/startup-smoke-v3/launch-context.json",
+  "root_reported_version": 1,
+  "launch_state": "QUEUED as of launch-context read; current state in monitor CURRENT.json"
+}
