@@ -3,25 +3,66 @@ import json
 import os
 import signal
 import subprocess
+import sys
 import time
 from pathlib import Path
-from urllib.request import Request, urlopen
 
 
-def stop_owned(proc):
+def stop_owned(proc, grace=5):
     # The launcher creates this process in its own session. Never kill by name/port.
+    pgid = proc.pid
     try:
-        os.killpg(proc.pid, signal.SIGTERM)
+        os.killpg(pgid, signal.SIGTERM)
     except ProcessLookupError:
+        proc.wait(timeout=5)  # Reap the leader after its process group disappears.
         return
-    try:
-        proc.wait(timeout=5)
-    except subprocess.TimeoutExpired:
+    deadline = time.monotonic() + grace
+    while time.monotonic() < deadline:
+        proc.poll()
         try:
-            os.killpg(proc.pid, signal.SIGKILL)
+            os.killpg(pgid, 0)
         except ProcessLookupError:
-            pass
-        proc.wait(timeout=5)
+            proc.wait(timeout=5)
+            return
+        time.sleep(min(.05, max(0, deadline-time.monotonic())))
+    # A dead leader says nothing about its children. Escalate for the whole group.
+    try:
+        os.killpg(pgid, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+    proc.wait(timeout=5)
+
+
+_HTTP_PROBE = r'''import json, sys
+from urllib.request import Request, urlopen
+url, payload, timeout = json.loads(sys.argv[1])
+request = Request(url, json.dumps(payload).encode(), {'Content-Type': 'application/json'}) if payload is not None else url
+with urlopen(request, timeout=timeout) as response:
+    if payload is None:
+        ok = response.status == 200
+    else:
+        value = json.load(response)
+        ok = response.status == 200 and any(
+            isinstance(c.get('text'), str) and c['text'].strip()
+            for c in value.get('choices', []))
+print(json.dumps(bool(ok)))
+'''
+
+
+def http_probe(url, timeout, payload=None):
+    """A disposable process bounds headers AND body by elapsed time.
+
+    Socket timeouts alone reset when bytes arrive. subprocess.run kills and reaps
+    this child on expiration; it cannot keep a request alive after the deadline.
+    No shell, threads, retry, or worker grandchildren are involved.
+    """
+    if timeout <= 0:
+        raise TimeoutError('probe_deadline')
+    result = subprocess.run(
+        [sys.executable, '-I', '-S', '-c', _HTTP_PROBE,
+         json.dumps([url, payload, timeout])],
+        capture_output=True, text=True, timeout=timeout, check=True)
+    return json.loads(result.stdout) is True
 
 
 def wait_ready(proc, log, receipt, experiment_start, server_start, health, generate,
@@ -100,17 +141,11 @@ def wait_ready(proc, log, receipt, experiment_start, server_start, health, gener
 def await_server(proc, log, working_dir, experiment_start, server_start, port, model, log_offset=0):
     base = f'http://127.0.0.1:{port}'
     def health(timeout):
-        with urlopen(base+'/health', timeout=timeout) as response:
-            return response.status == 200
+        return http_probe(base+'/health', timeout)
     def generate(timeout):
         # 64 avoids the earlier backend minimum-token incompatibility.
-        body = json.dumps({'model': model, 'prompt': 'Say hello.', 'max_tokens': 64,
-                           'temperature': 0}).encode()
-        req = Request(base+'/v1/completions', body, {'Content-Type': 'application/json'})
-        with urlopen(req, timeout=timeout) as response:
-            value = json.load(response)
-            return response.status == 200 and any(
-                isinstance(c.get('text'), str) and c['text'].strip()
-                for c in value.get('choices', []))
+        payload = {'model': model, 'prompt': 'Say hello.', 'max_tokens': 64,
+                   'temperature': 0}
+        return http_probe(base+'/v1/completions', timeout, payload)
     return wait_ready(proc, log, Path(working_dir)/'startup-result.json',
                       experiment_start, server_start, health, generate, log_offset=log_offset)

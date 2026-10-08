@@ -157,3 +157,80 @@ def test_http_health_and_generation_with_cpu_server(tmp_path):
                                                'max_tokens':64,'temperature':0})
     finally:
         server.shutdown(); server.server_close(); thread.join()
+
+
+def test_cleanup_kills_child_even_when_leader_exits_on_term(tmp_path):
+    import os
+    import signal
+    pid_file = tmp_path/'child.pid'
+    child = (
+        'import os,signal,time; from pathlib import Path; '
+        'signal.signal(signal.SIGTERM,signal.SIG_IGN); '
+        f'Path({str(pid_file)!r}).write_text(str(os.getpid())); time.sleep(60)'
+    )
+    parent = f'import subprocess,sys,time; subprocess.Popen([sys.executable,"-c",{child!r}]); time.sleep(60)'
+    proc = subprocess.Popen([sys.executable, '-c', parent], start_new_session=True)
+    def running(pid):
+        result = subprocess.run(['ps', '-o', 'stat=', '-p', str(pid)], capture_output=True, text=True)
+        return bool(result.stdout.strip()) and not result.stdout.strip().startswith('Z')
+    try:
+        deadline = time.monotonic()+3
+        while not pid_file.exists() and time.monotonic()<deadline:
+            time.sleep(.01)
+        pid = int(pid_file.read_text())
+        assert running(pid)
+        guard.stop_owned(proc, grace=.15)
+        deadline = time.monotonic()+1
+        while running(pid) and time.monotonic()<deadline:
+            time.sleep(.01)
+        assert proc.poll() is not None
+        assert not running(pid), 'owned child survived cleanup after its leader exited'
+    finally:
+        try:
+            os.killpg(proc.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+        proc.wait()
+
+
+@pytest.mark.parametrize('slow_part', ['headers', 'body'])
+def test_slow_http_bytes_cannot_extend_absolute_deadline(tmp_path, slow_part):
+    import socketserver
+    from threading import Thread
+    payload = json.dumps({'choices': [{'text': 'hello'*30}]}).encode()
+    headers = b'HTTP/1.1 200 OK\r\nContent-Length: '+str(len(payload)).encode()+b'\r\n\r\n'
+    class Handler(socketserver.BaseRequestHandler):
+        def handle(self):
+            self.request.recv(8192)
+            try:
+                if slow_part == 'body':
+                    self.request.sendall(headers)
+                    slow = payload
+                else:
+                    slow = headers+payload
+                for byte in slow:
+                    self.request.sendall(bytes([byte]))
+                    time.sleep(.04)  # Each byte arrives before the socket inactivity timeout.
+            except (BrokenPipeError, ConnectionResetError):
+                pass
+    class Server(socketserver.ThreadingTCPServer):
+        daemon_threads = True
+    server = Server(('127.0.0.1', 0), Handler)
+    thread = Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    start = time.monotonic()
+    cleaned = []
+    url = f'http://127.0.0.1:{server.server_address[1]}'
+    try:
+        health = (lambda timeout: guard.http_probe(url, timeout)) if slow_part == 'headers' else (lambda timeout: True)
+        generate = lambda timeout: guard.http_probe(url, timeout, {'max_tokens':64})
+        with pytest.raises((RuntimeError, subprocess.TimeoutExpired)):
+            guard.wait_ready(Process(), tmp_path/'log', tmp_path/'receipt', start, start,
+                             health, generate, startup_limit=.4,
+                             cleanup=lambda proc: cleaned.append(time.monotonic()), interval=.01)
+        assert time.monotonic()-start < 1.2, 'dripping response overran the absolute deadline'
+        assert cleaned and json.loads((tmp_path/'receipt').read_text())['status'] == 'startup_failed'
+    finally:
+        server.shutdown()
+        server.server_close()
+        thread.join()

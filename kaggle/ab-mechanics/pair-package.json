@@ -1,5 +1,5 @@
 {
-  "startup_guard_sha256": "6be3c2854610bb741f5e445aa6e0829272306132060b5a1d8bfa41beb861be70",
+  "startup_guard_sha256": "2b3000627f94b49690198950337c674e71a9b699f1875628d0a26dc8bb6c935f",
   "startup_policy_version": 3,
   "startup_policy": {
     "absolute_server_seconds": 3600,
@@ -19,14 +19,14 @@
   "submission": false,
   "arms": {
     "control": {
-      "path": "/Users/morkeeth/CODE/.worktrees/arc-startup-repair-20261008/kaggle/ab-mechanics/control",
-      "notebook_sha256": "18176e2750132582dd9bcf0affdd5183e28de84b259de43c90f95255609e3cfe",
-      "root_launch_command": "kaggle kernels push -p /Users/morkeeth/CODE/.worktrees/arc-startup-repair-20261008/kaggle/ab-mechanics/control -t 10800"
+      "path": "/Users/morkeeth/CODE/.worktrees/arc-startup-deadline-fix-20261008/kaggle/ab-mechanics/control",
+      "notebook_sha256": "04a1391ba7b03252a28f5ff60320cbfd2ab391657899540296a819569a659537",
+      "root_launch_command": "kaggle kernels push -p /Users/morkeeth/CODE/.worktrees/arc-startup-deadline-fix-20261008/kaggle/ab-mechanics/control -t 10800"
     },
     "treatment": {
-      "path": "/Users/morkeeth/CODE/.worktrees/arc-startup-repair-20261008/kaggle/ab-mechanics/treatment",
-      "notebook_sha256": "897d79539898cd19933a3890d14a8eb20d397d5b26c8a48a11a82c4b3806b002",
-      "root_launch_command": "kaggle kernels push -p /Users/morkeeth/CODE/.worktrees/arc-startup-repair-20261008/kaggle/ab-mechanics/treatment -t 10800"
+      "path": "/Users/morkeeth/CODE/.worktrees/arc-startup-deadline-fix-20261008/kaggle/ab-mechanics/treatment",
+      "notebook_sha256": "fa995e3f89ac3836126c91a4280e0dd35123985b861bec59c139c92b596f5ffb",
+      "root_launch_command": "kaggle kernels push -p /Users/morkeeth/CODE/.worktrees/arc-startup-deadline-fix-20261008/kaggle/ab-mechanics/treatment -t 10800"
     }
   },
   "evaluation": {
