@@ -9,14 +9,14 @@ original=json.loads(raw);metadata=json.loads((BASE/'kernel-metadata.json').read_
 inputs=json.loads((H/'runtime-inputs.json').read_text());split=json.loads((H/'game-split.json').read_text())
 files={name:(H/name).read_text() for name in ('mechanics_runtime.py','install_policy.py')}
 def cell(source):return {'cell_type':'code','execution_count':None,'metadata':{},'outputs':[],'source':source.splitlines(True)}
-manifest={'base_notebook_sha256':hashlib.sha256(raw).hexdigest(),'platform_timeout_seconds':10800,'policy_version':2,'verification_owner':'parent process; child RPC cannot supply observations or eligibility','control_change':'same parent-only action reporting in both arms','kernels':2,'maximum_free_gpu_hours':6,'launch_authorized_by_root_only':True,'retries':0,'submission':False,'arms':{},'evaluation':{'games':split,'passes':1,'per_game_wall_seconds':7200,'per_game_actions':250,'per_game_generated_tokens':100000,'token_cap_semantics':'baseline stops at next solver boundary; one response may exceed threshold by max_output12288; actual usage must be reported','soft_end_seconds_from_notebook_start':9600,'interpretation':'whole-policy screen, public untuned games; not hidden score, not isolated memory or planner causality','kill_bar':'No eligible plans or no heldout paired level/action-efficiency benefit at matched resource use kills current policy. Regressions, unequal usage, startup failure or truncation invalidate a superiority claim. One seed is exploratory, not significance.'}}
+manifest={'startup_guard_sha256':hashlib.sha256((H/'startup_guard.py').read_bytes()).hexdigest(),'startup_policy_version':3,'startup_policy':{'absolute_server_seconds':3600,'log_idle_seconds':900,'reserve_seconds':1200,'generation_probe_tokens':64},'base_notebook_sha256':hashlib.sha256(raw).hexdigest(),'platform_timeout_seconds':10800,'policy_version':2,'verification_owner':'parent process; child RPC cannot supply observations or eligibility','control_change':'same parent-only action reporting in both arms','kernels':2,'maximum_free_gpu_hours':6,'launch_authorized_by_root_only':True,'retries':0,'submission':False,'arms':{},'evaluation':{'games':split,'passes':1,'per_game_wall_seconds':7200,'per_game_actions':250,'per_game_generated_tokens':100000,'token_cap_semantics':'baseline stops at next solver boundary; one response may exceed threshold by max_output12288; actual usage must be reported','soft_end_seconds_from_notebook_start':9600,'interpretation':'whole-policy screen, public untuned games; not hidden score, not isolated memory or planner causality','kill_bar':'No eligible plans or no heldout paired level/action-efficiency benefit at matched resource use kills current policy. Regressions, unequal usage, startup failure or truncation invalidate a superiority claim. One seed is exploratory, not significance.'}}
 for arm in ('control','treatment'):
  n=copy.deepcopy(original)
  # Retain executable baseline only; no markdown generated and no diagnostics after run.
  n['cells']=[copy.deepcopy(original['cells'][i]) for i in (2,4,6,8,10,12,14,16,18,20)]
  for c in n['cells']:c['outputs']=[];c['execution_count']=None
  # Prevent any competition rerun path; all resource timing starts before installations.
- pre="import os,time,json,hashlib,sys,resource\nfrom pathlib import Path\nassert not os.environ.get('KAGGLE_IS_COMPETITION_RERUN','').lower() in ('1','true'), 'Private offline experiment only'\nEXPERIMENT_START=time.time()\n"
+ pre="import os,time,json,hashlib,sys,resource\nfrom pathlib import Path\nassert not os.environ.get('KAGGLE_IS_COMPETITION_RERUN','').lower() in ('1','true'), 'Private offline experiment only'\nEXPERIMENT_START=time.time()\nEXPERIMENT_MONOTONIC=time.monotonic()\n"
  # Snapshot structural mounts before consuming them. Dataset versions are pinned in metadata.
  pre+="EXPECTED_INPUTS="+repr({k:v['files'] for k,v in inputs['datasets'].items()})+"\n"
  pre+="for ref,rows in EXPECTED_INPUTS.items():\n    root=Path('/kaggle/input/datasets')/ref\n    for row in rows:\n        path=root/row['name']\n        assert path.is_file() and path.stat().st_size==row.get('totalBytes',0), str(path)\n"
@@ -38,7 +38,10 @@ for arm in ('control','treatment'):
  n['cells'][2]['source']=setup.splitlines(True)
  # Fail startup before spending gameplay budget if serving is still unavailable.
  startup=''.join(n['cells'][6]['source'])
- startup+="\nwith urlopen(f'http://127.0.0.1:{SERVED_MODEL_PORT}/health',timeout=10) as response:\n    assert response.status==200, 'Startup did not complete; no gameplay'\n"
+ startup=startup[:startup.index("url, t0 =")]
+ startup=startup.replace('precache_model_thread.start()', 'SERVER_START_MONOTONIC=time.monotonic()\nprecache_model_thread.start()')
+ startup += "\n"+(H/'startup_guard.py').read_text()+"\n"
+ startup += "startup_result=await_server(proc,LOG,WORKING_DIR,EXPERIMENT_MONOTONIC,SERVER_START_MONOTONIC,SERVED_MODEL_PORT,SERVED_MODEL_NAME,log_offset)\nassert startup_result['status']=='startup_ready'\n"
  n['cells'][6]['source']=startup.splitlines(True)
  cfg="assert not TRUE_SUBMISSION\nassert hasattr(bm.solver,'max_generated_tokens_per_game') or 'max_generated_tokens_per_game' in getattr(type(bm.solver),'__dataclass_fields__',{})\nbm.solver.max_runtime_s_per_game=7200\nbm.solver.analyzer_timeout=900.0\nbm.solver.concurrency=25\nbm.solver.max_actions_per_game=250\nbm.solver.max_generated_tokens_per_game=100000\nbm.solver.save_request_logs=True\nbm.n_passes=1\nbm.game_weights=None\ndemo_excluded_games=[]\ntarget.max_runtime_s=10200\n"
  n['cells'][8]['source']=cfg.splitlines(True)
@@ -48,7 +51,7 @@ for arm in ('control','treatment'):
  run+="\nPath('/kaggle/working/experiment-complete.json').write_text(json.dumps({'arm':"+repr(arm)+",'elapsed':time.time()-EXPERIMENT_START,'competition_submission':False}))\n"
  n['cells'][10]['source']=run.splitlines(True)
  d=H/arm;d.mkdir(exist_ok=True);file=d/'experiment.ipynb';file.write_text(json.dumps(n,indent=1))
- m=copy.deepcopy(metadata);m.update(id='oscarmorke/arc-mechanics-'+arm+'-v2',title='ARC mechanics '+arm+' v2',code_file='experiment.ipynb',is_private=True)
+ m=copy.deepcopy(metadata);m.update(id='oscarmorke/arc-mechanics-'+arm+'-startup-v3',title='ARC mechanics '+arm+' startup v3',code_file='experiment.ipynb',is_private=True)
  m.pop('id_no',None);m['dataset_sources']=[ref+'/1' for ref in inputs['datasets']]
  (d/'kernel-metadata.json').write_text(json.dumps(m,indent=2))
  manifest['arms'][arm]={'path':str(d),'notebook_sha256':hashlib.sha256(file.read_bytes()).hexdigest(),'root_launch_command':'kaggle kernels push -p '+str(d)+' -t 10800'}

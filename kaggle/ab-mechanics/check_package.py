@@ -15,6 +15,10 @@ for arm in ('control','treatment'):
   src='\n'.join('pass # IPython shell command' if s.startswith('!') else s for s in src.splitlines())
   compile(src,f'{arm}-cell{i}','exec',flags=ast.PyCF_ALLOW_TOP_LEVEL_AWAIT)
  assert 'submission.parquet' not in ''.join(n['cells'][-1]['source'])
+ guard=(h/'startup_guard.py').read_bytes()
+ assert guard.decode() in ''.join(n['cells'][6]['source']), f'{arm}: stale startup guard'
+ assert hashlib.sha256(guard).hexdigest()==manifest['startup_guard_sha256']
+ assert "assert startup_result['status']=='startup_ready'" in ''.join(n['cells'][6]['source'])
  setup='\n'.join('pass # IPython shell command' if line.startswith('!') else line for line in ''.join(n['cells'][2]['source']).splitlines())
  embedded={}
  for node in ast.walk(ast.parse(setup)):
@@ -39,5 +43,5 @@ local=json.loads((h/'local-gate.json').read_text())
 assert local['status']=='PASS' and local.get('live_sdk_frame_reads',0)>0, 'Live SDK callback integration missing'
 for name in (*embedded_files,'local_gate.py'):
  assert local.get('source_sha256',{}).get(name)==hashlib.sha256((h/name).read_bytes()).hexdigest(), f'Local SDK result is stale for {name}'
-out={'status':'PASS','notebooks':checks,'embedded_source_sha256':{name:hashlib.sha256((h/name).read_bytes()).hexdigest() for name in embedded_files},'different_cells':different,'difference_scope':'arm receipt, installer mode (both arms parent-only action reporting; treatment adds parent-owned mechanics and prompt), completion receipt. Budgets and mounts identical.','linux_cpu_gate':'Prior recorded Docker CPU gate; not rerun during package reconciliation.','local_sdk_gate':{'actual_sdk_transitions':local['actual_sdk_transitions'],'live_sdk_frame_reads':local['live_sdk_frame_reads'],'observation_path':local['observation_path'],'scope':local['scope']}}
+out={'startup_guard_sha256':manifest['startup_guard_sha256'],'startup_policy_version':manifest['startup_policy_version'],'status':'PASS','notebooks':checks,'embedded_source_sha256':{name:hashlib.sha256((h/name).read_bytes()).hexdigest() for name in embedded_files},'different_cells':different,'difference_scope':'arm receipt, installer mode (both arms parent-only action reporting; treatment adds parent-owned mechanics and prompt), completion receipt. Budgets and mounts identical.','linux_cpu_gate':'Prior recorded Docker CPU gate; not rerun during package reconciliation.','local_sdk_gate':{'actual_sdk_transitions':local['actual_sdk_transitions'],'live_sdk_frame_reads':local['live_sdk_frame_reads'],'observation_path':local['observation_path'],'scope':local['scope']}}
 (h/'package-gate.json').write_text(json.dumps(out,indent=2));print(json.dumps(out,indent=2))

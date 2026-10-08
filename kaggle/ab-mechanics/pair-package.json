@@ -1,4 +1,12 @@
 {
+  "startup_guard_sha256": "6be3c2854610bb741f5e445aa6e0829272306132060b5a1d8bfa41beb861be70",
+  "startup_policy_version": 3,
+  "startup_policy": {
+    "absolute_server_seconds": 3600,
+    "log_idle_seconds": 900,
+    "reserve_seconds": 1200,
+    "generation_probe_tokens": 64
+  },
   "base_notebook_sha256": "88a379f17c3a4ba8c98715fc23155346ccd6eb289bdafebadfc61a3178f9d9bd",
   "platform_timeout_seconds": 10800,
   "policy_version": 2,
@@ -11,14 +19,14 @@
   "submission": false,
   "arms": {
     "control": {
-      "path": "/Users/morkeeth/CODE/arc-agi-3-probe/.worktrees/arc-mechanics-20261007/kaggle/ab-mechanics/control",
-      "notebook_sha256": "3243bafc0f78190dbcf00a5e6bedc3351d99d12da50576f3aea0ee018367880f",
-      "root_launch_command": "kaggle kernels push -p /Users/morkeeth/CODE/arc-agi-3-probe/.worktrees/arc-mechanics-20261007/kaggle/ab-mechanics/control -t 10800"
+      "path": "/Users/morkeeth/CODE/.worktrees/arc-startup-repair-20261008/kaggle/ab-mechanics/control",
+      "notebook_sha256": "18176e2750132582dd9bcf0affdd5183e28de84b259de43c90f95255609e3cfe",
+      "root_launch_command": "kaggle kernels push -p /Users/morkeeth/CODE/.worktrees/arc-startup-repair-20261008/kaggle/ab-mechanics/control -t 10800"
     },
     "treatment": {
-      "path": "/Users/morkeeth/CODE/arc-agi-3-probe/.worktrees/arc-mechanics-20261007/kaggle/ab-mechanics/treatment",
-      "notebook_sha256": "89d4b2468e80f09ae64520bb8a7b0790db6cd383880001f5be308b3f5cb7666b",
-      "root_launch_command": "kaggle kernels push -p /Users/morkeeth/CODE/arc-agi-3-probe/.worktrees/arc-mechanics-20261007/kaggle/ab-mechanics/treatment -t 10800"
+      "path": "/Users/morkeeth/CODE/.worktrees/arc-startup-repair-20261008/kaggle/ab-mechanics/treatment",
+      "notebook_sha256": "897d79539898cd19933a3890d14a8eb20d397d5b26c8a48a11a82c4b3806b002",
+      "root_launch_command": "kaggle kernels push -p /Users/morkeeth/CODE/.worktrees/arc-startup-repair-20261008/kaggle/ab-mechanics/treatment -t 10800"
     }
   },
   "evaluation": {

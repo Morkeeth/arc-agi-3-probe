@@ -1,15 +1,17 @@
 {
+  "startup_guard_sha256": "6be3c2854610bb741f5e445aa6e0829272306132060b5a1d8bfa41beb861be70",
+  "startup_policy_version": 3,
   "status": "PASS",
   "notebooks": [
     {
       "arm": "control",
       "code_cells": 11,
-      "sha256": "3243bafc0f78190dbcf00a5e6bedc3351d99d12da50576f3aea0ee018367880f"
+      "sha256": "18176e2750132582dd9bcf0affdd5183e28de84b259de43c90f95255609e3cfe"
     },
     {
       "arm": "treatment",
       "code_cells": 11,
-      "sha256": "89d4b2468e80f09ae64520bb8a7b0790db6cd383880001f5be308b3f5cb7666b"
+      "sha256": "897d79539898cd19933a3890d14a8eb20d397d5b26c8a48a11a82c4b3806b002"
     }
   ],
   "embedded_source_sha256": {
