@@ -1,0 +1,9 @@
+# ARC KAGGLE Claude-login CPU agent-choice rule, frozen before run
+
+Oscar approved a free CPU adoption test using Claude through his existing login. This is one new local attempt, valid or invalid. The frozen Kaggle treatment, all earlier proxy traces and rules remain unchanged. No paid GPU, pod, Kaggle kernel, or submission. The later paid-compute ceiling is $50 total including storage, with a two-hour stop/delete guard; this CPU rule does not authorize that spend.
+
+Use Claude Sonnet via the existing Claude Code login in safe/restricted non-persistent print mode, with user/project customizations disabled and no Claude built-in tools. The model sees the treatment mechanics policy and the exact installed `ToolAgent._tools` Python schema as text. The harness executes only Python code that the model emits, through the installed parent-owned sandbox. Carry real public SDK history and expose `mechanics.view()['grid']` with its exact shape. Public offline `ls20-9607627b`, seed 0; two prior real `LEFT` transitions are context. Maximum five agent decisions, four further SDK actions, 20 seconds per sandbox call. No inserted predictor or mechanics call.
+
+Primary pass: model-emitted code actually calls `mechanics.register` and `mechanics.test`, and a prospective test executes one real SDK action with an `observed` parent-owned event. Full-chain pass adds model-chosen `mechanics.plan` and `mechanics.execute`. Count actual parent calls, not text mentions. Save prompt, response, code, installed schema, SDK history/actions, mechanics counts/events, model identity/usage, errors, and source hashes.
+
+After this one attempt, stop even if invalid. An API/auth/context-contamination failure is `not executed`, not an adoption result. A valid zero-register/test trace is a bounded local proxy failure, not a Kaggle-model or score claim and not a reason for paid GPU.

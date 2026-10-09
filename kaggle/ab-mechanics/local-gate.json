@@ -4,8 +4,8 @@
   "actual_sdk_transitions": 6,
   "live_sdk_frame_reads": 36,
   "source_sha256": {
-    "mechanics_runtime.py": "425f61af8b06834c536dd15acf4ce0ced0d0f84665e533b98c40417c3582aea6",
-    "install_policy.py": "96e54b1e31a4e115f49a1d67abec9e94aecccf1d140a3c112266898a015a32c4",
+    "mechanics_runtime.py": "5461e45b42d16d89c1dacd6011db06abb41f76c5c3bf56aff727494d7afdb4bc",
+    "install_policy.py": "d6cb543026b0bfb31da9e890320bc832330e961d23f20aa0d680be867f8a9c00",
     "local_gate.py": "215da572783758bf0bd676d20b604d53cdaec6cd4836c976f3008e006f464cd2"
   },
   "observation_path": "Exact installed ToolAgent callback with bound adapter matching pinned solver callback shape; real SDK env; parent evidence compared with actual before/after frames. No model or full solver run.",

@@ -1,0 +1,7 @@
+# ARC KAGGLE third CPU trial: not executed
+
+The frozen third rule is `RULE-agent-engagement-corrected-cpu-20261009.md`. The attempted Claude CLI trace is preserved as `agent-engagement-corrected-cpu-20261009-invalid-context.json`: it answered from unrelated Oscar/workspace context and did not act as the game agent. The model-isolated replacement rule is `RULE-agent-engagement-isolated-cpu-20261009.md`; its attempted trace is `agent-engagement-isolated-cpu-20261009.json`.
+
+**No valid adoption verdict from the corrected trial.** The isolated direct-model helper failed before returning the first decision: its temporary client was closed during the request (`RuntimeError: Cannot send a request, as the client has been closed`). It made zero game decisions, SDK actions, or mechanics calls. By the frozen rule this is **not executed**, not a register/test failure or a product/agent-fit failure. No retry was made.
+
+The helper now keeps the client alive; this repair was syntax-checked but **not rerun**. The installed-path test still passes (3 tests): current-state view, checkpoint branch for changed and unchanged gameplay, and exact installed tool schema with real two-transition SDK history. Earlier valid proxy traces remain failed, but lacked the now-corrected full history and schema. A future one-shot run needs its own explicit start; no paid GPU, pod, Kaggle retry, or submission follows from these artifacts.

@@ -166,6 +166,16 @@ class Mechanics:
         self._scope()
         return {n:{'prospective_changed_matches':len(e['matches']), 'mismatches':e['mismatches'], 'trusted':e['trusted']} for n,e in self.state['models'].items()}
 
+    def view(self):
+        """Current SDK frame only; a copy usable inside Python, never future evidence."""
+        grid = self._scope()
+        if not isinstance(grid, list) or len(grid) > 64 or any(
+            not isinstance(row, list) or len(row) > 64 or any(type(v) is not int or v < 0 or v > 15 for v in row)
+            for row in grid
+        ):
+            raise ValueError('Invalid current frame')
+        return {'level': self.state['level'], 'grid': [list(row) for row in grid]}
+
 
 PREDICT_WORKER = r'''import builtins,json,resource,sys
 if sys.platform == 'linux':
@@ -189,7 +199,7 @@ except BaseException:
 
 class MechanicsHost:
     """Parent-only evidence. Child requests can never supply observations or eligibility."""
-    METHODS = {'register','probe','test','plan','execute','status'}
+    METHODS = {'register','probe','test','plan','execute','status','view'}
     def __init__(self, state, initial_state, action_handler, frame_handler=None):
         self.current = json.loads(json.dumps(initial_state))
         self.action_handler = action_handler

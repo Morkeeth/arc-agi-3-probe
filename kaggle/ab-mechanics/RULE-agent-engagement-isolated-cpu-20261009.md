@@ -1,0 +1,9 @@
+# ARC KAGGLE corrected CPU trial, model-isolated rule frozen before run
+
+The first attempt under `RULE-agent-engagement-corrected-cpu-20261009.md` is retained as `agent-engagement-corrected-cpu-20261009-invalid-context.json`: Claude CLI answered from unrelated workspace context about Oscar, so it did not act as the game agent. Do not score that attempt as model non-adoption. Prior two failed proxy traces and the frozen 25-game Kaggle treatment remain untouched.
+
+This is **one replacement corrected CPU trial** using a direct Gemini 2.5 Flash call to isolate the game prompt from workspace instructions. Model identity changes from the earlier Claude Haiku proxy; results are not a matched-model A/B, a Kaggle-model forecast, or a score result. The installed parent-owned mechanics runtime, advisory checkpoint, exact `ToolAgent._tools` schema, `mechanics.view()` shape, real SDK transition history, public game `ls20-9607627b` seed 0, and two past real `LEFT` transitions stay fixed. Maximum five agent decisions, four further real SDK actions, and 20 seconds per sandbox call. No scripted mechanics calls, predictor, future board, paid GPU, pod, Kaggle retry, or submission.
+
+Primary pass: the agent-emitted code invokes installed `mechanics.register` and `mechanics.test`, and a prospective test executes one real SDK action leaving an `observed` parent-owned event. Full-chain pass additionally requires agent-chosen `mechanics.plan` and `mechanics.execute`. A view/status call, mention, scripted control, or errored snippet is not adoption. Save exact prompts, replies, code, schema, SDK history/actions, mechanics counts/events, source hashes, model identity and usage.
+
+If this isolated trial still uses only view/status/ordinary actions, stop prompt iteration and report a product/agent-fit failure that needs a new mechanism, not more GPU. If the API or harness fails before a valid game decision, report `not executed` and stop; do not silently retry.
