@@ -1,0 +1,11 @@
+{
+  "source_sha256": "04a1391ba7b03252a28f5ff60320cbfd2ab391657899540296a819569a659537",
+  "candidate_sha256": "719b15d1f7c43c99eba69f0a140945dd871f4f965ac287abae4739cbe8bbc788",
+  "changed_cells": [
+    0,
+    2,
+    8,
+    10
+  ],
+  "change": "remove three experiment-only submission assertions, set truthful completion marker, and write offline Kaggle attachment file"
+}
