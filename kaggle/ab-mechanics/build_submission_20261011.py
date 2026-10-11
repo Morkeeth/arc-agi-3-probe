@@ -1,7 +1,8 @@
 """Build the 11 Oct competition-rerun variant of the completed Intel control.
 
-Only remove two experiment-only TRUE_SUBMISSION assertions. All solver, model,
-dataset, budget and gateway code remains byte-identical within notebook cells.
+Remove two experiment-only TRUE_SUBMISSION assertions and write Kaggle's
+submission-file handle after offline validation. Solver, model, dataset,
+budget and gateway code remain unchanged.
 """
 import hashlib
 import json
@@ -31,6 +32,24 @@ def main():
             cell["source"] = joined
     if changed != [2, 8]:
         raise RuntimeError(f"Expected exactly cells 2 and 8, got {changed}")
+    final_cell = candidate["cells"][10]
+    final_source = final_cell["source"]
+    final_source = "".join(final_source) if isinstance(final_source, list) else final_source
+    anchor = "await bm.run(soft_end_time=soft_end, runtime_environment=target, minimal_diagnostics=TRUE_SUBMISSION)\n"
+    if final_source.count(anchor) != 1:
+        raise RuntimeError("Expected one benchmark call in final cell")
+    final_source = final_source.replace(anchor, anchor + """
+if not TRUE_SUBMISSION:
+    # The competition API attaches this completed notebook by output filename.
+    # The real competition rerun reports gameplay through its gateway instead.
+    import pandas as pd
+    pd.DataFrame(
+        [["1_0", "1", True, 1]],
+        columns=["row_id", "game_id", "end_of_game", "score"],
+    ).to_parquet(WORKING_DIR / "submission.parquet", index=False)
+""", 1)
+    final_cell["source"] = final_source
+    changed.append(10)
     assert "TRUE_SUBMISSION = os.environ.get(\"KAGGLE_IS_COMPETITION_RERUN\"" in str(candidate["cells"][2]["source"])
     assert "bm.games = _competition_games()" in str(candidate["cells"][10]["source"])
     for i, (before, after) in enumerate(zip(original["cells"], candidate["cells"])):
@@ -48,7 +67,7 @@ def main():
     SEAL.write_text(json.dumps({"source_sha256": hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
                                 "candidate_sha256": hashlib.sha256(OUT.read_bytes()).hexdigest(),
                                 "changed_cells": changed,
-                                "change": "remove two experiment-only submission assertions"}, indent=2) + "\n")
+                                "change": "remove two experiment-only submission assertions and write offline Kaggle attachment file"}, indent=2) + "\n")
     print(SEAL.read_text())
 
 

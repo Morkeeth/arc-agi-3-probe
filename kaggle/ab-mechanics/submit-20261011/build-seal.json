@@ -1,9 +1,10 @@
 {
   "source_sha256": "04a1391ba7b03252a28f5ff60320cbfd2ab391657899540296a819569a659537",
-  "candidate_sha256": "469a3026eaf81de2228e56e1c7755b2029de6c8ccfdb61f52d261372707aa440",
+  "candidate_sha256": "8616ae011f815c0e46dae8179acb30de9b273835237a591270e499c2cb7d34de",
   "changed_cells": [
     2,
-    8
+    8,
+    10
   ],
-  "change": "remove two experiment-only submission assertions"
+  "change": "remove two experiment-only submission assertions and write offline Kaggle attachment file"
 }
