@@ -253,6 +253,7 @@ print('INPUT_PREFLIGHT='+Path('/kaggle/working/input-preflight.json').read_text(
         diff = ''.join(difflib.unified_diff(''.join(sources(base)).splitlines(True), ''.join(sources(n)).splitlines(True), fromfile='frozen-control', tofile=arm))
         (dest / 'source.diff').write_text(diff)
         seal['arms'][arm] = {'path': str(dest), 'ref': metadata['id'], 'notebook_sha256': digest(notebook), 'changed_cells': [0, 2, 4, 7, 10],
+            'cell_sources_sha256': hashlib.sha256(''.join(sources(n)).encode()).hexdigest(),
             'common_repair': 'Observed GPU flat mounts versus CPU nested mounts; exact expected sizes and bundle hashes still required'}
     (RECEIPTS / 'freeze.json').write_text(json.dumps(seal, indent=2) + '\n')
     print(json.dumps(seal, indent=2))

@@ -8,7 +8,9 @@ import csv
 import hashlib
 import io
 import json
+import math
 import os
+import signal
 import subprocess
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -92,6 +94,7 @@ def compare(arm, dest, terminal, freeze):
     valid=(terminal.get('status')=='COMPLETE' and len(rows)==25 and
         len({r['game_id'] for r in rows})==25 and {r['game_id'] for r in rows}==set(ids) and
         all(r.get('state') in ('won','gave_up') and isinstance(r.get('final_score'),(int,float))
+            and math.isfinite(r['final_score'])
             and isinstance(r.get('levels_completed'),int) for r in rows))
     result['benchmark_sha256']=sha(dest/'benchmark.json')
     result['valid']=valid
@@ -164,6 +167,21 @@ def collect(api, arm, freeze, version=None):
     files=download(api,ref,dest)
     save(RECEIPTS/(arm+'-download.json'),{'read_at':now(),'ref':ref,'files':files})
     result=compare(arm,dest,terminal,freeze)
+    source_receipt=run(['kaggle','kernels','pull',ref,'-p',str(dest/'source-readback'),'-m'])
+    expected=freeze['arms'][arm].get('cell_sources_sha256')
+    if expected is None:
+        local=json.loads((Path(freeze['arms'][arm]['path'])/'experiment.ipynb').read_text())
+        expected=hashlib.sha256(''.join(''.join(c['source']) for c in local['cells']).encode()).hexdigest()
+    remote_files=list((dest/'source-readback').glob('*.ipynb'))
+    remote_sha=None
+    if len(remote_files)==1:
+        remote=json.loads(remote_files[0].read_text())
+        remote_sha=hashlib.sha256(''.join(''.join(c['source']) for c in remote['cells']).encode()).hexdigest()
+    result['source_readback']={'receipt':source_receipt,'expected_cell_sources_sha256':expected,
+                               'live_cell_sources_sha256':remote_sha,'matches':remote_sha==expected}
+    if not result['source_readback']['matches']:
+        result.update(promote=False,verdict='retain-control',reason='Live source identity could not be verified')
+    save(RECEIPTS/(arm+'-verdict.json'),result)
     text=f"\n- Free {arm} return {now()}: kernel {terminal.get('status')}; {result['valid_pairs']}/25 valid pairs; verdict {result['verdict']}. Object proof: `{dest}`, `{RECEIPTS/(arm+'-verdict.json')}`."
     if 'treatment' in result:
         text+=f" Private gameplay: {result['treatment']['levels']} levels, {result['treatment']['wins']} wins, mean {result['treatment']['mean_score']}; paired mean delta {result['paired_mean_score_delta']}."
@@ -205,6 +223,19 @@ def main():
             save(RECEIPTS/'mechanics-recovery-held.json',{'read_at':now(),
                  'remaining_seconds':remaining,'reason':'Fewer than three free GPU hours'})
             return
+        # A status endpoint follows the newest version. Stop only our old
+        # serial observer before replacing v1, so it cannot mislabel v2 as v1.
+        driver_path=RECEIPTS/'driver.json'
+        if driver_path.is_file():
+            prior=json.loads(driver_path.read_text())
+            pid=prior.get('pid')
+            if isinstance(pid,int) and pid!=os.getpid():
+                process=run(['ps','-p',str(pid),'-o','command='])
+                command=process['stdout'].strip()
+                if command.endswith('drive_free_tests_20261012.py'):
+                    os.kill(pid,signal.SIGTERM)
+                    save(RECEIPTS/'old-observer-retired.json',{'read_at':now(),'pid':pid,
+                        'command':command,'reason':'Avoid version-following status race; v1 failure output retained'})
         # New installed-path repair, never retry a completed gameplay episode.
         assert sha(Path(arm['path'])/'experiment.ipynb')==arm['notebook_sha256']
         response=api.kernels_push(arm['path'],timeout=10800)
