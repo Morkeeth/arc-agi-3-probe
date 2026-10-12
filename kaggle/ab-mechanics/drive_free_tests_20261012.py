@@ -35,6 +35,11 @@ def run(command):
     result = subprocess.run(command, text=True, capture_output=True, timeout=180)
     return {'command':command, 'returncode':result.returncode, 'stdout':result.stdout, 'stderr':result.stderr}
 
+def notify_fable(message):
+    receipt=run(['cmux','agent','message','surface:1000020000','--from','Codex ARC KAGGLE',message])
+    with (RECEIPTS/'fable-messages.jsonl').open('a') as file:
+        file.write(json.dumps({'read_at':now(),'receipt':receipt})+'\n')
+
 def status(api, ref):
     return json.loads(str(api.kernels_status(ref)))
 
@@ -188,6 +193,12 @@ def collect(api, arm, freeze, version=None):
     text+=' No paid compute or competition submission.\n'
     with LOG.open('a') as file:file.write(text)
     print(json.dumps({k:v for k,v in result.items() if k not in ('pairs','adoption')}),flush=True)
+    message=f"ARC KAGGLE {arm} v{version} returned: {ref}, kernel {terminal.get('status')}; {result['valid_pairs']}/25 valid pairs; {result['verdict']}."
+    if 'treatment' in result:
+        message+=f" Private gameplay {result['treatment']['levels']} levels, {result['treatment']['wins']} wins, mean {result['treatment']['mean_score']:.4f}; paired mean delta {result['paired_mean_score_delta']:.4f}."
+    if 'adopted_games' in result:message+=f" Actual registered mechanics tests in {result['adopted_games']}/25 games."
+    message+=f" Proof: {RECEIPTS/(arm+'-verdict.json')} and {dest}. Live-source match: {result['source_readback']['matches']}. No paid run or submission."
+    notify_fable(message)
     return result
 
 def main():
@@ -216,12 +227,14 @@ def main():
         if not confirmed:
             save(RECEIPTS/'mechanics-recovery-not-needed.json',{'read_at':now(),'terminal':terminal,
                 'reason':'No confirmed pre-game flat-mount failure; no recovery launch'})
+            notify_fable('ARC KAGGLE mechanics recovery held: no confirmed pre-game mount failure. Original run output retained; no recovery launch or paid run.')
             return
         quota=api.quota_view().gpu_quota
         remaining=(quota.total_time_allowed-quota.time_used).total_seconds()
         if remaining<10800:
             save(RECEIPTS/'mechanics-recovery-held.json',{'read_at':now(),
                  'remaining_seconds':remaining,'reason':'Fewer than three free GPU hours'})
+            notify_fable(f'ARC KAGGLE repaired mechanics is prepared but not launched: {remaining/3600:.2f} free GPU hours remain, under its three-hour reservation. No paid fallback. Exact receipt: {RECEIPTS / "mechanics-recovery-held.json"}')
             return
         # A status endpoint follows the newest version. Stop only our old
         # serial observer before replacing v1, so it cannot mislabel v2 as v1.
@@ -243,6 +256,7 @@ def main():
             'notebook_sha256':arm['notebook_sha256'],'response':json.loads(str(response))})
         if response.error:raise RuntimeError(str(response))
         print(str(response),flush=True)
+        notify_fable('ARC KAGGLE repaired mechanics v2 launched after confirmed pre-game flat-mount failure: ' + arm['ref'] + '. Exact source sealed; one repaired launch, no paid run.')
         collect(api,'forced-mechanics',freeze,2)
         snapshot(api)
         return
@@ -271,4 +285,10 @@ def main():
          'forced_mechanics_verdict':forced['verdict'],'runpod_spend':0,'submitted':False})
 
 if __name__=='__main__':
-    main()
+    try:
+        main()
+    except Exception as exc:
+        error={'read_at':now(),'pid':os.getpid(),'error':str(exc)}
+        save(RECEIPTS/('driver-error-'+str(os.getpid())+'.json'),error)
+        notify_fable('ARC KAGGLE observer needs follow-up: '+str(exc)+'. Error receipt: '+str(RECEIPTS/('driver-error-'+str(os.getpid())+'.json'))+'. No paid action or submission.')
+        raise
