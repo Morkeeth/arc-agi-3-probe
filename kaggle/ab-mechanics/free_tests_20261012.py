@@ -111,6 +111,7 @@ def _record_dispatch(self, message):
         state.setdefault('counts', {})['opening_success'] = 1
     with Path('/kaggle/working/mechanics-calls.jsonl').open('a') as file:
         file.write(json.dumps({'method': message.get('method'),
+            'runtime_state_path': state.get('counts', {}).get('runtime_state_path'),
             'level': state.get('level'), 'models': len(state.get('models', {})),
             'real_action_results': observed,
             'last_event_status': (state.get('events') or [{}])[-1].get('status'),
@@ -167,6 +168,13 @@ def build():
 '''
             inject = "        t=once(t," + repr(anchor) + ',' + repr(gate + anchor) + ')\n'
             installer = installer.replace("        t=once(t,'        sandbox_result = run_sandboxed_python(',", inject + "        t=once(t,'        sandbox_result = run_sandboxed_python(',", 1)
+            state_anchor = '        mechanics_state = self._mechanics_states.setdefault(str(state_path), {"models":{},"events":[],"level":None})'
+            state_identity = state_anchor + "\n        mechanics_state.setdefault('counts', {})['runtime_state_path'] = str(state_path)"
+            identity_install_anchor = "        t=once(t,'            initial_state=_serialized_runtime_state(),',"
+            assert installer.count(identity_install_anchor) == 1
+            installer = installer.replace(identity_install_anchor,
+                "        t=once(t," + repr(state_anchor) + ',' + repr(state_identity) + ")\n" +
+                identity_install_anchor, 1)
             evidence_anchor = '        (state_path.parent / "mechanics-evidence.json").write_text(json.dumps(mechanics_state))'
             evidence_append = '''
         with Path('/kaggle/working/mechanics-games.jsonl').open('a') as evidence_file:
