@@ -1,0 +1,20 @@
+{
+  "candidate": "/Users/morkeeth/CODE/.worktrees/arc-submission-20261011/kaggle/ab-mechanics/daily-mechanics-20261013/experiment.ipynb",
+  "source": "/Users/morkeeth/CODE/.worktrees/arc-submission-20261011/kaggle/ab-mechanics/free-mechanics-repaired-20261012/experiment.ipynb",
+  "source_sha256": "1fdde320781bdc56e06e459dde2c7c65a3b3f0cee5e5ea48fe10fe24f27ba352",
+  "candidate_sha256": "9cde8b287573430f4445cd900404d0c19a019d9f826c85a5ac19556a1e5a1b27",
+  "changed_cells": [
+    0
+  ],
+  "change": "Remove only the private-experiment guard; gameplay/model/budgets/gateway/output unchanged",
+  "ready_to_submit": false,
+  "submitted": false,
+  "remaining_gates": [
+    "Original Intel promotion gate",
+    "Actual rerun-path model action proof",
+    "Completed attachable candidate version with output file"
+  ],
+  "private_25_pairs_complete": true,
+  "promotion_passed": false,
+  "selection": "Held: 68 levels versus 70; do not relabel this as a promoted winner"
+}

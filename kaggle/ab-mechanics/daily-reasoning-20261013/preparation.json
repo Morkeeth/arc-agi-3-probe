@@ -1,0 +1,20 @@
+{
+  "candidate": "/Users/morkeeth/CODE/.worktrees/arc-submission-20261011/kaggle/ab-mechanics/daily-reasoning-20261013/experiment.ipynb",
+  "source": "/Users/morkeeth/CODE/.worktrees/arc-submission-20261011/kaggle/ab-mechanics/free-reasoning-retention-20261012/experiment.ipynb",
+  "source_sha256": "082fa3f404b4ce7be1b0efaec63390b66ec9ea3a5ab543a581544dc26d7fa2df",
+  "candidate_sha256": "25304eade0ecf97987e20922553ef82fb3523de363475a2a9176c738afbe917d",
+  "changed_cells": [
+    0
+  ],
+  "change": "Remove private guard and add conditional offline gateway preflight; eleven hidden runtime cells unchanged otherwise",
+  "ready_to_submit": false,
+  "submitted": false,
+  "remaining_gates": [
+    "Original Intel promotion gate",
+    "Private exact candidate gateway completion, real action, Parquet read-back"
+  ],
+  "selection": "Conditional on tonight reasoning result against original Intel",
+  "added_preflight_cells": 4,
+  "private_validation": "Five real-model actions through local gateway; prior sealed 25-game source separately evaluated",
+  "hidden_rerun": "Preflight-only cells inactive; original eleven runtime cells unchanged except removed private guard"
+}
