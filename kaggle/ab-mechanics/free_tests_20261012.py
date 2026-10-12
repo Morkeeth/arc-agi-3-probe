@@ -167,6 +167,16 @@ def build():
 '''
             inject = "        t=once(t," + repr(anchor) + ',' + repr(gate + anchor) + ')\n'
             installer = installer.replace("        t=once(t,'        sandbox_result = run_sandboxed_python(',", inject + "        t=once(t,'        sandbox_result = run_sandboxed_python(',", 1)
+            evidence_anchor = '        (state_path.parent / "mechanics-evidence.json").write_text(json.dumps(mechanics_state))'
+            evidence_append = '''
+        with Path('/kaggle/working/mechanics-games.jsonl').open('a') as evidence_file:
+            evidence_file.write(json.dumps({'runtime_dir': str(state_path.parent),
+                'counts': mechanics_state.get('counts', {}),
+                'observed_tests': sum(e.get('status') == 'observed' for e in mechanics_state.get('events', []))}) + '\\n')
+'''
+            installer = installer.replace('        t=once(t,' + repr('    _prefix = os.environ.get("ARC3_SYSTEM_PROMPT_PREFIX", "").strip()'),
+                '        t=once(t,' + repr(evidence_anchor) + ',' + repr(evidence_anchor + evidence_append) + ')\n' +
+                '        t=once(t,' + repr('    _prefix = os.environ.get("ARC3_SYSTEM_PROMPT_PREFIX", "").strip()'), 1)
             old = "subprocess.run([sys.executable,str(policy_dir/'install_policy.py'),str(BUNDLE_DIR/'src/ARC3-Inference'),'control'],check=True,timeout=30)"
             new = "(policy_dir/'install_policy.py').write_text(" + repr(installer) + ")\n" + old.replace("'control'", "'treatment'")
             assert setup.count(old) == 1
@@ -181,6 +191,26 @@ def build():
         assert changed == [2, 7]
         # Common guard: private notebooks cannot accidentally be submitted.
         n['cells'][0]['source'] = ("assert not __import__('os').environ.get('KAGGLE_IS_COMPETITION_RERUN', '').lower() in ('1','true'), 'Private experiment only'\n" + ''.join(n['cells'][0]['source'])).splitlines(True)
+        first = ''.join(n['cells'][0]['source'])
+        mount_check = "for ref,rows in EXPECTED_INPUTS.items():\n"
+        readiness = '''mount_deadline=time.monotonic()+120
+while time.monotonic()<mount_deadline:
+    missing=[]
+    for ref,rows in EXPECTED_INPUTS.items():
+        for row in rows:
+            path=Path('/kaggle/input/datasets')/ref/row['name']
+            if not path.is_file() or path.stat().st_size!=row.get('totalBytes',0):
+                missing.append({'path':str(path),'expected_bytes':row.get('totalBytes',0),
+                    'actual_bytes':path.stat().st_size if path.is_file() else None})
+    Path('/kaggle/working/input-preflight.json').write_text(json.dumps({'missing':missing,
+        'input_roots':[str(p) for p in Path('/kaggle/input').glob('*')]}))
+    if not missing: break
+    time.sleep(5)
+print('INPUT_PREFLIGHT='+Path('/kaggle/working/input-preflight.json').read_text())
+'''
+        assert first.count(mount_check) == 1
+        first = first.replace(mount_check, readiness + mount_check, 1)
+        n['cells'][0]['source'] = first.splitlines(True)
         for c in n['cells']:
             if c['cell_type'] == 'code':
                 source = ''.join(c['source'])
