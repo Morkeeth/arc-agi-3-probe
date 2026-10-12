@@ -42,7 +42,13 @@ def snapshot(api):
         receipt = run(['kaggle','competitions','submissions','-c',competition,'--csv'])
         record['competitions'][competition] = {'receipt':receipt,
             'rows':list(csv.DictReader(io.StringIO(receipt['stdout']))) if receipt['returncode']==0 else []}
-    record['quota'] = json.loads(str(api.quota_view()))
+    quota = api.quota_view()
+    # SDK JSON timedelta rendering omits whole days; retain explicit seconds.
+    record['quota'] = json.loads(str(quota))
+    record['quota_seconds'] = {name: {'used':q.time_used.total_seconds(),
+        'allowed':q.total_time_allowed.total_seconds(), 'reserved':q.time_reserved.total_seconds(),
+        'remaining':(q.total_time_allowed-q.time_used).total_seconds()}
+        for name,q in (('GPU',quota.gpu_quota),('TPU',quota.tpu_quota)) if q is not None}
     listing = run(['kaggle','kernels','list','--mine','--page-size','100','--csv'])
     record['kernel_listing'] = listing
     refs = {row['ref'] for row in csv.DictReader(io.StringIO(listing['stdout'])) if '/arc' in row['ref']}
@@ -119,7 +125,7 @@ def compare(arm, dest, terminal, freeze):
         events=[json.loads(line) for line in (dest/'mechanics-games.jsonl').read_text().splitlines() if line.strip()] if (dest/'mechanics-games.jsonl').is_file() else []
         adoption=[]
         for game_id in ids:
-            evidence=[e for e in events if game_id in e.get('runtime_dir','') and
+            evidence=[e for e in events if game_id in e.get('runtime_state_path',e.get('runtime_dir','')) and
                       e.get('counts',{}).get('register',0)>0 and e.get('counts',{}).get('opening_success',0)>0]
             adoption.append({'game_id':game_id,'actual_registered_test':bool(evidence),'evidence_rows':len(evidence)})
         result['adoption']=adoption
@@ -171,6 +177,7 @@ def main():
     parser.add_argument('--snapshot-only',action='store_true')
     parser.add_argument('--collect-only',choices=('compact','forced-mechanics'))
     parser.add_argument('--version',type=int)
+    parser.add_argument('--recover-mechanics-mount',action='store_true')
     args=parser.parse_args()
     api=KaggleApi();api.authenticate()
     snapshot(api)
@@ -179,6 +186,35 @@ def main():
     assert json.loads((RECEIPTS/'preflight.json').read_text())['status']=='PASS'
     for arm in freeze['arms'].values():
         assert sha(Path(arm['path'])/'experiment.ipynb')==arm['notebook_sha256']
+    if args.recover_mechanics_mount:
+        arm=freeze['arms']['forced-mechanics']
+        terminal=wait_terminal(api,arm['ref'],'forced-mechanics')
+        old=RECEIPTS/'forced-mechanics-mount-failure-v1'
+        download(api,arm['ref'],old)
+        proof_path=old/'input-preflight.json'
+        proof=json.loads(proof_path.read_text()) if proof_path.is_file() else {}
+        confirmed=(terminal.get('status')=='ERROR' and not (old/'benchmark.json').is_file() and
+            proof.get('missing') and '/kaggle/input/pennyroyal-v253' in proof.get('input_roots',[]))
+        if not confirmed:
+            save(RECEIPTS/'mechanics-recovery-not-needed.json',{'read_at':now(),'terminal':terminal,
+                'reason':'No confirmed pre-game flat-mount failure; no recovery launch'})
+            return
+        quota=api.quota_view().gpu_quota
+        remaining=(quota.total_time_allowed-quota.time_used).total_seconds()
+        if remaining<10800:
+            save(RECEIPTS/'mechanics-recovery-held.json',{'read_at':now(),
+                 'remaining_seconds':remaining,'reason':'Fewer than three free GPU hours'})
+            return
+        # New installed-path repair, never retry a completed gameplay episode.
+        assert sha(Path(arm['path'])/'experiment.ipynb')==arm['notebook_sha256']
+        response=api.kernels_push(arm['path'],timeout=10800)
+        save(RECEIPTS/'forced-mechanics-repaired-launch.json',{'read_at':now(),
+            'notebook_sha256':arm['notebook_sha256'],'response':json.loads(str(response))})
+        if response.error:raise RuntimeError(str(response))
+        print(str(response),flush=True)
+        collect(api,'forced-mechanics',freeze,2)
+        snapshot(api)
+        return
     if args.collect_only:
         collect(api,args.collect_only,freeze,args.version)
         snapshot(api)

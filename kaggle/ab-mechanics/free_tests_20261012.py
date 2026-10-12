@@ -171,6 +171,7 @@ def build():
             evidence_append = '''
         with Path('/kaggle/working/mechanics-games.jsonl').open('a') as evidence_file:
             evidence_file.write(json.dumps({'runtime_dir': str(state_path.parent),
+                'runtime_state_path': str(state_path),
                 'counts': mechanics_state.get('counts', {}),
                 'observed_tests': sum(e.get('status') == 'observed' for e in mechanics_state.get('events', []))}) + '\\n')
 '''
