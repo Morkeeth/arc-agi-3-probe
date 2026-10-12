@@ -192,13 +192,25 @@ def build():
         # Common guard: private notebooks cannot accidentally be submitted.
         n['cells'][0]['source'] = ("assert not __import__('os').environ.get('KAGGLE_IS_COMPETITION_RERUN', '').lower() in ('1','true'), 'Private experiment only'\n" + ''.join(n['cells'][0]['source'])).splitlines(True)
         first = ''.join(n['cells'][0]['source'])
+        input_mapping = '''def resolve_input(canonical, flat):
+    for path in (Path(canonical), Path(flat)):
+        if path.is_dir(): return path
+    return Path(canonical)
+INPUT_ROOTS={ref:resolve_input('/kaggle/input/datasets/'+ref,
+    '/kaggle/input/'+ref.split('/')[-1]) for ref in EXPECTED_INPUTS}
+COMPETITION_INPUT=resolve_input('/kaggle/input/competitions/arc-prize-2026-arc-agi-3',
+    '/kaggle/input/arc-prize-2026-arc-agi-3')
+'''
+        first = first.replace("for ref,rows in EXPECTED_INPUTS.items():\n", input_mapping + "for ref,rows in EXPECTED_INPUTS.items():\n", 1)
+        first = first.replace("root=Path('/kaggle/input/datasets')/ref", 'root=INPUT_ROOTS[ref]')
+        first = first.replace("Path('/kaggle/input/datasets/dfranzen/taaf-kaggle-source-bundle-copy')", "INPUT_ROOTS['dfranzen/taaf-kaggle-source-bundle-copy']")
         mount_check = "for ref,rows in EXPECTED_INPUTS.items():\n"
         readiness = '''mount_deadline=time.monotonic()+120
 while time.monotonic()<mount_deadline:
     missing=[]
     for ref,rows in EXPECTED_INPUTS.items():
         for row in rows:
-            path=Path('/kaggle/input/datasets')/ref/row['name']
+            path=INPUT_ROOTS[ref]/row['name']
             if not path.is_file() or path.stat().st_size!=row.get('totalBytes',0):
                 missing.append({'path':str(path),'expected_bytes':row.get('totalBytes',0),
                     'actual_bytes':path.stat().st_size if path.is_file() else None})
@@ -211,6 +223,16 @@ print('INPUT_PREFLIGHT='+Path('/kaggle/working/input-preflight.json').read_text(
         assert first.count(mount_check) == 1
         first = first.replace(mount_check, readiness + mount_check, 1)
         n['cells'][0]['source'] = first.splitlines(True)
+        # GPU sessions expose legacy flat data mounts; CPU mounts are nested.
+        # Resolve only the two observed layouts, then keep exact bytes/hashes.
+        setup = ''.join(n['cells'][2]['source'])
+        setup = setup.replace("'/kaggle/input/datasets/dfranzen/pennyroyal-v253'", "str(INPUT_ROOTS['dfranzen/pennyroyal-v253'])")
+        setup = setup.replace("'/kaggle/input/datasets/dfranzen/taaf-kaggle-source-bundle-copy'", "str(INPUT_ROOTS['dfranzen/taaf-kaggle-source-bundle-copy'])")
+        n['cells'][2]['source'] = setup.splitlines(True)
+        for index in (4, 10):
+            source = ''.join(n['cells'][index]['source'])
+            source = source.replace('"/kaggle/input/competitions/arc-prize-2026-arc-agi-3/arc_agi_3_wheels"', "str(COMPETITION_INPUT/'arc_agi_3_wheels')")
+            n['cells'][index]['source'] = source.splitlines(True)
         for c in n['cells']:
             if c['cell_type'] == 'code':
                 source = ''.join(c['source'])
@@ -229,7 +251,8 @@ print('INPUT_PREFLIGHT='+Path('/kaggle/working/input-preflight.json').read_text(
         (dest / 'kernel-metadata.json').write_text(json.dumps(metadata, indent=2) + '\n')
         diff = ''.join(difflib.unified_diff(''.join(sources(base)).splitlines(True), ''.join(sources(n)).splitlines(True), fromfile='frozen-control', tofile=arm))
         (dest / 'source.diff').write_text(diff)
-        seal['arms'][arm] = {'path': str(dest), 'ref': metadata['id'], 'notebook_sha256': digest(notebook), 'changed_cells': [0, 2, 7]}
+        seal['arms'][arm] = {'path': str(dest), 'ref': metadata['id'], 'notebook_sha256': digest(notebook), 'changed_cells': [0, 2, 4, 7, 10],
+            'common_repair': 'Observed GPU flat mounts versus CPU nested mounts; exact expected sizes and bundle hashes still required'}
     (RECEIPTS / 'freeze.json').write_text(json.dumps(seal, indent=2) + '\n')
     print(json.dumps(seal, indent=2))
 
