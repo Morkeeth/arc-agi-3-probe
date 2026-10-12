@@ -138,7 +138,11 @@ def compare(arm, dest, terminal, freeze):
             adoption.append({'game_id':game_id,'actual_registered_test':bool(evidence),'evidence_rows':len(evidence)})
         result['adoption']=adoption
         result['adopted_games']=sum(e['actual_registered_test'] for e in adoption)
-        result['promote']=(result['adopted_games']>=20 and result['treatment']['wins']>=freeze['control_summary']['wins'] and
+        mapped=any(any(game_id in e.get('runtime_state_path',e.get('runtime_dir','')) for game_id in ids) for e in events)
+        if events and not mapped:
+            result['adopted_games']=None
+            result['adoption_gap']='Call records lack game identity; distinct-game adoption is unknown'
+        result['promote']=(result['adopted_games'] is not None and result['adopted_games']>=20 and result['treatment']['wins']>=freeze['control_summary']['wins'] and
             result['treatment']['levels']>=freeze['control_summary']['levels'] and result['paired_mean_score_delta']>0)
     result['verdict']='promote-for-reproduction' if result['promote'] else 'retain-control'
     result['reason']='Frozen gameplay and mechanism gates evaluated; single stochastic screen'
@@ -227,7 +231,8 @@ def main():
         if not confirmed:
             save(RECEIPTS/'mechanics-recovery-not-needed.json',{'read_at':now(),'terminal':terminal,
                 'reason':'No confirmed pre-game flat-mount failure; no recovery launch'})
-            notify_fable('ARC KAGGLE mechanics recovery held: no confirmed pre-game mount failure. Original run output retained; no recovery launch or paid run.')
+            collect(api,'forced-mechanics',freeze,1)
+            notify_fable('ARC KAGGLE mechanics recovery held: no confirmed pre-game mount failure. Original run output evaluated and retained; no recovery launch or paid run.')
             return
         quota=api.quota_view().gpu_quota
         remaining=(quota.total_time_allowed-quota.time_used).total_seconds()
