@@ -23,7 +23,7 @@ def main():
     frozen=json.loads((RECEIPTS/'freeze.json').read_text())
     full=json.loads((HERE/'free-forced-mechanics-20261012/experiment.ipynb').read_text())
     full_record=write(HERE/'free-mechanics-repaired-20261012',full,
-        'oscarmorke/arc3-intel-mechanics-repaired-20261012','ARC3 Intel mechanics repaired 20261012')
+        'oscarmorke/arc3-intel-forced-mechanics-20261012','ARC3 Intel forced-mechanics 20261012')
     frozen['arms']={'forced-mechanics':full_record}
     frozen['launch_policy']='Free two-game canary must return 2/2 identified register+real test records and live-source match before one 25-game launch. No paid run or competition submission.'
     canary=copy.deepcopy(full)
@@ -59,7 +59,7 @@ print('TWO_GAME_MECHANICS_PASS='+json.dumps(proof))
 '''.replace('CANARY_GAMES',repr(GAMES))
     canary['cells'][10]['source']=(play+proof).splitlines(True)
     canary_record=write(HERE/'free-mechanics-canary-20261012',canary,
-        'oscarmorke/arc3-intel-mechanics-canary-20261012','ARC3 Intel mechanics canary 20261012')
+        'oscarmorke/arc3-intel-forced-mechanics-20261012','ARC3 Intel forced-mechanics 20261012')
     canary_record.update(games=GAMES,platform_timeout_seconds=3000)
     frozen['canary']=canary_record
     frozen['sealed_before_launch']=True

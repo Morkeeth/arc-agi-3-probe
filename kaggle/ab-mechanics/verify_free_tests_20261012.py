@@ -50,7 +50,8 @@ def main():
         arcade = Arcade(operation_mode=OperationMode.OFFLINE,
                         environments_dir='/Users/morkeeth/CODE/arc-agi-3-probe-data/environment_files')
         game = arcade.make('ls20-9607627b', seed=0)
-        state = {'models': {}, 'events': [], 'level': None}
+        state = {'models': {}, 'events': [], 'level': None,
+                 'counts': {'runtime_state_path': '/kaggle/working/artifacts/ls20-9607627b_p0_runtime_state.json'}}
         events = []
         def frame():
             observation = game.observation_space
@@ -80,6 +81,19 @@ def main():
         host.mechanics.state['level'] = -1
         host.mechanics._scope()
         assert state['counts']['opening_success'] == 1
+        assert 'runtime_state_path' in state['counts']
+        assert "mechanics_state.setdefault('counts', {})['runtime_state_path'] = str(state_path)" in source
+        game = arcade.make('sb26-7fbdac44', seed=0)
+        state = {'models': {}, 'events': [], 'level': None,
+                 'counts': {'runtime_state_path': '/kaggle/working/artifacts/sb26-7fbdac44_p0_runtime_state.json'}}
+        host = runtime.MechanicsHost(state, {'current_frame':frame()}, action_handler, frame)
+        host.dispatch({'type':'mechanics','method':'register','args':['def predict(grid, action):\n    return grid']})
+        host.dispatch({'type':'mechanics','method':'test','args':['ACTION5']})
+        call_rows=[json.loads(line) for line in (root/'calls.jsonl').read_text().splitlines()]
+        for game_id in ('ls20-9607627b','sb26-7fbdac44'):
+            assert any(game_id in str(r.get('runtime_state_path')) and r['method']=='register' for r in call_rows)
+            assert any(game_id in str(r.get('runtime_state_path')) and r['method']=='test' and
+                       any(a.get('executed') for a in r['real_action_results']) for r in call_rows)
         # Run the compact wrapper on the actual pinned ToolAgent methods' API.
         class Agent:
             def _ensure_session(self, path): self._session_runtime_dir = Path(path).parent
@@ -103,6 +117,7 @@ def main():
                   'forced_opening_raw_action_blocked':True, 'real_sdk_actions':len(events),
                   'registered_predictor_real_test_observed':True, 'later_raw_actions_allowed':True,
                   'level_change_preserves_opening_completion':True,
+                  'identified_real_sdk_test_games':2,
                   'compact_wrapper_dropped_messages':12, 'compact_kept_user_blocks':2,
                   'compact_clears_on_level_change':True,
                   'scope':'Installed-source gate and real SDK action check; compact wrapper API check, not model gameplay or a score.'}
