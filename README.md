@@ -1,5 +1,13 @@
 # ARC-AGI-3 Probe
 
+**Experiments that record which actions leave an ARC-AGI-3 game state unchanged, so an agent stops repeating the same no-op in the same state.**
+
+- Problem: ARC-AGI-3 agents waste actions on moves that change nothing.
+- For: people building agents on the Duck harness; a small Python package (`deadprobe`), an offline harness and Kaggle notebook builders.
+- What it found: in the recorded runs the dead-action guard did not beat its control (mean 7.42 against 8.59). The results stay in `runs/` because they narrow the next experiment.
+- Try it: `pip install -e '.[dev,arc]'`, then `python harness.py ab --steps 300 --seed 1` with the competition environment files. Started September 2026.
+
+
 Experiments for reducing wasted actions in ARC-AGI-3 agents. The core package records actions that leave a game state unchanged, then lets an agent avoid repeating the same no-op in the same state.
 
 This repository contains:
